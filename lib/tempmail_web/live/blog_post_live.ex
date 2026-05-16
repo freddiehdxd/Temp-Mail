@@ -5,7 +5,8 @@ defmodule TempmailWeb.BlogPostLive do
 
   @impl true
   def mount(%{"slug" => slug} = params, _session, socket) do
-    locale = Map.get(params, "locale", "en")
+    locale = params["locale"] || "en"
+    TempmailWeb.I18n.set_locale(locale)
 
     case Content.get_published_post_by_slug(slug, locale) do
       nil ->

@@ -1,0 +1,135 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+
+#: lib/tempmail_web/live/home_live.ex
+msgid "Your Instant Privacy Shield"
+msgstr "Your Instant Privacy Shield"
+
+msgid "Get a free disposable email address instantly. No signup required."
+msgstr "Get a free disposable email address instantly. No signup required."
+
+msgid "Generate New Email"
+msgstr "Generate New Email"
+
+msgid "Copy"
+msgstr "Copy"
+
+msgid "Copied!"
+msgstr "Copied!"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Inbox"
+msgstr "Inbox"
+
+msgid "No emails yet"
+msgstr "No emails yet"
+
+msgid "Waiting for incoming emails..."
+msgstr "Waiting for incoming emails..."
+
+msgid "From"
+msgstr "From"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Extend Time"
+msgstr "Extend Time"
+
+msgid "Save Permanently"
+msgstr "Save Permanently"
+
+msgid "How It Works"
+msgstr "How It Works"
+
+msgid "Get Instant Email"
+msgstr "Get Instant Email"
+
+msgid "A temporary email address is generated for you automatically."
+msgstr "A temporary email address is generated for you automatically."
+
+msgid "Use It Anywhere"
+msgstr "Use It Anywhere"
+
+msgid "Use your temp email for signups, verifications, or any service."
+msgstr "Use your temp email for signups, verifications, or any service."
+
+msgid "Auto-Delete"
+msgstr "Auto-Delete"
+
+msgid "After 10 minutes, everything is automatically deleted."
+msgstr "After 10 minutes, everything is automatically deleted."
+
+msgid "Features"
+msgstr "Features"
+
+msgid "No Registration"
+msgstr "No Registration"
+
+msgid "Multiple Domains"
+msgstr "Multiple Domains"
+
+msgid "Real-time Updates"
+msgstr "Real-time Updates"
+
+msgid "Extend Lifetime"
+msgstr "Extend Lifetime"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "About"
+msgstr "About"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "Terms"
+msgstr "Terms"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Log out"
+msgstr "Log out"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Mailboxes"
+msgstr "Mailboxes"
+
+msgid "Domains"
+msgstr "Domains"
+
+msgid "Starred"
+msgstr "Starred"
+
+msgid "Archived"
+msgstr "Archived"

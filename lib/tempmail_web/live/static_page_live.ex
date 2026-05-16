@@ -15,12 +15,15 @@ defmodule TempmailWeb.StaticPageLive do
 
   @impl true
   def mount(params, _session, socket) do
+    locale = params["locale"] || "en"
+    TempmailWeb.I18n.set_locale(locale)
+
     {title, body} = Map.fetch!(@copy, socket.assigns.live_action)
 
     {:ok,
      socket
      |> assign(:page_title, title)
      |> assign(:body, body)
-     |> assign(:locale, Map.get(params, "locale", "en"))}
+     |> assign(:locale, locale)}
   end
 end

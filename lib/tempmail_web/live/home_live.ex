@@ -5,7 +5,8 @@ defmodule TempmailWeb.HomeLive do
 
   @impl true
   def mount(params, _session, socket) do
-    locale = Map.get(params, "locale", "en")
+    locale = params["locale"] || "en"
+    TempmailWeb.I18n.set_locale(locale)
 
     socket =
       socket

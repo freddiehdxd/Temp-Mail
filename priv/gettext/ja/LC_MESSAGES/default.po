@@ -1,0 +1,130 @@
+## This is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually or with `mix gettext.extract`.
+msgid ""
+msgstr ""
+
+#: lib/tempmail_web/live/home_live.ex
+msgid "Your Instant Privacy Shield"
+msgstr ""
+
+msgid "Get a free disposable email address instantly. No signup required."
+msgstr ""
+
+msgid "Generate New Email"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copied!"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "No emails yet"
+msgstr ""
+
+msgid "Waiting for incoming emails..."
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Extend Time"
+msgstr ""
+
+msgid "Save Permanently"
+msgstr ""
+
+msgid "How It Works"
+msgstr ""
+
+msgid "Get Instant Email"
+msgstr ""
+
+msgid "A temporary email address is generated for you automatically."
+msgstr ""
+
+msgid "Use It Anywhere"
+msgstr ""
+
+msgid "Use your temp email for signups, verifications, or any service."
+msgstr ""
+
+msgid "Auto-Delete"
+msgstr ""
+
+msgid "After 10 minutes, everything is automatically deleted."
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "No Registration"
+msgstr ""
+
+msgid "Multiple Domains"
+msgstr ""
+
+msgid "Real-time Updates"
+msgstr ""
+
+msgid "Extend Lifetime"
+msgstr ""
+
+msgid "FAQ"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Privacy"
+msgstr ""
+
+msgid "Terms"
+msgstr ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Mailboxes"
+msgstr ""
+
+msgid "Domains"
+msgstr ""
+
+msgid "Starred"
+msgstr ""
+
+msgid "Archived"
+msgstr ""

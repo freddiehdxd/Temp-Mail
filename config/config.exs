@@ -64,6 +64,10 @@ config :phoenix, :json_library, Jason
 config :hammer,
   backend: {Hammer.Backend.ETS, [expiry_ms: 3_000_000, cleanup_interval_ms: 600_000]}
 
+config :tempmail, TempmailWeb.Gettext,
+  default_locale: "en",
+  locales: ~w(en es fr de pt zh ja ar ru hi ko it nl tr pl vi th id sv el)
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

@@ -1,41 +1,14 @@
 defmodule TempmailWeb.I18n do
-  @moduledoc false
-
+  @supported_locales ~w(en es fr de pt zh ja ar ru hi ko it nl tr pl vi th id sv el)
   @default_locale "en"
 
-  def t(locale, path, default) do
+  def supported_locales, do: @supported_locales
+  def default_locale, do: @default_locale
+
+  def set_locale(locale) when locale in @supported_locales do
+    Gettext.put_locale(TempmailWeb.Gettext, locale)
     locale
-    |> load_messages()
-    |> get_in(String.split(path, "."))
-    |> case do
-      value when is_binary(value) -> value
-      _ -> fallback(path, default)
-    end
   end
 
-  defp fallback(path, default) do
-    @default_locale
-    |> load_messages()
-    |> get_in(String.split(path, "."))
-    |> case do
-      value when is_binary(value) -> value
-      _ -> default
-    end
-  end
-
-  defp load_messages(locale) do
-    locale = locale || @default_locale
-
-    locale
-    |> messages_path()
-    |> File.read()
-    |> case do
-      {:ok, json} -> Jason.decode!(json)
-      _ -> %{}
-    end
-  end
-
-  defp messages_path(locale) do
-    Path.expand(Path.join(["..", "messages", "#{locale}.json"]), File.cwd!())
-  end
+  def set_locale(_), do: set_locale(@default_locale)
 end

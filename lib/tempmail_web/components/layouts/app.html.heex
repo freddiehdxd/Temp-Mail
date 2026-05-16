@@ -307,7 +307,7 @@ end %>
   <.link :if={@current_user} navigate={~p"/users/settings"} class="sr-only">Settings</.link>
   <span :if={@current_user} class="sr-only">Log out</span>
 
-  <main class="flex-1 pt-16 sm:pt-20">
+  <main class="flex-1">
     <span :if={@current_user} class="sr-only">{@current_user.email}</span>
     <.flash_group flash={@flash} />
     {@inner_content}

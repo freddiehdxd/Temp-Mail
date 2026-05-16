@@ -38,6 +38,8 @@ config :tempmail, TempmailWeb.Endpoint,
 # In test we don't send emails
 config :tempmail, Tempmail.Mailer, adapter: Swoosh.Adapters.Test
 
+config :tempmail, :email_verifier, Tempmail.EmailVerifier.AllowAll
+
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false
 

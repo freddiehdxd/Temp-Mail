@@ -92,6 +92,19 @@ defmodule Tempmail.AccountsTest do
       assert is_nil(user.confirmed_at)
       assert is_nil(user.password)
     end
+
+    test "blocks disposable email addresses" do
+      original_verifier = Application.get_env(:tempmail, :email_verifier)
+      Application.put_env(:tempmail, :email_verifier, Tempmail.EmailVerifier.BlockAll)
+
+      on_exit(fn ->
+        Application.put_env(:tempmail, :email_verifier, original_verifier)
+      end)
+
+      {:error, changeset} = Accounts.register_user(valid_user_attributes())
+
+      assert "We don't allow temporary email addresses." in errors_on(changeset).email
+    end
   end
 
   describe "get_or_register_oauth_user/1" do

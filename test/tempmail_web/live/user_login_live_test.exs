@@ -11,6 +11,8 @@ defmodule TempmailWeb.UserLoginLiveTest do
       assert html =~ "Log in"
       assert html =~ "Register"
       assert html =~ "Forgot your password?"
+      refute html =~ "Continue with Discord"
+      refute html =~ ~s|href="/auth/discord"|
     end
 
     test "redirects if already logged in", %{conn: conn} do

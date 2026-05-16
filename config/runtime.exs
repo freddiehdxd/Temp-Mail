@@ -28,6 +28,7 @@ config :tempmail,
   max_user_domains: String.to_integer(System.get_env("MAX_USER_DOMAINS") || "5"),
   mailcow_api_url: System.get_env("MAILCOW_API_URL") || "",
   mailcow_api_key: System.get_env("MAILCOW_API_KEY") || "",
+  mail_sift_api_key: System.get_env("MAILSIFT_API_KEY") || "",
   webhook_secret: System.get_env("WEBHOOK_SECRET") || "",
   deepl_api_key: System.get_env("DEEPL_API_KEY") || ""
 

@@ -7,6 +7,7 @@ defmodule Tempmail.Accounts do
   alias Tempmail.Repo
 
   alias Tempmail.Accounts.{User, UserToken, UserNotifier}
+  alias Tempmail.EmailVerifier
 
   ## Database getters
 
@@ -70,7 +71,8 @@ defmodule Tempmail.Accounts do
   def super_admin?(%User{role: "SUPER_ADMIN"}), do: true
   def super_admin?(_), do: false
 
-  def update_user_role(%User{} = user, role, audit_user \\ nil) when role in ["USER", "ADMIN", "SUPER_ADMIN"] do
+  def update_user_role(%User{} = user, role, audit_user \\ nil)
+      when role in ["USER", "ADMIN", "SUPER_ADMIN"] do
     result = user |> Ecto.Changeset.change(role: role) |> Repo.update()
 
     with {:ok, _} <- result, %{} <- audit_user do
@@ -125,9 +127,32 @@ defmodule Tempmail.Accounts do
 
   """
   def register_user(attrs) do
-    %User{}
-    |> User.registration_changeset(attrs)
-    |> Repo.insert()
+    changeset = User.registration_changeset(%User{}, attrs)
+
+    if changeset.valid? do
+      case EmailVerifier.verify_email(Ecto.Changeset.get_field(changeset, :email)) do
+        {:ok, %{disposable?: true}} ->
+          {:error,
+           Ecto.Changeset.add_error(
+             changeset,
+             :email,
+             "We don't allow temporary email addresses."
+           )}
+
+        {:ok, _result} ->
+          Repo.insert(changeset)
+
+        {:error, _reason} ->
+          {:error,
+           Ecto.Changeset.add_error(
+             changeset,
+             :email,
+             "could not be verified. Please try again."
+           )}
+      end
+    else
+      Repo.insert(changeset)
+    end
   end
 
   def get_or_register_oauth_user(attrs) do

@@ -594,16 +594,16 @@ defmodule Tempmail.Mail do
 
   defp normalize_message(address, attrs) do
     %{
-      id: Map.get(attrs, "id") || Map.get(attrs, :id) || Ecto.UUID.generate(),
-      from: Map.get(attrs, "from") || Map.get(attrs, :from) || "unknown@unknown.com",
-      fromName: Map.get(attrs, "fromName") || Map.get(attrs, :from_name),
-      to: address,
-      subject: Map.get(attrs, "subject") || Map.get(attrs, :subject) || "(No Subject)",
-      text: Map.get(attrs, "text") || Map.get(attrs, :text) || "",
-      html: Map.get(attrs, "html") || Map.get(attrs, :html) || "",
-      receivedAt: Map.get(attrs, "receivedAt") || System.system_time(:millisecond),
-      read: Map.get(attrs, "read") || false,
-      attachments:
+      "id" => Map.get(attrs, "id") || Map.get(attrs, :id) || Ecto.UUID.generate(),
+      "from" => Map.get(attrs, "from") || Map.get(attrs, :from) || "unknown@unknown.com",
+      "fromName" => Map.get(attrs, "fromName") || Map.get(attrs, :from_name),
+      "to" => address,
+      "subject" => Map.get(attrs, "subject") || Map.get(attrs, :subject) || "(No Subject)",
+      "text" => Map.get(attrs, "text") || Map.get(attrs, :text) || "",
+      "html" => Map.get(attrs, "html") || Map.get(attrs, :html) || "",
+      "receivedAt" => Map.get(attrs, "receivedAt") || System.system_time(:millisecond),
+      "read" => Map.get(attrs, "read") || false,
+      "attachments" =>
         normalize_attachments(Map.get(attrs, "attachments") || Map.get(attrs, :attachments))
     }
   end

@@ -70,24 +70,44 @@ defmodule Tempmail.Accounts do
   def super_admin?(%User{role: "SUPER_ADMIN"}), do: true
   def super_admin?(_), do: false
 
-  def update_user_role(%User{} = user, role) when role in ["USER", "ADMIN", "SUPER_ADMIN"] do
-    user |> Ecto.Changeset.change(role: role) |> Repo.update()
+  def update_user_role(%User{} = user, role, audit_user \\ nil) when role in ["USER", "ADMIN", "SUPER_ADMIN"] do
+    result = user |> Ecto.Changeset.change(role: role) |> Repo.update()
+
+    with {:ok, _} <- result, %{} <- audit_user do
+      Tempmail.Mail.create_audit_log(audit_user, "user.role_change", user.email, "role=#{role}")
+    end
+
+    result
   end
 
-  def ban_user(%User{} = user, reason \\ nil) do
-    user
-    |> Ecto.Changeset.change(
-      banned: true,
-      banned_at: DateTime.utc_now() |> DateTime.truncate(:second),
-      banned_reason: reason
-    )
-    |> Repo.update()
+  def ban_user(%User{} = user, reason \\ nil, audit_user \\ nil) do
+    result =
+      user
+      |> Ecto.Changeset.change(
+        banned: true,
+        banned_at: DateTime.utc_now() |> DateTime.truncate(:second),
+        banned_reason: reason
+      )
+      |> Repo.update()
+
+    with {:ok, _} <- result, %{} <- audit_user do
+      Tempmail.Mail.create_audit_log(audit_user, "user.ban", user.email, reason)
+    end
+
+    result
   end
 
-  def unban_user(%User{} = user) do
-    user
-    |> Ecto.Changeset.change(banned: false, banned_at: nil, banned_reason: nil)
-    |> Repo.update()
+  def unban_user(%User{} = user, audit_user \\ nil) do
+    result =
+      user
+      |> Ecto.Changeset.change(banned: false, banned_at: nil, banned_reason: nil)
+      |> Repo.update()
+
+    with {:ok, _} <- result, %{} <- audit_user do
+      Tempmail.Mail.create_audit_log(audit_user, "user.unban", user.email)
+    end
+
+    result
   end
 
   ## User registration

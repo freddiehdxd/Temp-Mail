@@ -11,6 +11,7 @@ defmodule Tempmail.Mail do
   alias Tempmail.Repo
 
   alias Tempmail.Mail.{
+    AuditLog,
     Domain,
     EmailStat,
     Setting,
@@ -504,6 +505,26 @@ defmodule Tempmail.Mail do
       ],
       conflict_target: :key
     )
+  end
+
+  def create_audit_log(user, action, target \\ nil, details \\ nil, ip \\ nil) do
+    %AuditLog{}
+    |> AuditLog.changeset(%{
+      user_id: user && user.id,
+      action: action,
+      target: target,
+      details: details,
+      ip_address: ip
+    })
+    |> Repo.insert()
+  end
+
+  def list_audit_logs(limit \\ 50) do
+    AuditLog
+    |> order_by([l], desc: l.inserted_at)
+    |> limit(^limit)
+    |> preload(:user)
+    |> Repo.all()
   end
 
   def recent_stats(days \\ 14) do

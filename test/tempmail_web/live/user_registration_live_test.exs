@@ -67,6 +67,8 @@ defmodule TempmailWeb.UserRegistrationLiveTest do
         )
         |> render_submit()
 
+      refute result =~ "Oops, something went wrong!"
+      assert result =~ "Email: has already been taken"
       assert result =~ "has already been taken"
     end
   end

@@ -74,13 +74,8 @@ function syncHeader() {
   if (!header) return
 
   const scrolled = window.scrollY > 20
-  header.classList.toggle("py-4", !scrolled)
-  header.classList.toggle("py-2", scrolled)
-  header.classList.toggle("bg-transparent", !scrolled)
-  header.classList.toggle("bg-white/80", scrolled)
-  header.classList.toggle("backdrop-blur-xl", scrolled)
-  header.classList.toggle("shadow-lg", scrolled)
-  header.classList.toggle("shadow-black/5", scrolled)
+  header.classList.toggle("shadow-sm", scrolled)
+  header.classList.toggle("border-transparent", !scrolled)
 }
 
 window.addEventListener("scroll", syncHeader, { passive: true })

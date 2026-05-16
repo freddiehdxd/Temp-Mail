@@ -25,7 +25,7 @@ defmodule TempmailWeb.AdminComponents do
 
     ~H"""
     <div class="min-h-screen bg-slate-50">
-      <aside class="fixed left-0 top-16 z-40 hidden h-[calc(100vh-4rem)] w-64 border-r border-slate-200 bg-white md:block">
+      <aside class="fixed left-0 top-14 z-40 hidden h-[calc(100vh-3.5rem)] w-64 border-r border-slate-200 bg-white md:block">
         <div class="flex h-full flex-col">
           <div class="flex items-center gap-2 border-b border-slate-200 p-4">
             <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">

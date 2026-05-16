@@ -35,10 +35,10 @@ localized_path = fn path ->
   if current_locale == "en", do: path, else: "/#{current_locale}#{path}"
 end %>
 
-<div class="flex min-h-screen flex-col">
+<div class="flex min-h-screen flex-col pt-14">
   <header
     data-site-header
-    class="fixed left-0 right-0 top-0 z-50 bg-transparent py-4 transition-all duration-300"
+    class="fixed left-0 right-0 top-0 z-50 h-14 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 transition-all duration-300"
   >
     <nav class="container mx-auto flex items-center justify-between px-4">
       <.link navigate={localized_path.("/")} class="group flex items-center gap-3">

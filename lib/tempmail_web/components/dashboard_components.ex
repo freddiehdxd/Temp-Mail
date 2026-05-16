@@ -42,7 +42,7 @@ defmodule TempmailWeb.DashboardComponents do
 
     ~H"""
     <div class="min-h-screen bg-slate-50">
-      <aside class="fixed left-0 top-16 z-40 hidden h-[calc(100vh-4rem)] w-60 border-r border-slate-200/80 bg-white md:block">
+      <aside class="fixed left-0 top-14 z-40 hidden h-[calc(100vh-3.5rem)] w-60 border-r border-slate-200/80 bg-white md:block">
         <div class="flex h-full flex-col">
           <div class="p-3">
             <.link

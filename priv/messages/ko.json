@@ -1,0 +1,546 @@
+{
+  "common": {
+    "appName": "TempMail",
+    "tagline": "무료 임시 이메일",
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "add": "추가",
+    "search": "검색",
+    "filter": "필터",
+    "actions": "작업",
+    "confirm": "확인",
+    "back": "뒤로",
+    "next": "다음",
+    "previous": "이전",
+    "close": "닫기",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "refresh": "새로고침",
+    "settings": "설정",
+    "language": "언어",
+    "theme": "테마",
+    "light": "라이트",
+    "dark": "다크",
+    "system": "시스템"
+  },
+  "home": {
+    "title": "무료 임시 이메일",
+    "subtitle": "일회용 이메일 주소로 개인정보를 보호하세요",
+    "description": "즉시 임시 이메일 주소를 받으세요. 가입 불필요. 이메일은 10분 후 자동 삭제됩니다.",
+    "generateButton": "새 이메일 생성",
+    "yourEmail": "임시 이메일",
+    "copyEmail": "이메일 주소 복사",
+    "refreshInbox": "받은편지함 새로고침",
+    "extendTime": "시간 연장",
+    "timeRemaining": "남은 시간",
+    "noEmails": "아직 이메일이 없습니다",
+    "waitingForEmails": "수신 이메일 대기 중...",
+    "heroBadge": "전 세계 50만 명 이상의 사용자가 신뢰합니다",
+    "stats": {
+      "emailsReceived": "수신한 이메일",
+      "happyUsers": "만족한 사용자",
+      "uptime": "가동 시간",
+      "languages": "언어"
+    },
+    "features": {
+      "title": "왜 TempMail인가요?",
+      "subtitle": "안전한 일회용 이메일 통신에 필요한 모든 것",
+      "privacy": {
+        "title": "개인정보 보호",
+        "description": "실제 이메일을 비공개로 유지하세요. 가입에는 임시 이메일을 사용하세요."
+      },
+      "noSpam": {
+        "title": "스팸 방지",
+        "description": "스팸을 사전에 차단합니다. 임시 이메일은 스팸과 함께 사라집니다."
+      },
+      "instant": {
+        "title": "즉시 무료",
+        "description": "가입 불필요. 몇 초 만에 작동하는 이메일 주소를 완전 무료로 받으세요."
+      },
+      "secure": {
+        "title": "안전하고 익명",
+        "description": "이메일은 자동으로 삭제됩니다. 데이터는 영구 저장되지 않습니다."
+      }
+    },
+    "howItWorks": {
+      "title": "작동 방식",
+      "subtitle": "세 가지 간단한 단계로 몇 초 만에 시작",
+      "step1": {
+        "title": "즉시 이메일 받기",
+        "description": "방문하면 자동으로 임시 이메일이 생성됩니다"
+      },
+      "step2": {
+        "title": "어디서나 사용",
+        "description": "가입, 인증 또는 모든 서비스에 복사하여 사용하세요"
+      },
+      "step3": {
+        "title": "자동 삭제",
+        "description": "10분 후 모든 것이 자동으로 삭제됩니다"
+      }
+    },
+    "useCases": {
+      "title": "완벽한",
+      "titleHighlight": "모든 상황",
+      "subtitle": "새로운 서비스에 가입하든, 앱을 테스트하든, 실제 받은편지함을 깨끗하게 유지하고 싶든, 우리가 도와드립니다.",
+      "case1": "무료 체험 가입",
+      "case2": "뉴스레터 스팸 방지",
+      "case3": "애플리케이션 테스트",
+      "case4": "실제 이메일 보호",
+      "case5": "온라인 쇼핑",
+      "case6": "소셜 미디어 가입"
+    },
+    "reviews": {
+      "title": "개발자와 사용자의 사랑을 받습니다",
+      "subtitle": "수천 명의 만족한 사용자와 함께하세요",
+      "review1": "제가 사용한 최고의 임시 메일 서비스입니다. 깔끔한 UI와 매우 빠릅니다!",
+      "review2": "드디어 실제로 작동하는 일회용 이메일입니다. 광고도 없고 번거로움도 없습니다.",
+      "review3": "자동 새로고침 기능이 놀랍습니다. 이메일이 즉시 나타납니다!"
+    },
+    "faq": {
+      "badge": "자주 묻는 질문",
+      "title": "모든 것에 대해",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "일회용 임시 이메일이 어떻게 작동하는지, 왜 수백만 명이 개인정보 보호를 위해 TempMailCentral을 신뢰하는지 알아보세요.",
+      "question1": "임시 이메일 또는 temp mail이란 무엇인가요?",
+      "answer1": "임시 이메일(temp mail, 일회용 이메일 또는 throwaway 이메일이라고도 함)은 짧은 기간 동안 사용할 수 있는 자체 파괴 이메일 주소입니다. 웹사이트나 서비스에 가입할 때 실제 이메일을 스팸, 피싱 및 원치 않는 마케팅 이메일로부터 보호하는 데 도움이 됩니다.",
+      "question2": "일회용 이메일은 어떻게 작동하나요?",
+      "answer2": "일회용 이메일은 즉시 무작위 이메일 주소를 제공하여 작동합니다. 이 주소로 전송된 모든 이메일은 실시간으로 임시 받은편지함에 나타납니다. 설정된 기간(일반적으로 10분) 후 이메일 주소와 수신된 모든 메시지가 자동으로 삭제됩니다.",
+      "question3": "temp mail을 사용하는 것이 안전한가요?",
+      "answer3": "예, temp mail은 웹사이트 가입, 리소스 다운로드 또는 애플리케이션 테스트와 같은 민감하지 않은 목적으로 사용하기에 안전합니다. 그러나 이메일이 삭제되어 액세스 권한을 잃을 수 있으므로 은행과 같은 중요한 계정에는 임시 이메일을 사용해서는 안 됩니다.",
+      "question4": "임시 이메일은 얼마나 지속되나요?",
+      "answer4": "기본적으로 TempMailCentral의 임시 이메일 주소는 10분 동안 지속됩니다. 그러나 로그인한 사용자는 시간을 최대 30일까지 연장하거나 주소를 영구 메일함으로 저장할 수도 있습니다.",
+      "question5": "웹사이트에서 temp mail을 감지할 수 있나요?",
+      "answer5": "일부 웹사이트는 알려진 임시 이메일 도메인의 차단 목록을 유지합니다. TempMailCentral은 이를 최소화하기 위해 여러 도메인을 사용하지만 일부 엄격한 웹사이트는 여전히 임시 이메일 주소를 감지하고 차단할 수 있습니다.",
+      "question6": "temp mail을 사용하려면 등록해야 하나요?",
+      "answer6": "TempMailCentral을 사용하는 데 등록이 필요하지 않습니다. 웹사이트를 방문하기만 하면 즉시 사용할 수 있는 임시 이메일 주소를 자동으로 받게 됩니다.",
+      "question7": "temp mail로 첨부 파일을 받을 수 있나요?",
+      "answer7": "예, TempMailCentral은 이메일 첨부 파일 수신을 지원합니다. 임시 주소로 전송된 이메일의 첨부 파일을 보고 다운로드할 수 있습니다.",
+      "question8": "temp mail은 무엇에 사용되나요?",
+      "answer8": "Temp mail은 일반적으로 다음 용도로 사용됩니다: 무료 체험 가입, 뉴스레터 스팸 방지, 애플리케이션의 이메일 기능 테스트, 데이터 유출로부터 실제 이메일 보호, 신뢰할 수 없는 사이트에서의 온라인 쇼핑, 일회성 다운로드 또는 리소스에 대한 액세스."
+    },
+    "whyChoose": {
+      "title": "선택하는 이유",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "전 세계 50만 명 이상의 사용자가 신뢰하는 가장 신뢰할 수 있는 무료 임시 이메일 서비스입니다.",
+      "instantFree": {
+        "title": "즉시 무료",
+        "description": "등록 불필요, 신용카드 불필요, 약정 없음. 몇 초 만에 일회용 이메일을 받으세요. 영원히 완전 무료입니다."
+      },
+      "privacyFirst": {
+        "title": "개인정보 보호 우선",
+        "description": "우리는 귀하의 데이터를 추적, 저장 또는 판매하지 않습니다. 모든 이메일은 만료 후 자동 삭제됩니다. 귀하의 개인정보 보호가 우리의 우선순위입니다."
+      },
+      "multiLanguage": {
+        "title": "20개 이상의 언어",
+        "description": "영어, 스페인어, 프랑스어, 독일어, 중국어, 일본어 등 20개 이상의 언어로 제공됩니다."
+      }
+    },
+    "seoContent": {
+      "title": "Temp Mail 정보 - 일회용 임시 이메일",
+      "whatIsTitle": "임시 이메일이란 무엇인가요?",
+      "whatIsContent": "임시 이메일(temp mail, 일회용 이메일, throwaway 이메일 또는 10분 메일이라고도 함)은 단기 이메일 주소를 제공하는 서비스입니다. 개인 이메일과 달리 temp mail 주소는 한 번 사용하고 버리도록 설계되어 실제 받은편지함을 깨끗하고 스팸 없이 유지합니다.",
+      "whatIsContent2": "TempMailCentral은 웹사이트 등록, 뉴스레터 가입, 온라인 쇼핑 또는 이메일이 필요하지만 실제 주소를 공유하고 싶지 않은 모든 상황에 사용할 수 있는 무작위 이메일 주소를 생성합니다.",
+      "benefitsTitle": "일회용 이메일의 이점",
+      "benefit1": "스팸 보호:",
+      "benefit1Desc": "가입에 temp mail을 사용하여 실제 받은편지함을 깨끗하게 유지",
+      "benefit2": "개인정보 보호:",
+      "benefit2Desc": "온라인 서비스에 액세스할 때 신원 보호",
+      "benefit3": "보안:",
+      "benefit3Desc": "피싱 및 데이터 유출 노출 감소",
+      "benefit4": "편의성:",
+      "benefit4Desc": "등록 불필요 - 즉시 이메일 받기",
+      "benefit5": "영원히 무료:",
+      "benefit5Desc": "우리의 기본 서비스는 숨겨진 비용 없이 완전히 무료입니다"
+    },
+    "cta": {
+      "title": "개인정보를 보호할 준비가 되셨나요?",
+      "subtitle": "지금 무료 임시 이메일 주소를 받으세요. 등록 불필요, 번거로움 없이 개인정보 보호만.",
+      "button": "무료로 시작하기"
+    },
+    "status": {
+      "liveUpdates": "??? ???? ????"
+    },
+    "quickStats": {
+      "private": "???",
+      "endToEnd": "?? ?",
+      "instant": "??",
+      "realTime": "???",
+      "autoDelete": "?? ??",
+      "tenMinutes": "10?"
+    }
+  },
+  "inbox": {
+    "title": "받은편지함",
+    "empty": "받은편지함이 비어 있습니다",
+    "emptyDescription": "임시 주소로 보낸 이메일이 여기에 표시됩니다",
+    "from": "보낸사람",
+    "subject": "제목",
+    "received": "수신일",
+    "read": "읽음",
+    "unread": "읽지 않음",
+    "delete": "이메일 삭제",
+    "markAsRead": "읽음으로 표시",
+    "viewEmail": "이메일 보기",
+    "attachments": "첨부파일",
+    "noSubject": "(제목 없음)",
+    "emailExpired": "이 이메일 주소가 만료되었습니다",
+    "generateNew": "새 주소 생성"
+  },
+  "auth": {
+    "signIn": "로그인",
+    "signOut": "로그아웃",
+    "signInWith": "{provider}로 로그인",
+    "signingIn": "로그인 중...",
+    "signInError": "로그인 오류",
+    "accessDenied": "접근 거부",
+    "banned": "계정이 정지되었습니다",
+    "profile": "프로필",
+    "myAccount": "내 계정"
+  },
+  "admin": {
+    "title": "관리자 대시보드",
+    "dashboard": "대시보드",
+    "domains": "도메인",
+    "users": "사용자",
+    "analytics": "분석",
+    "settings": "설정",
+    "overview": "개요",
+    "totalEmails": "총 생성된 이메일",
+    "totalReceived": "총 수신된 이메일",
+    "activeDomains": "활성 도메인",
+    "totalUsers": "총 사용자",
+    "recentActivity": "최근 활동",
+    "domainManagement": {
+      "title": "도메인 관리",
+      "addDomain": "도메인 추가",
+      "domainName": "도메인 이름",
+      "status": "상태",
+      "active": "활성",
+      "inactive": "비활성",
+      "default": "기본값",
+      "setDefault": "기본값으로 설정",
+      "deleteDomain": "도메인 삭제",
+      "confirmDelete": "이 도메인을 삭제하시겠습니까?"
+    },
+    "userManagement": {
+      "title": "사용자 관리",
+      "name": "이름",
+      "email": "이메일",
+      "role": "역할",
+      "status": "상태",
+      "joined": "가입일",
+      "actions": "작업",
+      "ban": "사용자 정지",
+      "unban": "정지 해제",
+      "makeAdmin": "관리자 지정",
+      "removeAdmin": "관리자 해제",
+      "banned": "정지됨",
+      "active": "활성"
+    },
+    "analyticsPage": {
+      "title": "분석",
+      "emailsOverTime": "시간별 이메일",
+      "generated": "생성됨",
+      "received": "수신됨",
+      "last7Days": "최근 7일",
+      "last30Days": "최근 30일",
+      "last90Days": "최근 90일"
+    },
+    "settingsPage": {
+      "title": "설정",
+      "general": "일반 설정",
+      "emailTTL": "이메일 TTL (초)",
+      "emailTTLDescription": "임시 이메일이 만료되기 전까지의 시간",
+      "defaultDomain": "기본 도메인",
+      "mailcow": "Mailcow 설정",
+      "mailcowUrl": "Mailcow API URL",
+      "mailcowKey": "Mailcow API 키",
+      "testConnection": "연결 테스트",
+      "connectionSuccess": "연결 성공",
+      "connectionFailed": "연결 실패"
+    }
+  },
+  "errors": {
+    "notFound": "페이지를 찾을 수 없습니다",
+    "notFoundDescription": "찾고 있는 페이지가 존재하지 않습니다.",
+    "serverError": "서버 오류",
+    "serverErrorDescription": "서버에서 문제가 발생했습니다.",
+    "unauthorized": "권한 없음",
+    "unauthorizedDescription": "이 페이지에 접근할 권한이 없습니다.",
+    "goHome": "홈으로"
+  },
+  "footer": {
+    "privacy": "개인정보 처리방침",
+    "terms": "이용약관",
+    "contact": "문의",
+    "about": "소개",
+    "copyright": "© {year} TempMail. All rights reserved.",
+    "description": "?? ??? ??? ?? ??? ??????. ?? ???? ??? ??? ??? ????? ?????. ??? ?? ????.",
+    "privateSecure": "??? ? ??",
+    "instantDelivery": "?? ??",
+    "languages": "20? ?? ??"
+  },
+  "privacy": {
+    "meta": {
+      "title": "개인정보 처리방침 - TempMailCentral",
+      "description": "TempMailCentral이 귀하의 개인정보를 어떻게 보호하는지 알아보세요. 개인 데이터를 저장하지 않으며, 모든 이메일은 자동으로 삭제되고, 귀하의 개인정보 보호가 우리의 최우선 사항입니다."
+    },
+    "badge": "귀하의 개인정보가 중요합니다",
+    "title": "개인정보 처리방침",
+    "subtitle": "귀하의 개인정보를 보호하고 데이터를 처리하는 방법",
+    "lastUpdated": "최종 업데이트: 2026년 1월 24일",
+    "introduction": "TempMailCentral에서는 개인정보 보호를 최우선 사항으로 삼고 있습니다. 본 개인정보 처리방침은 귀하가 임시 이메일 서비스를 사용할 때 정보를 수집, 사용 및 보호하는 방법을 설명합니다. 서비스를 사용함으로써 귀하는 본 방침에 설명된 관행에 동의하는 것입니다.",
+    "sections": {
+      "dataCollection": {
+        "title": "수집하는 정보",
+        "content": "서비스 제공을 위해 최소한의 정보만 수집합니다:\n\n• 기술 데이터: 보안 및 서비스 개선을 위한 IP 주소, 브라우저 유형, 기기 정보\n• 사용 데이터: 기능 개선을 위해 서비스와의 상호 작용 방식\n• 이메일 콘텐츠: 만료 후 자동으로 삭제되는 임시 저장 이메일\n• 쿠키: 서비스 기능에 필요한 필수 쿠키\n\n수집하지 않는 정보:\n• 개인 식별 정보\n• 결제 정보 (서비스는 무료입니다)\n• 귀하의 실제 이메일 주소\n• 절대적으로 필요하지 않은 데이터"
+      },
+      "dataUsage": {
+        "title": "데이터 사용 방법",
+        "content": "수집된 정보는 다음 용도로 사용됩니다:\n\n• 임시 이메일 서비스 제공 및 유지\n• 사용자 경험 및 서비스 기능 개선\n• 남용, 스팸 및 보안 위협 감지 및 방지\n• 성능 최적화를 위한 사용 패턴 분석\n• 법적 의무 준수\n\n하지 않는 것:\n• 제3자에게 데이터 판매\n• 광고 목적으로 데이터 사용\n• 동의 없이 정보 공유\n• 필요 이상으로 데이터 저장"
+      },
+      "dataSharing": {
+        "title": "데이터 공유 및 공개",
+        "content": "개인 정보를 판매, 거래 또는 임대하지 않습니다. 다음과 같은 제한된 경우에만 데이터를 공유할 수 있습니다:\n\n• 법적 요구 사항: 법률에 의해 요구되거나 권리 보호를 위해 필요한 경우\n• 서비스 제공업체: 서비스 운영을 돕는 신뢰할 수 있는 파트너 (엄격한 기밀 유지 하에)\n• 보안: 사기, 남용 또는 보안 위협 방지를 위해\n\n모든 제3자 서비스 제공업체는 기밀 유지 계약에 구속되며 당사에 서비스를 제공하는 것 이외의 목적으로 귀하의 정보를 사용하는 것이 금지됩니다."
+      },
+      "cookies": {
+        "title": "쿠키 및 추적",
+        "content": "쿠키 및 유사한 기술을 사용합니다:\n\n• 필수 쿠키: 서비스 기능에 필요 (비활성화 불가)\n• 분석 쿠키: 서비스 사용 방식을 이해하는 데 도움\n• 기본 설정 쿠키: 설정 및 기본 설정 기억\n\n브라우저 설정을 통해 쿠키를 제어할 수 있습니다. 그러나 필수 쿠키를 비활성화하면 서비스 기능이 제한될 수 있습니다.\n\n사용하지 않는 것:\n• 광고 쿠키\n• 제3자 추적 쿠키\n• 소셜 미디어 추적 픽셀"
+      },
+      "dataSecurity": {
+        "title": "데이터 보안",
+        "content": "업계 표준 보안 조치를 구현합니다:\n\n• 암호화: HTTPS/TLS를 사용하여 전송되는 모든 데이터 암호화\n• 보안 인프라: 고급 보안 프로토콜을 사용하는 서버\n• 접근 제어: 승인된 직원만 데이터에 제한적으로 접근\n• 정기 감사: 지속적인 모니터링 및 보안 평가\n• 자동 삭제: 만료 후 이메일 자동 삭제\n\n데이터를 보호하기 위해 노력하지만 인터넷 전송은 100% 안전하지 않습니다. 민감하지 않은 통신에 대해서는 본인의 책임 하에 서비스를 사용하십시오."
+      },
+      "emailRetention": {
+        "title": "이메일 보관 및 삭제",
+        "content": "이메일 보관 정책:\n\n• 임시 이메일: 기본적으로 10분 후 자동 삭제\n• 연장된 이메일: 선택한 연장 기간에 따라 삭제\n• 영구 메일함: 삭제할 때까지 보관 (등록된 사용자용)\n• 삭제된 콘텐츠: 시스템에서 영구적으로 제거\n\n삭제된 이메일은 복구할 수 없습니다. 임시 이메일 콘텐츠의 백업을 유지하지 않습니다."
+      }
+    },
+    "contact": {
+      "title": "문의하기",
+      "content": "본 개인정보 처리방침 또는 데이터 관행에 대해 질문이 있으시면 privacy@tempmailcentral.com으로 문의하십시오"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "이용약관 - TempMailCentral",
+      "description": "TempMailCentral의 임시 이메일 서비스 사용 규칙 및 가이드라인을 이해하려면 이용약관을 읽어보세요."
+    },
+    "badge": "법적 조건",
+    "title": "이용약관",
+    "subtitle": "서비스를 사용하기 전에 이 약관을 주의 깊게 읽어주세요",
+    "lastUpdated": "최종 업데이트: 2026년 1월 24일",
+    "introduction": "TempMailCentral에 오신 것을 환영합니다. 본 이용약관('약관')은 임시 이메일 서비스의 사용을 규정합니다. TempMailCentral에 접근하거나 사용함으로써 귀하는 본 약관에 구속되는 것에 동의합니다. 일부에 동의하지 않는 경우 서비스를 사용하지 마십시오.",
+    "sections": {
+      "acceptance": {
+        "title": "약관 동의",
+        "content": "TempMailCentral을 사용함으로써 귀하는 다음을 확인합니다:\n\n• 만 13세 이상임\n• 본 약관에 동의할 법적 능력이 있음\n• 모든 해당 법률 및 규정을 준수할 것임\n• 이것이 제한 사항이 있는 임시 이메일 서비스임을 이해함\n\n언제든지 본 약관을 수정할 권리를 보유합니다. 변경 후 계속 사용하는 것은 수정된 약관에 대한 동의를 구성합니다."
+      },
+      "serviceDescription": {
+        "title": "서비스 설명",
+        "content": "TempMailCentral이 제공하는 것:\n\n• 자동 삭제되는 무료 임시 이메일 주소\n• 이메일 수신 기능 (발신 없음)\n• 기본 이메일 보기 및 첨부 파일 다운로드\n• 연장 사용을 위한 선택적 계정 기능\n\n서비스는 보증 없이 '있는 그대로' 제공됩니다:\n\n• 100% 가동 시간 또는 가용성을 보장하지 않습니다\n• 기술적 문제로 인해 이메일이 손실될 수 있습니다\n• 일부 웹사이트는 도메인을 차단할 수 있습니다\n• 서비스 기능은 예고 없이 변경될 수 있습니다"
+      },
+      "userResponsibilities": {
+        "title": "사용자 책임",
+        "content": "귀하는 다음에 동의합니다:\n\n• 합법적인 목적으로만 서비스를 사용할 것\n• 중요한 계정 (은행, 의료 등)에 임시 이메일을 사용하지 않을 것\n• 중요한 통신에 서비스를 의존하지 않을 것\n• 이메일이 임시적이며 삭제될 것임을 수락할 것\n• 서비스를 남용, 해킹 또는 방해하려고 시도하지 않을 것\n• 다른 사람을 괴롭히거나, 스팸을 보내거나, 해를 끼치기 위해 서비스를 사용하지 않을 것\n\n귀하는 다음을 이해합니다:\n\n• 임시 이메일은 비공개가 아닙니다 - 주소를 가진 누구나 이메일을 볼 수 있습니다\n• 민감한 정보에 임시 이메일을 사용해서는 안 됩니다\n• 본 약관을 위반하는 사용자의 접근을 종료할 수 있습니다"
+      },
+      "prohibitedUses": {
+        "title": "금지된 사용",
+        "content": "다음 용도로 TempMailCentral을 사용할 수 없습니다:\n\n• 불법 활동 또는 사기\n• 괴롭힘 또는 남용을 위한 계정 생성\n• 다른 서비스의 금지 또는 제한 우회\n• 민감한 개인 또는 금융 정보 수신\n• 자동화된 스크래핑 또는 데이터 수집\n• 악성코드 또는 피싱 배포\n• 법률 또는 규정을 위반하는 활동\n• 다른 사람 사칭 또는 신원 허위 표시\n\n위반 시 다음 결과가 발생할 수 있습니다:\n\n• 서비스 접근 즉시 종료\n• 관련 당국에 신고\n• 필요한 경우 법적 조치"
+      },
+      "disclaimer": {
+        "title": "보증 부인",
+        "content": "TempMailCentral은 명시적이든 묵시적이든 어떠한 종류의 보증 없이 '있는 그대로' 및 '이용 가능한 상태로' 제공됩니다. 여기에는 다음이 포함되나 이에 국한되지 않습니다:\n\n• 상품성 또는 특정 목적에의 적합성\n• 비침해 또는 보안\n• 정확성, 신뢰성 또는 완전성\n• 중단 없거나 오류 없는 서비스\n\n다음을 보증하지 않습니다:\n\n• 서비스가 귀하의 요구 사항을 충족할 것\n• 이메일이 올바르게 전달되거나 수신될 것\n• 서비스가 항상 사용 가능할 것\n• 결함이 수정될 것\n• 서비스에 바이러스나 유해한 구성 요소가 없을 것"
+      },
+      "liability": {
+        "title": "책임 제한",
+        "content": "법률에서 허용하는 최대 범위 내에서:\n\n• 간접적, 부수적, 특별 또는 결과적 손해에 대해 책임지지 않습니다\n• 총 책임은 $100 USD를 초과하지 않습니다\n• 손실된 이메일을 포함한 데이터 손실에 대해 책임지지 않습니다\n• 제3자의 행위 또는 콘텐츠에 대해 책임지지 않습니다\n• 본인의 책임 하에 서비스를 사용합니다\n\n여기에는 다음이 포함되나 이에 국한되지 않습니다:\n\n• 사업 또는 이익 손실\n• 데이터 손상 또는 손실\n• 서비스 중단\n• 보안 침해\n• 제3자 청구"
+      }
+    },
+    "contact": {
+      "title": "연락처 정보",
+      "content": "본 이용약관에 대한 질문이 있으시면 legal@tempmailcentral.com으로 문의하십시오"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "소개 - TempMailCentral",
+      "description": "전 세계 500,000명 이상의 사용자의 개인정보를 보호하는 신뢰할 수 있는 임시 이메일 서비스 TempMailCentral에 대해 알아보세요."
+    },
+    "badge": "소개",
+    "title": "TempMailCentral 소개",
+    "subtitle": "첫날부터 안전한 일회용 이메일 주소로 개인정보 보호",
+    "mission": {
+      "badge": "우리의 미션",
+      "title": "우리의 미션",
+      "content": "우리의 미션은 간단합니다: 온라인에서 귀하의 개인정보를 보호하는 것입니다. 이메일 주소가 끊임없이 요구되는 세상에서 온라인 서비스에 대한 액세스를 희생하지 않고 개인정보를 유지할 자유가 있어야 한다고 믿습니다. TempMailCentral은 개인 정보를 손상시키지 않고 인터넷을 사용할 수 있는 빠르고 무료이며 안전한 방법을 제공합니다.",
+      "highlight": {
+        "title": "개인정보 우선, 항상",
+        "description": "개인정보는 사치가 아닌 기본 권리라는 원칙에 따라 TempMailCentral을 구축했습니다. 추가하는 모든 기능은 개인정보 보호를 염두에 두고 설계되었습니다."
+      }
+    },
+    "values": {
+      "title": "우리의 가치",
+      "subtitle": "우리가 하는 모든 일을 안내하는 원칙",
+      "privacy": {
+        "title": "개인정보 우선",
+        "description": "귀하의 개인정보는 타협할 수 없습니다. 데이터를 판매하지 않고, 불필요하게 추적하지 않으며, 필요 이상으로 정보를 저장하지 않습니다."
+      },
+      "simplicity": {
+        "title": "간단하고 빠른",
+        "description": "등록 없음, 복잡함 없음. 필요할 때 즉시 작동하는 이메일 주소만 있습니다."
+      },
+      "accessibility": {
+        "title": "무료이고 접근 가능한",
+        "description": "개인정보 보호는 모든 사람, 어디서나 이용할 수 있어야 합니다. 우리의 서비스는 무료이며 20개 이상의 언어로 제공됩니다."
+      },
+      "transparency": {
+        "title": "투명한",
+        "description": "우리가 무엇을 하는지, 어떻게 하는지, 어떤 제한이 있는지에 대해 정직합니다. 숨겨진 조건이나 놀라움이 없습니다."
+      }
+    },
+    "story": {
+      "badge": "우리의 이야기",
+      "title": "TempMailCentral의 시작",
+      "paragraph1": "TempMailCentral은 간단한 좌절에서 탄생했습니다: 필요하지 않은 웹사이트에 이메일 주소를 제공하는 것. 가입할 때마다 더 많은 스팸, 더 많은 추적, 더 적은 개인정보 보호를 의미했습니다. 더 나은 방법이 있어야 한다는 것을 알았습니다.",
+      "paragraph2": "우리는 우리 자신을 위한 서비스를 구축하는 것으로 시작했습니다—등록 없이 임시 이메일 주소를 얻는 간단하고 빠른 방법. 소문이 퍼지면서 다른 사람들도 온라인 개인정보에 대한 우리의 우려를 공유한다는 것을 깨달았습니다. 오늘날 우리는 전 세계 500,000명 이상의 사용자에게 서비스를 제공하며 그들은 개인정보 보호를 위해 우리를 신뢰합니다.",
+      "paragraph3": "간단한 도구에서 종합적인 개인정보 보호 서비스로 성장했지만 핵심 미션은 변함없이 유지됩니다: 사람들에게 디지털 개인정보에 대한 통제권을 부여하는 것. 서비스를 계속 개선하고 새로운 기능을 추가하며 새로운 언어로 확장하고 있습니다—우리가 하는 모든 일의 최전선에 개인정보 보호를 유지하면서."
+    },
+    "stats": {
+      "emails": "수신된 이메일",
+      "users": "활성 사용자",
+      "languages": "언어",
+      "uptime": "가동 시간"
+    },
+    "cta": {
+      "title": "개인정보를 우선시하는 커뮤니티에 가입하세요",
+      "description": "개인정보를 희생하지 않고 탐색하는 자유를 경험하세요",
+      "button": "무료로 시작하기"
+    }
+  },
+  "dashboard": {
+    "welcome": "다시 오신 것을 환영합니다",
+    "manageMailboxes": "영구 이메일 주소 관리",
+    "createMailbox": "메일함 만들기",
+    "stats": {
+      "totalMailboxes": "전체 메일함",
+      "persistentAddresses": "영구 주소",
+      "totalEmails": "전체 이메일",
+      "acrossAllMailboxes": "모든 메일함",
+      "unread": "읽지 않음",
+      "newMessages": "새 메시지",
+      "storage": "저장소",
+      "forever": "영구",
+      "emailsNeverExpire": "이메일은 만료되지 않습니다"
+    },
+    "recentEmails": {
+      "title": "최근 이메일",
+      "viewAll": "모두 보기",
+      "noEmails": "아직 이메일이 없습니다",
+      "noEmailsDescription": "메일함으로 전송된 이메일이 여기에 표시됩니다",
+      "to": "받는사람"
+    },
+    "mailboxes": {
+      "title": "내 메일함",
+      "new": "새로 만들기",
+      "noMailboxes": "아직 메일함이 없습니다",
+      "noMailboxesDescription": "첫 번째 영구 이메일 주소 만들기",
+      "myMailboxes": "내 메일함",
+      "permanentEmailAddress": "영구 이메일 주소",
+      "permanentEmailAddresses": "영구 이메일 주소",
+      "newMailbox": "새 메일함",
+      "createNew": "새 메일함 만들기",
+      "emailAddress": "이메일 주소",
+      "emailPlaceholder": "myemail (선택 사항)",
+      "prefixHelper": "무작위 주소를 원하면 접두사를 비워 두세요",
+      "friendlyName": "별칭 (선택 사항)",
+      "namePlaceholder": "직장, 개인, 뉴스레터...",
+      "creating": "만드는 중...",
+      "searchPlaceholder": "메일함 검색...",
+      "selectMailbox": "메일함 선택",
+      "selectMailboxDescription": "이메일을 보려면 메일함을 선택하세요",
+      "email": "이메일",
+      "emails": "이메일",
+      "emailsSentTo": "{address}(으)로 전송된 이메일이 여기에 표시됩니다",
+      "deleteConfirm": "이 메일함을 삭제하시겠습니까? 모든 이메일이 손실됩니다."
+    },
+    "quickActions": {
+      "createMailbox": "메일함 만들기",
+      "createMailboxDescription": "새 영구 이메일 추가",
+      "tempEmail": "임시 이메일",
+      "tempEmailDescription": "빠른 일회용 주소",
+      "preferences": "환경 설정",
+      "preferencesDescription": "경험 맞춤 설정"
+    },
+    "settings": {
+      "title": "설정",
+      "managePreferences": "계정 환경 설정 관리",
+      "profile": {
+        "title": "프로필",
+        "description": "계정 정보",
+        "user": "사용자"
+      },
+      "emailPreferences": {
+        "title": "이메일 환경 설정",
+        "description": "메일함 기본값 구성",
+        "autoMarkRead": "이메일을 자동으로 읽음으로 표시",
+        "autoMarkReadDescription": "볼 때 이메일을 읽음으로 표시",
+        "defaultExpiry": "기본 이메일 만료",
+        "defaultExpiryDescription": "임시 이메일의 경우",
+        "10minutes": "10분",
+        "1hour": "1시간",
+        "24hours": "24시간"
+      },
+      "notifications": {
+        "title": "알림",
+        "description": "알림 설정 관리",
+        "browser": "브라우저 알림",
+        "browserDescription": "새 이메일이 도착하면 알림 받기",
+        "sound": "소리 알림",
+        "soundDescription": "새 이메일에 대한 소리 재생"
+      },
+      "privacy": {
+        "title": "개인정보 및 보안",
+        "description": "데이터 및 보안 관리",
+        "twoFactor": "2단계 인증",
+        "twoFactorDescription": "추가 보안 계층 추가",
+        "enable": "활성화",
+        "activeSessions": "활성 세션",
+        "activeSessionsDescription": "계정에 로그인된 기기 관리",
+        "view": "보기"
+      },
+      "dangerZone": {
+        "title": "위험 영역",
+        "description": "되돌릴 수 없는 작업",
+        "deleteAllMailboxes": "모든 메일함 삭제",
+        "deleteAllMailboxesDescription": "모든 이메일 주소 및 이메일 제거",
+        "deleteAll": "모두 삭제",
+        "deleteAccount": "계정 삭제",
+        "deleteAccountDescription": "계정과 모든 데이터를 영구적으로 제거",
+        "deleteAccountButton": "계정 삭제"
+      }
+    },
+    "emailViewer": {
+      "back": "뒤로",
+      "noSubject": "(제목 없음)",
+      "noContent": "콘텐츠 없음",
+      "attachment": "첨부 파일",
+      "attachments": "첨부 파일"
+    },
+    "sidebar": {
+      "dashboard": "대시보드",
+      "overview": "개요",
+      "myMailboxes": "내 메일함",
+      "tempEmails": "임시 이메일",
+      "starred": "중요 표시",
+      "archived": "보관됨",
+      "settings": "설정",
+      "newMailbox": "새 메일함"
+    }
+  }
+}

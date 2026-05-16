@@ -81,7 +81,7 @@ defmodule Tempmail.Mail do
   def choose_domain("") do
     case list_active_domains() do
       [] -> Application.get_env(:tempmail, :default_domain, "tempmail.com")
-      domains -> (Enum.find(domains, & &1.is_default) || Enum.random(domains)).domain
+      domains -> Enum.random(domains).domain
     end
   end
 

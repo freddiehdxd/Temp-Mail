@@ -1,0 +1,546 @@
+{
+  "common": {
+    "appName": "TempMail",
+    "tagline": "Email Sementara Gratis",
+    "loading": "Memuat...",
+    "error": "Error",
+    "success": "Berhasil",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Edit",
+    "add": "Tambah",
+    "search": "Cari",
+    "filter": "Filter",
+    "actions": "Aksi",
+    "confirm": "Konfirmasi",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "previous": "Sebelumnya",
+    "close": "Tutup",
+    "copy": "Salin",
+    "copied": "Tersalin!",
+    "refresh": "Segarkan",
+    "settings": "Pengaturan",
+    "language": "Bahasa",
+    "theme": "Tema",
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem"
+  },
+  "home": {
+    "title": "Email Sementara Gratis",
+    "subtitle": "Lindungi privasi Anda dengan alamat email sekali pakai",
+    "description": "Dapatkan alamat email sementara secara instan. Tanpa pendaftaran. Email dihapus otomatis setelah 10 menit.",
+    "generateButton": "Buat Email Baru",
+    "yourEmail": "Email Sementara Anda",
+    "copyEmail": "Salin Alamat Email",
+    "refreshInbox": "Segarkan Kotak Masuk",
+    "extendTime": "Perpanjang Waktu",
+    "timeRemaining": "Waktu Tersisa",
+    "noEmails": "Belum ada email",
+    "waitingForEmails": "Menunggu email masuk...",
+    "heroBadge": "Dipercaya oleh lebih dari 500.000 pengguna di seluruh dunia",
+    "stats": {
+      "emailsReceived": "Email Diterima",
+      "happyUsers": "Pengguna Puas",
+      "uptime": "Waktu Aktif",
+      "languages": "Bahasa"
+    },
+    "features": {
+      "title": "Mengapa TempMail?",
+      "subtitle": "Semua yang Anda butuhkan untuk komunikasi email yang aman dan sekali pakai",
+      "privacy": {
+        "title": "Lindungi Privasi Anda",
+        "description": "Jaga email asli Anda tetap pribadi. Gunakan email sementara untuk pendaftaran."
+      },
+      "noSpam": {
+        "title": "Hindari Spam",
+        "description": "Hentikan spam sebelum dimulai. Email sementara menghilang bersama spam."
+      },
+      "instant": {
+        "title": "Instan dan Gratis",
+        "description": "Tanpa pendaftaran. Dapatkan alamat email yang berfungsi dalam hitungan detik."
+      },
+      "secure": {
+        "title": "Aman dan Anonim",
+        "description": "Email Anda dihapus secara otomatis. Tidak ada data yang disimpan permanen."
+      }
+    },
+    "howItWorks": {
+      "title": "Cara Kerjanya",
+      "subtitle": "Mulai dalam hitungan detik dengan tiga langkah sederhana",
+      "step1": {
+        "title": "Dapatkan Email Instan",
+        "description": "Email sementara dibuat secara otomatis saat Anda mengunjungi"
+      },
+      "step2": {
+        "title": "Gunakan Di Mana Saja",
+        "description": "Salin dan gunakan untuk pendaftaran, verifikasi, atau layanan apa pun"
+      },
+      "step3": {
+        "title": "Hapus Otomatis",
+        "description": "Semuanya dihapus otomatis setelah 10 menit"
+      }
+    },
+    "useCases": {
+      "title": "Sempurna untuk",
+      "titleHighlight": "Setiap Situasi",
+      "subtitle": "Baik Anda mendaftar layanan baru, menguji aplikasi, atau hanya ingin menjaga kotak masuk asli tetap bersih, kami siap membantu Anda.",
+      "case1": "Daftar uji coba gratis",
+      "case2": "Hindari spam newsletter",
+      "case3": "Uji aplikasi Anda",
+      "case4": "Lindungi email asli Anda",
+      "case5": "Belanja online",
+      "case6": "Pendaftaran media sosial"
+    },
+    "reviews": {
+      "title": "Dicintai oleh pengembang dan pengguna",
+      "subtitle": "Bergabunglah dengan ribuan pengguna yang puas",
+      "review1": "Layanan email sementara terbaik yang pernah saya gunakan. UI bersih dan super cepat!",
+      "review2": "Akhirnya, email sekali pakai yang benar-benar berfungsi. Tanpa iklan, tanpa repot.",
+      "review3": "Fitur refresh otomatis luar biasa. Email muncul secara instan!"
+    },
+    "faq": {
+      "badge": "Pertanyaan yang Sering Diajukan",
+      "title": "Semua Tentang",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "Pelajari cara kerja email sementara sekali pakai dan mengapa jutaan orang mempercayai TempMailCentral untuk kebutuhan privasi mereka.",
+      "question1": "Apa itu email sementara atau temp mail?",
+      "answer1": "Email sementara (juga disebut temp mail, email sekali pakai, atau email throwaway) adalah alamat email yang menghancurkan diri sendiri yang dapat Anda gunakan untuk jangka waktu singkat. Ini membantu melindungi email asli Anda dari spam, phishing, dan email pemasaran yang tidak diinginkan saat mendaftar untuk situs web atau layanan.",
+      "question2": "Bagaimana cara kerja email sekali pakai?",
+      "answer2": "Email sekali pakai bekerja dengan memberi Anda alamat email acak secara instan. Setiap email yang dikirim ke alamat ini muncul di kotak masuk sementara Anda secara real-time. Setelah periode yang ditentukan (biasanya 10 menit), alamat email dan semua pesan yang diterima akan dihapus secara otomatis.",
+      "question3": "Apakah temp mail aman digunakan?",
+      "answer3": "Ya, temp mail aman digunakan untuk tujuan non-sensitif seperti mendaftar untuk situs web, mengunduh sumber daya, atau menguji aplikasi. Namun, Anda tidak boleh menggunakan email sementara untuk akun penting seperti perbankan, karena email akan dihapus dan Anda mungkin kehilangan akses.",
+      "question4": "Berapa lama email sementara bertahan?",
+      "answer4": "Secara default, alamat email sementara di TempMailCentral bertahan selama 10 menit. Namun, pengguna yang login dapat memperpanjang waktu hingga 30 hari atau bahkan menyimpan alamat sebagai kotak surat permanen.",
+      "question5": "Bisakah situs web mendeteksi temp mail?",
+      "answer5": "Beberapa situs web mempertahankan daftar hitam domain email sementara yang dikenal. Meskipun TempMailCentral menggunakan beberapa domain untuk meminimalkan ini, beberapa situs web yang ketat mungkin masih mendeteksi dan memblokir alamat email sementara.",
+      "question6": "Apakah saya perlu mendaftar untuk menggunakan temp mail?",
+      "answer6": "Tidak perlu pendaftaran untuk menggunakan TempMailCentral. Cukup kunjungi situs web dan Anda akan secara otomatis menerima alamat email sementara yang dapat Anda gunakan segera.",
+      "question7": "Bisakah saya menerima lampiran dengan temp mail?",
+      "answer7": "Ya, TempMailCentral mendukung penerimaan lampiran email. Anda dapat melihat dan mengunduh lampiran dari email yang dikirim ke alamat sementara Anda.",
+      "question8": "Untuk apa temp mail digunakan?",
+      "answer8": "Temp mail umumnya digunakan untuk: mendaftar uji coba gratis, menghindari spam newsletter, menguji fungsionalitas email dalam aplikasi, melindungi email asli Anda dari pelanggaran data, berbelanja online di situs yang tidak tepercaya, dan mengakses unduhan atau sumber daya satu kali."
+    },
+    "whyChoose": {
+      "title": "Mengapa Memilih",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "Layanan email sementara gratis paling andal, dipercaya oleh lebih dari 500.000 pengguna di seluruh dunia.",
+      "instantFree": {
+        "title": "Instan dan Gratis",
+        "description": "Tanpa pendaftaran, tanpa kartu kredit, tanpa komitmen. Dapatkan email sekali pakai Anda dalam hitungan detik, sepenuhnya gratis selamanya."
+      },
+      "privacyFirst": {
+        "title": "Privasi Utama",
+        "description": "Kami tidak melacak, menyimpan, atau menjual data Anda. Semua email dihapus secara otomatis setelah kedaluwarsa. Privasi Anda adalah prioritas kami."
+      },
+      "multiLanguage": {
+        "title": "20+ Bahasa",
+        "description": "Tersedia dalam lebih dari 20 bahasa termasuk Inggris, Spanyol, Prancis, Jerman, Cina, Jepang, dan lainnya."
+      }
+    },
+    "seoContent": {
+      "title": "Tentang Temp Mail - Email Sementara Sekali Pakai",
+      "whatIsTitle": "Apa itu Email Sementara?",
+      "whatIsContent": "Email sementara, juga dikenal sebagai temp mail, email sekali pakai, email throwaway, atau mail 10 menit, adalah layanan yang memberi Anda alamat email berumur pendek. Tidak seperti email pribadi Anda, alamat temp mail dirancang untuk digunakan sekali lalu dibuang, menjaga kotak masuk asli Anda tetap bersih dan bebas spam.",
+      "whatIsContent2": "TempMailCentral menghasilkan alamat email acak yang dapat Anda gunakan untuk pendaftaran situs web, langganan newsletter, belanja online, atau situasi apa pun di mana Anda membutuhkan email tetapi tidak ingin membagikan alamat asli Anda.",
+      "benefitsTitle": "Manfaat Email Sekali Pakai",
+      "benefit1": "Perlindungan Spam:",
+      "benefit1Desc": "Jaga kotak masuk asli tetap bersih dengan menggunakan temp mail untuk pendaftaran",
+      "benefit2": "Privasi:",
+      "benefit2Desc": "Lindungi identitas Anda saat mengakses layanan online",
+      "benefit3": "Keamanan:",
+      "benefit3Desc": "Kurangi paparan terhadap phishing dan pelanggaran data",
+      "benefit4": "Kenyamanan:",
+      "benefit4Desc": "Tanpa pendaftaran - dapatkan email secara instan",
+      "benefit5": "Gratis Selamanya:",
+      "benefit5Desc": "Layanan dasar kami sepenuhnya gratis tanpa biaya tersembunyi"
+    },
+    "cta": {
+      "title": "Siap melindungi privasi Anda?",
+      "subtitle": "Dapatkan alamat email sementara gratis Anda sekarang. Tanpa pendaftaran, tanpa repot, hanya privasi.",
+      "button": "Mulai Gratis"
+    },
+    "status": {
+      "liveUpdates": "Pembaruan langsung aktif"
+    },
+    "quickStats": {
+      "private": "Privat",
+      "endToEnd": "Ujung ke ujung",
+      "instant": "Instan",
+      "realTime": "Real-time",
+      "autoDelete": "Hapus otomatis",
+      "tenMinutes": "10 menit"
+    }
+  },
+  "inbox": {
+    "title": "Kotak Masuk",
+    "empty": "Kotak masuk Anda kosong",
+    "emptyDescription": "Email yang dikirim ke alamat sementara akan muncul di sini",
+    "from": "Dari",
+    "subject": "Subjek",
+    "received": "Diterima",
+    "read": "Dibaca",
+    "unread": "Belum dibaca",
+    "delete": "Hapus Email",
+    "markAsRead": "Tandai Dibaca",
+    "viewEmail": "Lihat Email",
+    "attachments": "Lampiran",
+    "noSubject": "(Tanpa Subjek)",
+    "emailExpired": "Alamat email ini telah kedaluwarsa",
+    "generateNew": "Buat Alamat Baru"
+  },
+  "auth": {
+    "signIn": "Masuk",
+    "signOut": "Keluar",
+    "signInWith": "Masuk dengan {provider}",
+    "signingIn": "Sedang masuk...",
+    "signInError": "Error saat masuk",
+    "accessDenied": "Akses Ditolak",
+    "banned": "Akun Anda telah diblokir",
+    "profile": "Profil",
+    "myAccount": "Akun Saya"
+  },
+  "admin": {
+    "title": "Dashboard Admin",
+    "dashboard": "Dashboard",
+    "domains": "Domain",
+    "users": "Pengguna",
+    "analytics": "Analitik",
+    "settings": "Pengaturan",
+    "overview": "Ikhtisar",
+    "totalEmails": "Total Email Dibuat",
+    "totalReceived": "Total Email Diterima",
+    "activeDomains": "Domain Aktif",
+    "totalUsers": "Total Pengguna",
+    "recentActivity": "Aktivitas Terbaru",
+    "domainManagement": {
+      "title": "Manajemen Domain",
+      "addDomain": "Tambah Domain",
+      "domainName": "Nama Domain",
+      "status": "Status",
+      "active": "Aktif",
+      "inactive": "Tidak aktif",
+      "default": "Default",
+      "setDefault": "Jadikan Default",
+      "deleteDomain": "Hapus Domain",
+      "confirmDelete": "Apakah Anda yakin ingin menghapus domain ini?"
+    },
+    "userManagement": {
+      "title": "Manajemen Pengguna",
+      "name": "Nama",
+      "email": "Email",
+      "role": "Peran",
+      "status": "Status",
+      "joined": "Bergabung",
+      "actions": "Aksi",
+      "ban": "Blokir Pengguna",
+      "unban": "Buka Blokir",
+      "makeAdmin": "Jadikan Admin",
+      "removeAdmin": "Hapus Admin",
+      "banned": "Diblokir",
+      "active": "Aktif"
+    },
+    "analyticsPage": {
+      "title": "Analitik",
+      "emailsOverTime": "Email Seiring Waktu",
+      "generated": "Dibuat",
+      "received": "Diterima",
+      "last7Days": "7 Hari Terakhir",
+      "last30Days": "30 Hari Terakhir",
+      "last90Days": "90 Hari Terakhir"
+    },
+    "settingsPage": {
+      "title": "Pengaturan",
+      "general": "Pengaturan Umum",
+      "emailTTL": "Email TTL (detik)",
+      "emailTTLDescription": "Berapa lama email sementara bertahan sebelum kedaluwarsa",
+      "defaultDomain": "Domain Default",
+      "mailcow": "Konfigurasi Mailcow",
+      "mailcowUrl": "URL API Mailcow",
+      "mailcowKey": "Kunci API Mailcow",
+      "testConnection": "Tes Koneksi",
+      "connectionSuccess": "Koneksi berhasil",
+      "connectionFailed": "Koneksi gagal"
+    }
+  },
+  "errors": {
+    "notFound": "Halaman Tidak Ditemukan",
+    "notFoundDescription": "Halaman yang Anda cari tidak ada.",
+    "serverError": "Error Server",
+    "serverErrorDescription": "Terjadi kesalahan dari pihak kami.",
+    "unauthorized": "Tidak Diotorisasi",
+    "unauthorizedDescription": "Anda tidak memiliki izin untuk mengakses halaman ini.",
+    "goHome": "Ke Beranda"
+  },
+  "footer": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan",
+    "contact": "Kontak",
+    "about": "Tentang",
+    "copyright": "© {year} TempMail. Hak cipta dilindungi.",
+    "description": "Layanan email sementara tercepat dan paling aman. Lindungi privasi Anda dengan alamat email sekali pakai yang terhapus otomatis. Tanpa pendaftaran.",
+    "privateSecure": "Privat & Aman",
+    "instantDelivery": "Pengiriman instan",
+    "languages": "20+ Bahasa"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Kebijakan Privasi - TempMailCentral",
+      "description": "Pelajari bagaimana TempMailCentral melindungi privasi Anda. Kami tidak menyimpan data pribadi, semua email otomatis terhapus, dan privasi Anda adalah prioritas kami."
+    },
+    "badge": "Privasi Anda Penting",
+    "title": "Kebijakan Privasi",
+    "subtitle": "Bagaimana kami melindungi privasi Anda dan menangani data Anda",
+    "lastUpdated": "Terakhir diperbarui: 24 Januari 2026",
+    "introduction": "Di TempMailCentral, privasi adalah prioritas utama kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda saat Anda menggunakan layanan email sementara kami. Dengan menggunakan layanan kami, Anda setuju dengan praktik yang dijelaskan dalam kebijakan ini.",
+    "sections": {
+      "dataCollection": {
+        "title": "Informasi yang Kami Kumpulkan",
+        "content": "Kami mengumpulkan informasi minimal untuk menyediakan layanan kami:\n\n• Data Teknis: Alamat IP, jenis browser, dan informasi perangkat untuk keamanan dan peningkatan layanan\n• Data Penggunaan: Bagaimana Anda berinteraksi dengan layanan kami untuk meningkatkan fungsionalitas\n• Konten Email: Email yang disimpan sementara yang otomatis terhapus setelah kedaluwarsa\n• Cookie: Cookie penting untuk fungsionalitas layanan\n\nKami TIDAK mengumpulkan:\n• Informasi identifikasi pribadi\n• Informasi pembayaran (layanan kami gratis)\n• Alamat email asli Anda\n• Data apa pun yang tidak benar-benar kami butuhkan"
+      },
+      "dataUsage": {
+        "title": "Bagaimana Kami Menggunakan Data Anda",
+        "content": "Kami menggunakan informasi yang dikumpulkan untuk:\n\n• Menyediakan dan memelihara layanan email sementara kami\n• Meningkatkan pengalaman pengguna dan fungsionalitas layanan\n• Mendeteksi dan mencegah penyalahgunaan, spam, dan ancaman keamanan\n• Menganalisis pola penggunaan untuk mengoptimalkan kinerja\n• Mematuhi kewajiban hukum\n\nKami TIDAK:\n• Menjual data Anda ke pihak ketiga\n• Menggunakan data Anda untuk iklan\n• Membagikan informasi Anda tanpa persetujuan Anda\n• Menyimpan data lebih lama dari yang diperlukan"
+      },
+      "dataSharing": {
+        "title": "Berbagi dan Pengungkapan Data",
+        "content": "Kami tidak menjual, memperdagangkan, atau menyewakan informasi pribadi Anda. Kami hanya dapat membagikan data dalam kasus terbatas ini:\n\n• Persyaratan Hukum: Ketika diwajibkan oleh hukum atau untuk melindungi hak kami\n• Penyedia Layanan: Mitra tepercaya yang membantu mengoperasikan layanan kami (dengan kerahasiaan ketat)\n• Keamanan: Untuk mencegah penipuan, penyalahgunaan, atau ancaman keamanan\n\nSemua penyedia layanan pihak ketiga terikat oleh perjanjian kerahasiaan dan dilarang menggunakan informasi Anda untuk tujuan apa pun selain menyediakan layanan kepada kami."
+      },
+      "cookies": {
+        "title": "Cookie dan Pelacakan",
+        "content": "Kami menggunakan cookie dan teknologi serupa:\n\n• Cookie Penting: Diperlukan untuk fungsionalitas layanan (tidak dapat dinonaktifkan)\n• Cookie Analitik: Membantu kami memahami bagaimana Anda menggunakan layanan kami\n• Cookie Preferensi: Mengingat pengaturan dan preferensi Anda\n\nAnda dapat mengontrol cookie melalui pengaturan browser Anda. Namun, menonaktifkan cookie penting dapat membatasi fungsionalitas layanan.\n\nKami TIDAK menggunakan:\n• Cookie iklan\n• Cookie pelacakan pihak ketiga\n• Piksel pelacakan media sosial"
+      },
+      "dataSecurity": {
+        "title": "Keamanan Data",
+        "content": "Kami menerapkan langkah-langkah keamanan standar industri:\n\n• Enkripsi: Semua data yang ditransmisikan dienkripsi menggunakan HTTPS/TLS\n• Infrastruktur Aman: Server kami menggunakan protokol keamanan canggih\n• Kontrol Akses: Akses terbatas ke data hanya oleh personel yang berwenang\n• Audit Berkala: Pemantauan berkelanjutan dan penilaian keamanan\n• Penghapusan Otomatis: Email otomatis terhapus setelah kedaluwarsa\n\nMeskipun kami berusaha melindungi data Anda, tidak ada transmisi internet yang 100% aman. Gunakan layanan kami dengan risiko Anda sendiri untuk komunikasi yang tidak sensitif."
+      },
+      "emailRetention": {
+        "title": "Penyimpanan dan Penghapusan Email",
+        "content": "Kebijakan penyimpanan email:\n\n• Email Sementara: Otomatis terhapus setelah 10 menit secara default\n• Email yang Diperpanjang: Dihapus berdasarkan periode perpanjangan yang Anda pilih\n• Kotak Surat Permanen: Dipertahankan sampai Anda menghapusnya (untuk pengguna terdaftar)\n• Konten yang Dihapus: Dihapus secara permanen dari sistem kami\n\nSetelah dihapus, email tidak dapat dipulihkan. Kami tidak menyimpan cadangan konten email sementara."
+      }
+    },
+    "contact": {
+      "title": "Hubungi Kami",
+      "content": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau praktik data kami, silakan hubungi kami di: privacy@tempmailcentral.com"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Ketentuan Layanan - TempMailCentral",
+      "description": "Baca Ketentuan Layanan kami untuk memahami aturan dan pedoman penggunaan layanan email sementara TempMailCentral."
+    },
+    "badge": "Ketentuan Hukum",
+    "title": "Ketentuan Layanan",
+    "subtitle": "Harap baca ketentuan ini dengan saksama sebelum menggunakan layanan kami",
+    "lastUpdated": "Terakhir diperbarui: 24 Januari 2026",
+    "introduction": "Selamat datang di TempMailCentral. Ketentuan Layanan ('Ketentuan') ini mengatur penggunaan layanan email sementara kami. Dengan mengakses atau menggunakan TempMailCentral, Anda setuju untuk terikat oleh Ketentuan ini. Jika Anda tidak setuju dengan bagian mana pun, harap jangan gunakan layanan kami.",
+    "sections": {
+      "acceptance": {
+        "title": "Penerimaan Ketentuan",
+        "content": "Dengan menggunakan TempMailCentral, Anda mengonfirmasi bahwa:\n\n• Anda berusia minimal 13 tahun\n• Anda memiliki kapasitas hukum untuk menyetujui Ketentuan ini\n• Anda akan mematuhi semua hukum dan peraturan yang berlaku\n• Anda memahami ini adalah layanan email sementara dengan keterbatasan\n\nKami berhak mengubah Ketentuan ini kapan saja. Penggunaan berkelanjutan setelah perubahan merupakan penerimaan Ketentuan yang dimodifikasi."
+      },
+      "serviceDescription": {
+        "title": "Deskripsi Layanan",
+        "content": "TempMailCentral menyediakan:\n\n• Alamat email sementara gratis yang otomatis terhapus\n• Kemampuan penerimaan email (tanpa pengiriman)\n• Tampilan email dasar dan unduhan lampiran\n• Fitur akun opsional untuk penggunaan yang diperpanjang\n\nLayanan kami disediakan 'sebagaimana adanya' tanpa jaminan:\n\n• Kami tidak menjamin uptime atau ketersediaan 100%\n• Email mungkin hilang karena masalah teknis\n• Beberapa situs web mungkin memblokir domain kami\n• Fitur layanan dapat berubah tanpa pemberitahuan"
+      },
+      "userResponsibilities": {
+        "title": "Tanggung Jawab Pengguna",
+        "content": "Anda setuju untuk:\n\n• Menggunakan layanan hanya untuk tujuan yang sah\n• Tidak menggunakan email sementara untuk akun penting (perbankan, kesehatan, dll.)\n• Tidak mengandalkan layanan kami untuk komunikasi penting\n• Menerima bahwa email bersifat sementara dan akan dihapus\n• Tidak mencoba menyalahgunakan, meretas, atau mengganggu layanan kami\n• Tidak menggunakan layanan untuk melecehkan, spam, atau merugikan orang lain\n\nAnda memahami bahwa:\n\n• Email sementara tidak bersifat pribadi - siapa pun dengan alamat dapat melihat email\n• Anda tidak boleh menggunakan email sementara untuk informasi sensitif\n• Kami dapat menghentikan akses ke pengguna yang melanggar ketentuan ini"
+      },
+      "prohibitedUses": {
+        "title": "Penggunaan yang Dilarang",
+        "content": "Anda TIDAK BOLEH menggunakan TempMailCentral untuk:\n\n• Aktivitas ilegal atau penipuan\n• Membuat akun untuk pelecehan atau penyalahgunaan\n• Melewati larangan atau pembatasan pada layanan lain\n• Menerima informasi pribadi atau keuangan yang sensitif\n• Scraping otomatis atau pengumpulan data\n• Mendistribusikan malware atau phishing\n• Aktivitas apa pun yang melanggar hukum atau peraturan\n• Menyamar sebagai orang lain atau salah merepresentasikan identitas\n\nPelanggaran dapat mengakibatkan:\n\n• Penghentian akses layanan segera\n• Pelaporan ke otoritas yang berwenang\n• Tindakan hukum jika diperlukan"
+      },
+      "disclaimer": {
+        "title": "Penafian Jaminan",
+        "content": "TempMailCentral disediakan 'SEBAGAIMANA ADANYA' dan 'SEBAGAIMANA TERSEDIA' tanpa jaminan apa pun, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada:\n\n• Kelayakan jual atau kesesuaian untuk tujuan tertentu\n• Non-pelanggaran atau keamanan\n• Akurasi, keandalan, atau kelengkapan\n• Layanan tanpa gangguan atau bebas kesalahan\n\nKami tidak menjamin bahwa:\n\n• Layanan akan memenuhi kebutuhan Anda\n• Email akan dikirim atau diterima dengan benar\n• Layanan akan tersedia setiap saat\n• Cacat akan diperbaiki\n• Layanan bebas dari virus atau komponen berbahaya"
+      },
+      "liability": {
+        "title": "Batasan Tanggung Jawab",
+        "content": "Sejauh maksimum yang diizinkan oleh hukum:\n\n• Kami tidak bertanggung jawab atas kerusakan tidak langsung, insidental, khusus, atau konsekuensial\n• Total tanggung jawab kami tidak akan melebihi $100 USD\n• Kami tidak bertanggung jawab atas kehilangan data, termasuk email yang hilang\n• Kami tidak bertanggung jawab atas tindakan atau konten pihak ketiga\n• Anda menggunakan layanan dengan risiko Anda sendiri\n\nIni termasuk namun tidak terbatas pada:\n\n• Kehilangan bisnis atau keuntungan\n• Kerusakan atau kehilangan data\n• Gangguan layanan\n• Pelanggaran keamanan\n• Klaim pihak ketiga"
+      }
+    },
+    "contact": {
+      "title": "Informasi Kontak",
+      "content": "Untuk pertanyaan tentang Ketentuan Layanan ini, silakan hubungi kami di: legal@tempmailcentral.com"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Tentang Kami - TempMailCentral",
+      "description": "Pelajari tentang TempMailCentral, layanan email sementara terpercaya yang melindungi privasi lebih dari 500.000 pengguna di seluruh dunia."
+    },
+    "badge": "Tentang Kami",
+    "title": "Tentang TempMailCentral",
+    "subtitle": "Melindungi privasi Anda dengan alamat email sekali pakai yang aman sejak hari pertama",
+    "mission": {
+      "badge": "Misi Kami",
+      "title": "Misi Kami",
+      "content": "Misi kami sederhana: melindungi privasi Anda secara online. Dalam dunia di mana alamat email Anda terus-menerus diminta, kami percaya Anda harus memiliki kebebasan untuk menjaga privasi Anda tanpa mengorbankan akses ke layanan online. TempMailCentral menyediakan cara yang cepat, gratis, dan aman untuk menggunakan internet tanpa mengorbankan informasi pribadi Anda.",
+      "highlight": {
+        "title": "Privasi Pertama, Selalu",
+        "description": "Kami membangun TempMailCentral berdasarkan prinsip bahwa privasi adalah hak fundamental, bukan kemewahan. Setiap fitur yang kami tambahkan dirancang dengan mempertimbangkan privasi Anda."
+      }
+    },
+    "values": {
+      "title": "Nilai-Nilai Kami",
+      "subtitle": "Prinsip yang memandu semua yang kami lakukan",
+      "privacy": {
+        "title": "Privasi Pertama",
+        "description": "Privasi Anda tidak dapat dinegosiasikan. Kami tidak menjual data, tidak melacak secara tidak perlu, atau menyimpan informasi lebih lama dari yang diperlukan."
+      },
+      "simplicity": {
+        "title": "Sederhana & Cepat",
+        "description": "Tanpa registrasi, tanpa komplikasi. Hanya alamat email instan yang berfungsi saat Anda membutuhkannya."
+      },
+      "accessibility": {
+        "title": "Gratis & Dapat Diakses",
+        "description": "Perlindungan privasi harus tersedia untuk semua orang, di mana saja. Layanan kami gratis dan tersedia dalam 20+ bahasa."
+      },
+      "transparency": {
+        "title": "Transparan",
+        "description": "Kami jujur tentang apa yang kami lakukan, bagaimana kami melakukannya, dan batasan apa yang ada. Tidak ada ketentuan tersembunyi atau kejutan."
+      }
+    },
+    "story": {
+      "badge": "Kisah Kami",
+      "title": "Bagaimana TempMailCentral Dimulai",
+      "paragraph1": "TempMailCentral lahir dari frustrasi sederhana: memberikan alamat email ke situs web yang tidak membutuhkannya. Setiap pendaftaran berarti lebih banyak spam, lebih banyak pelacakan, dan privasi yang lebih sedikit. Kami tahu harus ada cara yang lebih baik.",
+      "paragraph2": "Kami mulai dengan membangun layanan untuk diri kami sendiri—cara sederhana dan cepat untuk mendapatkan alamat email sementara tanpa registrasi. Saat kabar menyebar, kami menyadari orang lain berbagi kekhawatiran kami tentang privasi online. Hari ini, kami melayani lebih dari 500.000 pengguna di seluruh dunia yang mempercayai kami untuk melindungi privasi mereka.",
+      "paragraph3": "Kami telah berkembang dari alat sederhana menjadi layanan privasi komprehensif, tetapi misi inti kami tetap sama: memberi orang kontrol atas privasi digital mereka. Kami terus meningkatkan layanan kami, menambahkan fitur baru, dan berkembang ke bahasa baru—semua sambil menjaga privasi di garis depan semua yang kami lakukan."
+    },
+    "stats": {
+      "emails": "Email Diterima",
+      "users": "Pengguna Aktif",
+      "languages": "Bahasa",
+      "uptime": "Waktu Aktif"
+    },
+    "cta": {
+      "title": "Bergabunglah dengan Komunitas Kami yang Mengutamakan Privasi",
+      "description": "Rasakan kebebasan menjelajah tanpa mengorbankan privasi Anda",
+      "button": "Mulai Gratis"
+    }
+  },
+  "dashboard": {
+    "welcome": "Selamat datang kembali",
+    "manageMailboxes": "Kelola alamat email permanen Anda",
+    "createMailbox": "Buat Kotak Surat",
+    "stats": {
+      "totalMailboxes": "Total Kotak Surat",
+      "persistentAddresses": "Alamat permanen",
+      "totalEmails": "Total Email",
+      "acrossAllMailboxes": "Di semua kotak surat",
+      "unread": "Belum dibaca",
+      "newMessages": "Pesan baru",
+      "storage": "Penyimpanan",
+      "forever": "Selamanya",
+      "emailsNeverExpire": "Email tidak pernah kedaluwarsa"
+    },
+    "recentEmails": {
+      "title": "Email Terkini",
+      "viewAll": "Lihat Semua",
+      "noEmails": "Belum ada email",
+      "noEmailsDescription": "Email yang dikirim ke kotak surat Anda akan muncul di sini",
+      "to": "ke"
+    },
+    "mailboxes": {
+      "title": "Kotak Surat Anda",
+      "new": "Baru",
+      "noMailboxes": "Belum ada kotak surat",
+      "noMailboxesDescription": "Buat alamat email permanen pertama Anda",
+      "myMailboxes": "Kotak Surat Saya",
+      "permanentEmailAddress": "alamat email permanen",
+      "permanentEmailAddresses": "alamat email permanen",
+      "newMailbox": "Kotak Surat Baru",
+      "createNew": "Buat Kotak Surat Baru",
+      "emailAddress": "Alamat Email",
+      "emailPlaceholder": "emailsaya (opsional)",
+      "prefixHelper": "Biarkan awalan kosong untuk alamat acak",
+      "friendlyName": "Nama Ramah (opsional)",
+      "namePlaceholder": "Kerja, Pribadi, Newsletter...",
+      "creating": "Membuat...",
+      "searchPlaceholder": "Cari kotak surat...",
+      "selectMailbox": "Pilih kotak surat",
+      "selectMailboxDescription": "Pilih kotak surat untuk melihat emailnya",
+      "email": "email",
+      "emails": "email",
+      "emailsSentTo": "Email yang dikirim ke {address} akan muncul di sini",
+      "deleteConfirm": "Apakah Anda yakin ingin menghapus kotak surat ini? Semua email akan hilang."
+    },
+    "quickActions": {
+      "createMailbox": "Buat Kotak Surat",
+      "createMailboxDescription": "Tambahkan email permanen baru",
+      "tempEmail": "Email Sementara",
+      "tempEmailDescription": "Alamat sekali pakai cepat",
+      "preferences": "Preferensi",
+      "preferencesDescription": "Sesuaikan pengalaman Anda"
+    },
+    "settings": {
+      "title": "Pengaturan",
+      "managePreferences": "Kelola preferensi akun Anda",
+      "profile": {
+        "title": "Profil",
+        "description": "Informasi akun Anda",
+        "user": "Pengguna"
+      },
+      "emailPreferences": {
+        "title": "Preferensi Email",
+        "description": "Konfigurasikan pengaturan default kotak surat Anda",
+        "autoMarkRead": "Tandai email sebagai dibaca secara otomatis",
+        "autoMarkReadDescription": "Tandai email sebagai dibaca saat melihat",
+        "defaultExpiry": "Kedaluwarsa email default",
+        "defaultExpiryDescription": "Untuk email sementara",
+        "10minutes": "10 menit",
+        "1hour": "1 jam",
+        "24hours": "24 jam"
+      },
+      "notifications": {
+        "title": "Notifikasi",
+        "description": "Kelola pengaturan notifikasi",
+        "browser": "Notifikasi browser",
+        "browserDescription": "Dapatkan notifikasi saat email baru tiba",
+        "sound": "Peringatan suara",
+        "soundDescription": "Putar suara untuk email baru"
+      },
+      "privacy": {
+        "title": "Privasi & Keamanan",
+        "description": "Kelola data dan keamanan Anda",
+        "twoFactor": "Autentikasi dua faktor",
+        "twoFactorDescription": "Tambahkan lapisan keamanan ekstra",
+        "enable": "Aktifkan",
+        "activeSessions": "Sesi aktif",
+        "activeSessionsDescription": "Kelola perangkat yang masuk ke akun Anda",
+        "view": "Lihat"
+      },
+      "dangerZone": {
+        "title": "Zona Bahaya",
+        "description": "Tindakan yang tidak dapat dibatalkan",
+        "deleteAllMailboxes": "Hapus semua kotak surat",
+        "deleteAllMailboxesDescription": "Hapus semua alamat email dan email Anda",
+        "deleteAll": "Hapus Semua",
+        "deleteAccount": "Hapus akun",
+        "deleteAccountDescription": "Hapus akun dan semua data Anda secara permanen",
+        "deleteAccountButton": "Hapus Akun"
+      }
+    },
+    "emailViewer": {
+      "back": "Kembali",
+      "noSubject": "(Tanpa Subjek)",
+      "noContent": "Tidak ada konten",
+      "attachment": "lampiran",
+      "attachments": "lampiran"
+    },
+    "sidebar": {
+      "dashboard": "Dasbor",
+      "overview": "Ringkasan",
+      "myMailboxes": "Kotak Surat Saya",
+      "tempEmails": "Email Sementara",
+      "starred": "Berbintang",
+      "archived": "Diarsipkan",
+      "settings": "Pengaturan",
+      "newMailbox": "Kotak Surat Baru"
+    }
+  }
+}

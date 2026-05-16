@@ -12,7 +12,8 @@ defmodule TempmailWeb.AdminBlogLive do
        |> assign(:locale, Map.get(params, "locale", "en"))
        |> assign(:posts, Content.list_posts())
        |> assign(:categories, Content.list_categories())
-       |> assign(:post_form, to_form(%{"slug" => "", "status" => "DRAFT"}))
+       |> assign(:search, "")
+       |> assign(:status_filter, "all")
        |> assign(:category_form, to_form(%{"slug" => "", "sort_order" => "0"}))
        |> assign(:error, nil)}
     else
@@ -21,34 +22,59 @@ defmodule TempmailWeb.AdminBlogLive do
   end
 
   @impl true
-  def handle_event("create_post", params, socket) do
-    attrs = Map.put(params, "author_id", socket.assigns.current_user.id)
+  def handle_event("search", %{"q" => q}, socket) do
+    {:noreply, assign(socket, :search, q)}
+  end
 
-    case Content.create_post(attrs) do
-      {:ok, _post} ->
-        {:noreply,
-         socket
-         |> assign(:posts, Content.list_posts())
-         |> assign(:post_form, to_form(%{"slug" => "", "status" => "DRAFT"}))
-         |> assign(:error, nil)}
+  def handle_event("filter", %{"status" => status}, socket) do
+    {:noreply, assign(socket, :status_filter, status)}
+  end
 
-      {:error, changeset} ->
-        {:noreply, assign(socket, :error, "Could not create post: #{inspect(changeset.errors)}")}
-    end
+  def handle_event("delete_post", %{"id" => id}, socket) do
+    post = Content.get_post!(id)
+    Content.delete_post(post)
+    {:noreply, assign(socket, :posts, Content.list_posts())}
   end
 
   def handle_event("create_category", params, socket) do
     case Content.create_category(params) do
-      {:ok, _category} ->
+      {:ok, _} ->
         {:noreply,
          socket
          |> assign(:categories, Content.list_categories())
-         |> assign(:category_form, to_form(%{"slug" => "", "sort_order" => "0"}))
-         |> assign(:error, nil)}
+         |> assign(:category_form, to_form(%{"slug" => "", "sort_order" => "0"}))}
 
       {:error, changeset} ->
-        {:noreply,
-         assign(socket, :error, "Could not create category: #{inspect(changeset.errors)}")}
+        {:noreply, assign(socket, :error, "Could not create category: #{inspect(changeset.errors)}")}
+    end
+  end
+
+  def handle_event("delete_category", %{"id" => id}, socket) do
+    category = Tempmail.Repo.get!(Tempmail.Content.BlogCategory, id)
+    Content.delete_category(category)
+    {:noreply, assign(socket, :categories, Content.list_categories())}
+  end
+
+  def filtered_posts(posts, search, status_filter) do
+    posts
+    |> Enum.filter(fn post ->
+      status_match = status_filter == "all" || post.status == status_filter
+
+      search_match =
+        search == "" ||
+          String.contains?(String.downcase(post.slug), String.downcase(search)) ||
+          Enum.any?(post.translations, fn t ->
+            String.contains?(String.downcase(t.title || ""), String.downcase(search))
+          end)
+
+      status_match && search_match
+    end)
+  end
+
+  def post_title(post) do
+    case post.translations do
+      [t | _] -> t.title || post.slug
+      _ -> post.slug
     end
   end
 end

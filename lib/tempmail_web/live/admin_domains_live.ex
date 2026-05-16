@@ -40,4 +40,13 @@ defmodule TempmailWeb.AdminDomainsLive do
     id |> Mail.get_domain!() |> Mail.set_default_domain()
     {:noreply, assign(socket, :domains, Mail.list_domains())}
   end
+
+  def handle_event("delete", %{"id" => id}, socket) do
+    domain = Mail.get_domain!(id)
+
+    case Mail.delete_domain(domain, socket.assigns.current_user) do
+      {:ok, _} -> {:noreply, assign(socket, :domains, Mail.list_domains())}
+      {:error, _} -> {:noreply, assign(socket, :error, "Could not delete domain")}
+    end
+  end
 end

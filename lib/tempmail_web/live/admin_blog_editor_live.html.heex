@@ -1,175 +1,314 @@
+<% active_locales = Map.keys(@translations) |> Enum.sort() %>
+<% available_locales = Enum.reject(all_locales(), &Map.has_key?(@translations, &1)) %>
+<% current = Map.get(@translations, @active_locale, %{}) %>
+
 <.admin_shell locale={@locale} active={:blog}>
   <.form for={@form} phx-submit="save" class="space-y-6">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+    <%!-- Header --%>
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex items-center gap-4">
         <.link
           navigate={if @locale == "en", do: ~p"/admin/blog", else: "/#{@locale}/admin/blog"}
-          class="tm-btn-outline gap-2"
+          class="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-300 px-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
         >
-          <.icon name="hero-arrow-left" class="h-4 w-4" /> Back
+          <.icon name="hero-arrow-left-mini" class="h-4 w-4" /> Back
         </.link>
         <div>
-          <h1 class="text-2xl font-bold text-slate-950">
-            {if @post, do: "Edit Post", else: "Create New Post"}
+          <h1 class="text-xl font-bold text-slate-900">
+            {if @post, do: "Edit Post", else: "New Post"}
           </h1>
-          <p class="text-slate-500">Write content in multiple languages.</p>
+          <p :if={@post} class="text-xs text-slate-500">/{@form[:slug].value}</p>
         </div>
       </div>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <button
           :if={@post}
           type="button"
           phx-click="delete"
-          data-confirm="Delete this post?"
-          class="tm-btn border border-red-200 bg-red-50 text-red-700"
+          data-confirm="Delete this post permanently?"
+          class="inline-flex h-9 items-center gap-1.5 rounded-lg border border-red-200 bg-red-50 px-3 text-sm font-medium text-red-700 hover:bg-red-100"
         >
-          <.icon name="hero-trash" class="h-4 w-4" /> Delete
+          <.icon name="hero-trash-mini" class="h-4 w-4" /> Delete
         </button>
-        <select
-          name="status"
-          class="h-11 rounded-lg border border-slate-200 bg-white px-3 text-sm"
-        >
+        <select name="status" class="h-9 rounded-lg border border-slate-300 bg-white px-3 text-sm">
           <option value="DRAFT" selected={@form[:status].value == "DRAFT"}>Draft</option>
-          <option value="PUBLISHED" selected={@form[:status].value == "PUBLISHED"}>
-            Published
-          </option>
+          <option value="PUBLISHED" selected={@form[:status].value == "PUBLISHED"}>Published</option>
           <option value="ARCHIVED" selected={@form[:status].value == "ARCHIVED"}>Archived</option>
         </select>
         <.link
           :if={@post}
-          navigate={
-            if @locale == "en",
-              do: ~p"/blog/#{@post.slug}",
-              else: "/#{@locale}/blog/#{@post.slug}"
-          }
-          class="tm-btn-outline gap-2"
+          navigate={if @locale == "en", do: "/blog/#{@post.slug}", else: "/#{@locale}/blog/#{@post.slug}"}
+          target="_blank"
+          class="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-300 px-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
         >
-          <.icon name="hero-eye" class="h-4 w-4" /> Preview
+          <.icon name="hero-eye-mini" class="h-4 w-4" /> Preview
         </.link>
-        <button class="tm-btn-gradient gap-2">
-          <.icon name="hero-check" class="h-4 w-4" /> Save Post
+        <button class="inline-flex h-9 items-center gap-1.5 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white hover:bg-blue-700">
+          <.icon name="hero-check-mini" class="h-4 w-4" /> Save
         </button>
       </div>
     </div>
 
-    <div
-      :if={@error}
-      class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700"
-    >
-      {@error}
-    </div>
+    <div :if={@error} class="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{@error}</div>
 
     <div class="grid gap-6 lg:grid-cols-3">
+      <%!-- Main Content (2/3) --%>
       <div class="space-y-6 lg:col-span-2">
-        <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center gap-2">
-              <.icon name="hero-language" class="h-5 w-5 text-slate-500" />
-              <span class="font-medium text-slate-950">Languages</span>
-              <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-bold text-slate-600">
-                {map_size(@translations)}/{length(@locales)}
+        <%!-- Language Tabs --%>
+        <section class="rounded-xl border border-slate-200 bg-white p-4">
+          <div class="mb-3 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-sm">
+              <.icon name="hero-language" class="h-4 w-4 text-slate-500" />
+              <span class="font-medium text-slate-900">Languages</span>
+              <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">
+                {length(active_locales)}/20
               </span>
             </div>
-            <button type="button" class="tm-btn-outline gap-2">
-              <.icon name="hero-sparkles" class="h-4 w-4" /> Translate All (DeepL)
-            </button>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                phx-click="translate_all"
+                class="inline-flex h-8 items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50 px-3 text-xs font-medium text-indigo-700 hover:bg-indigo-100"
+              >
+                <.icon name="hero-sparkles-mini" class="h-3.5 w-3.5" /> Translate All (DeepL)
+              </button>
+              <%= if available_locales != [] do %>
+                <details class="relative" phx-hook="PersistDetails" id="add-lang-menu">
+                  <summary class="inline-flex h-8 cursor-pointer items-center gap-1.5 rounded-lg border border-slate-300 px-3 text-xs font-medium text-slate-700 hover:bg-slate-50">
+                    <.icon name="hero-plus-mini" class="h-3.5 w-3.5" /> Add Language
+                  </summary>
+                  <div class="absolute right-0 top-full z-50 mt-1 max-h-60 w-48 overflow-auto rounded-lg border border-slate-200 bg-white p-1 shadow-lg">
+                    <button
+                      :for={loc <- available_locales}
+                      type="button"
+                      phx-click="add_locale"
+                      phx-value-locale={loc}
+                      class="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-left text-sm hover:bg-slate-100"
+                    >
+                      <span class="font-bold uppercase text-slate-400">{loc}</span>
+                      <span class="text-slate-700">{locale_names()[loc]}</span>
+                    </button>
+                  </div>
+                </details>
+              <% end %>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <span
-              :for={locale <- @locales}
+          <div class="flex flex-wrap gap-1.5">
+            <button
+              :for={loc <- active_locales}
+              type="button"
+              phx-click="switch_locale"
+              phx-value-locale={loc}
               class={[
-                "rounded-lg px-3 py-2 text-sm font-semibold",
-                Map.has_key?(@translations, locale) && "bg-indigo-500 text-white",
-                !Map.has_key?(@translations, locale) && "bg-slate-100 text-slate-600"
+                "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+                @active_locale == loc && "bg-blue-600 text-white",
+                @active_locale != loc && "bg-slate-100 text-slate-700 hover:bg-slate-200"
               ]}
             >
-              {String.upcase(locale)}
-            </span>
+              <span class="uppercase">{loc}</span>
+              <.icon
+                :if={Map.get(@translations[loc] || %{}, "title", "") != ""}
+                name="hero-check-mini"
+                class="h-3.5 w-3.5"
+              />
+              <span
+                :if={length(active_locales) > 1}
+                phx-click="remove_locale"
+                phx-value-locale={loc}
+                class={[
+                  "ml-0.5 cursor-pointer rounded-full p-0.5",
+                  @active_locale == loc && "hover:bg-blue-500",
+                  @active_locale != loc && "hover:bg-red-100 hover:text-red-600"
+                ]}
+              >
+                <.icon name="hero-x-mark-mini" class="h-3 w-3" />
+              </span>
+            </button>
           </div>
         </section>
 
-        <section class="space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 class="text-lg font-bold text-slate-950">English Content</h2>
-          <% en = Map.get(@translations, "en", %{}) %>
-          <input
-            name="translations[en][title]"
-            value={Map.get(en, "title", "")}
-            placeholder="Enter post title..."
-            class="h-12 w-full rounded-xl border border-slate-200 px-4 text-lg font-medium"
-          />
-          <textarea
-            name="translations[en][excerpt]"
-            rows="2"
-            placeholder="Short description for listings..."
-            class="w-full resize-none rounded-xl border border-slate-200 px-4 py-3"
-          >{Map.get(en, "excerpt", "")}</textarea>
-          <textarea
-            name="translations[en][content]"
-            rows="12"
-            placeholder="Write your content here..."
-            class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm"
-          >{Map.get(en, "content", "")}</textarea>
+        <%!-- Content Fields for Active Locale --%>
+        <section class="space-y-4 rounded-xl border border-slate-200 bg-white p-6">
+          <p class="flex items-center gap-2 text-sm text-slate-500">
+            <span class="font-bold uppercase">{@active_locale}</span>
+            Editing in {locale_names()[@active_locale]}
+          </p>
+
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-slate-700">Title *</label>
+            <input
+              name={"translations[#{@active_locale}][title]"}
+              value={Map.get(current, "title", "")}
+              placeholder="Enter post title..."
+              class="h-11 w-full rounded-lg border border-slate-300 px-4 text-lg font-medium"
+            />
+          </div>
+
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-slate-700">Excerpt</label>
+            <textarea
+              name={"translations[#{@active_locale}][excerpt]"}
+              rows="2"
+              placeholder="Short description for listings..."
+              class="w-full resize-none rounded-lg border border-slate-300 px-4 py-2.5 text-sm"
+            >{Map.get(current, "excerpt", "")}</textarea>
+          </div>
+
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-slate-700">Content *</label>
+            <div id={"tiptap-#{@active_locale}"} phx-hook="TiptapHook" phx-update="ignore" class="overflow-hidden rounded-lg border border-slate-300 bg-white">
+              <div data-tiptap-toolbar class="flex flex-wrap items-center gap-0.5 border-b border-slate-200 bg-slate-50 p-1.5">
+                <button type="button" data-cmd="undo" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Undo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                </button>
+                <button type="button" data-cmd="redo" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Redo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                </button>
+                <div class="mx-0.5 h-6 w-px bg-slate-200"></div>
+                <button type="button" data-cmd="h1" data-check="h1" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Heading 1">H1</button>
+                <button type="button" data-cmd="h2" data-check="h2" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Heading 2">H2</button>
+                <button type="button" data-cmd="h3" data-check="h3" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Heading 3">H3</button>
+                <div class="mx-0.5 h-6 w-px bg-slate-200"></div>
+                <button type="button" data-cmd="bold" data-check="bold" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Bold"><strong>B</strong></button>
+                <button type="button" data-cmd="italic" data-check="italic" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Italic"><em>I</em></button>
+                <button type="button" data-cmd="underline" data-check="underline" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Underline"><u>U</u></button>
+                <button type="button" data-cmd="strike" data-check="strike" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Strikethrough"><s>S</s></button>
+                <div class="mx-0.5 h-6 w-px bg-slate-200"></div>
+                <button type="button" data-cmd="alignLeft" data-check="alignLeft" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Align Left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+                </button>
+                <button type="button" data-cmd="alignCenter" data-check="alignCenter" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Align Center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="10" x2="6" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="18" y1="18" x2="6" y2="18"/></svg>
+                </button>
+                <button type="button" data-cmd="alignRight" data-check="alignRight" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Align Right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="7" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="7" y2="18"/></svg>
+                </button>
+                <div class="mx-0.5 h-6 w-px bg-slate-200"></div>
+                <button type="button" data-cmd="bulletList" data-check="bulletList" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Bullet List">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+                <button type="button" data-cmd="orderedList" data-check="orderedList" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Numbered List">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+                </button>
+                <button type="button" data-cmd="blockquote" data-check="blockquote" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Quote">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                </button>
+                <button type="button" data-cmd="codeBlock" data-check="codeBlock" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Code Block">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </button>
+                <div class="mx-0.5 h-6 w-px bg-slate-200"></div>
+                <button type="button" data-cmd="link" data-check="link" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </button>
+                <button type="button" data-cmd="image" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Image">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </button>
+                <button type="button" data-cmd="hr" class="rounded-lg p-2 text-slate-700 hover:bg-slate-200" title="Horizontal Rule">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+              </div>
+              <div data-tiptap-editor></div>
+              <textarea
+                data-tiptap-target
+                name={"translations[#{@active_locale}][content]"}
+                class="hidden"
+              >{Map.get(current, "content", "")}</textarea>
+            </div>
+          </div>
+
           <div class="border-t border-slate-200 pt-4">
-            <h3 class="mb-4 flex items-center gap-2 font-medium text-slate-950">
-              <.icon name="hero-globe-alt" class="h-4 w-4" /> SEO Settings
+            <h3 class="mb-3 flex items-center gap-2 text-sm font-medium text-slate-700">
+              <.icon name="hero-globe-alt-mini" class="h-4 w-4" /> SEO Settings
             </h3>
-            <div class="space-y-4">
+            <div class="space-y-3">
               <input
-                name="translations[en][meta_title]"
-                value={Map.get(en, "meta_title", "")}
-                placeholder="SEO title"
-                class="h-11 w-full rounded-lg border border-slate-200 px-3 text-sm"
+                name={"translations[#{@active_locale}][meta_title]"}
+                value={Map.get(current, "meta_title", "")}
+                placeholder="SEO title (defaults to post title)"
+                class="h-9 w-full rounded-lg border border-slate-300 px-3 text-sm"
               />
               <textarea
-                name="translations[en][meta_description]"
+                name={"translations[#{@active_locale}][meta_description]"}
                 rows="2"
                 placeholder="SEO description for search engines..."
-                class="w-full resize-none rounded-lg border border-slate-200 px-3 py-2 text-sm"
-              >{Map.get(en, "meta_description", "")}</textarea>
+                class="w-full resize-none rounded-lg border border-slate-300 px-3 py-2 text-sm"
+              >{Map.get(current, "meta_description", "")}</textarea>
             </div>
           </div>
         </section>
+
+        <%!-- Hidden fields for other locales so they're preserved on submit --%>
+        <%= for {loc, t} <- @translations, loc != @active_locale do %>
+          <input type="hidden" name={"translations[#{loc}][title]"} value={Map.get(t, "title", "")} />
+          <input type="hidden" name={"translations[#{loc}][excerpt]"} value={Map.get(t, "excerpt", "")} />
+          <input type="hidden" name={"translations[#{loc}][content]"} value={Map.get(t, "content", "")} />
+          <input type="hidden" name={"translations[#{loc}][meta_title]"} value={Map.get(t, "meta_title", "")} />
+          <input type="hidden" name={"translations[#{loc}][meta_description]"} value={Map.get(t, "meta_description", "")} />
+        <% end %>
       </div>
 
+      <%!-- Sidebar (1/3) --%>
       <div class="space-y-6">
-        <section class="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-medium text-slate-950">Post Settings</h3>
+        <%!-- Post Settings --%>
+        <section class="space-y-4 rounded-xl border border-slate-200 bg-white p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Post Settings</h3>
           <div>
-            <label class="mb-2 block text-sm font-medium text-slate-700">URL Slug</label>
-            <div class="flex items-center gap-2">
-              <span class="text-slate-500">/blog/</span>
+            <label class="mb-1.5 block text-xs font-medium text-slate-600">URL Slug *</label>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs text-slate-400">/blog/</span>
               <input
                 name="slug"
                 value={@form[:slug].value}
                 placeholder="post-url"
-                class="h-10 min-w-0 flex-1 rounded-lg border border-slate-200 px-3 text-sm"
                 required
+                class="h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-3 text-sm"
               />
             </div>
           </div>
           <div>
-            <label class="mb-2 block text-sm font-medium text-slate-700">
-              Featured Image URL
-            </label>
+            <label class="mb-1.5 block text-xs font-medium text-slate-600">Featured Image URL</label>
             <input
               name="featured_image"
               value={@form[:featured_image].value}
               placeholder="https://..."
-              class="h-10 w-full rounded-lg border border-slate-200 px-3 text-sm"
+              class="h-9 w-full rounded-lg border border-slate-300 px-3 text-sm"
             />
           </div>
         </section>
 
-        <section class="space-y-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h3 class="font-medium text-slate-950">Translation Status</h3>
+        <%!-- Categories --%>
+        <section class="space-y-3 rounded-xl border border-slate-200 bg-white p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Categories</h3>
+          <p :if={@categories == []} class="text-xs text-slate-500">No categories created yet</p>
+          <label
+            :for={cat <- @categories}
+            class="flex cursor-pointer items-center gap-2 text-sm text-slate-700"
+          >
+            <input type="checkbox" name={"categories[#{cat.id}]"} value="1" class="rounded border-slate-300" />
+            {cat.slug}
+          </label>
+        </section>
+
+        <%!-- Translation Status --%>
+        <section class="space-y-3 rounded-xl border border-slate-200 bg-white p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Translation Status</h3>
           <div
-            :for={locale <- Map.keys(@translations)}
+            :for={loc <- active_locales}
             class="flex items-center justify-between text-sm"
           >
-            <span class="font-semibold">{String.upcase(locale)}</span>
-            <span class="rounded-full bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-700">
-              Ready
-            </span>
+            <div class="flex items-center gap-2">
+              <span class="w-6 text-center text-xs font-bold uppercase text-slate-400">{loc}</span>
+              <span class="text-slate-700">{locale_names()[loc]}</span>
+            </div>
+            <%= if Map.get(@translations[loc] || %{}, "title", "") != "" and Map.get(@translations[loc] || %{}, "content", "") != "" do %>
+              <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <.icon name="hero-check-mini" class="h-3.5 w-3.5" />
+              </span>
+            <% else %>
+              <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                <.icon name="hero-exclamation-triangle-mini" class="h-3.5 w-3.5" />
+              </span>
+            <% end %>
           </div>
         </section>
       </div>

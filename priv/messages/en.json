@@ -1,0 +1,578 @@
+{
+  "common": {
+    "appName": "TempMailCentral",
+    "tagline": "Free Disposable Temporary Email",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "refresh": "Refresh",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "home": {
+    "title": "Temp Mail - Disposable Temporary Email",
+    "subtitle": "Get free instant disposable email addresses to protect your privacy",
+    "description": "Free temporary email service - Get instant disposable temp mail addresses. No registration required. Protect your privacy with auto-deleting emails. Perfect for signups & verifications.",
+    "generateButton": "Generate New Email",
+    "yourEmail": "Your Temporary Email",
+    "copyEmail": "Copy Email Address",
+    "refreshInbox": "Refresh Inbox",
+    "extendTime": "Extend Time",
+    "timeRemaining": "Time Remaining",
+    "noEmails": "No emails yet",
+    "waitingForEmails": "Waiting for incoming emails...",
+    "heroBadge": "Trusted by 500,000+ users worldwide",
+    "stats": {
+      "emailsReceived": "Emails Received",
+      "happyUsers": "Happy Users",
+      "uptime": "Uptime",
+      "languages": "Languages"
+    },
+    "features": {
+      "title": "Why Use TempMail?",
+      "subtitle": "Everything you need for secure, disposable email communication",
+      "privacy": {
+        "title": "Protect Your Privacy",
+        "description": "Keep your real email private. Use temporary emails for sign-ups and verifications."
+      },
+      "noSpam": {
+        "title": "Avoid Spam",
+        "description": "Stop spam before it starts. Temporary emails disappear, taking spam with them."
+      },
+      "instant": {
+        "title": "Instant & Free",
+        "description": "No registration needed. Get a working email address in seconds, completely free."
+      },
+      "secure": {
+        "title": "Secure & Anonymous",
+        "description": "Your emails are automatically deleted. No data is stored permanently."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Get started in seconds with three simple steps",
+      "step1": {
+        "title": "Get Instant Email",
+        "description": "A temporary email is generated automatically when you visit"
+      },
+      "step2": {
+        "title": "Use It Anywhere",
+        "description": "Copy and use it for sign-ups, verifications, or any service"
+      },
+      "step3": {
+        "title": "Auto Delete",
+        "description": "Everything is automatically deleted after 10 minutes"
+      }
+    },
+    "useCases": {
+      "title": "Perfect for",
+      "titleHighlight": "Any Situation",
+      "subtitle": "Whether you're signing up for a new service, testing your app, or just want to keep your real inbox clean, we've got you covered.",
+      "case1": "Sign up for free trials",
+      "case2": "Avoid newsletter spam",
+      "case3": "Test your applications",
+      "case4": "Protect your real email",
+      "case5": "Online shopping",
+      "case6": "Social media signups"
+    },
+    "reviews": {
+      "title": "Loved by developers & users",
+      "subtitle": "Join thousands of happy users",
+      "review1": "Best temp mail service I've ever used. Clean UI and super fast!",
+      "review2": "Finally, a disposable email that actually works. No ads, no hassle.",
+      "review3": "The auto-refresh feature is amazing. Emails appear instantly!"
+    },
+    "faq": {
+      "badge": "Frequently Asked Questions",
+      "title": "Everything About",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "Learn how disposable temporary email works and why millions trust TempMailCentral for their privacy needs.",
+      "question1": "What is a temporary email or temp mail?",
+      "answer1": "A temporary email (also called temp mail, disposable email, or throwaway email) is a self-destructing email address that you can use for a short period. It helps protect your real email from spam, phishing, and unwanted marketing emails when signing up for websites or services.",
+      "question2": "How does disposable email work?",
+      "answer2": "Disposable email works by providing you with a random email address instantly. Any emails sent to this address appear in your temporary inbox in real-time. After a set period (typically 10 minutes), the email address and all received messages are automatically deleted.",
+      "question3": "Is temp mail safe to use?",
+      "answer3": "Yes, temp mail is safe to use for non-sensitive purposes like signing up for websites, downloading resources, or testing applications. However, you should never use temporary email for important accounts like banking, as the emails will be deleted and you may lose access.",
+      "question4": "How long does a temporary email last?",
+      "answer4": "By default, temporary email addresses on TempMailCentral last for 10 minutes. However, logged-in users can extend the time up to 30 days or even save the address as a permanent mailbox.",
+      "question5": "Can websites detect temp mail?",
+      "answer5": "Some websites maintain blocklists of known temporary email domains. While TempMailCentral uses multiple domains to minimize this, some strict websites may still detect and block temporary email addresses.",
+      "question6": "Do I need to register to use temp mail?",
+      "answer6": "No registration is required to use TempMailCentral. Simply visit the website and you will automatically receive a temporary email address that you can use immediately.",
+      "question7": "Can I receive attachments with temp mail?",
+      "answer7": "Yes, TempMailCentral supports receiving email attachments. You can view and download attachments from emails sent to your temporary address.",
+      "question8": "What is temp mail used for?",
+      "answer8": "Temp mail is commonly used for: signing up for free trials, avoiding spam from newsletters, testing email functionality in applications, protecting your real email from data breaches, online shopping on untrusted sites, and accessing one-time downloads or resources."
+    },
+    "whyChoose": {
+      "title": "Why Choose",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "The most reliable free temporary email service trusted by over 500,000 users worldwide.",
+      "instantFree": {
+        "title": "Instant & Free",
+        "description": "No registration, no credit card, no strings attached. Get your disposable email in seconds, completely free forever."
+      },
+      "privacyFirst": {
+        "title": "Privacy First",
+        "description": "We don't track, store, or sell your data. All emails auto-delete after expiration. Your privacy is our priority."
+      },
+      "multiLanguage": {
+        "title": "20+ Languages",
+        "description": "Available in over 20 languages including English, Spanish, French, German, Chinese, Japanese, and more."
+      }
+    },
+    "seoContent": {
+      "title": "About Temp Mail - Disposable Temporary Email",
+      "whatIsTitle": "What is Temporary Email?",
+      "whatIsContent": "Temporary email, also known as temp mail, disposable email, throwaway email, or 10-minute mail, is a service that provides you with a short-lived email address. Unlike your personal email, a temp mail address is designed to be used once and then discarded, keeping your real inbox clean and spam-free.",
+      "whatIsContent2": "TempMailCentral generates random email addresses that you can use for website registrations, newsletter signups, online shopping, or any situation where you need an email but don't want to share your real address.",
+      "benefitsTitle": "Benefits of Disposable Email",
+      "benefit1": "Spam Protection:",
+      "benefit1Desc": "Keep your real inbox clean by using temp mail for signups",
+      "benefit2": "Privacy:",
+      "benefit2Desc": "Protect your identity when accessing online services",
+      "benefit3": "Security:",
+      "benefit3Desc": "Reduce exposure to phishing and data breaches",
+      "benefit4": "Convenience:",
+      "benefit4Desc": "No registration needed - get an email instantly",
+      "benefit5": "Free Forever:",
+      "benefit5Desc": "Our basic service is completely free with no hidden costs"
+    },
+    "cta": {
+      "title": "Ready to protect your privacy?",
+      "subtitle": "Get your free temporary email address now. No registration, no hassle, just privacy.",
+      "button": "Get Started Free"
+    },
+    "status": {
+      "liveUpdates": "Live updates enabled"
+    },
+    "quickStats": {
+      "private": "Private",
+      "endToEnd": "End-to-end",
+      "instant": "Instant",
+      "realTime": "Real-time",
+      "autoDelete": "Auto-delete",
+      "tenMinutes": "10 minutes"
+    }
+  },
+  "inbox": {
+    "title": "Inbox",
+    "empty": "Your inbox is empty",
+    "emptyDescription": "Emails sent to your temporary address will appear here",
+    "from": "From",
+    "subject": "Subject",
+    "received": "Received",
+    "read": "Read",
+    "unread": "Unread",
+    "delete": "Delete Email",
+    "markAsRead": "Mark as Read",
+    "viewEmail": "View Email",
+    "attachments": "Attachments",
+    "noSubject": "(No Subject)",
+    "emailExpired": "This email address has expired",
+    "generateNew": "Generate New Address"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signInWith": "Sign in with {provider}",
+    "signingIn": "Signing in...",
+    "signInError": "Error signing in",
+    "accessDenied": "Access Denied",
+    "banned": "Your account has been banned",
+    "profile": "Profile",
+    "myAccount": "My Account"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "dashboard": "Dashboard",
+    "domains": "Domains",
+    "users": "Users",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "overview": "Overview",
+    "totalEmails": "Total Emails Generated",
+    "totalReceived": "Total Emails Received",
+    "activeDomains": "Active Domains",
+    "totalUsers": "Total Users",
+    "recentActivity": "Recent Activity",
+    "domainManagement": {
+      "title": "Domain Management",
+      "addDomain": "Add Domain",
+      "domainName": "Domain Name",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "default": "Default",
+      "setDefault": "Set as Default",
+      "deleteDomain": "Delete Domain",
+      "confirmDelete": "Are you sure you want to delete this domain?"
+    },
+    "userManagement": {
+      "title": "User Management",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "joined": "Joined",
+      "actions": "Actions",
+      "ban": "Ban User",
+      "unban": "Unban User",
+      "makeAdmin": "Make Admin",
+      "removeAdmin": "Remove Admin",
+      "banned": "Banned",
+      "active": "Active"
+    },
+    "analyticsPage": {
+      "title": "Analytics",
+      "emailsOverTime": "Emails Over Time",
+      "generated": "Generated",
+      "received": "Received",
+      "last7Days": "Last 7 Days",
+      "last30Days": "Last 30 Days",
+      "last90Days": "Last 90 Days"
+    },
+    "settingsPage": {
+      "title": "Settings",
+      "general": "General Settings",
+      "emailTTL": "Email TTL (seconds)",
+      "emailTTLDescription": "How long temporary emails last before expiring",
+      "defaultDomain": "Default Domain",
+      "mailcow": "Mailcow Configuration",
+      "mailcowUrl": "Mailcow API URL",
+      "mailcowKey": "Mailcow API Key",
+      "testConnection": "Test Connection",
+      "connectionSuccess": "Connection successful",
+      "connectionFailed": "Connection failed"
+    }
+  },
+  "errors": {
+    "notFound": "Page Not Found",
+    "notFoundDescription": "The page you're looking for doesn't exist.",
+    "serverError": "Server Error",
+    "serverErrorDescription": "Something went wrong on our end.",
+    "unauthorized": "Unauthorized",
+    "unauthorizedDescription": "You don't have permission to access this page.",
+    "goHome": "Go Home"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "about": "About",
+    "copyright": "© {year} TempMail. All rights reserved.",
+    "description": "The fastest and most secure temporary email service. Protect your privacy with disposable email addresses that auto-delete. No registration required.",
+    "privateSecure": "Private & Secure",
+    "instantDelivery": "Instant Delivery",
+    "languages": "20+ Languages"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy - TempMailCentral",
+      "description": "Learn how TempMailCentral protects your privacy. We don't store personal data, all emails auto-delete, and your privacy is our priority."
+    },
+    "badge": "Your Privacy Matters",
+    "title": "Privacy Policy",
+    "subtitle": "How we protect your privacy and handle your data",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "At TempMailCentral, privacy is our top priority. This Privacy Policy explains how we collect, use, and protect your information when you use our temporary email service. By using our service, you agree to the practices described in this policy.",
+    "sections": {
+      "dataCollection": {
+        "title": "Information We Collect",
+        "content": "We collect minimal information to provide our service:\n\n• Technical Data: IP addresses, browser type, and device information for security and service improvement\n• Usage Data: How you interact with our service to improve functionality\n• Email Content: Temporarily stored emails that auto-delete after expiration\n• Cookies: Essential cookies for service functionality\n\nWe do NOT collect:\n• Personal identification information\n• Payment information (our service is free)\n• Your real email address\n• Any data we don't absolutely need"
+      },
+      "dataUsage": {
+        "title": "How We Use Your Data",
+        "content": "We use collected information for:\n\n• Providing and maintaining our temporary email service\n• Improving user experience and service functionality\n• Detecting and preventing abuse, spam, and security threats\n• Analyzing usage patterns to optimize performance\n• Complying with legal obligations\n\nWe do NOT:\n• Sell your data to third parties\n• Use your data for advertising\n• Share your information without your consent\n• Store data longer than necessary"
+      },
+      "dataSharing": {
+        "title": "Data Sharing and Disclosure",
+        "content": "We do not sell, trade, or rent your personal information. We may share data only in these limited cases:\n\n• Legal Requirements: When required by law or to protect our rights\n• Service Providers: Trusted partners who help operate our service (under strict confidentiality)\n• Security: To prevent fraud, abuse, or security threats\n\nAll third-party service providers are bound by confidentiality agreements and are prohibited from using your information for any purpose other than providing services to us."
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "content": "We use cookies and similar technologies:\n\n• Essential Cookies: Required for service functionality (cannot be disabled)\n• Analytics Cookies: Help us understand how you use our service\n• Preference Cookies: Remember your settings and preferences\n\nYou can control cookies through your browser settings. However, disabling essential cookies may limit service functionality.\n\nWe do NOT use:\n• Advertising cookies\n• Third-party tracking cookies\n• Social media tracking pixels"
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement industry-standard security measures:\n\n• Encryption: All data transmitted is encrypted using HTTPS/TLS\n• Secure Infrastructure: Our servers use advanced security protocols\n• Access Control: Limited access to data by authorized personnel only\n• Regular Audits: Continuous monitoring and security assessments\n• Auto-Deletion: Emails automatically delete after expiration\n\nWhile we strive to protect your data, no internet transmission is 100% secure. Use our service at your own risk for non-sensitive communications."
+      },
+      "emailRetention": {
+        "title": "Email Retention and Deletion",
+        "content": "Email retention policy:\n\n• Temporary Emails: Auto-delete after 10 minutes by default\n• Extended Emails: Delete based on your chosen extension period\n• Permanent Mailboxes: Retain until you delete (for registered users)\n• Deleted Content: Permanently removed from our systems\n\nOnce deleted, emails cannot be recovered. We do not maintain backups of temporary email content."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions about this Privacy Policy or our data practices, please contact us at: privacy@tempmailcentral.com"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service - TempMailCentral",
+      "description": "Read our Terms of Service to understand the rules and guidelines for using TempMailCentral's temporary email service."
+    },
+    "badge": "Legal Terms",
+    "title": "Terms of Service",
+    "subtitle": "Please read these terms carefully before using our service",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "Welcome to TempMailCentral. These Terms of Service ('Terms') govern your use of our temporary email service. By accessing or using TempMailCentral, you agree to be bound by these Terms. If you disagree with any part, please do not use our service.",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using TempMailCentral, you confirm that:\n\n• You are at least 13 years old\n• You have the legal capacity to enter into these Terms\n• You will comply with all applicable laws and regulations\n• You understand this is a temporary email service with limitations\n\nWe reserve the right to modify these Terms at any time. Continued use after changes constitutes acceptance of the modified Terms."
+      },
+      "serviceDescription": {
+        "title": "Service Description",
+        "content": "TempMailCentral provides:\n\n• Free temporary email addresses that auto-delete\n• Email receiving capabilities (no sending)\n• Basic email viewing and attachment downloads\n• Optional account features for extended use\n\nOur service is provided 'as-is' without guarantees:\n\n• We do not guarantee 100% uptime or availability\n• Emails may be lost due to technical issues\n• Some websites may block our domains\n• Service features may change without notice"
+      },
+      "userResponsibilities": {
+        "title": "User Responsibilities",
+        "content": "You agree to:\n\n• Use the service only for lawful purposes\n• Not use temporary emails for critical accounts (banking, healthcare, etc.)\n• Not rely on our service for important communications\n• Accept that emails are temporary and will be deleted\n• Not attempt to abuse, hack, or disrupt our service\n• Not use the service to harass, spam, or harm others\n\nYou understand that:\n\n• Temporary emails are not private - anyone with the address can view emails\n• You should not use temp mail for sensitive information\n• We may terminate access to users who violate these terms"
+      },
+      "prohibitedUses": {
+        "title": "Prohibited Uses",
+        "content": "You may NOT use TempMailCentral for:\n\n• Illegal activities or fraud\n• Creating accounts for harassment or abuse\n• Bypassing bans or restrictions on other services\n• Receiving sensitive personal or financial information\n• Automated scraping or data harvesting\n• Distributing malware or phishing\n• Any activity that violates laws or regulations\n• Impersonating others or misrepresenting identity\n\nViolation may result in:\n\n• Immediate termination of service access\n• Reporting to appropriate authorities\n• Legal action if necessary"
+      },
+      "disclaimer": {
+        "title": "Disclaimer of Warranties",
+        "content": "TempMailCentral is provided 'AS IS' and 'AS AVAILABLE' without warranties of any kind, either express or implied, including but not limited to:\n\n• Merchantability or fitness for a particular purpose\n• Non-infringement or security\n• Accuracy, reliability, or completeness\n• Uninterrupted or error-free service\n\nWe do not warrant that:\n\n• The service will meet your requirements\n• Emails will be delivered or received correctly\n• The service will be available at all times\n• Defects will be corrected\n• The service is free from viruses or harmful components"
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "To the maximum extent permitted by law:\n\n• We are not liable for any indirect, incidental, special, or consequential damages\n• Our total liability shall not exceed $100 USD\n• We are not responsible for data loss, including lost emails\n• We are not liable for third-party actions or content\n• You use the service at your own risk\n\nThis includes but is not limited to:\n\n• Lost business or profits\n• Data corruption or loss\n• Service interruptions\n• Security breaches\n• Third-party claims"
+      }
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "For questions about these Terms of Service, please contact us at: legal@tempmailcentral.com"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us - TempMailCentral",
+      "description": "Learn about TempMailCentral, the trusted temporary email service protecting privacy for over 500,000 users worldwide."
+    },
+    "badge": "About Us",
+    "title": "About TempMailCentral",
+    "subtitle": "Protecting your privacy with secure, disposable email addresses since day one",
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Our Mission",
+      "content": "Our mission is simple: protect your privacy online. In a world where your email address is constantly requested, we believe you should have the freedom to maintain your privacy without sacrificing access to online services. TempMailCentral provides a fast, free, and secure way to use the internet without compromising your personal information.",
+      "highlight": {
+        "title": "Privacy First, Always",
+        "description": "We built TempMailCentral on the principle that privacy is a fundamental right, not a luxury. Every feature we add is designed with your privacy in mind."
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your privacy is non-negotiable. We don't sell data, track unnecessarily, or store information longer than needed."
+      },
+      "simplicity": {
+        "title": "Simple & Fast",
+        "description": "No registration, no complications. Just instant, working email addresses when you need them."
+      },
+      "accessibility": {
+        "title": "Free & Accessible",
+        "description": "Privacy protection should be available to everyone, everywhere. Our service is free and available in 20+ languages."
+      },
+      "transparency": {
+        "title": "Transparent",
+        "description": "We're honest about what we do, how we do it, and what limitations exist. No hidden terms or surprises."
+      }
+    },
+    "story": {
+      "badge": "Our Story",
+      "title": "How TempMailCentral Started",
+      "paragraph1": "TempMailCentral was born from a simple frustration: giving out email addresses to websites that didn't need them. Every signup meant more spam, more tracking, and less privacy. We knew there had to be a better way.",
+      "paragraph2": "We started by building a service for ourselves—a simple, fast way to get temporary email addresses without registration. As word spread, we realized others shared our concerns about online privacy. Today, we serve over 500,000 users worldwide who trust us to protect their privacy.",
+      "paragraph3": "We've grown from a simple tool to a comprehensive privacy service, but our core mission remains the same: give people control over their digital privacy. We continue to improve our service, add new features, and expand to new languages—all while keeping privacy at the forefront of everything we do."
+    },
+    "stats": {
+      "emails": "Emails Received",
+      "users": "Active Users",
+      "languages": "Languages",
+      "uptime": "Uptime"
+    },
+    "cta": {
+      "title": "Join Our Privacy-First Community",
+      "description": "Experience the freedom of browsing without compromising your privacy",
+      "button": "Get Started Free"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "manageMailboxes": "Manage your persistent email addresses",
+    "createMailbox": "Create Mailbox",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "overview": "Overview",
+      "myMailboxes": "My Mailboxes",
+      "domains": "My Domains",
+      "tempEmails": "Temp Emails",
+      "starred": "Starred",
+      "archived": "Archived",
+      "settings": "Settings",
+      "newMailbox": "New Mailbox"
+    },
+    "stats": {
+      "totalMailboxes": "Total Mailboxes",
+      "persistentAddresses": "Persistent addresses",
+      "totalEmails": "Total Emails",
+      "acrossAllMailboxes": "Across all mailboxes",
+      "unread": "Unread",
+      "newMessages": "New messages",
+      "storage": "Storage",
+      "forever": "Forever",
+      "emailsNeverExpire": "Emails never expire"
+    },
+    "domains": {
+      "title": "My Domains",
+      "subtitle": "Add and manage your custom domains for email receiving",
+      "addDomain": "Add Domain",
+      "addNewDomain": "Add New Domain",
+      "addNewDomainDescription": "Enter your domain name to start receiving emails",
+      "domainName": "Domain Name",
+      "domainNameHelper": "Enter your domain without http:// or www (e.g., example.com)",
+      "adding": "Adding...",
+      "noDomains": "No custom domains yet",
+      "noDomainsDescription": "Add your own domain to receive emails at your custom address",
+      "verified": "Verified",
+      "pendingVerification": "Pending Verification",
+      "addedOn": "Added on",
+      "deleteConfirm": "Are you sure you want to delete this domain? All associated mailboxes will stop working.",
+      "verificationStatus": "Verification Status",
+      "ownershipVerification": "Domain Ownership (TXT Record)",
+      "mxRecord": "MX Record",
+      "spfRecord": "SPF Record",
+      "optional": "Optional",
+      "errors": "Issues Found",
+      "dnsInstructionsInfo": "Add the following DNS records to your domain to start receiving emails.",
+      "step1Verification": "Step 1: Verify Ownership",
+      "step2MX": "Step 2: Add MX Record",
+      "step3SPF": "Step 3: Add SPF Record",
+      "name": "Name",
+      "value": "Value",
+      "priority": "Priority",
+      "verifyDNS": "Verify DNS Records",
+      "verifying": "Verifying..."
+    },
+    "recentEmails": {
+      "title": "Recent Emails",
+      "viewAll": "View All",
+      "noEmails": "No emails yet",
+      "noEmailsDescription": "Emails sent to your mailboxes will appear here",
+      "to": "to"
+    },
+    "mailboxes": {
+      "title": "Your Mailboxes",
+      "new": "New",
+      "noMailboxes": "No mailboxes yet",
+      "noMailboxesDescription": "Create your first permanent email address",
+      "myMailboxes": "My Mailboxes",
+      "permanentEmailAddress": "permanent email address",
+      "permanentEmailAddresses": "permanent email addresses",
+      "newMailbox": "New Mailbox",
+      "createNew": "Create New Mailbox",
+      "emailAddress": "Email Address",
+      "emailPlaceholder": "myemail (optional)",
+      "prefixHelper": "Leave prefix empty for a random address",
+      "friendlyName": "Friendly Name (optional)",
+      "namePlaceholder": "Work, Personal, Newsletter...",
+      "creating": "Creating...",
+      "searchPlaceholder": "Search mailboxes...",
+      "selectMailbox": "Select a mailbox",
+      "selectMailboxDescription": "Choose a mailbox to view its emails",
+      "email": "email",
+      "emails": "emails",
+      "emailsSentTo": "Emails sent to {address} will appear here",
+      "deleteConfirm": "Are you sure you want to delete this mailbox? All emails will be lost."
+    },
+    "quickActions": {
+      "createMailbox": "Create Mailbox",
+      "createMailboxDescription": "Add a new permanent email",
+      "tempEmail": "Temp Email",
+      "tempEmailDescription": "Quick disposable address",
+      "preferences": "Preferences",
+      "preferencesDescription": "Customize your experience"
+    },
+    "settings": {
+      "title": "Settings",
+      "managePreferences": "Manage your account preferences",
+      "profile": {
+        "title": "Profile",
+        "description": "Your account information",
+        "user": "User"
+      },
+      "emailPreferences": {
+        "title": "Email Preferences",
+        "description": "Configure your mailbox defaults",
+        "autoMarkRead": "Auto-mark emails as read",
+        "autoMarkReadDescription": "Mark emails as read when viewing",
+        "defaultExpiry": "Default email expiry",
+        "defaultExpiryDescription": "For temporary emails",
+        "10minutes": "10 minutes",
+        "1hour": "1 hour",
+        "24hours": "24 hours"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Manage notification settings",
+        "browser": "Browser notifications",
+        "browserDescription": "Get notified when new emails arrive",
+        "sound": "Sound alerts",
+        "soundDescription": "Play sound for new emails"
+      },
+      "privacy": {
+        "title": "Privacy & Security",
+        "description": "Manage your data and security",
+        "twoFactor": "Two-factor authentication",
+        "twoFactorDescription": "Add an extra layer of security",
+        "enable": "Enable",
+        "activeSessions": "Active sessions",
+        "activeSessionsDescription": "Manage devices logged into your account",
+        "view": "View"
+      },
+      "dangerZone": {
+        "title": "Danger Zone",
+        "description": "Irreversible actions",
+        "deleteAllMailboxes": "Delete all mailboxes",
+        "deleteAllMailboxesDescription": "Remove all your email addresses and emails",
+        "deleteAll": "Delete All",
+        "deleteAccount": "Delete account",
+        "deleteAccountDescription": "Permanently remove your account and all data",
+        "deleteAccountButton": "Delete Account"
+      }
+    },
+    "emailViewer": {
+      "back": "Back",
+      "noSubject": "(No Subject)",
+      "noContent": "No content",
+      "attachment": "attachment",
+      "attachments": "attachments"
+    }
+  }
+}

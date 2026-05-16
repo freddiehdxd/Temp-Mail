@@ -1,0 +1,546 @@
+{
+  "common": {
+    "appName": "TempMail",
+    "tagline": "Email Temporário Gratuito",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "add": "Adicionar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "actions": "Ações",
+    "confirm": "Confirmar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "close": "Fechar",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "refresh": "Atualizar",
+    "settings": "Configurações",
+    "language": "Idioma",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "home": {
+    "title": "Email Temporário Gratuito",
+    "subtitle": "Proteja sua privacidade com endereços de email descartáveis",
+    "description": "Obtenha um endereço de email temporário instantaneamente. Sem cadastro. Os emails são excluídos automaticamente após 10 minutos.",
+    "generateButton": "Gerar Novo Email",
+    "yourEmail": "Seu Email Temporário",
+    "copyEmail": "Copiar Endereço de Email",
+    "refreshInbox": "Atualizar Caixa",
+    "extendTime": "Estender Tempo",
+    "timeRemaining": "Tempo Restante",
+    "noEmails": "Nenhum email ainda",
+    "waitingForEmails": "Aguardando emails...",
+    "heroBadge": "Confiável por mais de 500.000 usuários em todo o mundo",
+    "stats": {
+      "emailsReceived": "Emails Recebidos",
+      "happyUsers": "Usuários Satisfeitos",
+      "uptime": "Tempo Ativo",
+      "languages": "Idiomas"
+    },
+    "features": {
+      "title": "Por que usar o TempMail?",
+      "subtitle": "Tudo o que você precisa para comunicação por email segura e descartável",
+      "privacy": {
+        "title": "Proteja Sua Privacidade",
+        "description": "Mantenha seu email real privado. Use emails temporários para cadastros e verificações."
+      },
+      "noSpam": {
+        "title": "Evite Spam",
+        "description": "Pare o spam antes de começar. Os emails temporários desaparecem, levando o spam junto."
+      },
+      "instant": {
+        "title": "Instantâneo e Grátis",
+        "description": "Sem necessidade de cadastro. Obtenha um endereço de email funcional em segundos, totalmente grátis."
+      },
+      "secure": {
+        "title": "Seguro e Anônimo",
+        "description": "Seus emails são automaticamente excluídos. Nenhum dado é armazenado permanentemente."
+      }
+    },
+    "howItWorks": {
+      "title": "Como Funciona",
+      "subtitle": "Comece em segundos com três passos simples",
+      "step1": {
+        "title": "Obtenha Email Instantâneo",
+        "description": "Um email temporário é gerado automaticamente quando você visita"
+      },
+      "step2": {
+        "title": "Use em Qualquer Lugar",
+        "description": "Copie e use para cadastros, verificações ou qualquer serviço"
+      },
+      "step3": {
+        "title": "Exclusão Automática",
+        "description": "Tudo é automaticamente excluído após 10 minutos"
+      }
+    },
+    "useCases": {
+      "title": "Perfeito para",
+      "titleHighlight": "Qualquer Situação",
+      "subtitle": "Seja você se cadastrando em um novo serviço, testando seu aplicativo ou apenas querendo manter sua caixa de entrada real limpa, nós temos a solução.",
+      "case1": "Cadastrar-se em testes gratuitos",
+      "case2": "Evitar spam de newsletters",
+      "case3": "Testar seus aplicativos",
+      "case4": "Proteger seu email real",
+      "case5": "Compras online",
+      "case6": "Cadastros em redes sociais"
+    },
+    "reviews": {
+      "title": "Amado por desenvolvedores e usuários",
+      "subtitle": "Junte-se a milhares de usuários satisfeitos",
+      "review1": "Melhor serviço de email temporário que já usei. Interface limpa e super rápida!",
+      "review2": "Finalmente, um email descartável que realmente funciona. Sem anúncios, sem complicações.",
+      "review3": "A função de atualização automática é incrível. Os emails aparecem instantaneamente!"
+    },
+    "faq": {
+      "badge": "Perguntas Frequentes",
+      "title": "Tudo Sobre",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "Aprenda como o email temporário descartável funciona e por que milhões confiam no TempMailCentral para suas necessidades de privacidade.",
+      "question1": "O que é um email temporário ou temp mail?",
+      "answer1": "Um email temporário (também chamado de temp mail, email descartável ou email de uso único) é um endereço de email autodestrutivo que você pode usar por um curto período. Ele ajuda a proteger seu email real de spam, phishing e emails de marketing indesejados ao se cadastrar em sites ou serviços.",
+      "question2": "Como funciona o email descartável?",
+      "answer2": "O email descartável funciona fornecendo a você um endereço de email aleatório instantaneamente. Qualquer email enviado para este endereço aparece na sua caixa de entrada temporária em tempo real. Após um período definido (normalmente 10 minutos), o endereço de email e todas as mensagens recebidas são automaticamente excluídos.",
+      "question3": "É seguro usar temp mail?",
+      "answer3": "Sim, temp mail é seguro de usar para fins não sensíveis como cadastrar-se em sites, baixar recursos ou testar aplicativos. No entanto, você nunca deve usar email temporário para contas importantes como bancárias, pois os emails serão excluídos e você pode perder o acesso.",
+      "question4": "Quanto tempo dura um email temporário?",
+      "answer4": "Por padrão, endereços de email temporários no TempMailCentral duram 10 minutos. No entanto, usuários logados podem estender o tempo até 30 dias ou até salvar o endereço como uma caixa de correio permanente.",
+      "question5": "Os sites podem detectar temp mail?",
+      "answer5": "Alguns sites mantêm listas de bloqueio de domínios de email temporários conhecidos. Embora o TempMailCentral use vários domínios para minimizar isso, alguns sites rigorosos ainda podem detectar e bloquear endereços de email temporários.",
+      "question6": "Preciso me cadastrar para usar temp mail?",
+      "answer6": "Nenhum cadastro é necessário para usar o TempMailCentral. Simplesmente visite o site e você receberá automaticamente um endereço de email temporário que pode usar imediatamente.",
+      "question7": "Posso receber anexos com temp mail?",
+      "answer7": "Sim, o TempMailCentral suporta recebimento de anexos de email. Você pode visualizar e baixar anexos de emails enviados para seu endereço temporário.",
+      "question8": "Para que é usado o temp mail?",
+      "answer8": "Temp mail é comumente usado para: cadastrar-se em testes gratuitos, evitar spam de newsletters, testar funcionalidade de email em aplicativos, proteger seu email real de violações de dados, compras online em sites não confiáveis e acessar downloads ou recursos únicos."
+    },
+    "whyChoose": {
+      "title": "Por Que Escolher",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "O serviço de email temporário gratuito mais confiável, com a confiança de mais de 500.000 usuários em todo o mundo.",
+      "instantFree": {
+        "title": "Instantâneo e Gratuito",
+        "description": "Sem cadastro, sem cartão de crédito, sem compromissos. Obtenha seu email descartável em segundos, completamente gratuito para sempre."
+      },
+      "privacyFirst": {
+        "title": "Privacidade em Primeiro Lugar",
+        "description": "Não rastreamos, armazenamos ou vendemos seus dados. Todos os emails são excluídos automaticamente após expiração. Sua privacidade é nossa prioridade."
+      },
+      "multiLanguage": {
+        "title": "Mais de 20 Idiomas",
+        "description": "Disponível em mais de 20 idiomas incluindo inglês, espanhol, francês, alemão, chinês, japonês e mais."
+      }
+    },
+    "seoContent": {
+      "title": "Sobre Temp Mail - Email Temporário Descartável",
+      "whatIsTitle": "O que é Email Temporário?",
+      "whatIsContent": "Email temporário, também conhecido como temp mail, email descartável, email de uso único ou email de 10 minutos, é um serviço que fornece a você um endereço de email de curta duração. Ao contrário do seu email pessoal, um endereço temp mail é projetado para ser usado uma vez e depois descartado, mantendo sua caixa de entrada real limpa e livre de spam.",
+      "whatIsContent2": "TempMailCentral gera endereços de email aleatórios que você pode usar para cadastros em sites, assinaturas de newsletters, compras online ou qualquer situação onde você precisa de um email mas não quer compartilhar seu endereço real.",
+      "benefitsTitle": "Benefícios do Email Descartável",
+      "benefit1": "Proteção contra Spam:",
+      "benefit1Desc": "Mantenha sua caixa de entrada real limpa usando temp mail para cadastros",
+      "benefit2": "Privacidade:",
+      "benefit2Desc": "Proteja sua identidade ao acessar serviços online",
+      "benefit3": "Segurança:",
+      "benefit3Desc": "Reduza a exposição a phishing e violações de dados",
+      "benefit4": "Conveniência:",
+      "benefit4Desc": "Sem necessidade de cadastro - obtenha um email instantaneamente",
+      "benefit5": "Gratuito Para Sempre:",
+      "benefit5Desc": "Nosso serviço básico é completamente gratuito sem custos ocultos"
+    },
+    "cta": {
+      "title": "Pronto para proteger sua privacidade?",
+      "subtitle": "Obtenha seu endereço de email temporário gratuito agora. Sem cadastro, sem complicações, apenas privacidade.",
+      "button": "Começar Gratuitamente"
+    },
+    "status": {
+      "liveUpdates": "Atualiza??es ao vivo ativadas"
+    },
+    "quickStats": {
+      "private": "Privado",
+      "endToEnd": "De ponta a ponta",
+      "instant": "Instant?neo",
+      "realTime": "Em tempo real",
+      "autoDelete": "Exclus?o autom?tica",
+      "tenMinutes": "10 minutos"
+    }
+  },
+  "inbox": {
+    "title": "Caixa de Entrada",
+    "empty": "Sua caixa está vazia",
+    "emptyDescription": "Os emails enviados para seu endereço temporário aparecerão aqui",
+    "from": "De",
+    "subject": "Assunto",
+    "received": "Recebido",
+    "read": "Lido",
+    "unread": "Não lido",
+    "delete": "Excluir Email",
+    "markAsRead": "Marcar como Lido",
+    "viewEmail": "Ver Email",
+    "attachments": "Anexos",
+    "noSubject": "(Sem Assunto)",
+    "emailExpired": "Este endereço de email expirou",
+    "generateNew": "Gerar Novo Endereço"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signOut": "Sair",
+    "signInWith": "Entrar com {provider}",
+    "signingIn": "Entrando...",
+    "signInError": "Erro ao entrar",
+    "accessDenied": "Acesso Negado",
+    "banned": "Sua conta foi banida",
+    "profile": "Perfil",
+    "myAccount": "Minha Conta"
+  },
+  "admin": {
+    "title": "Painel de Administração",
+    "dashboard": "Painel",
+    "domains": "Domínios",
+    "users": "Usuários",
+    "analytics": "Análises",
+    "settings": "Configurações",
+    "overview": "Visão Geral",
+    "totalEmails": "Total de Emails Gerados",
+    "totalReceived": "Total de Emails Recebidos",
+    "activeDomains": "Domínios Ativos",
+    "totalUsers": "Total de Usuários",
+    "recentActivity": "Atividade Recente",
+    "domainManagement": {
+      "title": "Gerenciamento de Domínios",
+      "addDomain": "Adicionar Domínio",
+      "domainName": "Nome do Domínio",
+      "status": "Status",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "default": "Padrão",
+      "setDefault": "Definir como Padrão",
+      "deleteDomain": "Excluir Domínio",
+      "confirmDelete": "Tem certeza que deseja excluir este domínio?"
+    },
+    "userManagement": {
+      "title": "Gerenciamento de Usuários",
+      "name": "Nome",
+      "email": "Email",
+      "role": "Função",
+      "status": "Status",
+      "joined": "Cadastrado",
+      "actions": "Ações",
+      "ban": "Banir Usuário",
+      "unban": "Desbanir Usuário",
+      "makeAdmin": "Tornar Admin",
+      "removeAdmin": "Remover Admin",
+      "banned": "Banido",
+      "active": "Ativo"
+    },
+    "analyticsPage": {
+      "title": "Análises",
+      "emailsOverTime": "Emails ao Longo do Tempo",
+      "generated": "Gerados",
+      "received": "Recebidos",
+      "last7Days": "Últimos 7 Dias",
+      "last30Days": "Últimos 30 Dias",
+      "last90Days": "Últimos 90 Dias"
+    },
+    "settingsPage": {
+      "title": "Configurações",
+      "general": "Configurações Gerais",
+      "emailTTL": "TTL do Email (segundos)",
+      "emailTTLDescription": "Quanto tempo os emails temporários duram antes de expirar",
+      "defaultDomain": "Domínio Padrão",
+      "mailcow": "Configuração do Mailcow",
+      "mailcowUrl": "URL da API Mailcow",
+      "mailcowKey": "Chave da API Mailcow",
+      "testConnection": "Testar Conexão",
+      "connectionSuccess": "Conexão bem-sucedida",
+      "connectionFailed": "Conexão falhou"
+    }
+  },
+  "errors": {
+    "notFound": "Página Não Encontrada",
+    "notFoundDescription": "A página que você procura não existe.",
+    "serverError": "Erro do Servidor",
+    "serverErrorDescription": "Algo deu errado do nosso lado.",
+    "unauthorized": "Não Autorizado",
+    "unauthorizedDescription": "Você não tem permissão para acessar esta página.",
+    "goHome": "Ir para Início"
+  },
+  "footer": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "contact": "Contato",
+    "about": "Sobre",
+    "copyright": "© {year} TempMail. Todos os direitos reservados.",
+    "description": "O servi?o de email tempor?rio mais r?pido e seguro. Proteja sua privacidade com endere?os descart?veis que se apagam automaticamente. N?o ? necess?rio cadastro.",
+    "privateSecure": "Privado e seguro",
+    "instantDelivery": "Entrega instant?nea",
+    "languages": "Mais de 20 idiomas"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidade - TempMailCentral",
+      "description": "Saiba como o TempMailCentral protege sua privacidade. Não armazenamos dados pessoais, todos os emails são excluídos automaticamente e sua privacidade é nossa prioridade."
+    },
+    "badge": "Sua Privacidade Importa",
+    "title": "Política de Privacidade",
+    "subtitle": "Como protegemos sua privacidade e gerenciamos seus dados",
+    "lastUpdated": "Última atualização: 24 de janeiro de 2026",
+    "introduction": "No TempMailCentral, a privacidade é nossa principal prioridade. Esta Política de Privacidade explica como coletamos, usamos e protegemos suas informações ao usar nosso serviço de email temporário. Ao usar nosso serviço, você concorda com as práticas descritas nesta política.",
+    "sections": {
+      "dataCollection": {
+        "title": "Informações que Coletamos",
+        "content": "Coletamos informações mínimas para fornecer nosso serviço:\n\n• Dados Técnicos: Endereços IP, tipo de navegador e informações do dispositivo para segurança e melhoria do serviço\n• Dados de Uso: Como você interage com nosso serviço para melhorar a funcionalidade\n• Conteúdo de Email: Emails armazenados temporariamente que são excluídos automaticamente após expiração\n• Cookies: Cookies essenciais para funcionalidade do serviço\n\nNÃO coletamos:\n• Informações de identificação pessoal\n• Informações de pagamento (nosso serviço é gratuito)\n• Seu endereço de email real\n• Quaisquer dados que não precisemos absolutamente"
+      },
+      "dataUsage": {
+        "title": "Como Usamos Seus Dados",
+        "content": "Usamos as informações coletadas para:\n\n• Fornecer e manter nosso serviço de email temporário\n• Melhorar a experiência do usuário e funcionalidade do serviço\n• Detectar e prevenir abuso, spam e ameaças de segurança\n• Analisar padrões de uso para otimizar o desempenho\n• Cumprir obrigações legais\n\nNÃO:\n• Vendemos seus dados para terceiros\n• Usamos seus dados para publicidade\n• Compartilhamos suas informações sem seu consentimento\n• Armazenamos dados por mais tempo do que o necessário"
+      },
+      "dataSharing": {
+        "title": "Compartilhamento e Divulgação de Dados",
+        "content": "Não vendemos, comercializamos ou alugamos suas informações pessoais. Podemos compartilhar dados apenas nestes casos limitados:\n\n• Requisitos Legais: Quando exigido por lei ou para proteger nossos direitos\n• Provedores de Serviço: Parceiros confiáveis que ajudam a operar nosso serviço (sob estrita confidencialidade)\n• Segurança: Para prevenir fraude, abuso ou ameaças de segurança\n\nTodos os provedores de serviços terceirizados estão vinculados por acordos de confidencialidade e estão proibidos de usar suas informações para qualquer finalidade que não seja nos prestar serviços."
+      },
+      "cookies": {
+        "title": "Cookies e Rastreamento",
+        "content": "Usamos cookies e tecnologias semelhantes:\n\n• Cookies Essenciais: Necessários para funcionalidade do serviço (não podem ser desativados)\n• Cookies de Análise: Nos ajudam a entender como você usa nosso serviço\n• Cookies de Preferência: Lembram suas configurações e preferências\n\nVocê pode controlar os cookies através das configurações do seu navegador. No entanto, desativar cookies essenciais pode limitar a funcionalidade do serviço.\n\nNÃO usamos:\n• Cookies de publicidade\n• Cookies de rastreamento de terceiros\n• Pixels de rastreamento de mídia social"
+      },
+      "dataSecurity": {
+        "title": "Segurança de Dados",
+        "content": "Implementamos medidas de segurança padrão do setor:\n\n• Criptografia: Todos os dados transmitidos são criptografados usando HTTPS/TLS\n• Infraestrutura Segura: Nossos servidores usam protocolos de segurança avançados\n• Controle de Acesso: Acesso limitado aos dados apenas por pessoal autorizado\n• Auditorias Regulares: Monitoramento contínuo e avaliações de segurança\n• Exclusão Automática: Emails são automaticamente excluídos após expiração\n\nEmbora nos esforcemos para proteger seus dados, nenhuma transmissão pela Internet é 100% segura. Use nosso serviço por sua conta e risco para comunicações não sensíveis."
+      },
+      "emailRetention": {
+        "title": "Retenção e Exclusão de Emails",
+        "content": "Política de retenção de emails:\n\n• Emails Temporários: Exclusão automática após 10 minutos por padrão\n• Emails Estendidos: Excluídos com base no período de extensão escolhido\n• Caixas de Correio Permanentes: Mantidas até que você exclua (para usuários registrados)\n• Conteúdo Excluído: Removido permanentemente de nossos sistemas\n\nUma vez excluídos, os emails não podem ser recuperados. Não mantemos backups de conteúdo de email temporário."
+      }
+    },
+    "contact": {
+      "title": "Entre em Contato",
+      "content": "Se você tiver dúvidas sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco em: privacy@tempmailcentral.com"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Termos de Serviço - TempMailCentral",
+      "description": "Leia nossos Termos de Serviço para entender as regras e diretrizes para usar o serviço de email temporário do TempMailCentral."
+    },
+    "badge": "Termos Legais",
+    "title": "Termos de Serviço",
+    "subtitle": "Por favor, leia estes termos cuidadosamente antes de usar nosso serviço",
+    "lastUpdated": "Última atualização: 24 de janeiro de 2026",
+    "introduction": "Bem-vindo ao TempMailCentral. Estes Termos de Serviço ('Termos') regem o uso de nosso serviço de email temporário. Ao acessar ou usar o TempMailCentral, você concorda em estar vinculado a estes Termos. Se você discordar de qualquer parte, por favor não use nosso serviço.",
+    "sections": {
+      "acceptance": {
+        "title": "Aceitação dos Termos",
+        "content": "Ao usar o TempMailCentral, você confirma que:\n\n• Você tem pelo menos 13 anos de idade\n• Você tem capacidade legal para aceitar estes Termos\n• Você cumprirá todas as leis e regulamentos aplicáveis\n• Você entende que este é um serviço de email temporário com limitações\n\nReservamo-nos o direito de modificar estes Termos a qualquer momento. O uso continuado após as alterações constitui aceitação dos Termos modificados."
+      },
+      "serviceDescription": {
+        "title": "Descrição do Serviço",
+        "content": "O TempMailCentral fornece:\n\n• Endereços de email temporários gratuitos que são excluídos automaticamente\n• Capacidades de recebimento de emails (sem envio)\n• Visualização básica de emails e download de anexos\n• Recursos de conta opcionais para uso estendido\n\nNosso serviço é fornecido 'como está' sem garantias:\n\n• Não garantimos 100% de tempo de atividade ou disponibilidade\n• Emails podem ser perdidos devido a problemas técnicos\n• Alguns sites podem bloquear nossos domínios\n• Os recursos do serviço podem mudar sem aviso prévio"
+      },
+      "userResponsibilities": {
+        "title": "Responsabilidades do Usuário",
+        "content": "Você concorda em:\n\n• Usar o serviço apenas para fins legais\n• Não usar emails temporários para contas críticas (bancos, saúde, etc.)\n• Não confiar em nosso serviço para comunicações importantes\n• Aceitar que os emails são temporários e serão excluídos\n• Não tentar abusar, hackear ou interromper nosso serviço\n• Não usar o serviço para assediar, enviar spam ou prejudicar outros\n\nVocê entende que:\n\n• Emails temporários não são privados - qualquer pessoa com o endereço pode ver os emails\n• Você não deve usar emails temporários para informações sensíveis\n• Podemos encerrar o acesso para usuários que violarem estes termos"
+      },
+      "prohibitedUses": {
+        "title": "Usos Proibidos",
+        "content": "Você NÃO pode usar o TempMailCentral para:\n\n• Atividades ilegais ou fraude\n• Criar contas para assédio ou abuso\n• Contornar proibições ou restrições em outros serviços\n• Receber informações pessoais ou financeiras sensíveis\n• Raspagem automatizada ou coleta de dados\n• Distribuir malware ou phishing\n• Qualquer atividade que viole leis ou regulamentos\n• Personificar outros ou deturpar identidade\n\nA violação pode resultar em:\n\n• Encerramento imediato do acesso ao serviço\n• Relato às autoridades apropriadas\n• Ação legal se necessário"
+      },
+      "disclaimer": {
+        "title": "Isenção de Garantias",
+        "content": "O TempMailCentral é fornecido 'COMO ESTÁ' e 'CONFORME DISPONÍVEL' sem garantias de qualquer tipo, expressas ou implícitas, incluindo mas não limitado a:\n\n• Comercialização ou adequação para um propósito particular\n• Não violação ou segurança\n• Precisão, confiabilidade ou integridade\n• Serviço ininterrupto ou livre de erros\n\nNão garantimos que:\n\n• O serviço atenderá seus requisitos\n• Os emails serão entregues ou recebidos corretamente\n• O serviço estará disponível o tempo todo\n• Os defeitos serão corrigidos\n• O serviço está livre de vírus ou componentes prejudiciais"
+      },
+      "liability": {
+        "title": "Limitação de Responsabilidade",
+        "content": "Na máxima extensão permitida por lei:\n\n• Não somos responsáveis por quaisquer danos indiretos, incidentais, especiais ou consequentes\n• Nossa responsabilidade total não excederá $100 USD\n• Não somos responsáveis por perda de dados, incluindo emails perdidos\n• Não somos responsáveis por ações ou conteúdo de terceiros\n• Você usa o serviço por sua conta e risco\n\nIsso inclui mas não se limita a:\n\n• Perda de negócios ou lucros\n• Corrupção ou perda de dados\n• Interrupções de serviço\n• Violações de segurança\n• Reivindicações de terceiros"
+      }
+    },
+    "contact": {
+      "title": "Informações de Contato",
+      "content": "Para perguntas sobre estes Termos de Serviço, entre em contato conosco em: legal@tempmailcentral.com"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre Nós - TempMailCentral",
+      "description": "Conheça o TempMailCentral, o serviço de email temporário confiável que protege a privacidade de mais de 500.000 usuários em todo o mundo."
+    },
+    "badge": "Sobre Nós",
+    "title": "Sobre o TempMailCentral",
+    "subtitle": "Protegendo sua privacidade com endereços de email descartáveis seguros desde o primeiro dia",
+    "mission": {
+      "badge": "Nossa Missão",
+      "title": "Nossa Missão",
+      "content": "Nossa missão é simples: proteger sua privacidade online. Em um mundo onde seu endereço de email é constantemente solicitado, acreditamos que você deve ter a liberdade de manter sua privacidade sem sacrificar o acesso a serviços online. O TempMailCentral fornece uma maneira rápida, gratuita e segura de usar a internet sem comprometer suas informações pessoais.",
+      "highlight": {
+        "title": "Privacidade Primeiro, Sempre",
+        "description": "Construímos o TempMailCentral com base no princípio de que a privacidade é um direito fundamental, não um luxo. Cada recurso que adicionamos é projetado pensando em sua privacidade."
+      }
+    },
+    "values": {
+      "title": "Nossos Valores",
+      "subtitle": "Os princípios que orientam tudo o que fazemos",
+      "privacy": {
+        "title": "Privacidade Primeiro",
+        "description": "Sua privacidade é inegociável. Não vendemos dados, não rastreamos desnecessariamente e não armazenamos informações por mais tempo do que o necessário."
+      },
+      "simplicity": {
+        "title": "Simples e Rápido",
+        "description": "Sem registro, sem complicações. Apenas endereços de email instantâneos quando você precisar deles."
+      },
+      "accessibility": {
+        "title": "Gratuito e Acessível",
+        "description": "A proteção da privacidade deve estar disponível para todos, em todos os lugares. Nosso serviço é gratuito e disponível em mais de 20 idiomas."
+      },
+      "transparency": {
+        "title": "Transparente",
+        "description": "Somos honestos sobre o que fazemos, como fazemos e quais limitações existem. Sem termos ocultos ou surpresas."
+      }
+    },
+    "story": {
+      "badge": "Nossa História",
+      "title": "Como o TempMailCentral Começou",
+      "paragraph1": "O TempMailCentral nasceu de uma frustração simples: fornecer endereços de email para sites que não precisavam deles. Cada inscrição significava mais spam, mais rastreamento e menos privacidade. Sabíamos que tinha que haver uma maneira melhor.",
+      "paragraph2": "Começamos construindo um serviço para nós mesmos - uma maneira simples e rápida de obter endereços de email temporários sem registro. À medida que a notícia se espalhou, percebemos que outros compartilhavam nossas preocupações sobre privacidade online. Hoje, atendemos mais de 500.000 usuários em todo o mundo que confiam em nós para proteger sua privacidade.",
+      "paragraph3": "Crescemos de uma ferramenta simples para um serviço abrangente de privacidade, mas nossa missão principal permanece a mesma: dar às pessoas controle sobre sua privacidade digital. Continuamos a melhorar nosso serviço, adicionar novos recursos e expandir para novos idiomas - tudo mantendo a privacidade em primeiro plano de tudo o que fazemos."
+    },
+    "stats": {
+      "emails": "Emails Recebidos",
+      "users": "Usuários Ativos",
+      "languages": "Idiomas",
+      "uptime": "Tempo de Atividade"
+    },
+    "cta": {
+      "title": "Junte-se à Nossa Comunidade que Prioriza a Privacidade",
+      "description": "Experimente a liberdade de navegar sem comprometer sua privacidade",
+      "button": "Comece Gratuitamente"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bem-vindo de volta",
+    "manageMailboxes": "Gerencie seus endereços de email permanentes",
+    "createMailbox": "Criar Caixa de Correio",
+    "stats": {
+      "totalMailboxes": "Total de Caixas de Correio",
+      "persistentAddresses": "Endereços permanentes",
+      "totalEmails": "Total de Emails",
+      "acrossAllMailboxes": "Em todas as caixas de correio",
+      "unread": "Não lidos",
+      "newMessages": "Novas mensagens",
+      "storage": "Armazenamento",
+      "forever": "Para Sempre",
+      "emailsNeverExpire": "Emails nunca expiram"
+    },
+    "recentEmails": {
+      "title": "Emails Recentes",
+      "viewAll": "Ver Todos",
+      "noEmails": "Ainda não há emails",
+      "noEmailsDescription": "Emails enviados para suas caixas de correio aparecerão aqui",
+      "to": "para"
+    },
+    "mailboxes": {
+      "title": "Suas Caixas de Correio",
+      "new": "Nova",
+      "noMailboxes": "Ainda não há caixas de correio",
+      "noMailboxesDescription": "Crie seu primeiro endereço de email permanente",
+      "myMailboxes": "Minhas Caixas de Correio",
+      "permanentEmailAddress": "endereço de email permanente",
+      "permanentEmailAddresses": "endereços de email permanentes",
+      "newMailbox": "Nova Caixa de Correio",
+      "createNew": "Criar Nova Caixa de Correio",
+      "emailAddress": "Endereço de Email",
+      "emailPlaceholder": "meuemail (opcional)",
+      "prefixHelper": "Deixe o prefixo vazio para um endereço aleatório",
+      "friendlyName": "Nome Amigável (opcional)",
+      "namePlaceholder": "Trabalho, Pessoal, Newsletter...",
+      "creating": "Criando...",
+      "searchPlaceholder": "Pesquisar caixas de correio...",
+      "selectMailbox": "Selecione uma caixa de correio",
+      "selectMailboxDescription": "Escolha uma caixa de correio para ver seus emails",
+      "email": "email",
+      "emails": "emails",
+      "emailsSentTo": "Emails enviados para {address} aparecerão aqui",
+      "deleteConfirm": "Tem certeza de que deseja excluir esta caixa de correio? Todos os emails serão perdidos."
+    },
+    "quickActions": {
+      "createMailbox": "Criar Caixa de Correio",
+      "createMailboxDescription": "Adicionar um novo email permanente",
+      "tempEmail": "Email Temporário",
+      "tempEmailDescription": "Endereço descartável rápido",
+      "preferences": "Preferências",
+      "preferencesDescription": "Personalize sua experiência"
+    },
+    "settings": {
+      "title": "Configurações",
+      "managePreferences": "Gerencie as preferências da sua conta",
+      "profile": {
+        "title": "Perfil",
+        "description": "Informações da sua conta",
+        "user": "Usuário"
+      },
+      "emailPreferences": {
+        "title": "Preferências de Email",
+        "description": "Configure os padrões da sua caixa de correio",
+        "autoMarkRead": "Marcar automaticamente emails como lidos",
+        "autoMarkReadDescription": "Marcar emails como lidos ao visualizar",
+        "defaultExpiry": "Expiração padrão de email",
+        "defaultExpiryDescription": "Para emails temporários",
+        "10minutes": "10 minutos",
+        "1hour": "1 hora",
+        "24hours": "24 horas"
+      },
+      "notifications": {
+        "title": "Notificações",
+        "description": "Gerenciar configurações de notificação",
+        "browser": "Notificações do navegador",
+        "browserDescription": "Receber notificação quando novos emails chegarem",
+        "sound": "Alertas sonoros",
+        "soundDescription": "Reproduzir som para novos emails"
+      },
+      "privacy": {
+        "title": "Privacidade e Segurança",
+        "description": "Gerencie seus dados e segurança",
+        "twoFactor": "Autenticação de dois fatores",
+        "twoFactorDescription": "Adicionar uma camada extra de segurança",
+        "enable": "Ativar",
+        "activeSessions": "Sessões ativas",
+        "activeSessionsDescription": "Gerenciar dispositivos conectados à sua conta",
+        "view": "Ver"
+      },
+      "dangerZone": {
+        "title": "Zona de Perigo",
+        "description": "Ações irreversíveis",
+        "deleteAllMailboxes": "Excluir todas as caixas de correio",
+        "deleteAllMailboxesDescription": "Remover todos os seus endereços de email e emails",
+        "deleteAll": "Excluir Tudo",
+        "deleteAccount": "Excluir conta",
+        "deleteAccountDescription": "Remover permanentemente sua conta e todos os dados",
+        "deleteAccountButton": "Excluir Conta"
+      }
+    },
+    "emailViewer": {
+      "back": "Voltar",
+      "noSubject": "(Sem Assunto)",
+      "noContent": "Sem conteúdo",
+      "attachment": "anexo",
+      "attachments": "anexos"
+    },
+    "sidebar": {
+      "dashboard": "Painel",
+      "overview": "Visão Geral",
+      "myMailboxes": "Minhas Caixas",
+      "tempEmails": "Emails Temporários",
+      "starred": "Com Estrela",
+      "archived": "Arquivados",
+      "settings": "Configurações",
+      "newMailbox": "Nova Caixa"
+    }
+  }
+}

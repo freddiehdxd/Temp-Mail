@@ -368,36 +368,24 @@
                 <div class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 animate-pulse-glow">
                 </div>
                 <div class="absolute inset-2 flex items-center justify-center rounded-full bg-white">
-                  <.icon name="hero-envelope" class="h-10 w-10 text-indigo-500" />
+                  <.icon name="hero-envelope" class="h-10 w-10 text-indigo-500 animate-bounce" />
                 </div>
               </div>
               <h2 class="gradient-text mb-3 text-2xl font-bold">
-                {TempmailWeb.I18n.t(@locale, "home.yourEmail", "Get Your Temporary Email")}
+                {TempmailWeb.I18n.t(@locale, "home.generating", "Generating Your Email...")}
               </h2>
-              <p class="mx-auto mb-8 max-w-md text-slate-500">
+              <p class="mx-auto mb-6 max-w-md text-slate-500">
                 {TempmailWeb.I18n.t(
                   @locale,
                   "home.howItWorks.step1.description",
-                  "Generate a secure, disposable email address instantly. No registration required."
+                  "Your secure, disposable email address is being created instantly. No registration required."
                 )}
               </p>
-              <.form
-                for={%{}}
-                phx-submit="generate"
-                class="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row"
-              >
-                <select
-                  name="domain"
-                  class="h-14 rounded-xl border-2 border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 sm:w-60"
-                >
-                  <option value="">Random active domain</option>
-                  <option :for={domain <- @domains} value={domain.domain}>{domain.domain}</option>
-                </select>
-                <button class="tm-btn-gradient h-14 flex-1 gap-2 text-lg">
-                  <.icon name="hero-sparkles" class="h-5 w-5" />
-                  {TempmailWeb.I18n.t(@locale, "home.generateButton", "Generate New Email")}
-                </button>
-              </.form>
+              <div class="flex items-center justify-center gap-3">
+                <div class="h-3 w-3 rounded-full bg-indigo-500 animate-bounce" style="animation-delay: 0s"></div>
+                <div class="h-3 w-3 rounded-full bg-purple-500 animate-bounce" style="animation-delay: 0.15s"></div>
+                <div class="h-3 w-3 rounded-full bg-pink-500 animate-bounce" style="animation-delay: 0.3s"></div>
+              </div>
             </div>
           </section>
         <% end %>

@@ -10,8 +10,8 @@ defmodule TempmailWeb.HomeLive do
 
     socket =
       socket
-      |> assign(:page_title, "TempMail Central")
       |> assign(:locale, locale)
+      |> assign(:html_lang, locale)
       |> assign(:temp_email, nil)
       |> assign(:emails, [])
       |> assign(:selected_email, nil)
@@ -19,12 +19,18 @@ defmodule TempmailWeb.HomeLive do
       |> assign(:domains, Mail.list_active_domains())
       |> assign(:copied, false)
       |> assign(:error, nil)
+      |> assign(:tick_ref, nil)
       |> assign(:seo_page, :home)
-      |> assign(:meta_description, "Free disposable temporary email service. Get instant temp mail addresses for signups, verifications, and privacy protection.")
-      |> assign(:og_title, "TempMailCentral - Free Temporary Email")
-      |> assign(:og_description, "Free disposable temporary email service. Get instant temp mail addresses for signups, verifications, and privacy protection.")
-      |> assign(:og_url, "https://tempmailcentral.com")
-      |> assign(:canonical_url, "https://tempmailcentral.com")
+      |> assign(:page_title, TempmailWeb.I18n.t(locale, "home.title", "Temp Mail - Disposable Temporary Email"))
+      |> assign(:meta_description, TempmailWeb.I18n.t(locale, "home.description", "Get a free disposable temporary email instantly. No registration needed. Use our temp mail for signups, verifications & privacy protection. Auto-deletes in 10 minutes."))
+      |> assign(:meta_keywords, TempmailWeb.I18n.t(locale, "seo.keywords", "temp mail, temporary email, disposable email, throwaway email, fake email, anonymous email, temp email, free temp mail, temporary mail, burner email, 10 minute mail, email generator, spam free email, privacy email"))
+      |> assign(:og_title, TempmailWeb.I18n.t(locale, "home.title", "Temp Mail - Disposable Temporary Email"))
+      |> assign(:og_description, TempmailWeb.I18n.t(locale, "home.description", "Get a free disposable temporary email instantly. No registration needed. Protect your privacy with auto-deleting temp mail."))
+      |> assign(:og_image, "https://tempmailcentral.com/og-image.png")
+      |> assign(:og_url, if(locale == "en", do: "https://tempmailcentral.com", else: "https://tempmailcentral.com/#{locale}"))
+      |> assign(:canonical_url, if(locale == "en", do: "https://tempmailcentral.com", else: "https://tempmailcentral.com/#{locale}"))
+      |> assign(:hreflang, build_hreflang(""))
+
 
     socket =
       if connected?(socket) do
@@ -105,8 +111,8 @@ defmodule TempmailWeb.HomeLive do
 
   @impl true
   def handle_info(:tick, %{assigns: %{ttl: ttl}} = socket) when ttl > 1 do
-    Process.send_after(self(), :tick, 1_000)
-    {:noreply, assign(socket, :ttl, ttl - 1)}
+    tick_ref = Process.send_after(self(), :tick, 1_000)
+    {:noreply, socket |> assign(:ttl, ttl - 1) |> assign(:tick_ref, tick_ref)}
   end
 
   def handle_info(:tick, socket) do
@@ -132,7 +138,8 @@ defmodule TempmailWeb.HomeLive do
         if connected?(socket),
           do: Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(temp_email.address))
 
-        Process.send_after(self(), :tick, 1_000)
+        if ref = socket.assigns[:tick_ref], do: Process.cancel_timer(ref)
+        tick_ref = Process.send_after(self(), :tick, 1_000)
 
         socket
         |> assign(:temp_email, temp_email)
@@ -140,6 +147,7 @@ defmodule TempmailWeb.HomeLive do
         |> assign(:selected_email, nil)
         |> assign(:ttl, temp_email.ttl)
         |> assign(:error, nil)
+        |> assign(:tick_ref, tick_ref)
 
       _ ->
         assign(
@@ -187,5 +195,15 @@ defmodule TempmailWeb.HomeLive do
   defp email_preview(email) do
     text = Map.get(email, "text") || Map.get(email, "html") || ""
     String.slice(text, 0, 100)
+  end
+
+  @base_url "https://tempmailcentral.com"
+  @locales ~w(en es fr de pt zh ja ar ru hi ko it nl tr pl vi th id sv el)
+
+  defp build_hreflang(path) do
+    Enum.map(@locales, fn
+      "en" -> {"en", "#{@base_url}#{path}"}
+      loc -> {loc, "#{@base_url}/#{loc}#{path}"}
+    end)
   end
 end

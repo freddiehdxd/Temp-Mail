@@ -1,0 +1,546 @@
+{
+  "common": {
+    "appName": "TempMail",
+    "tagline": "Email Tạm Thời Miễn Phí",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "add": "Thêm",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "actions": "Hành động",
+    "confirm": "Xác nhận",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "previous": "Trước",
+    "close": "Đóng",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "refresh": "Làm mới",
+    "settings": "Cài đặt",
+    "language": "Ngôn ngữ",
+    "theme": "Giao diện",
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+  "home": {
+    "title": "Email Tạm Thời Miễn Phí",
+    "subtitle": "Bảo vệ quyền riêng tư với địa chỉ email dùng một lần",
+    "description": "Nhận địa chỉ email tạm thời ngay lập tức. Không cần đăng ký. Email tự động xóa sau 10 phút.",
+    "generateButton": "Tạo Email Mới",
+    "yourEmail": "Email Tạm Thời Của Bạn",
+    "copyEmail": "Sao Chép Địa Chỉ Email",
+    "refreshInbox": "Làm Mới Hộp Thư",
+    "extendTime": "Gia Hạn Thời Gian",
+    "timeRemaining": "Thời Gian Còn Lại",
+    "noEmails": "Chưa có email",
+    "waitingForEmails": "Đang chờ email đến...",
+    "heroBadge": "Được hơn 500.000 người dùng trên toàn thế giới tin cậy",
+    "stats": {
+      "emailsReceived": "Email Đã Nhận",
+      "happyUsers": "Người Dùng Hài Lòng",
+      "uptime": "Thời Gian Hoạt Động",
+      "languages": "Ngôn Ngữ"
+    },
+    "features": {
+      "title": "Tại Sao Dùng TempMail?",
+      "subtitle": "Mọi thứ bạn cần cho giao tiếp email an toàn, dùng một lần",
+      "privacy": {
+        "title": "Bảo Vệ Quyền Riêng Tư",
+        "description": "Giữ email thật của bạn riêng tư. Dùng email tạm để đăng ký."
+      },
+      "noSpam": {
+        "title": "Tránh Spam",
+        "description": "Chặn spam trước khi nó bắt đầu. Email tạm biến mất cùng với spam."
+      },
+      "instant": {
+        "title": "Ngay Lập Tức và Miễn Phí",
+        "description": "Không cần đăng ký. Nhận địa chỉ email hoạt động trong vài giây."
+      },
+      "secure": {
+        "title": "An Toàn và Ẩn Danh",
+        "description": "Email của bạn tự động được xóa. Không dữ liệu nào được lưu trữ vĩnh viễn."
+      }
+    },
+    "howItWorks": {
+      "title": "Cách Hoạt Động",
+      "subtitle": "Bắt đầu trong vài giây với ba bước đơn giản",
+      "step1": {
+        "title": "Nhận Email Ngay Lập Tức",
+        "description": "Email tạm thời được tạo tự động khi bạn truy cập"
+      },
+      "step2": {
+        "title": "Sử Dụng Ở Mọi Nơi",
+        "description": "Sao chép và sử dụng cho đăng ký, xác minh hoặc bất kỳ dịch vụ nào"
+      },
+      "step3": {
+        "title": "Tự Động Xóa",
+        "description": "Mọi thứ tự động được xóa sau 10 phút"
+      }
+    },
+    "useCases": {
+      "title": "Hoàn Hảo Cho",
+      "titleHighlight": "Mọi Tình Huống",
+      "subtitle": "Cho dù bạn đang đăng ký dịch vụ mới, kiểm tra ứng dụng hay chỉ muốn giữ hộp thư thật sạch sẽ, chúng tôi đều hỗ trợ bạn.",
+      "case1": "Đăng ký dùng thử miễn phí",
+      "case2": "Tránh spam từ bản tin",
+      "case3": "Kiểm tra ứng dụng của bạn",
+      "case4": "Bảo vệ email thật của bạn",
+      "case5": "Mua sắm trực tuyến",
+      "case6": "Đăng ký mạng xã hội"
+    },
+    "reviews": {
+      "title": "Được các nhà phát triển và người dùng yêu thích",
+      "subtitle": "Tham gia hàng nghìn người dùng hài lòng",
+      "review1": "Dịch vụ email tạm thời tốt nhất tôi từng dùng. Giao diện đẹp và siêu nhanh!",
+      "review2": "Cuối cùng, một email dùng một lần thực sự hoạt động. Không quảng cáo, không phiền toái.",
+      "review3": "Tính năng tự động làm mới thật tuyệt vời. Email xuất hiện ngay lập tức!"
+    },
+    "faq": {
+      "badge": "Câu Hỏi Thường Gặp",
+      "title": "Mọi Thứ Về",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "Tìm hiểu cách email tạm thời dùng một lần hoạt động và tại sao hàng triệu người tin tưởng TempMailCentral cho nhu cầu bảo mật của họ.",
+      "question1": "Email tạm thời hoặc temp mail là gì?",
+      "answer1": "Email tạm thời (còn gọi là temp mail, email dùng một lần hoặc email throwaway) là địa chỉ email tự hủy mà bạn có thể sử dụng trong thời gian ngắn. Nó giúp bảo vệ email thật của bạn khỏi spam, lừa đảo và email tiếp thị không mong muốn khi đăng ký trang web hoặc dịch vụ.",
+      "question2": "Email dùng một lần hoạt động như thế nào?",
+      "answer2": "Email dùng một lần hoạt động bằng cách cung cấp cho bạn địa chỉ email ngẫu nhiên ngay lập tức. Bất kỳ email nào gửi đến địa chỉ này đều xuất hiện trong hộp thư tạm thời của bạn theo thời gian thực. Sau một khoảng thời gian nhất định (thường là 10 phút), địa chỉ email và tất cả tin nhắn đã nhận sẽ tự động bị xóa.",
+      "question3": "Sử dụng temp mail có an toàn không?",
+      "answer3": "Có, temp mail an toàn để sử dụng cho các mục đích không nhạy cảm như đăng ký trang web, tải tài nguyên hoặc kiểm tra ứng dụng. Tuy nhiên, bạn không bao giờ nên sử dụng email tạm thời cho các tài khoản quan trọng như ngân hàng, vì email sẽ bị xóa và bạn có thể mất quyền truy cập.",
+      "question4": "Email tạm thời tồn tại bao lâu?",
+      "answer4": "Theo mặc định, địa chỉ email tạm thời trên TempMailCentral tồn tại trong 10 phút. Tuy nhiên, người dùng đã đăng nhập có thể gia hạn thời gian lên đến 30 ngày hoặc thậm chí lưu địa chỉ làm hộp thư vĩnh viễn.",
+      "question5": "Các trang web có thể phát hiện temp mail không?",
+      "answer5": "Một số trang web duy trì danh sách đen các tên miền email tạm thời đã biết. Mặc dù TempMailCentral sử dụng nhiều tên miền để giảm thiểu điều này, một số trang web nghiêm ngặt vẫn có thể phát hiện và chặn địa chỉ email tạm thời.",
+      "question6": "Tôi có cần đăng ký để sử dụng temp mail không?",
+      "answer6": "Không cần đăng ký để sử dụng TempMailCentral. Chỉ cần truy cập trang web và bạn sẽ tự động nhận được địa chỉ email tạm thời mà bạn có thể sử dụng ngay lập tức.",
+      "question7": "Tôi có thể nhận tệp đính kèm với temp mail không?",
+      "answer7": "Có, TempMailCentral hỗ trợ nhận tệp đính kèm email. Bạn có thể xem và tải xuống tệp đính kèm từ email gửi đến địa chỉ tạm thời của bạn.",
+      "question8": "Temp mail được sử dụng để làm gì?",
+      "answer8": "Temp mail thường được sử dụng cho: đăng ký dùng thử miễn phí, tránh spam từ bản tin, kiểm tra chức năng email trong ứng dụng, bảo vệ email thật khỏi vi phạm dữ liệu, mua sắm trực tuyến trên các trang không đáng tin cậy và truy cập tải xuống hoặc tài nguyên một lần."
+    },
+    "whyChoose": {
+      "title": "Tại Sao Chọn",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "Dịch vụ email tạm thời miễn phí đáng tin cậy nhất, được hơn 500.000 người dùng trên toàn thế giới tin cậy.",
+      "instantFree": {
+        "title": "Ngay Lập Tức và Miễn Phí",
+        "description": "Không đăng ký, không thẻ tín dụng, không cam kết. Nhận email dùng một lần trong vài giây, hoàn toàn miễn phí mãi mãi."
+      },
+      "privacyFirst": {
+        "title": "Quyền Riêng Tư Là Ưu Tiên",
+        "description": "Chúng tôi không theo dõi, lưu trữ hoặc bán dữ liệu của bạn. Tất cả email tự động xóa sau khi hết hạn. Quyền riêng tư của bạn là ưu tiên của chúng tôi."
+      },
+      "multiLanguage": {
+        "title": "Hơn 20 Ngôn Ngữ",
+        "description": "Có sẵn trên hơn 20 ngôn ngữ bao gồm tiếng Anh, Tây Ban Nha, Pháp, Đức, Trung Quốc, Nhật Bản và nhiều hơn nữa."
+      }
+    },
+    "seoContent": {
+      "title": "Về Temp Mail - Email Tạm Thời Dùng Một Lần",
+      "whatIsTitle": "Email Tạm Thời Là Gì?",
+      "whatIsContent": "Email tạm thời, còn được gọi là temp mail, email dùng một lần, email throwaway hoặc mail 10 phút, là dịch vụ cung cấp cho bạn địa chỉ email tồn tại ngắn. Không giống như email cá nhân của bạn, địa chỉ temp mail được thiết kế để sử dụng một lần rồi vứt bỏ, giữ cho hộp thư thật của bạn sạch sẽ và không có spam.",
+      "whatIsContent2": "TempMailCentral tạo địa chỉ email ngẫu nhiên mà bạn có thể sử dụng cho đăng ký trang web, đăng ký bản tin, mua sắm trực tuyến hoặc bất kỳ tình huống nào bạn cần email nhưng không muốn chia sẻ địa chỉ thật của mình.",
+      "benefitsTitle": "Lợi Ích Của Email Dùng Một Lần",
+      "benefit1": "Bảo Vệ Khỏi Spam:",
+      "benefit1Desc": "Giữ hộp thư thật sạch sẽ bằng cách sử dụng temp mail cho đăng ký",
+      "benefit2": "Quyền Riêng Tư:",
+      "benefit2Desc": "Bảo vệ danh tính khi truy cập dịch vụ trực tuyến",
+      "benefit3": "Bảo Mật:",
+      "benefit3Desc": "Giảm tiếp xúc với lừa đảo và vi phạm dữ liệu",
+      "benefit4": "Tiện Lợi:",
+      "benefit4Desc": "Không cần đăng ký - nhận email ngay lập tức",
+      "benefit5": "Miễn Phí Mãi Mãi:",
+      "benefit5Desc": "Dịch vụ cơ bản của chúng tôi hoàn toàn miễn phí không có chi phí ẩn"
+    },
+    "cta": {
+      "title": "Sẵn sàng bảo vệ quyền riêng tư của bạn?",
+      "subtitle": "Nhận địa chỉ email tạm thời miễn phí ngay bây giờ. Không đăng ký, không phiền toái, chỉ có quyền riêng tư.",
+      "button": "Bắt Đầu Miễn Phí"
+    },
+    "status": {
+      "liveUpdates": "?? b?t c?p nh?t tr?c ti?p"
+    },
+    "quickStats": {
+      "private": "Ri?ng t?",
+      "endToEnd": "??u cu?i",
+      "instant": "T?c th?",
+      "realTime": "Th?i gian th?c",
+      "autoDelete": "T? ??ng x?a",
+      "tenMinutes": "10 ph?t"
+    }
+  },
+  "inbox": {
+    "title": "Hộp Thư Đến",
+    "empty": "Hộp thư của bạn trống",
+    "emptyDescription": "Email gửi đến địa chỉ tạm thời sẽ xuất hiện ở đây",
+    "from": "Từ",
+    "subject": "Chủ đề",
+    "received": "Đã nhận",
+    "read": "Đã đọc",
+    "unread": "Chưa đọc",
+    "delete": "Xóa Email",
+    "markAsRead": "Đánh Dấu Đã Đọc",
+    "viewEmail": "Xem Email",
+    "attachments": "Tệp đính kèm",
+    "noSubject": "(Không có chủ đề)",
+    "emailExpired": "Địa chỉ email này đã hết hạn",
+    "generateNew": "Tạo Địa Chỉ Mới"
+  },
+  "auth": {
+    "signIn": "Đăng Nhập",
+    "signOut": "Đăng Xuất",
+    "signInWith": "Đăng nhập với {provider}",
+    "signingIn": "Đang đăng nhập...",
+    "signInError": "Lỗi đăng nhập",
+    "accessDenied": "Truy Cập Bị Từ Chối",
+    "banned": "Tài khoản của bạn đã bị cấm",
+    "profile": "Hồ sơ",
+    "myAccount": "Tài Khoản"
+  },
+  "admin": {
+    "title": "Bảng Điều Khiển Admin",
+    "dashboard": "Bảng điều khiển",
+    "domains": "Tên miền",
+    "users": "Người dùng",
+    "analytics": "Phân tích",
+    "settings": "Cài đặt",
+    "overview": "Tổng quan",
+    "totalEmails": "Tổng Email Đã Tạo",
+    "totalReceived": "Tổng Email Đã Nhận",
+    "activeDomains": "Tên Miền Hoạt Động",
+    "totalUsers": "Tổng Người Dùng",
+    "recentActivity": "Hoạt Động Gần Đây",
+    "domainManagement": {
+      "title": "Quản Lý Tên Miền",
+      "addDomain": "Thêm Tên Miền",
+      "domainName": "Tên Miền",
+      "status": "Trạng thái",
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động",
+      "default": "Mặc định",
+      "setDefault": "Đặt Làm Mặc Định",
+      "deleteDomain": "Xóa Tên Miền",
+      "confirmDelete": "Bạn có chắc muốn xóa tên miền này?"
+    },
+    "userManagement": {
+      "title": "Quản Lý Người Dùng",
+      "name": "Tên",
+      "email": "Email",
+      "role": "Vai trò",
+      "status": "Trạng thái",
+      "joined": "Tham gia",
+      "actions": "Hành động",
+      "ban": "Cấm Người Dùng",
+      "unban": "Bỏ Cấm",
+      "makeAdmin": "Đặt Làm Admin",
+      "removeAdmin": "Xóa Admin",
+      "banned": "Đã cấm",
+      "active": "Hoạt động"
+    },
+    "analyticsPage": {
+      "title": "Phân Tích",
+      "emailsOverTime": "Email Theo Thời Gian",
+      "generated": "Đã tạo",
+      "received": "Đã nhận",
+      "last7Days": "7 Ngày Qua",
+      "last30Days": "30 Ngày Qua",
+      "last90Days": "90 Ngày Qua"
+    },
+    "settingsPage": {
+      "title": "Cài Đặt",
+      "general": "Cài Đặt Chung",
+      "emailTTL": "Email TTL (giây)",
+      "emailTTLDescription": "Email tạm thời tồn tại bao lâu trước khi hết hạn",
+      "defaultDomain": "Tên Miền Mặc Định",
+      "mailcow": "Cấu Hình Mailcow",
+      "mailcowUrl": "URL API Mailcow",
+      "mailcowKey": "Khóa API Mailcow",
+      "testConnection": "Kiểm Tra Kết Nối",
+      "connectionSuccess": "Kết nối thành công",
+      "connectionFailed": "Kết nối thất bại"
+    }
+  },
+  "errors": {
+    "notFound": "Không Tìm Thấy Trang",
+    "notFoundDescription": "Trang bạn tìm không tồn tại.",
+    "serverError": "Lỗi Máy Chủ",
+    "serverErrorDescription": "Đã xảy ra lỗi từ phía chúng tôi.",
+    "unauthorized": "Không Được Phép",
+    "unauthorizedDescription": "Bạn không có quyền truy cập trang này.",
+    "goHome": "Về Trang Chủ"
+  },
+  "footer": {
+    "privacy": "Chính Sách Bảo Mật",
+    "terms": "Điều Khoản Dịch Vụ",
+    "contact": "Liên Hệ",
+    "about": "Giới Thiệu",
+    "copyright": "© {year} TempMail. Bảo lưu mọi quyền.",
+    "description": "D?ch v? email t?m th?i nhanh nh?t v? an to?n nh?t. B?o v? quy?n ri?ng t? b?ng ??a ch? email d?ng m?t l?n t? ??ng x?a. Kh?ng c?n ??ng k?.",
+    "privateSecure": "Ri?ng t? v? b?o m?t",
+    "instantDelivery": "G?i t?c th?",
+    "languages": "H?n 20 ng?n ng?"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy - TempMailCentral",
+      "description": "Learn how TempMailCentral protects your privacy. We don't store personal data, all emails auto-delete, and your privacy is our priority."
+    },
+    "badge": "Your Privacy Matters",
+    "title": "Privacy Policy",
+    "subtitle": "How we protect your privacy and handle your data",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "At TempMailCentral, privacy is our top priority. This Privacy Policy explains how we collect, use, and protect your information when you use our temporary email service. By using our service, you agree to the practices described in this policy.",
+    "sections": {
+      "dataCollection": {
+        "title": "Information We Collect",
+        "content": "We collect minimal information to provide our service:\n\n• Technical Data: IP addresses, browser type, and device information for security and service improvement\n• Usage Data: How you interact with our service to improve functionality\n• Email Content: Temporarily stored emails that auto-delete after expiration\n• Cookies: Essential cookies for service functionality\n\nWe do NOT collect:\n• Personal identification information\n• Payment information (our service is free)\n• Your real email address\n• Any data we don't absolutely need"
+      },
+      "dataUsage": {
+        "title": "How We Use Your Data",
+        "content": "We use collected information for:\n\n• Providing and maintaining our temporary email service\n• Improving user experience and service functionality\n• Detecting and preventing abuse, spam, and security threats\n• Analyzing usage patterns to optimize performance\n• Complying with legal obligations\n\nWe do NOT:\n• Sell your data to third parties\n• Use your data for advertising\n• Share your information without your consent\n• Store data longer than necessary"
+      },
+      "dataSharing": {
+        "title": "Data Sharing and Disclosure",
+        "content": "We do not sell, trade, or rent your personal information. We may share data only in these limited cases:\n\n• Legal Requirements: When required by law or to protect our rights\n• Service Providers: Trusted partners who help operate our service (under strict confidentiality)\n• Security: To prevent fraud, abuse, or security threats\n\nAll third-party service providers are bound by confidentiality agreements and are prohibited from using your information for any purpose other than providing services to us."
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "content": "We use cookies and similar technologies:\n\n• Essential Cookies: Required for service functionality (cannot be disabled)\n• Analytics Cookies: Help us understand how you use our service\n• Preference Cookies: Remember your settings and preferences\n\nYou can control cookies through your browser settings. However, disabling essential cookies may limit service functionality.\n\nWe do NOT use:\n• Advertising cookies\n• Third-party tracking cookies\n• Social media tracking pixels"
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement industry-standard security measures:\n\n• Encryption: All data transmitted is encrypted using HTTPS/TLS\n• Secure Infrastructure: Our servers use advanced security protocols\n• Access Control: Limited access to data by authorized personnel only\n• Regular Audits: Continuous monitoring and security assessments\n• Auto-Deletion: Emails automatically delete after expiration\n\nWhile we strive to protect your data, no internet transmission is 100% secure. Use our service at your own risk for non-sensitive communications."
+      },
+      "emailRetention": {
+        "title": "Email Retention and Deletion",
+        "content": "Email retention policy:\n\n• Temporary Emails: Auto-delete after 10 minutes by default\n• Extended Emails: Delete based on your chosen extension period\n• Permanent Mailboxes: Retain until you delete (for registered users)\n• Deleted Content: Permanently removed from our systems\n\nOnce deleted, emails cannot be recovered. We do not maintain backups of temporary email content."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions about this Privacy Policy or our data practices, please contact us at: privacy@tempmailcentral.com"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service - TempMailCentral",
+      "description": "Read our Terms of Service to understand the rules and guidelines for using TempMailCentral's temporary email service."
+    },
+    "badge": "Legal Terms",
+    "title": "Terms of Service",
+    "subtitle": "Please read these terms carefully before using our service",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "Welcome to TempMailCentral. These Terms of Service ('Terms') govern your use of our temporary email service. By accessing or using TempMailCentral, you agree to be bound by these Terms. If you disagree with any part, please do not use our service.",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using TempMailCentral, you confirm that:\n\n• You are at least 13 years old\n• You have the legal capacity to enter into these Terms\n• You will comply with all applicable laws and regulations\n• You understand this is a temporary email service with limitations\n\nWe reserve the right to modify these Terms at any time. Continued use after changes constitutes acceptance of the modified Terms."
+      },
+      "serviceDescription": {
+        "title": "Service Description",
+        "content": "TempMailCentral provides:\n\n• Free temporary email addresses that auto-delete\n• Email receiving capabilities (no sending)\n• Basic email viewing and attachment downloads\n• Optional account features for extended use\n\nOur service is provided 'as-is' without guarantees:\n\n• We do not guarantee 100% uptime or availability\n• Emails may be lost due to technical issues\n• Some websites may block our domains\n• Service features may change without notice"
+      },
+      "userResponsibilities": {
+        "title": "User Responsibilities",
+        "content": "You agree to:\n\n• Use the service only for lawful purposes\n• Not use temporary emails for critical accounts (banking, healthcare, etc.)\n• Not rely on our service for important communications\n• Accept that emails are temporary and will be deleted\n• Not attempt to abuse, hack, or disrupt our service\n• Not use the service to harass, spam, or harm others\n\nYou understand that:\n\n• Temporary emails are not private - anyone with the address can view emails\n• You should not use temp mail for sensitive information\n• We may terminate access to users who violate these terms"
+      },
+      "prohibitedUses": {
+        "title": "Prohibited Uses",
+        "content": "You may NOT use TempMailCentral for:\n\n• Illegal activities or fraud\n• Creating accounts for harassment or abuse\n• Bypassing bans or restrictions on other services\n• Receiving sensitive personal or financial information\n• Automated scraping or data harvesting\n• Distributing malware or phishing\n• Any activity that violates laws or regulations\n• Impersonating others or misrepresenting identity\n\nViolation may result in:\n\n• Immediate termination of service access\n• Reporting to appropriate authorities\n• Legal action if necessary"
+      },
+      "disclaimer": {
+        "title": "Disclaimer of Warranties",
+        "content": "TempMailCentral is provided 'AS IS' and 'AS AVAILABLE' without warranties of any kind, either express or implied, including but not limited to:\n\n• Merchantability or fitness for a particular purpose\n• Non-infringement or security\n• Accuracy, reliability, or completeness\n• Uninterrupted or error-free service\n\nWe do not warrant that:\n\n• The service will meet your requirements\n• Emails will be delivered or received correctly\n• The service will be available at all times\n• Defects will be corrected\n• The service is free from viruses or harmful components"
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "To the maximum extent permitted by law:\n\n• We are not liable for any indirect, incidental, special, or consequential damages\n• Our total liability shall not exceed $100 USD\n• We are not responsible for data loss, including lost emails\n• We are not liable for third-party actions or content\n• You use the service at your own risk\n\nThis includes but is not limited to:\n\n• Lost business or profits\n• Data corruption or loss\n• Service interruptions\n• Security breaches\n• Third-party claims"
+      }
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "For questions about these Terms of Service, please contact us at: legal@tempmailcentral.com"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us - TempMailCentral",
+      "description": "Learn about TempMailCentral, the trusted temporary email service protecting privacy for over 500,000 users worldwide."
+    },
+    "badge": "About Us",
+    "title": "About TempMailCentral",
+    "subtitle": "Protecting your privacy with secure, disposable email addresses since day one",
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Our Mission",
+      "content": "Our mission is simple: protect your privacy online. In a world where your email address is constantly requested, we believe you should have the freedom to maintain your privacy without sacrificing access to online services. TempMailCentral provides a fast, free, and secure way to use the internet without compromising your personal information.",
+      "highlight": {
+        "title": "Privacy First, Always",
+        "description": "We built TempMailCentral on the principle that privacy is a fundamental right, not a luxury. Every feature we add is designed with your privacy in mind."
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your privacy is non-negotiable. We don't sell data, track unnecessarily, or store information longer than needed."
+      },
+      "simplicity": {
+        "title": "Simple & Fast",
+        "description": "No registration, no complications. Just instant, working email addresses when you need them."
+      },
+      "accessibility": {
+        "title": "Free & Accessible",
+        "description": "Privacy protection should be available to everyone, everywhere. Our service is free and available in 20+ languages."
+      },
+      "transparency": {
+        "title": "Transparent",
+        "description": "We're honest about what we do, how we do it, and what limitations exist. No hidden terms or surprises."
+      }
+    },
+    "story": {
+      "badge": "Our Story",
+      "title": "How TempMailCentral Started",
+      "paragraph1": "TempMailCentral was born from a simple frustration: giving out email addresses to websites that didn't need them. Every signup meant more spam, more tracking, and less privacy. We knew there had to be a better way.",
+      "paragraph2": "We started by building a service for ourselves—a simple, fast way to get temporary email addresses without registration. As word spread, we realized others shared our concerns about online privacy. Today, we serve over 500,000 users worldwide who trust us to protect their privacy.",
+      "paragraph3": "We've grown from a simple tool to a comprehensive privacy service, but our core mission remains the same: give people control over their digital privacy. We continue to improve our service, add new features, and expand to new languages—all while keeping privacy at the forefront of everything we do."
+    },
+    "stats": {
+      "emails": "Emails Received",
+      "users": "Active Users",
+      "languages": "Languages",
+      "uptime": "Uptime"
+    },
+    "cta": {
+      "title": "Join Our Privacy-First Community",
+      "description": "Experience the freedom of browsing without compromising your privacy",
+      "button": "Get Started Free"
+    }
+  },
+  "dashboard": {
+    "welcome": "Chào mừng trở lại",
+    "manageMailboxes": "Quản lý các địa chỉ email vĩnh viễn của bạn",
+    "createMailbox": "Tạo Hộp Thư",
+    "stats": {
+      "totalMailboxes": "Tổng Số Hộp Thư",
+      "persistentAddresses": "Địa chỉ vĩnh viễn",
+      "totalEmails": "Tổng Số Email",
+      "acrossAllMailboxes": "Trên tất cả hộp thư",
+      "unread": "Chưa đọc",
+      "newMessages": "Tin nhắn mới",
+      "storage": "Lưu trữ",
+      "forever": "Mãi mãi",
+      "emailsNeverExpire": "Email không bao giờ hết hạn"
+    },
+    "recentEmails": {
+      "title": "Email Gần Đây",
+      "viewAll": "Xem Tất Cả",
+      "noEmails": "Chưa có email",
+      "noEmailsDescription": "Email gửi đến hộp thư của bạn sẽ xuất hiện ở đây",
+      "to": "đến"
+    },
+    "mailboxes": {
+      "title": "Hộp Thư Của Bạn",
+      "new": "Mới",
+      "noMailboxes": "Chưa có hộp thư",
+      "noMailboxesDescription": "Tạo địa chỉ email vĩnh viễn đầu tiên của bạn",
+      "myMailboxes": "Hộp Thư Của Tôi",
+      "permanentEmailAddress": "địa chỉ email vĩnh viễn",
+      "permanentEmailAddresses": "địa chỉ email vĩnh viễn",
+      "newMailbox": "Hộp Thư Mới",
+      "createNew": "Tạo Hộp Thư Mới",
+      "emailAddress": "Địa Chỉ Email",
+      "emailPlaceholder": "emailcuatoi (tùy chọn)",
+      "prefixHelper": "Để trống tiền tố để có địa chỉ ngẫu nhiên",
+      "friendlyName": "Tên Thân Thiện (tùy chọn)",
+      "namePlaceholder": "Công việc, Cá nhân, Bản tin...",
+      "creating": "Đang tạo...",
+      "searchPlaceholder": "Tìm kiếm hộp thư...",
+      "selectMailbox": "Chọn một hộp thư",
+      "selectMailboxDescription": "Chọn một hộp thư để xem email của nó",
+      "email": "email",
+      "emails": "email",
+      "emailsSentTo": "Email gửi đến {address} sẽ xuất hiện ở đây",
+      "deleteConfirm": "Bạn có chắc chắn muốn xóa hộp thư này không? Tất cả email sẽ bị mất."
+    },
+    "quickActions": {
+      "createMailbox": "Tạo Hộp Thư",
+      "createMailboxDescription": "Thêm email vĩnh viễn mới",
+      "tempEmail": "Email Tạm Thời",
+      "tempEmailDescription": "Địa chỉ dùng một lần nhanh",
+      "preferences": "Tùy Chọn",
+      "preferencesDescription": "Tùy chỉnh trải nghiệm của bạn"
+    },
+    "settings": {
+      "title": "Cài Đặt",
+      "managePreferences": "Quản lý tùy chọn tài khoản của bạn",
+      "profile": {
+        "title": "Hồ Sơ",
+        "description": "Thông tin tài khoản của bạn",
+        "user": "Người dùng"
+      },
+      "emailPreferences": {
+        "title": "Tùy Chọn Email",
+        "description": "Cấu hình mặc định hộp thư của bạn",
+        "autoMarkRead": "Tự động đánh dấu email là đã đọc",
+        "autoMarkReadDescription": "Đánh dấu email là đã đọc khi xem",
+        "defaultExpiry": "Hết hạn email mặc định",
+        "defaultExpiryDescription": "Cho email tạm thời",
+        "10minutes": "10 phút",
+        "1hour": "1 giờ",
+        "24hours": "24 giờ"
+      },
+      "notifications": {
+        "title": "Thông Báo",
+        "description": "Quản lý cài đặt thông báo",
+        "browser": "Thông báo trình duyệt",
+        "browserDescription": "Nhận thông báo khi có email mới đến",
+        "sound": "Cảnh báo âm thanh",
+        "soundDescription": "Phát âm thanh cho email mới"
+      },
+      "privacy": {
+        "title": "Quyền Riêng Tư & Bảo Mật",
+        "description": "Quản lý dữ liệu và bảo mật của bạn",
+        "twoFactor": "Xác thực hai yếu tố",
+        "twoFactorDescription": "Thêm lớp bảo mật bổ sung",
+        "enable": "Kích hoạt",
+        "activeSessions": "Phiên hoạt động",
+        "activeSessionsDescription": "Quản lý thiết bị đăng nhập vào tài khoản của bạn",
+        "view": "Xem"
+      },
+      "dangerZone": {
+        "title": "Vùng Nguy Hiểm",
+        "description": "Hành động không thể hoàn tác",
+        "deleteAllMailboxes": "Xóa tất cả hộp thư",
+        "deleteAllMailboxesDescription": "Xóa tất cả địa chỉ email và email của bạn",
+        "deleteAll": "Xóa Tất Cả",
+        "deleteAccount": "Xóa tài khoản",
+        "deleteAccountDescription": "Xóa vĩnh viễn tài khoản và tất cả dữ liệu của bạn",
+        "deleteAccountButton": "Xóa Tài Khoản"
+      }
+    },
+    "emailViewer": {
+      "back": "Quay lại",
+      "noSubject": "(Không Có Chủ Đề)",
+      "noContent": "Không có nội dung",
+      "attachment": "tệp đính kèm",
+      "attachments": "tệp đính kèm"
+    },
+    "sidebar": {
+      "dashboard": "Bảng Điều Khiển",
+      "overview": "Tổng Quan",
+      "myMailboxes": "Hộp Thư Của Tôi",
+      "tempEmails": "Email Tạm Thời",
+      "starred": "Đánh Dấu Sao",
+      "archived": "Đã Lưu Trữ",
+      "settings": "Cài Đặt",
+      "newMailbox": "Hộp Thư Mới"
+    }
+  }
+}

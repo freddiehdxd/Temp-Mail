@@ -26,7 +26,10 @@ current_locale = assigns[:locale] || "en"
 current_language =
   Enum.find(languages, fn {code, _, _} -> code == current_locale end) || hd(languages)
 
-locale_home = fn code -> "/#{code}" end
+locale_home = fn
+  "en" -> "/"
+  code -> "/#{code}"
+end
 
 localized_path = fn path ->
   if current_locale == "en", do: path, else: "/#{current_locale}#{path}"

@@ -1,0 +1,546 @@
+{
+  "common": {
+    "appName": "TempMail",
+    "tagline": "Ücretsiz Geçici E-posta",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "search": "Ara",
+    "filter": "Filtre",
+    "actions": "İşlemler",
+    "confirm": "Onayla",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "close": "Kapat",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "refresh": "Yenile",
+    "settings": "Ayarlar",
+    "language": "Dil",
+    "theme": "Tema",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem"
+  },
+  "home": {
+    "title": "Ücretsiz Geçici E-posta",
+    "subtitle": "Tek kullanımlık e-posta adresleriyle gizliliğinizi koruyun",
+    "description": "Anında geçici e-posta adresi alın. Kayıt gerekmez. E-postalar 10 dakika sonra otomatik silinir.",
+    "generateButton": "Yeni E-posta Oluştur",
+    "yourEmail": "Geçici E-postanız",
+    "copyEmail": "E-posta Adresini Kopyala",
+    "refreshInbox": "Gelen Kutusunu Yenile",
+    "extendTime": "Süreyi Uzat",
+    "timeRemaining": "Kalan Süre",
+    "noEmails": "Henüz e-posta yok",
+    "waitingForEmails": "Gelen e-postalar bekleniyor...",
+    "heroBadge": "Dünya çapında 500.000'den fazla kullanıcı tarafından güvenilir",
+    "stats": {
+      "emailsReceived": "Alınan E-postalar",
+      "happyUsers": "Mutlu Kullanıcılar",
+      "uptime": "Çalışma Süresi",
+      "languages": "Diller"
+    },
+    "features": {
+      "title": "Neden TempMail?",
+      "subtitle": "Güvenli, tek kullanımlık e-posta iletişimi için ihtiyacınız olan her şey",
+      "privacy": {
+        "title": "Gizliliğinizi Koruyun",
+        "description": "Gerçek e-postanızı gizli tutun. Kayıtlar için geçici e-posta kullanın."
+      },
+      "noSpam": {
+        "title": "Spam'den Kaçının",
+        "description": "Spam'i başlamadan durdurun. Geçici e-postalar spam ile birlikte kaybolur."
+      },
+      "instant": {
+        "title": "Anında ve Ücretsiz",
+        "description": "Kayıt gerekmez. Saniyeler içinde çalışan bir e-posta adresi alın."
+      },
+      "secure": {
+        "title": "Güvenli ve Anonim",
+        "description": "E-postalarınız otomatik olarak silinir. Hiçbir veri kalıcı olarak saklanmaz."
+      }
+    },
+    "howItWorks": {
+      "title": "Nasıl Çalışır",
+      "subtitle": "Üç basit adımla saniyeler içinde başlayın",
+      "step1": {
+        "title": "Anında E-posta Alın",
+        "description": "Ziyaret ettiğinizde otomatik olarak geçici bir e-posta oluşturulur"
+      },
+      "step2": {
+        "title": "Her Yerde Kullanın",
+        "description": "Kayıtlar, doğrulamalar veya herhangi bir hizmet için kopyalayın ve kullanın"
+      },
+      "step3": {
+        "title": "Otomatik Silme",
+        "description": "Her şey 10 dakika sonra otomatik olarak silinir"
+      }
+    },
+    "useCases": {
+      "title": "Mükemmel",
+      "titleHighlight": "Her Durum İçin",
+      "subtitle": "Yeni bir hizmete kaydoluyor, uygulamanızı test ediyor veya sadece gerçek gelen kutunuzu temiz tutmak istiyor olun, sizi koruyoruz.",
+      "case1": "Ücretsiz denemelere kaydolun",
+      "case2": "Bülten spam'inden kaçının",
+      "case3": "Uygulamalarınızı test edin",
+      "case4": "Gerçek e-postanızı koruyun",
+      "case5": "Online alışveriş",
+      "case6": "Sosyal medya kayıtları"
+    },
+    "reviews": {
+      "title": "Geliştiriciler ve kullanıcılar tarafından seviliyor",
+      "subtitle": "Binlerce mutlu kullanıcıya katılın",
+      "review1": "Kullandığım en iyi geçici e-posta hizmeti. Temiz arayüz ve süper hızlı!",
+      "review2": "Sonunda gerçekten işe yarayan bir tek kullanımlık e-posta. Reklam yok, sorun yok.",
+      "review3": "Otomatik yenileme özelliği harika. E-postalar anında görünüyor!"
+    },
+    "faq": {
+      "badge": "Sıkça Sorulan Sorular",
+      "title": "Her Şey Hakkında",
+      "titleHighlight": "Temp Mail",
+      "subtitle": "Tek kullanımlık geçici e-postanın nasıl çalıştığını ve milyonların gizlilik ihtiyaçları için neden TempMailCentral'a güvendiğini öğrenin.",
+      "question1": "Geçici e-posta veya temp mail nedir?",
+      "answer1": "Geçici e-posta (temp mail, tek kullanımlık e-posta veya throwaway e-posta olarak da bilinir), kısa bir süre için kullanabileceğiniz kendi kendini yok eden bir e-posta adresidir. Web sitelerine veya hizmetlere kaydolurken gerçek e-postanızı spam, kimlik avı ve istenmeyen pazarlama e-postalarından korumaya yardımcı olur.",
+      "question2": "Tek kullanımlık e-posta nasıl çalışır?",
+      "answer2": "Tek kullanımlık e-posta, size anında rastgele bir e-posta adresi sağlayarak çalışır. Bu adrese gönderilen her e-posta, geçici gelen kutunuzda gerçek zamanlı olarak görünür. Belirlenen bir süre (genellikle 10 dakika) sonra, e-posta adresi ve alınan tüm mesajlar otomatik olarak silinir.",
+      "question3": "Temp mail kullanmak güvenli mi?",
+      "answer3": "Evet, temp mail web sitelerine kaydolmak, kaynakları indirmek veya uygulamaları test etmek gibi hassas olmayan amaçlar için kullanmak güvenlidir. Ancak, e-postalar silineceği ve erişimi kaybedebileceğiniz için bankacılık gibi önemli hesaplar için asla geçici e-posta kullanmamalısınız.",
+      "question4": "Geçici e-posta ne kadar sürer?",
+      "answer4": "Varsayılan olarak, TempMailCentral'daki geçici e-posta adresleri 10 dakika sürer. Ancak, giriş yapmış kullanıcılar süreyi 30 güne kadar uzatabilir veya adresi kalıcı posta kutusu olarak kaydedebilir.",
+      "question5": "Web siteleri temp mail'i algılayabilir mi?",
+      "answer5": "Bazı web siteleri bilinen geçici e-posta alan adlarının kara listelerini tutar. TempMailCentral bunu en aza indirmek için birden fazla alan adı kullanırken, bazı katı web siteleri hala geçici e-posta adreslerini algılayıp engelleyebilir.",
+      "question6": "Temp mail kullanmak için kayıt olmam gerekiyor mu?",
+      "answer6": "TempMailCentral'ı kullanmak için kayıt gerekmez. Web sitesini ziyaret etmeniz yeterli, hemen kullanabileceğiniz bir geçici e-posta adresi otomatik olarak alacaksınız.",
+      "question7": "Temp mail ile ekleri alabilir miyim?",
+      "answer7": "Evet, TempMailCentral e-posta eklerini almayı destekler. Geçici adresinize gönderilen e-postalardan ekleri görüntüleyebilir ve indirebilirsiniz.",
+      "question8": "Temp mail ne için kullanılır?",
+      "answer8": "Temp mail yaygın olarak şunlar için kullanılır: ücretsiz denemelere kaydolma, bülten spam'inden kaçınma, uygulamalarda e-posta işlevselliğini test etme, gerçek e-postanızı veri ihlallerinden koruma, güvenilir olmayan sitelerde online alışveriş ve tek seferlik indirmelere veya kaynaklara erişim."
+    },
+    "whyChoose": {
+      "title": "Neden Seçmeli",
+      "titleHighlight": "TempMailCentral",
+      "subtitle": "Dünya çapında 500.000'den fazla kullanıcı tarafından güvenilen en güvenilir ücretsiz geçici e-posta hizmeti.",
+      "instantFree": {
+        "title": "Anında ve Ücretsiz",
+        "description": "Kayıt yok, kredi kartı yok, taahhüt yok. Tek kullanımlık e-postanızı saniyeler içinde alın, sonsuza kadar tamamen ücretsiz."
+      },
+      "privacyFirst": {
+        "title": "Gizlilik Öncelikli",
+        "description": "Verilerinizi takip etmiyor, saklamıyor veya satmıyoruz. Tüm e-postalar sona erdikten sonra otomatik olarak silinir. Gizliliğiniz önceliğimizdir."
+      },
+      "multiLanguage": {
+        "title": "20+ Dil",
+        "description": "İngilizce, İspanyolca, Fransızca, Almanca, Çince, Japonca ve daha fazlası dahil olmak üzere 20'den fazla dilde mevcuttur."
+      }
+    },
+    "seoContent": {
+      "title": "Temp Mail Hakkında - Tek Kullanımlık Geçici E-posta",
+      "whatIsTitle": "Geçici E-posta Nedir?",
+      "whatIsContent": "Geçici e-posta, temp mail, tek kullanımlık e-posta, throwaway e-posta veya 10 dakikalık posta olarak da bilinen, size kısa ömürlü bir e-posta adresi sağlayan bir hizmettir. Kişisel e-postanızın aksine, bir temp mail adresi bir kez kullanılmak ve ardından atılmak üzere tasarlanmıştır, gerçek gelen kutunuzu temiz ve spam'siz tutar.",
+      "whatIsContent2": "TempMailCentral, web sitesi kayıtları, bülten abonelikleri, online alışveriş veya bir e-postaya ihtiyacınız olduğu ancak gerçek adresinizi paylaşmak istemediğiniz herhangi bir durum için kullanabileceğiniz rastgele e-posta adresleri oluşturur.",
+      "benefitsTitle": "Tek Kullanımlık E-postanın Faydaları",
+      "benefit1": "Spam Koruması:",
+      "benefit1Desc": "Kayıtlar için temp mail kullanarak gerçek gelen kutunuzu temiz tutun",
+      "benefit2": "Gizlilik:",
+      "benefit2Desc": "Online hizmetlere erişirken kimliğinizi koruyun",
+      "benefit3": "Güvenlik:",
+      "benefit3Desc": "Kimlik avı ve veri ihlallerine maruz kalmayı azaltın",
+      "benefit4": "Kolaylık:",
+      "benefit4Desc": "Kayıt gerekmez - anında bir e-posta alın",
+      "benefit5": "Sonsuza Kadar Ücretsiz:",
+      "benefit5Desc": "Temel hizmetimiz gizli maliyet olmadan tamamen ücretsizdir"
+    },
+    "cta": {
+      "title": "Gizliliğinizi korumaya hazır mısınız?",
+      "subtitle": "Şimdi ücretsiz geçici e-posta adresinizi alın. Kayıt yok, sorun yok, sadece gizlilik.",
+      "button": "Ücretsiz Başlayın"
+    },
+    "status": {
+      "liveUpdates": "Canl? g?ncellemeler etkin"
+    },
+    "quickStats": {
+      "private": "Gizli",
+      "endToEnd": "U?tan uca",
+      "instant": "An?nda",
+      "realTime": "Ger?ek zamanl?",
+      "autoDelete": "Otomatik silme",
+      "tenMinutes": "10 dakika"
+    }
+  },
+  "inbox": {
+    "title": "Gelen Kutusu",
+    "empty": "Gelen kutunuz boş",
+    "emptyDescription": "Geçici adresinize gönderilen e-postalar burada görünecek",
+    "from": "Kimden",
+    "subject": "Konu",
+    "received": "Alındı",
+    "read": "Okundu",
+    "unread": "Okunmadı",
+    "delete": "E-postayı Sil",
+    "markAsRead": "Okundu Olarak İşaretle",
+    "viewEmail": "E-postayı Görüntüle",
+    "attachments": "Ekler",
+    "noSubject": "(Konu Yok)",
+    "emailExpired": "Bu e-posta adresi süresi doldu",
+    "generateNew": "Yeni Adres Oluştur"
+  },
+  "auth": {
+    "signIn": "Giriş Yap",
+    "signOut": "Çıkış Yap",
+    "signInWith": "{provider} ile Giriş Yap",
+    "signingIn": "Giriş yapılıyor...",
+    "signInError": "Giriş hatası",
+    "accessDenied": "Erişim Reddedildi",
+    "banned": "Hesabınız yasaklandı",
+    "profile": "Profil",
+    "myAccount": "Hesabım"
+  },
+  "admin": {
+    "title": "Yönetici Paneli",
+    "dashboard": "Panel",
+    "domains": "Alan Adları",
+    "users": "Kullanıcılar",
+    "analytics": "Analizler",
+    "settings": "Ayarlar",
+    "overview": "Genel Bakış",
+    "totalEmails": "Toplam Oluşturulan E-posta",
+    "totalReceived": "Toplam Alınan E-posta",
+    "activeDomains": "Aktif Alan Adları",
+    "totalUsers": "Toplam Kullanıcı",
+    "recentActivity": "Son Aktivite",
+    "domainManagement": {
+      "title": "Alan Adı Yönetimi",
+      "addDomain": "Alan Adı Ekle",
+      "domainName": "Alan Adı",
+      "status": "Durum",
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "default": "Varsayılan",
+      "setDefault": "Varsayılan Yap",
+      "deleteDomain": "Alan Adını Sil",
+      "confirmDelete": "Bu alan adını silmek istediğinizden emin misiniz?"
+    },
+    "userManagement": {
+      "title": "Kullanıcı Yönetimi",
+      "name": "Ad",
+      "email": "E-posta",
+      "role": "Rol",
+      "status": "Durum",
+      "joined": "Katıldı",
+      "actions": "İşlemler",
+      "ban": "Kullanıcıyı Yasakla",
+      "unban": "Yasağı Kaldır",
+      "makeAdmin": "Yönetici Yap",
+      "removeAdmin": "Yöneticilikten Çıkar",
+      "banned": "Yasaklı",
+      "active": "Aktif"
+    },
+    "analyticsPage": {
+      "title": "Analizler",
+      "emailsOverTime": "Zamana Göre E-postalar",
+      "generated": "Oluşturulan",
+      "received": "Alınan",
+      "last7Days": "Son 7 Gün",
+      "last30Days": "Son 30 Gün",
+      "last90Days": "Son 90 Gün"
+    },
+    "settingsPage": {
+      "title": "Ayarlar",
+      "general": "Genel Ayarlar",
+      "emailTTL": "E-posta TTL (saniye)",
+      "emailTTLDescription": "Geçici e-postaların süresi dolmadan önce ne kadar süre kalacağı",
+      "defaultDomain": "Varsayılan Alan Adı",
+      "mailcow": "Mailcow Yapılandırması",
+      "mailcowUrl": "Mailcow API URL",
+      "mailcowKey": "Mailcow API Anahtarı",
+      "testConnection": "Bağlantıyı Test Et",
+      "connectionSuccess": "Bağlantı başarılı",
+      "connectionFailed": "Bağlantı başarısız"
+    }
+  },
+  "errors": {
+    "notFound": "Sayfa Bulunamadı",
+    "notFoundDescription": "Aradığınız sayfa mevcut değil.",
+    "serverError": "Sunucu Hatası",
+    "serverErrorDescription": "Bizim tarafımızda bir şeyler yanlış gitti.",
+    "unauthorized": "Yetkisiz",
+    "unauthorizedDescription": "Bu sayfaya erişim izniniz yok.",
+    "goHome": "Ana Sayfaya Git"
+  },
+  "footer": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Hizmet Şartları",
+    "contact": "İletişim",
+    "about": "Hakkında",
+    "copyright": "© {year} TempMail. Tüm hakları saklıdır.",
+    "description": "En h?zl? ve en g?venli ge?ici e-posta hizmeti. Otomatik silinen tek kullan?ml?k e-posta adresleriyle gizlili?inizi koruyun. Kay?t gerekmez.",
+    "privateSecure": "Gizli ve g?venli",
+    "instantDelivery": "An?nda teslimat",
+    "languages": "20+ dil"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy - TempMailCentral",
+      "description": "Learn how TempMailCentral protects your privacy. We don't store personal data, all emails auto-delete, and your privacy is our priority."
+    },
+    "badge": "Your Privacy Matters",
+    "title": "Privacy Policy",
+    "subtitle": "How we protect your privacy and handle your data",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "At TempMailCentral, privacy is our top priority. This Privacy Policy explains how we collect, use, and protect your information when you use our temporary email service. By using our service, you agree to the practices described in this policy.",
+    "sections": {
+      "dataCollection": {
+        "title": "Information We Collect",
+        "content": "We collect minimal information to provide our service:\n\n• Technical Data: IP addresses, browser type, and device information for security and service improvement\n• Usage Data: How you interact with our service to improve functionality\n• Email Content: Temporarily stored emails that auto-delete after expiration\n• Cookies: Essential cookies for service functionality\n\nWe do NOT collect:\n• Personal identification information\n• Payment information (our service is free)\n• Your real email address\n• Any data we don't absolutely need"
+      },
+      "dataUsage": {
+        "title": "How We Use Your Data",
+        "content": "We use collected information for:\n\n• Providing and maintaining our temporary email service\n• Improving user experience and service functionality\n• Detecting and preventing abuse, spam, and security threats\n• Analyzing usage patterns to optimize performance\n• Complying with legal obligations\n\nWe do NOT:\n• Sell your data to third parties\n• Use your data for advertising\n• Share your information without your consent\n• Store data longer than necessary"
+      },
+      "dataSharing": {
+        "title": "Data Sharing and Disclosure",
+        "content": "We do not sell, trade, or rent your personal information. We may share data only in these limited cases:\n\n• Legal Requirements: When required by law or to protect our rights\n• Service Providers: Trusted partners who help operate our service (under strict confidentiality)\n• Security: To prevent fraud, abuse, or security threats\n\nAll third-party service providers are bound by confidentiality agreements and are prohibited from using your information for any purpose other than providing services to us."
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "content": "We use cookies and similar technologies:\n\n• Essential Cookies: Required for service functionality (cannot be disabled)\n• Analytics Cookies: Help us understand how you use our service\n• Preference Cookies: Remember your settings and preferences\n\nYou can control cookies through your browser settings. However, disabling essential cookies may limit service functionality.\n\nWe do NOT use:\n• Advertising cookies\n• Third-party tracking cookies\n• Social media tracking pixels"
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement industry-standard security measures:\n\n• Encryption: All data transmitted is encrypted using HTTPS/TLS\n• Secure Infrastructure: Our servers use advanced security protocols\n• Access Control: Limited access to data by authorized personnel only\n• Regular Audits: Continuous monitoring and security assessments\n• Auto-Deletion: Emails automatically delete after expiration\n\nWhile we strive to protect your data, no internet transmission is 100% secure. Use our service at your own risk for non-sensitive communications."
+      },
+      "emailRetention": {
+        "title": "Email Retention and Deletion",
+        "content": "Email retention policy:\n\n• Temporary Emails: Auto-delete after 10 minutes by default\n• Extended Emails: Delete based on your chosen extension period\n• Permanent Mailboxes: Retain until you delete (for registered users)\n• Deleted Content: Permanently removed from our systems\n\nOnce deleted, emails cannot be recovered. We do not maintain backups of temporary email content."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions about this Privacy Policy or our data practices, please contact us at: privacy@tempmailcentral.com"
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service - TempMailCentral",
+      "description": "Read our Terms of Service to understand the rules and guidelines for using TempMailCentral's temporary email service."
+    },
+    "badge": "Legal Terms",
+    "title": "Terms of Service",
+    "subtitle": "Please read these terms carefully before using our service",
+    "lastUpdated": "Last updated: January 24, 2026",
+    "introduction": "Welcome to TempMailCentral. These Terms of Service ('Terms') govern your use of our temporary email service. By accessing or using TempMailCentral, you agree to be bound by these Terms. If you disagree with any part, please do not use our service.",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using TempMailCentral, you confirm that:\n\n• You are at least 13 years old\n• You have the legal capacity to enter into these Terms\n• You will comply with all applicable laws and regulations\n• You understand this is a temporary email service with limitations\n\nWe reserve the right to modify these Terms at any time. Continued use after changes constitutes acceptance of the modified Terms."
+      },
+      "serviceDescription": {
+        "title": "Service Description",
+        "content": "TempMailCentral provides:\n\n• Free temporary email addresses that auto-delete\n• Email receiving capabilities (no sending)\n• Basic email viewing and attachment downloads\n• Optional account features for extended use\n\nOur service is provided 'as-is' without guarantees:\n\n• We do not guarantee 100% uptime or availability\n• Emails may be lost due to technical issues\n• Some websites may block our domains\n• Service features may change without notice"
+      },
+      "userResponsibilities": {
+        "title": "User Responsibilities",
+        "content": "You agree to:\n\n• Use the service only for lawful purposes\n• Not use temporary emails for critical accounts (banking, healthcare, etc.)\n• Not rely on our service for important communications\n• Accept that emails are temporary and will be deleted\n• Not attempt to abuse, hack, or disrupt our service\n• Not use the service to harass, spam, or harm others\n\nYou understand that:\n\n• Temporary emails are not private - anyone with the address can view emails\n• You should not use temp mail for sensitive information\n• We may terminate access to users who violate these terms"
+      },
+      "prohibitedUses": {
+        "title": "Prohibited Uses",
+        "content": "You may NOT use TempMailCentral for:\n\n• Illegal activities or fraud\n• Creating accounts for harassment or abuse\n• Bypassing bans or restrictions on other services\n• Receiving sensitive personal or financial information\n• Automated scraping or data harvesting\n• Distributing malware or phishing\n• Any activity that violates laws or regulations\n• Impersonating others or misrepresenting identity\n\nViolation may result in:\n\n• Immediate termination of service access\n• Reporting to appropriate authorities\n• Legal action if necessary"
+      },
+      "disclaimer": {
+        "title": "Disclaimer of Warranties",
+        "content": "TempMailCentral is provided 'AS IS' and 'AS AVAILABLE' without warranties of any kind, either express or implied, including but not limited to:\n\n• Merchantability or fitness for a particular purpose\n• Non-infringement or security\n• Accuracy, reliability, or completeness\n• Uninterrupted or error-free service\n\nWe do not warrant that:\n\n• The service will meet your requirements\n• Emails will be delivered or received correctly\n• The service will be available at all times\n• Defects will be corrected\n• The service is free from viruses or harmful components"
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "To the maximum extent permitted by law:\n\n• We are not liable for any indirect, incidental, special, or consequential damages\n• Our total liability shall not exceed $100 USD\n• We are not responsible for data loss, including lost emails\n• We are not liable for third-party actions or content\n• You use the service at your own risk\n\nThis includes but is not limited to:\n\n• Lost business or profits\n• Data corruption or loss\n• Service interruptions\n• Security breaches\n• Third-party claims"
+      }
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "For questions about these Terms of Service, please contact us at: legal@tempmailcentral.com"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us - TempMailCentral",
+      "description": "Learn about TempMailCentral, the trusted temporary email service protecting privacy for over 500,000 users worldwide."
+    },
+    "badge": "About Us",
+    "title": "About TempMailCentral",
+    "subtitle": "Protecting your privacy with secure, disposable email addresses since day one",
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Our Mission",
+      "content": "Our mission is simple: protect your privacy online. In a world where your email address is constantly requested, we believe you should have the freedom to maintain your privacy without sacrificing access to online services. TempMailCentral provides a fast, free, and secure way to use the internet without compromising your personal information.",
+      "highlight": {
+        "title": "Privacy First, Always",
+        "description": "We built TempMailCentral on the principle that privacy is a fundamental right, not a luxury. Every feature we add is designed with your privacy in mind."
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your privacy is non-negotiable. We don't sell data, track unnecessarily, or store information longer than needed."
+      },
+      "simplicity": {
+        "title": "Simple & Fast",
+        "description": "No registration, no complications. Just instant, working email addresses when you need them."
+      },
+      "accessibility": {
+        "title": "Free & Accessible",
+        "description": "Privacy protection should be available to everyone, everywhere. Our service is free and available in 20+ languages."
+      },
+      "transparency": {
+        "title": "Transparent",
+        "description": "We're honest about what we do, how we do it, and what limitations exist. No hidden terms or surprises."
+      }
+    },
+    "story": {
+      "badge": "Our Story",
+      "title": "How TempMailCentral Started",
+      "paragraph1": "TempMailCentral was born from a simple frustration: giving out email addresses to websites that didn't need them. Every signup meant more spam, more tracking, and less privacy. We knew there had to be a better way.",
+      "paragraph2": "We started by building a service for ourselves—a simple, fast way to get temporary email addresses without registration. As word spread, we realized others shared our concerns about online privacy. Today, we serve over 500,000 users worldwide who trust us to protect their privacy.",
+      "paragraph3": "We've grown from a simple tool to a comprehensive privacy service, but our core mission remains the same: give people control over their digital privacy. We continue to improve our service, add new features, and expand to new languages—all while keeping privacy at the forefront of everything we do."
+    },
+    "stats": {
+      "emails": "Emails Received",
+      "users": "Active Users",
+      "languages": "Languages",
+      "uptime": "Uptime"
+    },
+    "cta": {
+      "title": "Join Our Privacy-First Community",
+      "description": "Experience the freedom of browsing without compromising your privacy",
+      "button": "Get Started Free"
+    }
+  },
+  "dashboard": {
+    "welcome": "Tekrar hoş geldiniz",
+    "manageMailboxes": "Kalıcı e-posta adreslerinizi yönetin",
+    "createMailbox": "Posta Kutusu Oluştur",
+    "stats": {
+      "totalMailboxes": "Toplam Posta Kutusu",
+      "persistentAddresses": "Kalıcı adresler",
+      "totalEmails": "Toplam E-posta",
+      "acrossAllMailboxes": "Tüm posta kutularında",
+      "unread": "Okunmamış",
+      "newMessages": "Yeni mesajlar",
+      "storage": "Depolama",
+      "forever": "Sonsuza Kadar",
+      "emailsNeverExpire": "E-postalar asla sona ermez"
+    },
+    "recentEmails": {
+      "title": "Son E-postalar",
+      "viewAll": "Tümünü Gör",
+      "noEmails": "Henüz e-posta yok",
+      "noEmailsDescription": "Posta kutularınıza gönderilen e-postalar burada görünecek",
+      "to": "kime"
+    },
+    "mailboxes": {
+      "title": "Posta Kutularınız",
+      "new": "Yeni",
+      "noMailboxes": "Henüz posta kutusu yok",
+      "noMailboxesDescription": "İlk kalıcı e-posta adresinizi oluşturun",
+      "myMailboxes": "Posta Kutularım",
+      "permanentEmailAddress": "kalıcı e-posta adresi",
+      "permanentEmailAddresses": "kalıcı e-posta adresleri",
+      "newMailbox": "Yeni Posta Kutusu",
+      "createNew": "Yeni Posta Kutusu Oluştur",
+      "emailAddress": "E-posta Adresi",
+      "emailPlaceholder": "benimepostam (isteğe bağlı)",
+      "prefixHelper": "Rastgele bir adres için öneki boş bırakın",
+      "friendlyName": "Arkadaş Canlısı Ad (isteğe bağlı)",
+      "namePlaceholder": "İş, Kişisel, Haber Bülteni...",
+      "creating": "Oluşturuluyor...",
+      "searchPlaceholder": "Posta kutularını ara...",
+      "selectMailbox": "Bir posta kutusu seçin",
+      "selectMailboxDescription": "E-postalarını görmek için bir posta kutusu seçin",
+      "email": "e-posta",
+      "emails": "e-postalar",
+      "emailsSentTo": "{address} adresine gönderilen e-postalar burada görünecek",
+      "deleteConfirm": "Bu posta kutusunu silmek istediğinizden emin misiniz? Tüm e-postalar kaybolacak."
+    },
+    "quickActions": {
+      "createMailbox": "Posta Kutusu Oluştur",
+      "createMailboxDescription": "Yeni kalıcı e-posta ekle",
+      "tempEmail": "Geçici E-posta",
+      "tempEmailDescription": "Hızlı tek kullanımlık adres",
+      "preferences": "Tercihler",
+      "preferencesDescription": "Deneyiminizi özelleştirin"
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "managePreferences": "Hesap tercihlerinizi yönetin",
+      "profile": {
+        "title": "Profil",
+        "description": "Hesap bilgileriniz",
+        "user": "Kullanıcı"
+      },
+      "emailPreferences": {
+        "title": "E-posta Tercihleri",
+        "description": "Posta kutusu varsayılanlarınızı yapılandırın",
+        "autoMarkRead": "E-postaları otomatik olarak okundu işaretle",
+        "autoMarkReadDescription": "Görüntülerken e-postaları okundu olarak işaretle",
+        "defaultExpiry": "Varsayılan e-posta süresi",
+        "defaultExpiryDescription": "Geçici e-postalar için",
+        "10minutes": "10 dakika",
+        "1hour": "1 saat",
+        "24hours": "24 saat"
+      },
+      "notifications": {
+        "title": "Bildirimler",
+        "description": "Bildirim ayarlarını yönet",
+        "browser": "Tarayıcı bildirimleri",
+        "browserDescription": "Yeni e-postalar geldiğinde bildirim al",
+        "sound": "Ses uyarıları",
+        "soundDescription": "Yeni e-postalar için ses çal"
+      },
+      "privacy": {
+        "title": "Gizlilik ve Güvenlik",
+        "description": "Verilerinizi ve güvenliğinizi yönetin",
+        "twoFactor": "İki faktörlü kimlik doğrulama",
+        "twoFactorDescription": "Ekstra bir güvenlik katmanı ekle",
+        "enable": "Etkinleştir",
+        "activeSessions": "Aktif oturumlar",
+        "activeSessionsDescription": "Hesabınızda oturum açmış cihazları yönet",
+        "view": "Görüntüle"
+      },
+      "dangerZone": {
+        "title": "Tehlike Bölgesi",
+        "description": "Geri alınamaz işlemler",
+        "deleteAllMailboxes": "Tüm posta kutularını sil",
+        "deleteAllMailboxesDescription": "Tüm e-posta adreslerinizi ve e-postalarınızı kaldır",
+        "deleteAll": "Tümünü Sil",
+        "deleteAccount": "Hesabı sil",
+        "deleteAccountDescription": "Hesabınızı ve tüm verileri kalıcı olarak kaldır",
+        "deleteAccountButton": "Hesabı Sil"
+      }
+    },
+    "emailViewer": {
+      "back": "Geri",
+      "noSubject": "(Konu Yok)",
+      "noContent": "İçerik yok",
+      "attachment": "ek",
+      "attachments": "ekler"
+    },
+    "sidebar": {
+      "dashboard": "Gösterge Paneli",
+      "overview": "Genel Bakış",
+      "myMailboxes": "Posta Kutularım",
+      "tempEmails": "Geçici E-postalar",
+      "starred": "Yıldızlı",
+      "archived": "Arşivlenmiş",
+      "settings": "Ayarlar",
+      "newMailbox": "Yeni Posta Kutusu"
+    }
+  }
+}

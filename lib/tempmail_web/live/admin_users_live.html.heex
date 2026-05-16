@@ -1,114 +1,138 @@
 <.admin_shell locale={@locale} active={:users}>
   <% users = filtered_users(@users, @search) %>
-  <div class="space-y-8">
-    <div>
-      <h1 class="text-3xl font-bold text-slate-950">Users</h1>
-      <p class="mt-1 text-slate-500">Manage user accounts and permissions.</p>
+  <div class="space-y-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">Users</h1>
+        <p class="text-sm text-slate-500">{length(@users)} total users</p>
+      </div>
     </div>
 
-    <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <.form for={%{}} phx-change="search">
-        <div class="relative max-w-md">
-          <.icon
-            name="hero-magnifying-glass"
-            class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-          />
-          <input
-            name="search"
-            value={@search}
-            placeholder="Search users..."
-            class="h-11 w-full rounded-lg border border-slate-200 bg-white pl-10 pr-3 text-sm"
-          />
-        </div>
-      </.form>
-    </section>
+    <form phx-change="search" class="relative">
+      <.icon
+        name="hero-magnifying-glass-mini"
+        class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+      />
+      <input
+        type="text"
+        name="q"
+        value={@search}
+        placeholder="Search by name or email..."
+        phx-debounce="200"
+        class="h-9 w-full rounded-lg border border-slate-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:ring-blue-500 sm:w-80"
+      />
+    </form>
 
-    <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div class="border-b border-slate-200 p-5">
-        <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
-          <.icon name="hero-users" class="h-5 w-5" /> All Users ({length(users)})
-        </h2>
-      </div>
-      <div class="space-y-4 p-5">
-        <div :if={users == []} class="py-12 text-center">
-          <.icon name="hero-users" class="mx-auto h-12 w-12 text-slate-300" />
-          <h3 class="mt-4 text-lg font-medium text-slate-950">No users found</h3>
-        </div>
-        <div
-          :for={user <- users}
-          class="flex flex-col gap-4 rounded-lg border border-slate-200 p-4 transition-colors hover:bg-slate-50 lg:flex-row lg:items-center lg:justify-between"
-        >
-          <div class="flex items-center gap-4">
-            <img :if={user.image} src={user.image} class="h-10 w-10 rounded-full" alt="" />
-            <div
-              :if={!user.image}
-              class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200"
-            >
-              <.icon name="hero-users" class="h-5 w-5 text-slate-500" />
-            </div>
-            <div>
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="font-medium text-slate-950">{user.name || "Unnamed User"}</span>
+    <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+      <table class="w-full">
+        <thead class="border-b border-slate-200 bg-slate-50">
+          <tr>
+            <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+              User
+            </th>
+            <th class="hidden px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 md:table-cell">
+              Role
+            </th>
+            <th class="hidden px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 sm:table-cell">
+              Joined
+            </th>
+            <th class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr :if={users == []} class="text-center">
+            <td colspan="4" class="px-4 py-8 text-sm text-slate-500">No users found</td>
+          </tr>
+          <tr :for={user <- users} class="group hover:bg-slate-50">
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div :if={user.image} class="h-8 w-8 overflow-hidden rounded-full">
+                  <img src={user.image} alt="" class="h-full w-full object-cover" />
+                </div>
+                <div
+                  :if={!user.image}
+                  class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-xs font-bold text-white"
+                >
+                  {String.first(user.name || user.email) |> String.upcase()}
+                </div>
+                <div class="min-w-0">
+                  <p class="truncate text-sm font-semibold text-slate-900">
+                    {user.name || "No name"}
+                  </p>
+                  <p class="truncate text-xs text-slate-500">{user.email}</p>
+                </div>
+              </div>
+            </td>
+            <td class="hidden px-4 py-3 md:table-cell">
+              <div class="flex flex-wrap items-center gap-1.5">
                 <span
                   :if={user.role == "SUPER_ADMIN"}
-                  class="rounded-full bg-purple-600 px-2 py-1 text-xs font-bold text-white"
+                  class="inline-flex items-center rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-700"
                 >
                   Super Admin
                 </span>
                 <span
                   :if={user.role == "ADMIN"}
-                  class="rounded-full bg-blue-600 px-2 py-1 text-xs font-bold text-white"
+                  class="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700"
                 >
                   Admin
                 </span>
                 <span
+                  :if={user.role == "USER"}
+                  class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600"
+                >
+                  User
+                </span>
+                <span
                   :if={user.banned}
-                  class="rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white"
+                  class="inline-flex items-center rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-700"
                 >
                   Banned
                 </span>
               </div>
-              <p class="text-sm text-slate-500">{user.email}</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-sm text-slate-500">
-              Joined {Calendar.strftime(user.inserted_at, "%b %d, %Y")}
-            </span>
-            <button
-              :if={
-                @current_user.role == "SUPER_ADMIN" && @current_user.id != user.id &&
-                  user.role != "SUPER_ADMIN"
-              }
-              phx-click="toggle_admin"
-              phx-value-id={user.id}
-              class={
-                if user.role == "ADMIN", do: "tm-btn-gradient gap-1", else: "tm-btn-outline gap-1"
-              }
-            >
-              <.icon name="hero-shield-check" class="h-4 w-4" /> {if user.role == "ADMIN",
-                do: "Admin",
-                else: "Make Admin"}
-            </button>
-            <button
-              :if={@current_user.id != user.id && user.role != "SUPER_ADMIN" && !user.banned}
-              phx-click="ban"
-              phx-value-id={user.id}
-              class="tm-btn border border-red-200 bg-red-50 text-red-700"
-            >
-              <.icon name="hero-no-symbol" class="h-4 w-4" /> Ban
-            </button>
-            <button
-              :if={@current_user.id != user.id && user.banned}
-              phx-click="unban"
-              phx-value-id={user.id}
-              class="tm-btn-outline gap-1"
-            >
-              <.icon name="hero-check" class="h-4 w-4" /> Unban
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+            </td>
+            <td class="hidden px-4 py-3 text-xs text-slate-500 sm:table-cell">
+              {Calendar.strftime(user.inserted_at, "%b %d, %Y")}
+            </td>
+            <td class="px-4 py-3 text-right">
+              <div class="inline-flex items-center gap-1">
+                <button
+                  :if={
+                    @current_user.role == "SUPER_ADMIN" and user.role != "SUPER_ADMIN" and
+                      user.id != @current_user.id
+                  }
+                  phx-click="toggle_admin"
+                  phx-value-id={user.id}
+                  class="rounded-md px-2.5 py-1 text-xs font-medium text-blue-700 hover:bg-blue-50"
+                >
+                  {if user.role == "ADMIN", do: "Remove Admin", else: "Make Admin"}
+                </button>
+                <button
+                  :if={
+                    !user.banned and user.id != @current_user.id and user.role != "SUPER_ADMIN"
+                  }
+                  phx-click="ban"
+                  phx-value-id={user.id}
+                  data-confirm={"Ban #{user.name || user.email}?"}
+                  class="rounded-md px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
+                >
+                  Ban
+                </button>
+                <button
+                  :if={user.banned and user.id != @current_user.id}
+                  phx-click="unban"
+                  phx-value-id={user.id}
+                  class="rounded-md px-2.5 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-50"
+                >
+                  Unban
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </.admin_shell>

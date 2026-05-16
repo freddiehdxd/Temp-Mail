@@ -36,6 +36,20 @@ defmodule TempmailWeb.Router do
     end
   end
 
+  scope "/", TempmailWeb do
+    pipe_through :api
+
+    get "/sitemap.xml", SitemapController, :index
+    get "/robots.txt", RobotsController, :index
+  end
+
+  scope "/api", TempmailWeb.Api do
+    pipe_through :api
+
+    get "/blog/posts", BlogController, :index
+    get "/blog/posts/:slug", BlogController, :show
+  end
+
   scope "/api", TempmailWeb.Api do
     pipe_through :api
 

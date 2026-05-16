@@ -18,6 +18,12 @@ defmodule TempmailWeb.HomeLive do
       |> assign(:domains, Mail.list_active_domains())
       |> assign(:copied, false)
       |> assign(:error, nil)
+      |> assign(:seo_page, :home)
+      |> assign(:meta_description, "Free disposable temporary email service. Get instant temp mail addresses for signups, verifications, and privacy protection.")
+      |> assign(:og_title, "TempMailCentral - Free Temporary Email")
+      |> assign(:og_description, "Free disposable temporary email service. Get instant temp mail addresses for signups, verifications, and privacy protection.")
+      |> assign(:og_url, "https://tempmailcentral.com")
+      |> assign(:canonical_url, "https://tempmailcentral.com")
 
     socket =
       if connected?(socket) do

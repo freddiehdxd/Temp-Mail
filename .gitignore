@@ -35,3 +35,7 @@ tempmail-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Environment variables with secrets
+.env
+.env.local
+.env.*.local

@@ -3,6 +3,8 @@ defmodule TempmailWeb.Api.WebhookController do
 
   alias Tempmail.Mail
 
+  plug TempmailWeb.Plugs.WebhookAuth
+
   def mailcow(conn, params) do
     case Mail.route_incoming_email(params) do
       {:ok, %{__struct__: Tempmail.Mail.UserEmail}} ->

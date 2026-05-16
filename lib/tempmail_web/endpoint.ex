@@ -50,5 +50,13 @@ defmodule TempmailWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug CORSPlug,
+    origin: [
+      "https://tempmailcentral.com",
+      "http://localhost:4001",
+      "http://localhost:3000"
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    headers: ["Authorization", "Content-Type", "X-Webhook-Signature"]
   plug TempmailWeb.Router
 end

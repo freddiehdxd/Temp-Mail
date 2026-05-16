@@ -1,6 +1,8 @@
 defmodule TempmailWeb.Api.EmailController do
   use TempmailWeb, :controller
 
+  plug TempmailWeb.Plugs.RateLimit, [action: "email_generate", scale_ms: 60_000, limit: 10] when action == :generate
+
   alias Tempmail.Mail
 
   def generate(conn, params) do

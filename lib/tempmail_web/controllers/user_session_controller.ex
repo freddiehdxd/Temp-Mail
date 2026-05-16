@@ -1,6 +1,8 @@
 defmodule TempmailWeb.UserSessionController do
   use TempmailWeb, :controller
 
+  plug TempmailWeb.Plugs.RateLimit, [action: "login", scale_ms: 300_000, limit: 15] when action == :create
+
   alias Tempmail.Accounts
   alias TempmailWeb.UserAuth
 

@@ -4,6 +4,7 @@ defmodule TempmailWeb.Api.WebhookController do
   alias Tempmail.Mail
 
   plug TempmailWeb.Plugs.WebhookAuth
+  plug TempmailWeb.Plugs.RateLimit, action: "webhook", scale_ms: 60_000, limit: 120
 
   def mailcow(conn, params) do
     case Mail.route_incoming_email(params) do

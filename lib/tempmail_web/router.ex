@@ -109,6 +109,12 @@ defmodule TempmailWeb.Router do
       live "/dashboard/starred", DashboardEmailsLive, :starred
       live "/dashboard/archived", DashboardEmailsLive, :archived
       live "/dashboard/settings", DashboardSettingsLive, :index
+      live "/users/settings", UserSettingsLive, :edit
+      live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+    end
+
+    live_session :require_admin,
+      on_mount: [{TempmailWeb.UserAuth, :ensure_admin}] do
       live "/admin", AdminLive, :index
       live "/admin/domains", AdminDomainsLive, :index
       live "/admin/users", AdminUsersLive, :index
@@ -118,8 +124,6 @@ defmodule TempmailWeb.Router do
       live "/admin/blog/:id", AdminBlogEditorLive, :edit
       live "/admin/analytics", AdminAnalyticsLive, :index
       live "/admin/settings", AdminSettingsLive, :index
-      live "/users/settings", UserSettingsLive, :edit
-      live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end
   end
 
@@ -164,6 +168,10 @@ defmodule TempmailWeb.Router do
       live "/dashboard/starred", DashboardEmailsLive, :starred
       live "/dashboard/archived", DashboardEmailsLive, :archived
       live "/dashboard/settings", DashboardSettingsLive, :index
+    end
+
+    live_session :localized_require_admin,
+      on_mount: [{TempmailWeb.UserAuth, :ensure_admin}] do
       live "/admin", AdminLive, :index
       live "/admin/domains", AdminDomainsLive, :index
       live "/admin/users", AdminUsersLive, :index

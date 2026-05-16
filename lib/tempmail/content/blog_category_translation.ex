@@ -9,6 +9,7 @@ defmodule Tempmail.Content.BlogCategoryTranslation do
     field :locale, :string
     field :name, :string
     field :description, :string
+    timestamps(type: :utc_datetime)
   end
 
   def changeset(translation, attrs) do

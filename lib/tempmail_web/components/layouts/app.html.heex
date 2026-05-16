@@ -43,11 +43,9 @@ end %>
     <nav class="container mx-auto flex items-center justify-between px-4">
       <.link navigate={localized_path.("/")} class="group flex items-center gap-3">
         <div class="relative">
-          <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 opacity-50 blur-lg transition-opacity group-hover:opacity-75">
+          <div class="absolute inset-0 rounded-xl opacity-50 blur-lg transition-opacity group-hover:opacity-75 bg-gradient-to-br from-indigo-500 to-purple-600">
           </div>
-          <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
-            <.icon name="hero-envelope" class="h-5 w-5 text-white" />
-          </div>
+          <img src={~p"/images/logo.svg"} alt="TempMail" class="relative h-10 w-10 rounded-xl shadow-lg" />
         </div>
         <div class="hidden sm:block">
           <span class="gradient-text text-xl font-bold">TempMail</span>
@@ -330,11 +328,9 @@ end %>
           <div class="lg:col-span-5">
             <.link navigate={~p"/"} class="group mb-6 inline-flex items-center gap-3">
               <div class="relative">
-                <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 opacity-50 blur-lg transition-opacity group-hover:opacity-75">
+                <div class="absolute inset-0 rounded-xl opacity-50 blur-lg transition-opacity group-hover:opacity-75 bg-gradient-to-br from-indigo-500 to-purple-600">
                 </div>
-                <div class="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
-                  <.icon name="hero-envelope" class="h-6 w-6 text-white" />
-                </div>
+                <img src={~p"/images/logo.svg"} alt="TempMail" class="relative h-12 w-12 rounded-xl shadow-lg" />
               </div>
               <div>
                 <span class="gradient-text text-2xl font-bold">TempMail</span>

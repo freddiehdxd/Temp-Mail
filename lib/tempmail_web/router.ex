@@ -69,10 +69,35 @@ defmodule TempmailWeb.Router do
     delete "/user/domains/:id", UserController, :delete_domain
     post "/user/domains/:id/verify", UserController, :verify_domain
 
+    # Admin API
     get "/admin/domains", AdminController, :domains
     post "/admin/domains", AdminController, :create_domain
+    patch "/admin/domains/:id", AdminController, :update_domain
+    delete "/admin/domains/:id", AdminController, :delete_domain
+    post "/admin/domains/:id/default", AdminController, :set_default_domain
+
     get "/admin/users", AdminController, :users
+    post "/admin/users/:id/ban", AdminController, :ban_user
+    post "/admin/users/:id/role", AdminController, :update_role
+
+    get "/admin/settings", AdminController, :get_settings
+    post "/admin/settings", AdminController, :update_settings
+    post "/admin/settings/test-mailcow", AdminController, :test_mailcow
+
     get "/admin/analytics", AdminController, :analytics
+
+    get "/admin/blog/posts", AdminController, :list_posts
+    get "/admin/blog/posts/:id", AdminController, :get_post
+    post "/admin/blog/posts", AdminController, :create_post
+    put "/admin/blog/posts/:id", AdminController, :update_post
+    delete "/admin/blog/posts/:id", AdminController, :delete_post
+
+    get "/admin/blog/categories", AdminController, :list_categories
+    post "/admin/blog/categories", AdminController, :create_category
+    delete "/admin/blog/categories/:id", AdminController, :delete_category
+
+    post "/admin/upload", AdminController, :upload
+    post "/admin/translate", AdminController, :translate
   end
 
   # Other scopes may use custom stacks.

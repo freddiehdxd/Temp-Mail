@@ -5,29 +5,50 @@ defmodule TempmailWeb.DashboardTempLive do
 
   @impl true
   def mount(params, _session, socket) do
-    socket =
-      socket
-      |> assign(:page_title, "Temp Emails")
-      |> assign(:locale, Map.get(params, "locale", "en"))
-      |> assign(:domains, Mail.list_active_domains())
-      |> assign(:sessions, Mail.list_temp_email_sessions(socket.assigns.current_user))
-      |> assign(:temp_email, nil)
-      |> assign(:emails, [])
-      |> assign(:selected_email, nil)
-      |> assign(:ttl, 0)
-      |> assign(:error, nil)
-
-    socket =
-      if connected?(socket) do
-        generate_temp_email(socket)
-      else
-        socket
-      end
-
-    {:ok, socket}
+    {:ok,
+     socket
+     |> assign(:page_title, "Temp Emails")
+     |> assign(:locale, Map.get(params, "locale", "en"))
+     |> assign(:domains, Mail.list_active_domains())
+     |> assign(:sessions, Mail.list_temp_email_sessions(socket.assigns.current_user))
+     |> assign(:temp_email, nil)
+     |> assign(:emails, [])
+     |> assign(:selected_email, nil)
+     |> assign(:ttl, 0)
+     |> assign(:tick_ref, nil)
+     |> assign(:error, nil)}
   end
 
   @impl true
+  def handle_event("restore_or_generate", %{"address" => address}, socket)
+      when is_binary(address) and address != "" do
+    case Mail.get_temp_email(address) do
+      {:ok, temp_email} ->
+        Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(address))
+        {:ok, emails} = Mail.get_inbox(address)
+
+        if ref = socket.assigns[:tick_ref], do: Process.cancel_timer(ref)
+        ttl = temp_email["ttl"] || 0
+        tick_ref = if ttl > 0, do: Process.send_after(self(), :tick, 1_000)
+
+        {:noreply,
+         socket
+         |> assign(:temp_email, temp_email)
+         |> assign(:emails, emails)
+         |> assign(:selected_email, nil)
+         |> assign(:ttl, ttl)
+         |> assign(:tick_ref, tick_ref)
+         |> assign(:error, nil)}
+
+      _ ->
+        {:noreply, generate_temp_email(socket)}
+    end
+  end
+
+  def handle_event("restore_or_generate", _params, socket) do
+    {:noreply, generate_temp_email(socket)}
+  end
+
   def handle_event("generate", params, socket) do
     {:noreply, generate_temp_email(socket, Map.get(params, "domain", ""))}
   end
@@ -90,8 +111,8 @@ defmodule TempmailWeb.DashboardTempLive do
 
   @impl true
   def handle_info(:tick, %{assigns: %{ttl: ttl}} = socket) when ttl > 1 do
-    Process.send_after(self(), :tick, 1_000)
-    {:noreply, assign(socket, :ttl, ttl - 1)}
+    tick_ref = Process.send_after(self(), :tick, 1_000)
+    {:noreply, socket |> assign(:ttl, ttl - 1) |> assign(:tick_ref, tick_ref)}
   end
 
   def handle_info(:tick, socket) do
@@ -100,7 +121,8 @@ defmodule TempmailWeb.DashboardTempLive do
      |> assign(:ttl, 0)
      |> assign(:temp_email, nil)
      |> assign(:emails, [])
-     |> assign(:selected_email, nil)}
+     |> assign(:selected_email, nil)
+     |> assign(:tick_ref, nil)}
   end
 
   def handle_info({:inbox_email, message}, socket) do
@@ -120,13 +142,16 @@ defmodule TempmailWeb.DashboardTempLive do
         if connected?(socket),
           do: Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(address))
 
-        Process.send_after(self(), :tick, 1_000)
+        if ref = socket.assigns[:tick_ref], do: Process.cancel_timer(ref)
+        tick_ref = Process.send_after(self(), :tick, 1_000)
 
         socket
+        |> push_event("tempmail_created", %{address: address})
         |> assign(:temp_email, temp_email)
         |> assign(:emails, [])
         |> assign(:selected_email, nil)
         |> assign(:ttl, temp_email[:ttl] || temp_email["ttl"])
+        |> assign(:tick_ref, tick_ref)
         |> assign(:sessions, Mail.list_temp_email_sessions(socket.assigns.current_user))
         |> assign(:error, nil)
 

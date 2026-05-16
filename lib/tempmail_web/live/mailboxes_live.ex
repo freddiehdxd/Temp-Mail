@@ -10,6 +10,12 @@ defmodule TempmailWeb.MailboxesLive do
     selected = selected_mailbox(user, params, mailboxes)
     domains = Mail.list_available_mailbox_domains(user)
 
+    if connected?(socket) do
+      Enum.each(mailboxes, fn mb ->
+        Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(mb.address))
+      end)
+    end
+
     {:ok,
      socket
      |> assign(:page_title, "Mailboxes")
@@ -27,6 +33,15 @@ defmodule TempmailWeb.MailboxesLive do
   end
 
   @impl true
+  def handle_info({:persistent_email, _email}, socket) do
+    {:noreply, refresh_selected(socket)}
+  end
+
+  def handle_info({:inbox_email, _message}, socket) do
+    {:noreply, refresh_selected(socket)}
+  end
+
+  @impl true
   def handle_event("create", params, socket) do
     default_domain = default_domain(socket.assigns.domains)
 
@@ -36,6 +51,7 @@ defmodule TempmailWeb.MailboxesLive do
            "name" => Map.get(params, "name", "")
          }) do
       {:ok, mailbox} ->
+        Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(mailbox.address))
         mailboxes = Mail.list_user_mailboxes(socket.assigns.current_user)
         domains = Mail.list_available_mailbox_domains(socket.assigns.current_user)
 

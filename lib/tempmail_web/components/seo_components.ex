@@ -1,6 +1,8 @@
 defmodule TempmailWeb.SEOComponents do
   use Phoenix.Component
 
+  import Phoenix.HTML, only: [raw: 1]
+
   @base_url "https://tempmailcentral.com"
 
   attr :page, :atom, default: :other

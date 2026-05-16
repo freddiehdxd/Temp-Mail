@@ -11,4 +11,9 @@ defmodule TempmailWeb.I18n do
   end
 
   def set_locale(_), do: set_locale(@default_locale)
+
+  def t(locale, _key, fallback) do
+    set_locale(locale)
+    fallback
+  end
 end

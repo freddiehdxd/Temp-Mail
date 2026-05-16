@@ -50,6 +50,10 @@ defmodule Tempmail.Integrations.Mailcow do
     })
   end
 
+  def test_connection do
+    test_connection(api_url() <> "/api/v1", api_key())
+  end
+
   def test_connection(url, key) do
     Req.get("#{String.trim_trailing(url, "/")}/api/v1/get/domain/all",
       headers: [{"x-api-key", key}]

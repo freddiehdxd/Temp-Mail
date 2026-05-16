@@ -40,10 +40,17 @@ defmodule Tempmail.Mail do
 
   def get_domain!(id), do: Repo.get!(Domain, id)
 
-  def create_domain(attrs) do
-    %Domain{}
-    |> Domain.changeset(attrs)
-    |> Repo.insert()
+  def create_domain(attrs, audit_user \\ nil) do
+    result =
+      %Domain{}
+      |> Domain.changeset(attrs)
+      |> Repo.insert()
+
+    with {:ok, domain} <- result, %{} <- audit_user do
+      create_audit_log(audit_user, "domain.create", domain.domain)
+    end
+
+    result
   end
 
   def update_domain(%Domain{} = domain, attrs) do
@@ -52,7 +59,15 @@ defmodule Tempmail.Mail do
     |> Repo.update()
   end
 
-  def delete_domain(%Domain{} = domain), do: Repo.delete(domain)
+  def delete_domain(%Domain{} = domain, audit_user \\ nil) do
+    result = Repo.delete(domain)
+
+    with {:ok, _} <- result, %{} <- audit_user do
+      create_audit_log(audit_user, "domain.delete", domain.domain)
+    end
+
+    result
+  end
 
   def set_default_domain(%Domain{} = domain) do
     Repo.transaction(fn ->

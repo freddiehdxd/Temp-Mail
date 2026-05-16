@@ -25,7 +25,7 @@ defmodule Tempmail.Integrations.Postfix do
     e -> {:error, Exception.message(e)}
   end
 
-  def dns_instructions(domain) do
+  def dns_instructions(_domain) do
     hostname = Application.get_env(:tempmail, :mail_server_hostname, "mail.tempmailcentral.com")
 
     %{

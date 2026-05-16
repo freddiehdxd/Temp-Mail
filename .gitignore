@@ -39,3 +39,6 @@ npm-debug.log
 .env
 .env.local
 .env.*.local
+
+# Per-server blue/green deploy state (managed by scripts/deploy.sh)
+/.deploy/active_color

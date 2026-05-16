@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+cd -P -- "$(dirname -- "$0")"
+./tempmail eval Tempmail.Release.migrate
+PHX_SERVER=true exec ./tempmail start

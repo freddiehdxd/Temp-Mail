@@ -352,6 +352,15 @@ defmodule Tempmail.Mail do
     end
   end
 
+  def get_user_email(user, id) do
+    mailbox_ids = from(m in UserMailbox, where: m.user_id == ^user.id, select: m.id)
+
+    UserEmail
+    |> where([e], e.id == ^id and e.mailbox_id in subquery(mailbox_ids))
+    |> preload(:mailbox)
+    |> Repo.one()
+  end
+
   def delete_user_mailbox(user, id) do
     UserMailbox
     |> where([m], m.user_id == ^user.id and m.id == ^id)

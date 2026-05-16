@@ -53,6 +53,22 @@ defmodule TempmailWeb.Router do
     delete "/email/delete", EmailController, :delete
     post "/email/extend", EmailController, :extend
 
+    # User API
+    get "/user/emails", UserController, :list_emails
+    get "/user/emails/:id", UserController, :get_email
+    patch "/user/emails/:id", UserController, :update_email
+    delete "/user/emails/:id", UserController, :delete_email
+
+    get "/user/mailboxes", UserController, :list_mailboxes
+    get "/user/mailboxes/:id", UserController, :get_mailbox
+    post "/user/mailboxes", UserController, :create_mailbox
+    delete "/user/mailboxes/:id", UserController, :delete_mailbox
+
+    get "/user/domains", UserController, :list_domains
+    post "/user/domains", UserController, :create_domain
+    delete "/user/domains/:id", UserController, :delete_domain
+    post "/user/domains/:id/verify", UserController, :verify_domain
+
     get "/admin/domains", AdminController, :domains
     post "/admin/domains", AdminController, :create_domain
     get "/admin/users", AdminController, :users

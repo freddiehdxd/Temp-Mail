@@ -39,6 +39,17 @@ Hooks.Clipboard = {
   }
 }
 
+Hooks.TempMailPersist = {
+  mounted() {
+    const stored = localStorage.getItem("tempmail_address")
+    this.pushEvent("restore_or_generate", { address: stored || "" })
+
+    this.handleEvent("tempmail_created", ({ address }) => {
+      if (address) localStorage.setItem("tempmail_address", address)
+    })
+  }
+}
+
 const detailsState = new Map()
 
 Hooks.PersistDetails = {

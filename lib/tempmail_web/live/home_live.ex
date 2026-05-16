@@ -32,17 +32,38 @@ defmodule TempmailWeb.HomeLive do
       |> assign(:hreflang, build_hreflang(""))
 
 
-    socket =
-      if connected?(socket) do
-        generate_temp_email(socket)
-      else
-        socket
-      end
-
     {:ok, socket}
   end
 
   @impl true
+  def handle_event("restore_or_generate", %{"address" => address}, socket) when is_binary(address) and address != "" do
+    case Mail.get_temp_email(address) do
+      {:ok, temp_email} ->
+        Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(address))
+        {:ok, emails} = Mail.get_inbox(address)
+
+        if ref = socket.assigns[:tick_ref], do: Process.cancel_timer(ref)
+        ttl = temp_email["ttl"] || 0
+        tick_ref = if ttl > 0, do: Process.send_after(self(), :tick, 1_000)
+
+        {:noreply,
+         socket
+         |> assign(:temp_email, temp_email)
+         |> assign(:emails, emails)
+         |> assign(:selected_email, nil)
+         |> assign(:ttl, ttl)
+         |> assign(:error, nil)
+         |> assign(:tick_ref, tick_ref)}
+
+      _ ->
+        {:noreply, generate_temp_email(socket)}
+    end
+  end
+
+  def handle_event("restore_or_generate", _params, socket) do
+    {:noreply, generate_temp_email(socket)}
+  end
+
   def handle_event("generate", params, socket) do
     {:noreply, generate_temp_email(socket, Map.get(params, "domain", ""))}
   end
@@ -142,6 +163,7 @@ defmodule TempmailWeb.HomeLive do
         tick_ref = Process.send_after(self(), :tick, 1_000)
 
         socket
+        |> push_event("tempmail_created", %{address: temp_email.address})
         |> assign(:temp_email, temp_email)
         |> assign(:emails, [])
         |> assign(:selected_email, nil)

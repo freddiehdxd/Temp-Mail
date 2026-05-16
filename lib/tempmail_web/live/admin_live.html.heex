@@ -1,0 +1,190 @@
+<.admin_shell locale={@locale} active={:dashboard}>
+  <div class="space-y-8">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h1 class="bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent">
+          Dashboard
+        </h1>
+        <p class="mt-1 text-slate-500">
+          Welcome back. Here's what's happening with your email service.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-slate-500">
+        <.icon name="hero-clock" class="h-4 w-4" />
+        <span>Last updated: {Calendar.strftime(DateTime.utc_now(), "%I:%M %p")}</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <.link
+        navigate={
+          if @locale == "en", do: ~p"/admin/analytics", else: "/#{@locale}/admin/analytics"
+        }
+        class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-blue-500/10 transition-transform group-hover:scale-125">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Emails Generated</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{@total_generated}</p>
+            <p class="mt-1 text-xs text-slate-500">Last 14 days</p>
+          </div>
+          <div class="rounded-xl bg-blue-500/10 p-2.5">
+            <.icon name="hero-envelope" class="h-5 w-5 text-blue-500" />
+          </div>
+        </div>
+      </.link>
+      <.link
+        navigate={
+          if @locale == "en", do: ~p"/admin/analytics", else: "/#{@locale}/admin/analytics"
+        }
+        class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-purple-500/10 transition-transform group-hover:scale-125">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Emails Received</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{@total_received}</p>
+            <p class="mt-1 text-xs text-slate-500">Last 14 days</p>
+          </div>
+          <div class="rounded-xl bg-purple-500/10 p-2.5">
+            <.icon name="hero-inbox" class="h-5 w-5 text-purple-500" />
+          </div>
+        </div>
+      </.link>
+      <.link
+        navigate={if @locale == "en", do: ~p"/admin/domains", else: "/#{@locale}/admin/domains"}
+        class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-emerald-500/10 transition-transform group-hover:scale-125">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Active Domains</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">
+              {Enum.count(@domains, & &1.is_active)}
+            </p>
+            <p class="mt-1 text-xs text-slate-500">Total configured</p>
+          </div>
+          <div class="rounded-xl bg-emerald-500/10 p-2.5">
+            <.icon name="hero-globe-alt" class="h-5 w-5 text-emerald-500" />
+          </div>
+        </div>
+      </.link>
+      <.link
+        navigate={if @locale == "en", do: ~p"/admin/users", else: "/#{@locale}/admin/users"}
+        class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-orange-500/10 transition-transform group-hover:scale-125">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Total Users</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{length(@users)}</p>
+            <p class="mt-1 text-xs text-slate-500">+{@new_users_count} this week</p>
+          </div>
+          <div class="rounded-xl bg-orange-500/10 p-2.5">
+            <.icon name="hero-users" class="h-5 w-5 text-orange-500" />
+          </div>
+        </div>
+      </.link>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-200 p-5">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
+            <.icon name="hero-bolt" class="h-5 w-5 text-blue-600" /> Recent Mailboxes
+          </h2>
+          <p class="text-sm text-slate-500">Latest temporary email addresses created</p>
+        </div>
+        <div class="divide-y divide-slate-100">
+          <div :if={@sessions == []} class="p-8 text-center text-slate-500">
+            No mailboxes created yet
+          </div>
+          <div :for={session <- @sessions} class="flex items-center justify-between p-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-sm font-semibold text-white">
+                {String.first(session.address || "?") |> String.upcase()}
+              </div>
+              <div>
+                <p class="max-w-[220px] truncate text-sm font-medium text-slate-950">
+                  {session.address}
+                </p>
+                <p class="text-xs text-slate-500">
+                  {(session.user && (session.user.name || session.user.email)) || "Anonymous"}
+                </p>
+              </div>
+            </div>
+            <span class="text-xs text-slate-500">
+              {Calendar.strftime(session.inserted_at, "%b %d")}
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-200 p-5">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
+            <.icon name="hero-server-stack" class="h-5 w-5 text-blue-600" /> System Status
+          </h2>
+          <p class="text-sm text-slate-500">Current health of system services</p>
+        </div>
+        <div class="space-y-3 p-5">
+          <div
+            :for={service <- ["Email Server", "Database", "Redis", "Web Server"]}
+            class="flex items-center justify-between border-b border-slate-100 py-2 last:border-0"
+          >
+            <div class="flex items-center gap-3">
+              <.icon name="hero-check-circle" class="h-5 w-5 text-emerald-500" />
+              <span class="font-medium text-slate-950">{service}</span>
+            </div>
+            <span class="rounded-full bg-emerald-100 px-2.5 py-1 text-sm text-emerald-700">
+              Operational
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div>
+      <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-slate-950">
+        <.icon name="hero-bolt" class="h-5 w-5 text-blue-600" /> Quick Actions
+      </h2>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <.link
+          :for={
+            {title, desc, icon, href, bg_class, icon_class} <- [
+              {"Manage Domains", "Add or configure email domains", "hero-globe-alt",
+               "/admin/domains", "bg-blue-100", "text-blue-600"},
+              {"View Users", "Manage user accounts", "hero-users", "/admin/users",
+               "bg-purple-100", "text-purple-600"},
+              {"Analytics", "Detailed usage statistics", "hero-chart-bar", "/admin/analytics",
+               "bg-emerald-100", "text-emerald-600"},
+              {"Settings", "Configure system settings", "hero-cog-6-tooth", "/admin/settings",
+               "bg-orange-100", "text-orange-600"}
+            ]
+          }
+          navigate={if @locale == "en", do: href, else: "/#{@locale}#{href}"}
+          class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+        >
+          <div class="flex items-center gap-4">
+            <div class={"flex h-12 w-12 items-center justify-center rounded-xl #{bg_class}"}>
+              <.icon name={icon} class={"h-6 w-6 #{icon_class}"} />
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-slate-950">{title}</h3>
+              <p class="text-sm text-slate-500">{desc}</p>
+            </div>
+            <.icon
+              name="hero-arrow-up-right"
+              class="h-5 w-5 text-slate-400 opacity-0 transition-opacity group-hover:opacity-100"
+            />
+          </div>
+        </.link>
+      </div>
+    </div>
+  </div>
+</.admin_shell>

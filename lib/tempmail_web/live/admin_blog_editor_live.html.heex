@@ -1,0 +1,178 @@
+<.admin_shell locale={@locale} active={:blog}>
+  <.form for={@form} phx-submit="save" class="space-y-6">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div class="flex items-center gap-4">
+        <.link
+          navigate={if @locale == "en", do: ~p"/admin/blog", else: "/#{@locale}/admin/blog"}
+          class="tm-btn-outline gap-2"
+        >
+          <.icon name="hero-arrow-left" class="h-4 w-4" /> Back
+        </.link>
+        <div>
+          <h1 class="text-2xl font-bold text-slate-950">
+            {if @post, do: "Edit Post", else: "Create New Post"}
+          </h1>
+          <p class="text-slate-500">Write content in multiple languages.</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button
+          :if={@post}
+          type="button"
+          phx-click="delete"
+          data-confirm="Delete this post?"
+          class="tm-btn border border-red-200 bg-red-50 text-red-700"
+        >
+          <.icon name="hero-trash" class="h-4 w-4" /> Delete
+        </button>
+        <select
+          name="status"
+          class="h-11 rounded-lg border border-slate-200 bg-white px-3 text-sm"
+        >
+          <option value="DRAFT" selected={@form[:status].value == "DRAFT"}>Draft</option>
+          <option value="PUBLISHED" selected={@form[:status].value == "PUBLISHED"}>
+            Published
+          </option>
+          <option value="ARCHIVED" selected={@form[:status].value == "ARCHIVED"}>Archived</option>
+        </select>
+        <.link
+          :if={@post}
+          navigate={
+            if @locale == "en",
+              do: ~p"/blog/#{@post.slug}",
+              else: "/#{@locale}/blog/#{@post.slug}"
+          }
+          class="tm-btn-outline gap-2"
+        >
+          <.icon name="hero-eye" class="h-4 w-4" /> Preview
+        </.link>
+        <button class="tm-btn-gradient gap-2">
+          <.icon name="hero-check" class="h-4 w-4" /> Save Post
+        </button>
+      </div>
+    </div>
+
+    <div
+      :if={@error}
+      class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700"
+    >
+      {@error}
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      <div class="space-y-6 lg:col-span-2">
+        <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <.icon name="hero-language" class="h-5 w-5 text-slate-500" />
+              <span class="font-medium text-slate-950">Languages</span>
+              <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-bold text-slate-600">
+                {map_size(@translations)}/{length(@locales)}
+              </span>
+            </div>
+            <button type="button" class="tm-btn-outline gap-2">
+              <.icon name="hero-sparkles" class="h-4 w-4" /> Translate All (DeepL)
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              :for={locale <- @locales}
+              class={[
+                "rounded-lg px-3 py-2 text-sm font-semibold",
+                Map.has_key?(@translations, locale) && "bg-indigo-500 text-white",
+                !Map.has_key?(@translations, locale) && "bg-slate-100 text-slate-600"
+              ]}
+            >
+              {String.upcase(locale)}
+            </span>
+          </div>
+        </section>
+
+        <section class="space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 class="text-lg font-bold text-slate-950">English Content</h2>
+          <% en = Map.get(@translations, "en", %{}) %>
+          <input
+            name="translations[en][title]"
+            value={Map.get(en, "title", "")}
+            placeholder="Enter post title..."
+            class="h-12 w-full rounded-xl border border-slate-200 px-4 text-lg font-medium"
+          />
+          <textarea
+            name="translations[en][excerpt]"
+            rows="2"
+            placeholder="Short description for listings..."
+            class="w-full resize-none rounded-xl border border-slate-200 px-4 py-3"
+          >{Map.get(en, "excerpt", "")}</textarea>
+          <textarea
+            name="translations[en][content]"
+            rows="12"
+            placeholder="Write your content here..."
+            class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm"
+          >{Map.get(en, "content", "")}</textarea>
+          <div class="border-t border-slate-200 pt-4">
+            <h3 class="mb-4 flex items-center gap-2 font-medium text-slate-950">
+              <.icon name="hero-globe-alt" class="h-4 w-4" /> SEO Settings
+            </h3>
+            <div class="space-y-4">
+              <input
+                name="translations[en][meta_title]"
+                value={Map.get(en, "meta_title", "")}
+                placeholder="SEO title"
+                class="h-11 w-full rounded-lg border border-slate-200 px-3 text-sm"
+              />
+              <textarea
+                name="translations[en][meta_description]"
+                rows="2"
+                placeholder="SEO description for search engines..."
+                class="w-full resize-none rounded-lg border border-slate-200 px-3 py-2 text-sm"
+              >{Map.get(en, "meta_description", "")}</textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="space-y-6">
+        <section class="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-medium text-slate-950">Post Settings</h3>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">URL Slug</label>
+            <div class="flex items-center gap-2">
+              <span class="text-slate-500">/blog/</span>
+              <input
+                name="slug"
+                value={@form[:slug].value}
+                placeholder="post-url"
+                class="h-10 min-w-0 flex-1 rounded-lg border border-slate-200 px-3 text-sm"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">
+              Featured Image URL
+            </label>
+            <input
+              name="featured_image"
+              value={@form[:featured_image].value}
+              placeholder="https://..."
+              class="h-10 w-full rounded-lg border border-slate-200 px-3 text-sm"
+            />
+          </div>
+        </section>
+
+        <section class="space-y-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-medium text-slate-950">Translation Status</h3>
+          <div
+            :for={locale <- Map.keys(@translations)}
+            class="flex items-center justify-between text-sm"
+          >
+            <span class="font-semibold">{String.upcase(locale)}</span>
+            <span class="rounded-full bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-700">
+              Ready
+            </span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </.form>
+</.admin_shell>

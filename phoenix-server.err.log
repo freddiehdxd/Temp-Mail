@@ -1,0 +1,120 @@
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/user_domains_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/admin_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/admin_domains_live.ex" was set to the future, resetting to now
+[0mWaiting for lock on the build directory (held by process 43104)
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+     warning: function format_received/1 is unused
+     │
+ 150 │   defp format_received(nil), do: ""
+     │        ~
+     │
+     └─ lib/tempmail_web/live/home_live.ex:150:8: TempmailWeb.HomeLive (module)
+
+     warning: function format_received/1 is unused
+     │
+ 150 │   defp format_received(nil), do: ""
+     │        ~
+     │
+     └─ lib/tempmail_web/live/home_live.ex:150:8: TempmailWeb.HomeLive (module)
+
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+    warning: variable "locale_home" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 27 │   locale_home = fn code -> "/#{code}" end
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:27:3: TempmailWeb.Layouts.app/1
+
+    warning: variable "localized_path" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 28 │   localized_path = fn path -> if current_locale == "en", do: path, else: "/#{current_locale}#{path}" end
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:28:3: TempmailWeb.Layouts.app/1
+
+    warning: variable "current_language" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 26 │   current_language = Enum.find(languages, fn {code, _, _} -> code == current_locale end) || hd(languages)
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:26:3: TempmailWeb.Layouts.app/1
+
+    warning: variable "locale_home" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 27 │   locale_home = fn code -> "/#{code}" end
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:27:3: TempmailWeb.Layouts.app/1
+
+    warning: variable "current_language" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 26 │   current_language = Enum.find(languages, fn {code, _, _} -> code == current_locale end) || hd(languages)
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:26:3: TempmailWeb.Layouts.app/1
+
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+    warning: variable "locale_home" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 27 │   locale_home = fn code -> "/#{code}" end
+    │   ~
+    │
+    └─ (tempmail 0.1.0) lib/tempmail_web/components/layouts/app.html.heex:27:3: TempmailWeb.Layouts.app/1
+
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+[0mWaiting for lock on the build directory (held by process 48976)
+     warning: function format_received/1 is unused
+     │
+ 172 │   defp format_received(nil), do: ""
+     │        ~
+     │
+     └─ lib/tempmail_web/live/home_live.ex:172:8: TempmailWeb.HomeLive (module)
+
+     warning: function email_preview/1 is unused
+     │
+ 192 │   defp email_preview(email) do
+     │        ~
+     │
+     └─ lib/tempmail_web/live/home_live.ex:192:8: TempmailWeb.HomeLive (module)
+
+     warning: function email_initial/1 is unused
+     │
+ 184 │   defp email_initial(email) do
+     │        ~
+     │
+     └─ lib/tempmail_web/live/home_live.ex:184:8: TempmailWeb.HomeLive (module)
+
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+[0mWaiting for lock on the build directory (held by process 22440)
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+[0mWaiting for lock on the build directory (held by process 48544)
+warning: mtime (modified time) for "lib/tempmail_web/live/home_live.ex" was set to the future, resetting to now
+warning: mtime (modified time) for "lib/tempmail_web/components/layouts.ex" was set to the future, resetting to now
+[0mWaiting for lock on the build directory (held by process 23156)
+     warning: variable "conn" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 147 │   defp callback_url(conn, provider), do: url(~p"/auth/#{provider}/callback")
+     │                     ~~~~
+     │
+     └─ lib/tempmail_web/controllers/oauth_controller.ex:147:21: TempmailWeb.OAuthController.callback_url/2
+
+     warning: no route path for TempmailWeb.Router matches ~p"/auth/#{provider}/callback"
+     │
+ 147 │   defp callback_url(conn, provider), do: url(~p"/auth/#{provider}/callback")
+     │                                                ~
+     │
+     └─ lib/tempmail_web/controllers/oauth_controller.ex:147: TempmailWeb.OAuthController.callback_url/2
+
+[0mWaiting for lock on the build directory (held by process 48208)

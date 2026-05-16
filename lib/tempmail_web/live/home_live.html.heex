@@ -1,0 +1,979 @@
+<div id="top" class="min-h-screen overflow-hidden">
+  <section class="relative pb-16 pt-8 sm:pb-20 sm:pt-10 lg:pb-24 lg:pt-12">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-white"></div>
+      <div class="absolute top-0 -left-40 h-96 w-96 rounded-full bg-purple-300 opacity-30 mix-blend-multiply blur-3xl filter animate-blob">
+      </div>
+      <div class="animation-delay-2000 absolute top-0 -right-40 h-96 w-96 rounded-full bg-indigo-300 opacity-30 mix-blend-multiply blur-3xl filter animate-blob">
+      </div>
+      <div class="animation-delay-4000 absolute -bottom-32 left-1/2 h-96 w-96 rounded-full bg-pink-300 opacity-30 mix-blend-multiply blur-3xl filter animate-blob">
+      </div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:24px_24px] opacity-30">
+      </div>
+      <div class="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.1),transparent_60%)]">
+      </div>
+    </div>
+
+    <div class="container relative z-10 mx-auto translate-y-px px-4">
+      <div class="mb-5 flex justify-center animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700">
+          <.icon name="hero-star" class="h-4 w-4 fill-current" />
+          <span>
+            {TempmailWeb.I18n.t(@locale, "home.heroBadge", "Trusted by 500,000+ users worldwide")}
+          </span>
+        </div>
+      </div>
+
+      <div class="mx-auto mb-8 max-w-4xl text-center">
+        <h1 class="mb-4 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up">
+          <span class="gradient-text">
+            {TempmailWeb.I18n.t(@locale, "home.title", "Temp Mail - Disposable Temporary Email")}
+          </span>
+        </h1>
+        <p class="stagger-1 mx-auto max-w-2xl text-xl text-slate-500 sm:text-2xl animate-fade-in-up">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.subtitle",
+            "Get free instant disposable email addresses to protect your privacy"
+          )}
+        </p>
+      </div>
+
+      <div class="stagger-2 animate-fade-in-up">
+        <%= if @temp_email do %>
+          <section class="mx-auto w-full max-w-5xl space-y-6">
+            <div class="overflow-visible rounded-3xl glass shadow-glow">
+              <div class="h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+              <div class="p-6 sm:p-8">
+                <div class="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="relative inline-flex items-center justify-center">
+                      <svg width="120" height="120" class="-rotate-90 transform">
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="57"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="6"
+                          class="text-slate-200"
+                        />
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="57"
+                          fill="none"
+                          stroke-width="6"
+                          stroke-linecap="round"
+                          stroke-dasharray="358"
+                          stroke-dashoffset="80"
+                          class="stroke-emerald-500 transition-all duration-1000 ease-linear"
+                        />
+                      </svg>
+                      <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <.icon name="hero-clock" class="mb-1 h-5 w-5 text-slate-500" />
+                        <span class="font-mono text-2xl font-bold tabular-nums">
+                          {format_ttl(@ttl)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="min-w-0 flex-1 text-center lg:text-left">
+                    <p class="mb-2 flex items-center justify-center gap-2 text-sm text-slate-500 lg:justify-start">
+                      <.icon name="hero-shield-check" class="h-4 w-4" />
+                      {TempmailWeb.I18n.t(@locale, "home.yourEmail", "Your Temporary Email")}
+                    </p>
+                    <button
+                      id="copy-address"
+                      phx-hook="Clipboard"
+                      data-copy={temp_address(assigns)}
+                      class="group relative block w-full cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 bg-white p-4 font-mono text-xl font-bold text-slate-900 transition-colors hover:border-indigo-500 sm:text-2xl lg:text-3xl"
+                    >
+                      <span class="break-all">{temp_address(assigns)}</span>
+                      <span class="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-purple-500/0 opacity-0 transition-opacity group-hover:opacity-100">
+                      </span>
+                    </button>
+                  </div>
+
+                  <div class="flex flex-shrink-0 flex-col gap-3">
+                    <button
+                      id="copy-address-button"
+                      phx-hook="Clipboard"
+                      data-copy={temp_address(assigns)}
+                      class="tm-btn-gradient min-w-40 gap-2 hover-glow"
+                    >
+                      <.icon name="hero-clipboard" class="h-5 w-5" />
+                      {TempmailWeb.I18n.t(@locale, "home.copyEmail", "Copy Email Address")}
+                    </button>
+                    <div class="relative flex gap-2">
+                      <button
+                        phx-click="extend"
+                        phx-value-duration="hour"
+                        class="tm-btn-outline flex-1 gap-2"
+                      >
+                        <.icon name="hero-clock" class="h-4 w-4" /> Extend
+                      </button>
+                      <button phx-click="generate" class="tm-btn-outline flex-1 gap-2">
+                        <.icon name="hero-arrow-path" class="h-4 w-4" /> New
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl glass shadow-glow">
+              <div class="flex items-center justify-between border-b border-slate-200 p-4 sm:p-6">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600">
+                      <.icon name="hero-inbox" class="h-5 w-5 text-white" />
+                    </div>
+                    <span
+                      :if={Enum.any?(@emails, &(&1["read"] != true))}
+                      class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white animate-bounce-subtle"
+                    >
+                      {Enum.count(@emails, &(&1["read"] != true))}
+                    </span>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-semibold">
+                      {TempmailWeb.I18n.t(@locale, "inbox.title", "Inbox")}
+                    </h2>
+                    <p class="text-sm text-slate-500">
+                      {if @emails == [],
+                        do: TempmailWeb.I18n.t(@locale, "home.noEmails", "No messages yet"),
+                        else: "#{length(@emails)} messages"}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  phx-click="refresh"
+                  class="rounded-xl p-2 text-slate-500 hover:bg-slate-100"
+                >
+                  <.icon name="hero-arrow-path" class="h-4 w-4" />
+                </button>
+              </div>
+              <div class="max-h-[600px] min-h-[400px] overflow-auto">
+                <div :if={@selected_email} class="animate-slide-in-right">
+                  <div class="flex items-center justify-between border-b border-slate-200 bg-slate-50 p-4">
+                    <button
+                      phx-click="back"
+                      class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-white"
+                    >
+                      <.icon name="hero-arrow-left" class="h-4 w-4" /> Back to Inbox
+                    </button>
+                    <button
+                      phx-click="delete"
+                      phx-value-id={@selected_email["id"]}
+                      class="inline-flex items-center gap-2 rounded-xl bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-600"
+                    >
+                      <.icon name="hero-trash" class="h-4 w-4" />
+                      {TempmailWeb.I18n.t(@locale, "common.delete", "Delete")}
+                    </button>
+                  </div>
+                  <div class="p-6">
+                    <div class="mb-6">
+                      <h2 class="mb-4 text-2xl font-bold">
+                        {@selected_email["subject"] ||
+                          TempmailWeb.I18n.t(@locale, "inbox.noSubject", "(No Subject)")}
+                      </h2>
+                      <div class="flex flex-wrap items-center gap-4 text-sm">
+                        <div class="flex items-center gap-2">
+                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 font-semibold text-white">
+                            {email_initial(@selected_email)}
+                          </div>
+                          <div>
+                            <p class="font-medium">{@selected_email["from"]}</p>
+                            <p class="text-slate-500">
+                              {format_received(
+                                @selected_email["receivedAt"] || @selected_email["received_at"]
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        :if={length(@selected_email["attachments"] || []) > 0}
+                        class="mt-4 flex items-center gap-2 rounded-xl bg-slate-50 p-3"
+                      >
+                        <.icon name="hero-paper-clip" class="h-4 w-4 text-slate-500" />
+                        <span class="text-sm text-slate-500">
+                          {length(@selected_email["attachments"] || [])} attachments
+                        </span>
+                      </div>
+                    </div>
+                    <div class="max-h-[400px] overflow-auto rounded-2xl border border-slate-200 bg-white p-6">
+                      <pre class="whitespace-pre-wrap font-sans text-sm">{@selected_email["text"] || @selected_email["html"] || "No content"}</pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  :if={!@selected_email && @emails == []}
+                  class="flex flex-col items-center justify-center px-4 py-20 text-center"
+                >
+                  <div class="relative mb-6 h-24 w-24">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-slate-100 to-slate-200">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <.icon
+                        name="hero-envelope"
+                        class="h-10 w-10 text-slate-400 animate-bounce-subtle"
+                      />
+                    </div>
+                  </div>
+                  <h3 class="mb-2 text-xl font-semibold">
+                    {TempmailWeb.I18n.t(@locale, "home.noEmails", "No emails yet")}
+                  </h3>
+                  <p class="mb-6 max-w-sm text-slate-500">
+                    {TempmailWeb.I18n.t(
+                      @locale,
+                      "home.waitingForEmails",
+                      "Waiting for incoming emails..."
+                    )}
+                  </p>
+                  <div class="flex items-center gap-3 rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600">
+                    <span class="relative flex h-3 w-3">
+                      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75">
+                      </span>
+                      <span class="relative inline-flex h-3 w-3 rounded-full bg-indigo-500">
+                      </span>
+                    </span>
+                    <span>
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.status.liveUpdates",
+                        "Live updates enabled"
+                      )}
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  :if={!@selected_email && @emails != []}
+                  class="divide-y divide-slate-200"
+                >
+                  <button
+                    :for={{email, index} <- Enum.with_index(@emails)}
+                    phx-click="select"
+                    phx-value-id={email["id"]}
+                    class={[
+                      "flex w-full cursor-pointer items-center gap-4 p-4 text-left transition-all email-item-hover sm:p-5 animate-fade-in-up",
+                      email["read"] != true && "bg-indigo-50/50"
+                    ]}
+                    style={"animation-delay: #{index * 0.05}s"}
+                  >
+                    <div class={[
+                      "flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full transition-all",
+                      email["read"] == true && "bg-slate-100",
+                      email["read"] != true &&
+                        "bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/25"
+                    ]}>
+                      <.icon
+                        :if={email["read"] == true}
+                        name="hero-envelope"
+                        class="h-5 w-5 text-slate-400"
+                      />
+                      <span :if={email["read"] != true} class="font-semibold text-white">
+                        {email_initial(email)}
+                      </span>
+                    </div>
+
+                    <div class="min-w-0 flex-1">
+                      <div class="mb-1 flex items-center gap-2">
+                        <span class={[
+                          "truncate font-medium",
+                          email["read"] != true && "text-slate-900",
+                          email["read"] == true && "text-slate-500"
+                        ]}>
+                          {email["from"]}
+                        </span>
+                        <span
+                          :if={email["read"] != true}
+                          class="rounded-full bg-indigo-500 px-2 py-0.5 text-xs font-semibold text-white animate-pulse-glow"
+                        >
+                          New
+                        </span>
+                      </div>
+                      <p class={[
+                        "truncate text-sm",
+                        email["read"] != true && "font-semibold text-slate-900",
+                        email["read"] == true && "text-slate-500"
+                      ]}>
+                        {email["subject"] ||
+                          TempmailWeb.I18n.t(@locale, "inbox.noSubject", "(No Subject)")}
+                      </p>
+                      <p
+                        :if={email_preview(email) != ""}
+                        class="mt-1 truncate text-xs text-slate-500"
+                      >
+                        {email_preview(email)}
+                      </p>
+                    </div>
+
+                    <div class="flex flex-shrink-0 flex-col items-end gap-2">
+                      <span class="text-xs text-slate-500">
+                        {format_received(email["receivedAt"] || email["received_at"])}
+                      </span>
+                      <div class="flex items-center gap-1">
+                        <.icon
+                          :if={length(email["attachments"] || []) > 0}
+                          name="hero-paper-clip"
+                          class="h-3.5 w-3.5 text-slate-500"
+                        />
+                        <.icon name="hero-chevron-right" class="h-4 w-4 text-slate-500" />
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+              <div class="rounded-2xl p-4 text-center glass card-hover animate-fade-in-up">
+                <.icon name="hero-shield-check" class="mx-auto mb-2 h-6 w-6 text-indigo-500" />
+                <p class="text-sm font-semibold">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.private", "Private")}
+                </p>
+                <p class="text-xs text-slate-500">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.endToEnd", "End-to-end")}
+                </p>
+              </div>
+              <div class="rounded-2xl p-4 text-center glass card-hover animate-fade-in-up">
+                <.icon name="hero-bolt" class="mx-auto mb-2 h-6 w-6 text-indigo-500" />
+                <p class="text-sm font-semibold">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.instant", "Instant")}
+                </p>
+                <p class="text-xs text-slate-500">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.realTime", "Real-time")}
+                </p>
+              </div>
+              <div class="rounded-2xl p-4 text-center glass card-hover animate-fade-in-up">
+                <.icon name="hero-trash" class="mx-auto mb-2 h-6 w-6 text-indigo-500" />
+                <p class="text-sm font-semibold">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.autoDelete", "Auto-delete")}
+                </p>
+                <p class="text-xs text-slate-500">
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.tenMinutes", "10 minutes")}
+                </p>
+              </div>
+            </div>
+          </section>
+        <% else %>
+          <section class="mx-auto w-full max-w-5xl">
+            <div class="rounded-3xl p-12 text-center glass shadow-glow-lg animate-scale-in">
+              <div class="relative mx-auto mb-8 h-24 w-24">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 animate-pulse-glow">
+                </div>
+                <div class="absolute inset-2 flex items-center justify-center rounded-full bg-white">
+                  <.icon name="hero-envelope" class="h-10 w-10 text-indigo-500" />
+                </div>
+              </div>
+              <h2 class="gradient-text mb-3 text-2xl font-bold">
+                {TempmailWeb.I18n.t(@locale, "home.yourEmail", "Get Your Temporary Email")}
+              </h2>
+              <p class="mx-auto mb-8 max-w-md text-slate-500">
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.howItWorks.step1.description",
+                  "Generate a secure, disposable email address instantly. No registration required."
+                )}
+              </p>
+              <.form
+                for={%{}}
+                phx-submit="generate"
+                class="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row"
+              >
+                <select
+                  name="domain"
+                  class="h-14 rounded-xl border-2 border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 sm:w-60"
+                >
+                  <option value="">Random active domain</option>
+                  <option :for={domain <- @domains} value={domain.domain}>{domain.domain}</option>
+                </select>
+                <button class="tm-btn-gradient h-14 flex-1 gap-2 text-lg">
+                  <.icon name="hero-sparkles" class="h-5 w-5" />
+                  {TempmailWeb.I18n.t(@locale, "home.generateButton", "Generate New Email")}
+                </button>
+              </.form>
+            </div>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden py-16">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:24px_24px]">
+    </div>
+    <div class="container relative z-10 mx-auto px-4">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div
+          :for={
+            {stat, index} <-
+              Enum.with_index([
+                {"10M+",
+                 TempmailWeb.I18n.t(@locale, "home.stats.emailsReceived", "Emails Received")},
+                {"500K+", TempmailWeb.I18n.t(@locale, "home.stats.happyUsers", "Happy Users")},
+                {"99.9%", TempmailWeb.I18n.t(@locale, "home.stats.uptime", "Uptime")},
+                {"20+", TempmailWeb.I18n.t(@locale, "home.stats.languages", "Languages")}
+              ])
+          }
+          class="text-center text-white animate-fade-in-up"
+          style={"animation-delay: #{index * 0.1}s"}
+        >
+          <div class="mb-2 text-4xl font-bold sm:text-5xl">{elem(stat, 0)}</div>
+          <div class="text-indigo-200">{elem(stat, 1)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="relative bg-slate-50 py-24">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+          <span class="gradient-text">
+            {TempmailWeb.I18n.t(@locale, "home.features.title", "Why Use TempMail?")}
+          </span>
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-slate-500">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.features.subtitle",
+            "Everything you need for secure, disposable email communication"
+          )}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          :for={
+            {feature, index} <-
+              Enum.with_index([
+                {"hero-shield-check",
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.features.privacy.title",
+                   "Protect Your Privacy"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.features.privacy.description",
+                   "Keep your real email private. Use temporary emails for sign-ups and verifications."
+                 ), "from-blue-500 to-cyan-500"},
+                {"hero-trash",
+                 TempmailWeb.I18n.t(@locale, "home.features.noSpam.title", "Avoid Spam"),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.features.noSpam.description",
+                   "Stop spam before it starts. Temporary emails disappear, taking spam with them."
+                 ), "from-rose-500 to-pink-500"},
+                {"hero-bolt",
+                 TempmailWeb.I18n.t(@locale, "home.features.instant.title", "Instant & Free"),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.features.instant.description",
+                   "No registration needed. Get a working email address in seconds, completely free."
+                 ), "from-amber-500 to-orange-500"},
+                {"hero-lock-closed",
+                 TempmailWeb.I18n.t(@locale, "home.features.secure.title", "Secure & Anonymous"),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.features.secure.description",
+                   "Your emails are automatically deleted. No data is stored permanently."
+                 ), "from-emerald-500 to-teal-500"}
+              ])
+          }
+          class="group relative animate-fade-in-up"
+          style={"animation-delay: #{index * 0.1}s"}
+        >
+          <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100">
+          </div>
+          <div class="relative h-full rounded-3xl p-8 glass card-hover">
+            <div class={"mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br #{elem(feature, 3)} shadow-lg"}>
+              <.icon name={elem(feature, 0)} class="h-7 w-7 text-white" />
+            </div>
+            <h3 class="mb-3 text-xl font-semibold transition-all group-hover:gradient-text">
+              {elem(feature, 1)}
+            </h3>
+            <p class="leading-relaxed text-slate-500">{elem(feature, 2)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="relative overflow-hidden py-24">
+    <div class="absolute right-0 top-1/2 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-100 opacity-50 blur-3xl filter">
+    </div>
+    <div class="container relative z-10 mx-auto px-4">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+          {TempmailWeb.I18n.t(@locale, "home.howItWorks.title", "How It Works")}
+        </h2>
+        <p class="text-lg text-slate-500">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.howItWorks.subtitle",
+            "Get started in seconds with three simple steps"
+          )}
+        </p>
+      </div>
+      <div class="mx-auto max-w-4xl">
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            :for={
+              {item, index} <-
+                Enum.with_index([
+                  {"hero-envelope",
+                   TempmailWeb.I18n.t(
+                     @locale,
+                     "home.howItWorks.step1.title",
+                     "Get Instant Email"
+                   ),
+                   TempmailWeb.I18n.t(
+                     @locale,
+                     "home.howItWorks.step1.description",
+                     "A temporary email is generated automatically when you visit"
+                   )},
+                  {"hero-globe-alt",
+                   TempmailWeb.I18n.t(@locale, "home.howItWorks.step2.title", "Use It Anywhere"),
+                   TempmailWeb.I18n.t(
+                     @locale,
+                     "home.howItWorks.step2.description",
+                     "Copy and use it for sign-ups, verifications, or any service"
+                   )},
+                  {"hero-trash",
+                   TempmailWeb.I18n.t(@locale, "home.howItWorks.step3.title", "Auto Delete"),
+                   TempmailWeb.I18n.t(
+                     @locale,
+                     "home.howItWorks.step3.description",
+                     "Everything is automatically deleted after 10 minutes"
+                   )}
+                ])
+            }
+            class="relative animate-fade-in-up"
+            style={"animation-delay: #{index * 0.15}s"}
+          >
+            <div
+              :if={index < 2}
+              class="absolute left-1/2 top-10 hidden h-0.5 w-full bg-gradient-to-r from-indigo-500 to-purple-500 md:block"
+            >
+            </div>
+            <div class="relative rounded-3xl p-8 text-center glass card-hover">
+              <div class="relative mb-6 inline-flex">
+                <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+                  <.icon name={elem(item, 0)} class="h-8 w-8 text-white" />
+                </div>
+                <div class="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-indigo-500 bg-white font-bold text-indigo-500">
+                  {index + 1}
+                </div>
+              </div>
+              <h3 class="mb-3 text-xl font-semibold">{elem(item, 1)}</h3>
+              <p class="text-slate-500">{elem(item, 2)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-24">
+    <div class="container mx-auto px-4">
+      <div class="grid items-center gap-16 lg:grid-cols-2">
+        <div>
+          <h2 class="mb-6 text-3xl font-bold sm:text-4xl">
+            {TempmailWeb.I18n.t(@locale, "home.useCases.title", "Perfect for")}
+            <span class="gradient-text">
+              {TempmailWeb.I18n.t(@locale, "home.useCases.titleHighlight", "Any Situation")}
+            </span>
+          </h2>
+          <p class="mb-8 text-lg text-slate-500">
+            {TempmailWeb.I18n.t(
+              @locale,
+              "home.useCases.subtitle",
+              "Whether you're signing up for a new service, testing your app, or just want to keep your real inbox clean, we've got you covered."
+            )}
+          </p>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div
+              :for={
+                {use_case, index} <-
+                  Enum.with_index([
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case1", "Sign up for free trials"),
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case2", "Avoid newsletter spam"),
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case3", "Test your applications"),
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case4", "Protect your real email"),
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case5", "Online shopping"),
+                    TempmailWeb.I18n.t(@locale, "home.useCases.case6", "Social media signups")
+                  ])
+              }
+              class="flex items-center gap-3 animate-fade-in-up"
+              style={"animation-delay: #{index * 0.1}s"}
+            >
+              <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-500">
+                <.icon name="hero-check" class="h-3.5 w-3.5 text-white" />
+              </div>
+              <span class="font-medium">{use_case}</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute inset-0 rotate-3 rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 opacity-20">
+          </div>
+          <div class="relative rounded-3xl p-8 glass">
+            <div class="mb-6 flex items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600">
+                <.icon name="hero-users" class="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <div class="font-semibold">
+                  {TempmailWeb.I18n.t(
+                    @locale,
+                    "home.reviews.title",
+                    "Loved by developers & users"
+                  )}
+                </div>
+                <div class="text-sm text-slate-500">
+                  {TempmailWeb.I18n.t(
+                    @locale,
+                    "home.reviews.subtitle",
+                    "Join thousands of happy users"
+                  )}
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div
+                :for={
+                  {review, index} <-
+                    Enum.with_index([
+                      TempmailWeb.I18n.t(
+                        @locale,
+                        "home.reviews.review1",
+                        "Best temp mail service I've ever used. Clean UI and super fast!"
+                      ),
+                      TempmailWeb.I18n.t(
+                        @locale,
+                        "home.reviews.review2",
+                        "Finally, a disposable email that actually works. No ads, no hassle."
+                      ),
+                      TempmailWeb.I18n.t(
+                        @locale,
+                        "home.reviews.review3",
+                        "The auto-refresh feature is amazing. Emails appear instantly!"
+                      )
+                    ])
+                }
+                class="rounded-2xl bg-white p-4 animate-fade-in-up"
+                style={"animation-delay: #{index * 0.1}s"}
+              >
+                <div class="mb-2 flex gap-1">
+                  <.icon
+                    :for={_ <- 1..5}
+                    name="hero-star"
+                    class="h-4 w-4 fill-amber-400 text-amber-400"
+                  />
+                </div>
+                <p class="text-sm text-slate-500">"{review}"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="relative py-24">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 text-center">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700">
+          <.icon name="hero-question-mark-circle" class="h-4 w-4" />
+          <span>
+            {TempmailWeb.I18n.t(@locale, "home.faq.badge", "Frequently Asked Questions")}
+          </span>
+        </div>
+        <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+          {TempmailWeb.I18n.t(@locale, "home.faq.title", "Everything About")}
+          <span class="gradient-text">
+            {TempmailWeb.I18n.t(@locale, "home.faq.titleHighlight", "Temp Mail")}
+          </span>
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-slate-500">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.faq.subtitle",
+            "Learn how disposable temporary email works and why millions trust TempMailCentral for their privacy needs."
+          )}
+        </p>
+      </div>
+      <div class="mx-auto max-w-3xl space-y-4">
+        <details
+          :for={
+            {faq, index} <-
+              Enum.with_index([
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question1",
+                   "What is a temporary email or temp mail?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer1",
+                   "A temporary email is a self-destructing email address that helps protect your real email from spam, phishing, and unwanted marketing."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question2",
+                   "How does disposable email work?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer2",
+                   "You receive a random email address instantly. Any emails sent to it appear in your temporary inbox, then expire automatically."
+                 )},
+                {TempmailWeb.I18n.t(@locale, "home.faq.question3", "Is temp mail safe to use?"),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer3",
+                   "Yes for non-sensitive purposes like signups, downloads, and testing. Do not use it for banking or critical accounts."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question4",
+                   "How long does a temporary email last?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer4",
+                   "By default, temporary email addresses last for 10 minutes. Logged-in users can extend or save addresses."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question6",
+                   "Do I need to register to use temp mail?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer6",
+                   "No registration is required. Visit the website and generate an address immediately."
+                 )}
+              ])
+          }
+          class="group overflow-hidden rounded-2xl glass animate-fade-in-up"
+          style={"animation-delay: #{index * 0.05}s"}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between p-6 transition-colors hover:bg-slate-50">
+            <h3 class="pr-4 text-left text-lg font-semibold">{elem(faq, 0)}</h3>
+            <.icon
+              name="hero-chevron-down"
+              class="h-5 w-5 flex-shrink-0 text-slate-500 transition-transform group-open:rotate-180"
+            />
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="leading-relaxed text-slate-500">{elem(faq, 1)}</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-slate-50 py-24">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+          {TempmailWeb.I18n.t(@locale, "home.whyChoose.title", "Why Choose")}
+          <span class="gradient-text">
+            {TempmailWeb.I18n.t(@locale, "home.whyChoose.titleHighlight", "TempMailCentral")}
+          </span>?
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-slate-500">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.whyChoose.subtitle",
+            "The most reliable free temporary email service trusted by over 500,000 users worldwide."
+          )}
+        </p>
+      </div>
+      <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+        <div
+          :for={
+            {item, index} <-
+              Enum.with_index([
+                {"hero-sparkles",
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.instantFree.title",
+                   "Instant & Free"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.instantFree.description",
+                   "No registration, no credit card, no strings attached. Get your disposable email in seconds, completely free forever."
+                 ), "from-amber-500 to-orange-500"},
+                {"hero-shield-check",
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.privacyFirst.title",
+                   "Privacy First"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.privacyFirst.description",
+                   "We don't track, store, or sell your data. All emails auto-delete after expiration. Your privacy is our priority."
+                 ), "from-emerald-500 to-teal-500"},
+                {"hero-globe-alt",
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.multiLanguage.title",
+                   "20+ Languages"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.whyChoose.multiLanguage.description",
+                   "Available in over 20 languages including English, Spanish, French, German, Chinese, Japanese, and more."
+                 ), "from-blue-500 to-indigo-500"}
+              ])
+          }
+          class="rounded-3xl p-8 text-center glass card-hover animate-fade-in-up"
+          style={"animation-delay: #{index * 0.1}s"}
+        >
+          <div class={"mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br #{elem(item, 3)} shadow-lg"}>
+            <.icon name={elem(item, 0)} class="h-8 w-8 text-white" />
+          </div>
+          <h3 class="mb-3 text-xl font-semibold">{elem(item, 1)}</h3>
+          <p class="text-slate-500">{elem(item, 2)}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-16">
+    <div class="container mx-auto px-4">
+      <div class="prose mx-auto max-w-4xl">
+        <h2 class="mb-6 text-center text-2xl font-bold">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.seoContent.title",
+            "About Temp Mail - Disposable Temporary Email"
+          )}
+        </h2>
+        <div class="grid gap-8 text-sm text-slate-500 md:grid-cols-2">
+          <div>
+            <h3 class="mb-3 text-lg font-semibold text-slate-950">
+              {TempmailWeb.I18n.t(
+                @locale,
+                "home.seoContent.whatIsTitle",
+                "What is Temporary Email?"
+              )}
+            </h3>
+            <p class="mb-4">
+              {TempmailWeb.I18n.t(
+                @locale,
+                "home.seoContent.whatIsContent",
+                "Temporary email, also known as temp mail, disposable email, throwaway email, or 10-minute mail, is a service that provides you with a short-lived email address."
+              )}
+            </p>
+            <p>
+              {TempmailWeb.I18n.t(
+                @locale,
+                "home.seoContent.whatIsContent2",
+                "TempMailCentral generates random email addresses that you can use for website registrations, newsletter signups, online shopping, or any situation where you need an email but don't want to share your real address."
+              )}
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-semibold text-slate-950">
+              {TempmailWeb.I18n.t(
+                @locale,
+                "home.seoContent.benefitsTitle",
+                "Benefits of Disposable Email"
+              )}
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <strong>
+                  {TempmailWeb.I18n.t(@locale, "home.seoContent.benefit1", "Spam Protection:")}
+                </strong>
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.seoContent.benefit1Desc",
+                  "Keep your real inbox clean by using temp mail for signups"
+                )}
+              </li>
+              <li>
+                <strong>
+                  {TempmailWeb.I18n.t(@locale, "home.seoContent.benefit2", "Privacy:")}
+                </strong>
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.seoContent.benefit2Desc",
+                  "Protect your identity when accessing online services"
+                )}
+              </li>
+              <li>
+                <strong>
+                  {TempmailWeb.I18n.t(@locale, "home.seoContent.benefit3", "Security:")}
+                </strong>
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.seoContent.benefit3Desc",
+                  "Reduce exposure to phishing and data breaches"
+                )}
+              </li>
+              <li>
+                <strong>
+                  {TempmailWeb.I18n.t(@locale, "home.seoContent.benefit4", "Convenience:")}
+                </strong>
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.seoContent.benefit4Desc",
+                  "No registration needed - get an email instantly"
+                )}
+              </li>
+              <li>
+                <strong>
+                  {TempmailWeb.I18n.t(@locale, "home.seoContent.benefit5", "Free Forever:")}
+                </strong>
+                {TempmailWeb.I18n.t(
+                  @locale,
+                  "home.seoContent.benefit5Desc",
+                  "Our basic service is completely free with no hidden costs"
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden py-24">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
+    </div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:24px_24px]">
+    </div>
+    <div class="container relative z-10 mx-auto px-4 text-center">
+      <h2 class="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+        {TempmailWeb.I18n.t(@locale, "home.cta.title", "Ready to protect your privacy?")}
+      </h2>
+      <p class="mx-auto mb-8 max-w-2xl text-xl text-indigo-100">
+        {TempmailWeb.I18n.t(
+          @locale,
+          "home.cta.subtitle",
+          "Get your free temporary email address now. No registration, no hassle, just privacy."
+        )}
+      </p>
+      <a
+        href="#top"
+        class="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-indigo-600 shadow-2xl transition-all hover:scale-105 hover:bg-indigo-50"
+      >
+        {TempmailWeb.I18n.t(@locale, "home.cta.button", "Get Started Free")}
+        <.icon name="hero-arrow-right" class="h-5 w-5" />
+      </a>
+    </div>
+  </section>
+</div>

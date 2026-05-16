@@ -1,0 +1,271 @@
+<.dashboard_shell current_user={@current_user} locale={@locale} active={:overview}>
+  <div class="space-y-8 tm-animate-fade-in-up">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h1 class="text-3xl font-bold text-slate-950">
+          Welcome{if @current_user.name,
+            do: ", #{String.split(@current_user.name) |> hd()}",
+            else: ""}!
+        </h1>
+        <p class="mt-1 text-slate-500">
+          Manage your permanent mailboxes, custom domains, and saved messages.
+        </p>
+      </div>
+      <.link
+        navigate={
+          if @locale == "en",
+            do: ~p"/dashboard/mailboxes?new=true",
+            else: "/#{@locale}/dashboard/mailboxes?new=true"
+        }
+        class="tm-btn-gradient gap-2"
+      >
+        <.icon name="hero-plus" class="h-5 w-5" /> Create Mailbox
+      </.link>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 to-indigo-600 opacity-5">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Total Mailboxes</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{length(@mailboxes)}</p>
+            <p class="mt-1 text-xs text-slate-500">Persistent addresses</p>
+          </div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600">
+            <.icon name="hero-inbox" class="h-5 w-5 text-white" />
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 opacity-5">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Total Emails</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{@total_emails}</p>
+            <p class="mt-1 text-xs text-slate-500">Across all mailboxes</p>
+          </div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-purple-600">
+            <.icon name="hero-envelope" class="h-5 w-5 text-white" />
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 opacity-5">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Unread</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">{@unread_emails}</p>
+            <p class="mt-1 text-xs text-slate-500">New messages</p>
+          </div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-500 to-amber-600">
+            <.icon name="hero-sparkles" class="h-5 w-5 text-white" />
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-600 opacity-5">
+        </div>
+        <div class="relative flex items-start justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">Storage</p>
+            <p class="mt-3 text-3xl font-bold text-slate-950">Forever</p>
+            <p class="mt-1 text-xs text-slate-500">Emails never expire</p>
+          </div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600">
+            <.icon name="hero-clock" class="h-5 w-5 text-white" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-200 p-5">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
+            <.icon name="hero-envelope" class="h-5 w-5 text-indigo-500" /> Recent Emails
+          </h2>
+          <.link
+            navigate={
+              if @locale == "en",
+                do: ~p"/dashboard/mailboxes",
+                else: "/#{@locale}/dashboard/mailboxes"
+            }
+            class="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600"
+          >
+            View All <.icon name="hero-arrow-right" class="h-4 w-4" />
+          </.link>
+        </div>
+        <div class="divide-y divide-slate-100">
+          <div
+            :for={email <- @emails}
+            class={[
+              "flex items-start gap-3 p-4 transition-colors hover:bg-slate-50",
+              !email.read && "bg-indigo-50/50"
+            ]}
+          >
+            <div class={[
+              "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full",
+              email.read && "bg-slate-100",
+              !email.read && "bg-gradient-to-br from-indigo-500 to-purple-600"
+            ]}>
+              <.icon :if={email.read} name="hero-envelope" class="h-4 w-4 text-slate-400" />
+              <span :if={!email.read} class="text-sm font-semibold text-white">
+                {String.first(email.from || "?") |> String.upcase()}
+              </span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class={["truncate text-sm", !email.read && "font-semibold"]}>
+                  {email.from}
+                </span>
+                <span :if={!email.read} class="h-2 w-2 flex-shrink-0 rounded-full bg-indigo-500">
+                </span>
+              </div>
+              <p class="truncate text-sm text-slate-500">{email.subject || "(No Subject)"}</p>
+              <p class="mt-1 truncate text-xs text-slate-500">
+                To {email.mailbox.name || email.mailbox.address}
+              </p>
+            </div>
+          </div>
+          <div :if={@emails == []} class="p-8 text-center">
+            <.icon name="hero-envelope-open" class="mx-auto h-12 w-12 text-slate-300" />
+            <p class="mt-3 text-slate-500">No emails yet</p>
+            <p class="text-sm text-slate-500">
+              Messages to your permanent mailboxes will appear here.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-200 p-5">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
+            <.icon name="hero-inbox" class="h-5 w-5 text-indigo-500" /> Mailboxes
+          </h2>
+          <.link
+            navigate={
+              if @locale == "en",
+                do: ~p"/dashboard/mailboxes?new=true",
+                else: "/#{@locale}/dashboard/mailboxes?new=true"
+            }
+            class="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600"
+          >
+            <.icon name="hero-plus" class="h-4 w-4" /> New
+          </.link>
+        </div>
+        <div class="divide-y divide-slate-100">
+          <.link
+            :for={mailbox <- Enum.take(@mailboxes, 5)}
+            navigate={
+              if @locale == "en",
+                do: ~p"/dashboard/mailboxes?mailbox=#{mailbox.id}",
+                else: "/#{@locale}/dashboard/mailboxes?mailbox=#{mailbox.id}"
+            }
+            class="flex items-center gap-3 p-4 transition-colors hover:bg-slate-50"
+          >
+            <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
+              <.icon name="hero-envelope" class="h-5 w-5 text-white" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="truncate font-medium text-slate-950">
+                  {mailbox.name || mailbox.address}
+                </span>
+                <.icon
+                  :if={mailbox.is_primary}
+                  name="hero-star"
+                  class="h-4 w-4 flex-shrink-0 text-amber-500"
+                />
+              </div>
+              <p :if={mailbox.name} class="truncate text-sm text-slate-500">{mailbox.address}</p>
+            </div>
+            <div class="flex-shrink-0 text-right">
+              <% unread = Enum.count(mailbox.emails, fn email -> !email.read end) %>
+              <span
+                :if={unread > 0}
+                class="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-indigo-500 px-2 text-xs font-semibold text-white"
+              >
+                {unread}
+              </span>
+              <span :if={unread == 0} class="text-sm text-slate-500">
+                {length(mailbox.emails)}
+              </span>
+            </div>
+          </.link>
+          <div :if={@mailboxes == []} class="p-8 text-center">
+            <.icon name="hero-inbox" class="mx-auto h-12 w-12 text-slate-300" />
+            <p class="mt-3 text-slate-500">No mailboxes yet</p>
+            <p class="mb-4 text-sm text-slate-500">
+              Create a permanent address to keep messages.
+            </p>
+            <.link
+              navigate={
+                if @locale == "en",
+                  do: ~p"/dashboard/mailboxes?new=true",
+                  else: "/#{@locale}/dashboard/mailboxes?new=true"
+              }
+              class="tm-btn-gradient gap-2"
+            >
+              <.icon name="hero-plus" class="h-4 w-4" /> Create Mailbox
+            </.link>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <.link
+        navigate={
+          if @locale == "en",
+            do: ~p"/dashboard/mailboxes?new=true",
+            else: "/#{@locale}/dashboard/mailboxes?new=true"
+        }
+        class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
+      >
+        <div class="flex items-center gap-4">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 transition-transform group-hover:scale-110">
+            <.icon name="hero-plus" class="h-6 w-6 text-indigo-600" />
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-950">Create Mailbox</h3>
+            <p class="text-sm text-slate-500">Add a permanent email address</p>
+          </div>
+        </div>
+      </.link>
+      <.link
+        navigate={if @locale == "en", do: ~p"/", else: "/#{@locale}"}
+        class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
+      >
+        <div class="flex items-center gap-4">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 transition-transform group-hover:scale-110">
+            <.icon name="hero-clock" class="h-6 w-6 text-purple-600" />
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-950">Temp Email</h3>
+            <p class="text-sm text-slate-500">Generate a temporary address</p>
+          </div>
+        </div>
+      </.link>
+      <.link
+        navigate={
+          if @locale == "en", do: ~p"/dashboard/settings", else: "/#{@locale}/dashboard/settings"
+        }
+        class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
+      >
+        <div class="flex items-center gap-4">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 transition-transform group-hover:scale-110">
+            <.icon name="hero-star" class="h-6 w-6 text-emerald-600" />
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-950">Preferences</h3>
+            <p class="text-sm text-slate-500">Update account settings</p>
+          </div>
+        </div>
+      </.link>
+    </div>
+  </div>
+</.dashboard_shell>

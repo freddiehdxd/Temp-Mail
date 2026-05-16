@@ -1,0 +1,23 @@
+<div class="flex min-h-[calc(100vh-5rem)] items-center justify-center bg-gradient-to-b from-indigo-50 via-white to-white px-4">
+  <div class="w-full max-w-md">
+    <div class="tm-glass rounded-3xl p-8 text-center shadow-xl">
+      <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+        <.icon name="hero-exclamation-circle" class="h-8 w-8 text-red-500" />
+      </div>
+      <h1 class="mb-2 text-2xl font-bold text-slate-950">Authentication Error</h1>
+      <p class="mb-6 text-slate-500">{@message}</p>
+      <p
+        :if={@error_code}
+        class="mb-6 rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-500"
+      >
+        Error code: {@error_code}
+      </p>
+      <div class="flex flex-col gap-3">
+        <.link navigate={~p"/users/log_in"} class="tm-btn-gradient w-full gap-2">Try Again</.link>
+        <.link navigate={~p"/"} class="tm-btn-outline w-full gap-2">
+          <.icon name="hero-arrow-left" class="h-4 w-4" /> Back to Home
+        </.link>
+      </div>
+    </div>
+  </div>
+</div>

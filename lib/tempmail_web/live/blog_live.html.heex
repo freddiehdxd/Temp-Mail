@@ -1,0 +1,24 @@
+<div class="space-y-6">
+  <h1 class="text-3xl font-bold text-zinc-950">Blog</h1>
+  <div class="grid gap-4">
+    <article
+      :for={post <- @posts}
+      class="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"
+    >
+      <% translation = List.first(post.translations) %>
+      <.link
+        navigate={~p"/blog/#{post.slug}"}
+        class="text-xl font-bold text-zinc-950 hover:text-indigo-700"
+      >
+        {(translation && translation.title) || post.slug}
+      </.link>
+      <p class="mt-2 text-sm text-zinc-500">{translation && translation.excerpt}</p>
+    </article>
+    <div
+      :if={@posts == []}
+      class="rounded-lg border border-dashed border-zinc-300 p-10 text-center text-sm text-zinc-500"
+    >
+      No published posts yet.
+    </div>
+  </div>
+</div>

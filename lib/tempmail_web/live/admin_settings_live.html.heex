@@ -1,0 +1,94 @@
+<.admin_shell locale={@locale} active={:settings}>
+  <div class="space-y-8">
+    <.form for={@form} phx-submit="save" class="space-y-8">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-slate-950">Settings</h1>
+          <p class="mt-1 text-slate-500">Configure your temporary email service.</p>
+        </div>
+        <button class="tm-btn-gradient gap-2">
+          <.icon name="hero-check" class="h-4 w-4" /> Save Changes
+        </button>
+      </div>
+
+      <div
+        :if={@saved}
+        class="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-semibold text-emerald-700"
+      >
+        Settings saved successfully.
+      </div>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="flex items-center gap-2 text-lg font-bold text-slate-950">
+          <.icon name="hero-cog-6-tooth" class="h-5 w-5" /> General Settings
+        </h2>
+        <p class="mt-1 text-sm text-slate-500">Configure basic application settings.</p>
+        <div class="mt-6">
+          <label class="mb-2 block text-sm font-medium text-slate-700">Email TTL (seconds)</label>
+          <input
+            name="emailTTL"
+            type="number"
+            min="60"
+            max="3600"
+            value={@form[:emailTTL].value}
+            class="h-11 w-full max-w-xs rounded-lg border border-slate-200 bg-white px-3 text-sm"
+          />
+          <p class="mt-1 text-sm text-slate-500">
+            How long temporary emails exist before automatic deletion.
+          </p>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-950">Mailcow Configuration</h2>
+        <p class="mt-1 text-sm text-slate-500">Configure your Mailcow mail server connection.</p>
+        <div class="mt-6 space-y-6">
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Mailcow API URL</label>
+            <input
+              name="mailcowUrl"
+              type="url"
+              placeholder="https://mail.example.com"
+              value={@form[:mailcowUrl].value}
+              class="h-11 w-full max-w-md rounded-lg border border-slate-200 bg-white px-3 text-sm"
+            />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">Mailcow API Key</label>
+            <input
+              name="mailcowKey"
+              type="password"
+              placeholder="Enter your API key"
+              value={@form[:mailcowKey].value}
+              class="h-11 w-full max-w-md rounded-lg border border-slate-200 bg-white px-3 text-sm"
+            />
+          </div>
+          <button type="button" phx-click="test_mailcow" class="tm-btn-outline gap-2">
+            <.icon name="hero-beaker" class="h-4 w-4" /> Test Connection
+          </button>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-950">Environment Information</h2>
+        <div class="mt-5 space-y-4 text-sm">
+          <div class="flex justify-between border-b border-slate-100 py-2">
+            <span class="text-slate-500">Phoenix Environment</span>
+            <span class="font-mono">
+              {(Application.get_env(:tempmail, TempmailWeb.Endpoint)[:server] && "server") ||
+                "development"}
+            </span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 py-2">
+            <span class="text-slate-500">Database Connected</span>
+            <span class="font-mono text-green-600">Yes</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 py-2">
+            <span class="text-slate-500">Redis Configured</span>
+            <span class="font-mono text-green-600">Yes</span>
+          </div>
+        </div>
+      </section>
+    </.form>
+  </div>
+</.admin_shell>

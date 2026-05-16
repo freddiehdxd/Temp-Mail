@@ -1,0 +1,322 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #fafbfc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --primary: #6366f1;
+  --border: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 12%, rgba(99, 102, 241, 0.16), transparent 28rem),
+    radial-gradient(circle at 88% 20%, rgba(236, 72, 153, 0.13), transparent 26rem),
+    linear-gradient(180deg, #fafbfc 0%, #f8fafc 44%, #eef2ff 100%);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.55), 0 0 60px rgba(139, 92, 246, 0.32);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+@layer components {
+  .tm-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .tm-glass {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+  }
+
+  .tm-shadow-glow {
+    box-shadow:
+      0 0 20px rgba(99, 102, 241, 0.15),
+      0 0 40px rgba(139, 92, 246, 0.1),
+      0 0 60px rgba(236, 72, 153, 0.05);
+  }
+
+  .tm-shadow-glow-lg {
+    box-shadow:
+      0 0 40px rgba(99, 102, 241, 0.2),
+      0 0 80px rgba(139, 92, 246, 0.15),
+      0 0 120px rgba(236, 72, 153, 0.1);
+  }
+
+  .tm-gradient-text {
+    color: #6366f1;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tm-btn {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-xl px-5 py-2 text-sm font-semibold transition-all duration-200 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .tm-btn-gradient {
+    @apply tm-btn text-white;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+  }
+
+  .tm-btn-gradient:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(99, 102, 241, 0.32);
+  }
+
+  .tm-btn-outline {
+    @apply tm-btn border-2 border-slate-200 bg-white text-slate-800 hover:border-indigo-200 hover:bg-indigo-50;
+  }
+
+  .tm-card-hover {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tm-card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 30px rgba(99, 102, 241, 0.1);
+  }
+
+  .tm-email-hover {
+    transition: all 0.2s ease;
+  }
+
+  .tm-email-hover:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(139, 92, 246, 0.06));
+  }
+
+  .tm-gradient-bar {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  }
+
+  .tm-animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .tm-animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  .tm-animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out forwards;
+  }
+
+  .tm-animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  .tm-animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .tm-animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .tm-stat-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-lg;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  }
+
+  .glass {
+    @apply tm-glass;
+  }
+
+  .gradient-text {
+    @apply tm-gradient-text;
+  }
+
+  .shadow-glow {
+    @apply tm-shadow-glow;
+  }
+
+  .shadow-glow-lg {
+    @apply tm-shadow-glow-lg;
+  }
+
+  .card-hover {
+    @apply tm-card-hover;
+  }
+
+  .email-item-hover {
+    @apply tm-email-hover;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out forwards;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .animate-blob {
+    animation: blob 8s infinite ease-in-out;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+}
+
+.prose {
+  max-width: 100%;
+  color: var(--foreground);
+  line-height: 1.75;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}

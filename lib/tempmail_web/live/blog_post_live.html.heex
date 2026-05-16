@@ -1,0 +1,10 @@
+<article class="rounded-lg border border-zinc-200 bg-white p-8 shadow-sm">
+  <h1 class="text-3xl font-bold text-zinc-950">
+    {(@translation && @translation.title) || @post.slug}
+  </h1>
+  <div class="prose mt-6 max-w-none">
+    <%= if @translation do %>
+      {Phoenix.HTML.raw(@translation.content)}
+    <% end %>
+  </div>
+</article>

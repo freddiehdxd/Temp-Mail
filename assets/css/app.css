@@ -2,12 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@media (min-width: 640px) {
-  .sm\:pt-20 {
-    padding-top: 1rem;
-  }
-}
-
 :root {
   --background: #fafbfc;
   --foreground: #0f172a;

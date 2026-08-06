@@ -17,7 +17,7 @@ defmodule TempmailWeb do
   those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images uploads favicon.ico favicon.svg robots.txt)
+  def static_paths, do: ~w(assets fonts images uploads favicon.ico favicon.svg robots.txt ads.txt)
 
   def router do
     quote do

@@ -1,16 +1,21 @@
 defmodule TempmailWeb.StaticPageLive do
   use TempmailWeb, :live_view
 
-  @copy %{
+  @base_url "https://tempmailcentral.com"
+
+  # These pages are maintained in English. Locale-prefixed routes render the
+  # same content and canonicalize to the English URL, so search engines index
+  # a single authoritative version instead of 20 thin duplicates.
+  @meta %{
     about:
-      {"About",
-       "TempMail Central provides disposable and permanent inboxes for privacy-conscious workflows."},
+      {"About TempMail Central",
+       "Who runs TempMail Central, why it exists, how disposable inboxes actually work under the hood, and how to reach the team that operates the service."},
     privacy:
-      {"Privacy",
-       "Temporary inboxes expire automatically. Permanent mailbox data is stored only for signed-in users."},
+      {"Privacy Policy",
+       "What TempMail Central collects and what it never keeps: temporary inbox retention, account data, cookies, Google AdSense advertising, and how to delete your data."},
     terms:
-      {"Terms",
-       "Use this service responsibly and do not use generated addresses for abuse, spam, or unlawful activity."}
+      {"Terms of Service",
+       "The rules for using TempMail Central: acceptable use, prohibited activity, account rules, service limitations, termination, and how to contact us."}
   }
 
   @impl true
@@ -18,12 +23,15 @@ defmodule TempmailWeb.StaticPageLive do
     locale = params["locale"] || "en"
     TempmailWeb.I18n.set_locale(locale)
 
-    {title, body} = Map.fetch!(@copy, socket.assigns.live_action)
+    action = socket.assigns.live_action
+    {title, description} = Map.fetch!(@meta, action)
 
     {:ok,
      socket
      |> assign(:page_title, title)
-     |> assign(:body, body)
+     |> assign(:meta_description, description)
+     |> assign(:canonical_url, "#{@base_url}/#{action}")
+     |> assign(:html_lang, "en")
      |> assign(:locale, locale)}
   end
 end

@@ -1,4 +1,506 @@
-<article class="rounded-lg border border-zinc-200 bg-white p-8 shadow-sm">
-  <h1 class="text-3xl font-bold text-zinc-950">{@page_title}</h1>
-  <p class="mt-4 text-zinc-600">{@body}</p>
-</article>
+<div class="container mx-auto max-w-3xl px-4 py-12">
+  <%!-- ============================= ABOUT ============================= --%>
+  <article :if={@live_action == :about} class="space-y-10">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-950 sm:text-4xl">About TempMail Central</h1>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">
+        TempMail Central is a free temporary email service: open the site, get a working
+        inbox at a random address, and let it delete itself when you no longer need it.
+        This page explains who runs the service, why it exists, and how it works.
+      </p>
+    </header>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Who operates the service</h2>
+      <p class="leading-relaxed text-slate-600">
+        TempMail Central is an independent, privately operated web service. It is not owned
+        by a larger company, and it launched in 2026. The service is free to use and is
+        funded by advertising served through Google AdSense; there are no paid plans and no
+        sale of user data. The same small team that develops the software also operates the
+        servers and answers messages sent through the <.link
+          navigate={~p"/contact"}
+          class="text-indigo-600 hover:underline"
+        >contact page</.link>.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Why we built it</h2>
+      <p class="leading-relaxed text-slate-600">
+        Most websites ask for an email address before letting you do anything, and every
+        address you hand out becomes a permanent record that can be leaked, sold, or
+        spammed. For a one-time download or a trial you will never revisit, a real address
+        is more than the situation deserves. A disposable inbox solves that: the sender can
+        deliver their verification message, and ten minutes later the address no longer
+        exists. Our job is to make that exchange fast, reliable, and honest about its
+        limits — including <.link
+          navigate={~p"/blog/when-not-to-use-disposable-email"}
+          class="text-indigo-600 hover:underline"
+        >when you should not use disposable email at all</.link>.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">How it works</h2>
+      <ol class="list-decimal space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>
+          When you open the homepage, the app generates a random address — ten lowercase
+          letters and digits drawn from a cryptographically secure random source — on one of
+          our rotating domains. Operational prefixes such as admin@ or support@ are reserved
+          and never issued.
+        </li>
+        <li>
+          The inbox lives in Redis, an in-memory store, with a time-to-live of 10 minutes by
+          default. You can extend it to 1 hour or 24 hours without an account, or up to 30
+          days when signed in.
+        </li>
+        <li>
+          Incoming mail arrives at our Postfix mail server, is parsed, and is pushed to your
+          open browser tab over a WebSocket — messages appear in real time without
+          refreshing. Attachments can be viewed and downloaded. Each inbox holds its most
+          recent 100 messages.
+        </li>
+        <li>
+          When the timer runs out, the address and every message in it are deleted. Expired
+          temporary mail is not archived or backed up anywhere;
+          <.link
+            navigate={~p"/blog/how-temporary-inbox-deletion-works"}
+            class="text-indigo-600 hover:underline"
+          >
+            this post explains the deletion mechanics
+          </.link>
+          in detail.
+        </li>
+        <li>
+          With a free account you can save an address as a permanent mailbox (kept until you
+          delete it) and connect up to five of your own domains for receiving.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">What the service is — and is not</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="py-3 pr-4 font-semibold text-slate-900">Good fit</th>
+              <th class="py-3 font-semibold text-slate-900">Wrong tool</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-600">
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">One-time signups, downloads, and verifications</td>
+              <td class="py-3">Banking, government, healthcare, or employer accounts</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Testing signup and transactional email flows</td>
+              <td class="py-3">Anything you may need to recover with a password reset later</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Keeping marketing lists away from your real inbox</td>
+              <td class="py-3">Receiving confidential or sensitive documents</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4">Short-lived, receive-only correspondence</td>
+              <td class="py-3">Sending mail — addresses here are receive-only by design</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        One honest caveat worth repeating: while a temporary inbox is alive, anyone who
+        knows its exact address can open it. The protection comes from the address being
+        one of 3.6 quadrillion possibilities and from its short lifetime — not from a
+        password. Permanent mailboxes, by contrast, are private to your account.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Support</h2>
+      <p class="leading-relaxed text-slate-600">
+        The fastest way to reach us is the <.link
+          navigate={~p"/contact"}
+          class="text-indigo-600 hover:underline"
+        >contact form</.link>, which lands directly in the operators' dashboard. You can also
+        email
+        <a href="mailto:contact@tempmailcentral.com" class="text-indigo-600 hover:underline">
+          contact@tempmailcentral.com
+        </a>. We read every message and usually reply within a few days. For questions about
+        data handling, see the <.link navigate={~p"/privacy"} class="text-indigo-600 hover:underline">Privacy Policy</.link>;
+        for the rules of the road, see the
+        <.link navigate={~p"/terms"} class="text-indigo-600 hover:underline">Terms of Service</.link>.
+      </p>
+    </section>
+  </article>
+
+  <%!-- ============================ PRIVACY ============================ --%>
+  <article :if={@live_action == :privacy} class="space-y-10">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-950 sm:text-4xl">Privacy Policy</h1>
+      <p class="mt-2 text-sm text-slate-400">Last updated: August 10, 2026</p>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">
+        This policy describes what TempMail Central collects, why, how long it is kept, and
+        how to get rid of it. It is written to match what the software actually does.
+      </p>
+    </header>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">The short version</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>Temporary inboxes are held in memory and are permanently deleted when they expire.</li>
+        <li>You can use the core service without creating an account or telling us who you are.</li>
+        <li>We do not sell personal data.</li>
+        <li>
+          The service is funded by Google AdSense, which uses cookies; you can control ad
+          personalization through Google's own settings.
+        </li>
+        <li>Server access logs are kept for 14 days for security, then deleted.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Data we handle when you use a temporary inbox</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>
+          <strong>The generated address and its messages.</strong> These are stored in Redis, an
+          in-memory database, with a time-to-live. When the timer lapses, the address and all
+          messages — including attachments — are deleted and cannot be recovered. Expired
+          temporary mail is never archived or backed up.
+        </li>
+        <li>
+          <strong>A local copy of your active address.</strong> Your browser's local storage
+          remembers your current temporary address so a page reload can restore the inbox.
+          This stays on your device; clearing site data removes it.
+        </li>
+        <li>
+          <strong>Web server logs.</strong> Like almost every website, our web server records
+          request logs (IP address, user agent, URL, timestamp) for security monitoring and
+          abuse prevention. Logs rotate daily and are deleted after 14 days.
+        </li>
+        <li>
+          <strong>Rate-limit counters.</strong> To keep automated abuse in check, request
+          counters keyed by IP address are held briefly in application memory and expire on
+          their own.
+        </li>
+        <li>
+          <strong>Aggregate statistics.</strong> We keep daily totals — how many addresses were
+          generated and how many messages were received — with no link to any visitor. These
+          numbers contain no personal data and are kept indefinitely.
+        </li>
+      </ul>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        We do not run third-party analytics trackers, and we do not build profiles of
+        individual visitors.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Data we handle if you create an account</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>
+          <strong>Sign-in details.</strong> Your email address and a salted hash of your
+          password (we never store the password itself), or — if you use Google sign-in — the
+          email address Google shares with us.
+        </li>
+        <li>
+          <strong>A durability check at registration.</strong> Because accounts exist to keep
+          mail, the address you register with is checked against a disposable-address
+          detection service; known throwaway addresses are declined.
+        </li>
+        <li>
+          <strong>Your mailboxes and their mail.</strong> Permanent mailboxes, the messages in
+          them, and any custom domains you connect are stored in our database until you
+          delete them.
+        </li>
+        <li>
+          <strong>Temporary-address history.</strong> When you extend or save a temporary
+          address while signed in, we record the address and its expiry so your dashboard can
+          show it.
+        </li>
+        <li>
+          <strong>Administrative audit log.</strong> Actions taken by service administrators
+          (for example, banning an account) are logged for accountability.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Cookies and local storage</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>
+          <strong>Essential session cookie.</strong> A signed cookie keeps you logged in and
+          protects forms against forgery. It is required for the site to function.
+        </li>
+        <li>
+          <strong>Preference storage.</strong> Local storage on your device remembers your
+          active temporary address and interface state.
+        </li>
+        <li>
+          <strong>Advertising cookies.</strong> Google AdSense sets third-party cookies and
+          similar identifiers to serve and measure ads, which may include personalized ads
+          depending on your region and consent choices. See
+          <a
+            href="https://policies.google.com/technologies/partner-sites"
+            rel="noopener nofollow"
+            class="text-indigo-600 hover:underline"
+          >
+            how Google uses information from partner sites
+          </a>
+          and manage preferences at
+          <a
+            href="https://adssettings.google.com"
+            rel="noopener nofollow"
+            class="text-indigo-600 hover:underline"
+          >
+            Google Ads Settings
+          </a>. Where required by law, a consent prompt is shown before advertising cookies
+          are used.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Advertising</h2>
+      <p class="leading-relaxed text-slate-600">
+        TempMail Central is free because it shows ads through Google AdSense. Google acts as
+        an independent controller of the data its advertising products process. We do not
+        pass Google the contents of any inbox, and ad code runs on public pages — not inside
+        your mail. We do not sell personal data to anyone.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">How long data is kept</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="py-3 pr-4 font-semibold text-slate-900">Data</th>
+              <th class="py-3 font-semibold text-slate-900">Retention</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-600">
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Temporary inbox and its messages</td>
+              <td class="py-3">
+                10 minutes by default; extendable to 1 hour or 24 hours (up to 30 days for
+                signed-in users). Deleted permanently at expiry.
+              </td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Permanent mailboxes and their mail (accounts)</td>
+              <td class="py-3">Until you delete the mailbox or your account</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Account details</td>
+              <td class="py-3">Until you delete your account</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Contact form messages</td>
+              <td class="py-3">As long as needed to resolve your request, at most 12 months</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="py-3 pr-4">Web server access logs</td>
+              <td class="py-3">14 days</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4">Aggregate daily counters (no personal data)</td>
+              <td class="py-3">Indefinitely</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Who can see a temporary inbox</h2>
+      <p class="leading-relaxed text-slate-600">
+        Temporary inboxes are not password-protected: while one is active, anyone who knows
+        the exact address can open it. Addresses are drawn from roughly 3.6 quadrillion
+        combinations and live for minutes, which makes guessing impractical — but you should
+        still never direct sensitive information to a temporary address. Permanent mailboxes
+        are different: they are tied to your account and visible only to you (and to us, to
+        the extent required to operate and maintain the service).
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Sharing with third parties</h2>
+      <p class="leading-relaxed text-slate-600">
+        We do not sell, rent, or trade personal data. Data leaves our systems only in these
+        cases: Google processes advertising data as described above and handles sign-in if
+        you choose "Sign in with Google"; the address you register with is checked against a
+        disposable-address detection service; and we may disclose information if a valid
+        legal order requires it or to protect the service from abuse. There are no other
+        recipients.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Deleting data and your rights</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>Temporary inboxes delete themselves; you can also delete individual messages or generate a new address at any time.</li>
+        <li>
+          Signed-in users can delete individual mailboxes, all mailboxes, or the entire
+          account from the dashboard settings; deletion is immediate and permanent.
+        </li>
+        <li>
+          Depending on where you live, you may have legal rights to access, correct, export,
+          or erase personal data we hold about you. Send requests through the
+          <.link navigate={~p"/contact"} class="text-indigo-600 hover:underline">contact page</.link>
+          with the topic "Privacy or data request" and we will respond.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Children</h2>
+      <p class="leading-relaxed text-slate-600">
+        The service is not directed to children under 13, and we do not knowingly collect
+        personal data from them.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">Changes and contact</h2>
+      <p class="leading-relaxed text-slate-600">
+        If this policy changes materially, the date at the top will be updated and the new
+        version published here. Questions about privacy can be sent through the
+        <.link navigate={~p"/contact"} class="text-indigo-600 hover:underline">contact form</.link>
+        or to
+        <a href="mailto:contact@tempmailcentral.com" class="text-indigo-600 hover:underline">
+          contact@tempmailcentral.com
+        </a>.
+      </p>
+    </section>
+  </article>
+
+  <%!-- ============================= TERMS ============================= --%>
+  <article :if={@live_action == :terms} class="space-y-10">
+    <header>
+      <h1 class="text-3xl font-bold text-slate-950 sm:text-4xl">Terms of Service</h1>
+      <p class="mt-2 text-sm text-slate-400">Last updated: August 10, 2026</p>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">
+        These terms govern your use of TempMail Central. By using the service you agree to
+        them; if you do not agree, please do not use the service. You must be at least 13
+        years old.
+      </p>
+    </header>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">1. The service</h2>
+      <p class="leading-relaxed text-slate-600">
+        TempMail Central provides disposable, receive-only email inboxes that expire
+        automatically — after 10 minutes by default, extendable to 1 hour or 24 hours
+        without an account and up to 30 days with one — plus optional free accounts with
+        permanent mailboxes and custom domain support. Addresses cannot send mail. The
+        service is free and supported by advertising.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">2. Acceptable use</h2>
+      <p class="mb-3 leading-relaxed text-slate-600">You agree to use the service only for lawful purposes. In particular, you agree to:</p>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>comply with the laws that apply to you when using the service;</li>
+        <li>respect the terms of other websites when using a disposable address with them;</li>
+        <li>
+          accept the temporary nature of the product: expired mail is unrecoverable, and you
+          should not rely on the service for communication you cannot afford to lose;
+        </li>
+        <li>keep your account credentials to yourself and tell us about any compromise.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">3. Prohibited activity</h2>
+      <p class="mb-3 leading-relaxed text-slate-600">You may not use TempMail Central to:</p>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>commit fraud, harassment, stalking, or any other illegal act;</li>
+        <li>evade bans, sanctions, or restrictions imposed on you by other services;</li>
+        <li>receive material that is unlawful to possess or distribute;</li>
+        <li>interfere with the service — probing, scraping at abusive volume, denial-of-service, or attempting to access other users' data;</li>
+        <li>claim service-operated addresses (reserved prefixes such as admin@, support@, contact@ on our domains) or impersonate the service;</li>
+        <li>resell or misrepresent the service as your own.</li>
+      </ul>
+      <p class="mt-3 leading-relaxed text-slate-600">
+        We enforce these rules with rate limits, reserved address prefixes, and account
+        bans, and we cooperate with lawful requests from authorities. Abuse can be reported
+        through the <.link navigate={~p"/contact"} class="text-indigo-600 hover:underline">contact page</.link>.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">4. Accounts</h2>
+      <ul class="list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li>
+          Registration requires a durable email address; known disposable addresses are
+          declined, because accounts exist to keep mail beyond a temporary inbox's lifetime.
+        </li>
+        <li>You are responsible for activity under your account.</li>
+        <li>
+          We may suspend or ban accounts that violate these terms. You may delete your
+          account at any time from the dashboard, which removes your mailboxes and their
+          contents.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">5. Availability and changes</h2>
+      <p class="leading-relaxed text-slate-600">
+        We aim for reliable operation but make no availability guarantee. Mail can be
+        delayed or lost; third-party websites may reject our domains; features, domains,
+        and limits (such as inbox lifetime and message caps) may change without notice. We
+        may modify or discontinue the service, in whole or in part, at any time.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">6. Disclaimers</h2>
+      <p class="leading-relaxed text-slate-600">
+        The service is provided "as is" and "as available", without warranties of any kind,
+        express or implied, including merchantability, fitness for a particular purpose, and
+        non-infringement. We do not warrant that the service will be uninterrupted, secure,
+        or error-free, or that any message will be delivered or retained.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">7. Limitation of liability</h2>
+      <p class="leading-relaxed text-slate-600">
+        To the maximum extent permitted by law, we are not liable for indirect, incidental,
+        special, or consequential damages, or for lost data, lost profits, or lost access —
+        including mail that expired, was not delivered, or was deleted. For a free service,
+        our total aggregate liability is limited to the amount you paid us in the twelve
+        months before the claim, which is zero. Nothing in these terms excludes liability
+        that cannot be excluded under applicable law.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">8. Termination</h2>
+      <p class="leading-relaxed text-slate-600">
+        You can stop using the service at any time; deleting your account removes your data
+        as described in the <.link navigate={~p"/privacy"} class="text-indigo-600 hover:underline">Privacy Policy</.link>.
+        We may suspend or terminate access — including banning accounts and blocking
+        traffic — where these terms are violated or to protect the service and its users.
+        Sections 6, 7, and 9 survive termination.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-3 text-2xl font-bold text-slate-950">9. Changes to these terms and contact</h2>
+      <p class="leading-relaxed text-slate-600">
+        We may update these terms; material changes will be reflected in the date above, and
+        continued use after a change constitutes acceptance. Questions about these terms can
+        be sent via the <.link navigate={~p"/contact"} class="text-indigo-600 hover:underline">contact page</.link>
+        or to
+        <a href="mailto:contact@tempmailcentral.com" class="text-indigo-600 hover:underline">
+          contact@tempmailcentral.com
+        </a>.
+      </p>
+    </section>
+  </article>
+</div>

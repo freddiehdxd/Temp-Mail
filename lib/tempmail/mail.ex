@@ -262,7 +262,8 @@ defmodule Tempmail.Mail do
     [prefix, domain] = String.split(address, "@", parts: 2)
     count = Repo.aggregate(from(m in UserMailbox, where: m.user_id == ^user.id), :count)
 
-    with :ok <- ensure_mailbox_domain_allowed(user, domain) do
+    with :ok <- ensure_mailbox_domain_allowed(user, domain),
+         :ok <- ensure_mailbox_prefix_allowed(user, prefix, domain) do
       %UserMailbox{}
       |> UserMailbox.changeset(%{
         user_id: user.id,
@@ -551,6 +552,18 @@ defmodule Tempmail.Mail do
     |> Repo.all()
   end
 
+  @doc """
+  All-time aggregate counters, used for the public stats shown on the site.
+  """
+  def total_stats do
+    EmailStat
+    |> select([s], %{
+      generated: coalesce(sum(s.generated), 0),
+      received: coalesce(sum(s.received), 0)
+    })
+    |> Repo.one()
+  end
+
   def recent_stats(days \\ 14) do
     start_date = Date.utc_today() |> Date.add(-days + 1)
 
@@ -779,6 +792,18 @@ defmodule Tempmail.Mail do
 
       true ->
         {:error, :domain_not_allowed}
+    end
+  end
+
+  # Operational prefixes (support@, contact@, ...) on system domains are off
+  # limits for regular users so nobody can claim the service's own addresses.
+  # Admins may create them, and users keep full freedom on their own domains.
+  defp ensure_mailbox_prefix_allowed(user, prefix, domain) do
+    if reserved_prefix?(prefix) and system_mailbox_domain?(domain) and
+         user.role not in ["ADMIN", "SUPER_ADMIN"] do
+      {:error, :reserved_prefix}
+    else
+      :ok
     end
   end
 

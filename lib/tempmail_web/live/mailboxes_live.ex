@@ -178,6 +178,9 @@ defmodule TempmailWeb.MailboxesLive do
   defp mailbox_error(:domain_not_allowed),
     do: "This domain is not available for your account."
 
+  defp mailbox_error(:reserved_prefix),
+    do: "That prefix is reserved for service addresses. Please pick another one."
+
   defp mailbox_error(%Ecto.Changeset{} = changeset),
     do: "Could not create mailbox: #{inspect(changeset.errors)}"
 

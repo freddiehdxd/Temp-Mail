@@ -65,6 +65,7 @@ defmodule TempmailWeb.Api.UserController do
       {:ok, mailbox} -> conn |> put_status(:created) |> json(%{success: true, mailbox: %{id: mailbox.id, address: mailbox.address}})
       {:error, :domain_not_allowed} -> conn |> put_status(:bad_request) |> json(%{success: false, error: "Domain not allowed"})
       {:error, :domain_not_verified} -> conn |> put_status(:bad_request) |> json(%{success: false, error: "Domain not verified yet"})
+      {:error, :reserved_prefix} -> conn |> put_status(:bad_request) |> json(%{success: false, error: "That prefix is reserved"})
       {:error, changeset} -> conn |> put_status(:unprocessable_entity) |> json(%{success: false, error: inspect(changeset.errors)})
     end
   end

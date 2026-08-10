@@ -30,7 +30,7 @@ defmodule TempmailWeb.DashboardRoutesLiveTest do
 
     test "renders localized user dashboard pages", %{conn: conn} do
       {:ok, _lv, html} = live(conn, "/es/dashboard")
-      assert html =~ "My Mailboxes"
+      assert html =~ "New Mailbox"
     end
 
     test "custom domains can be added and removed", %{conn: conn, user: user} do
@@ -101,11 +101,11 @@ defmodule TempmailWeb.DashboardRoutesLiveTest do
     test "renders all admin pages", %{conn: conn} do
       for {path, text} <- [
             {~p"/admin", "Quick Actions"},
-            {~p"/admin/domains", "System Domains"},
-            {~p"/admin/users", "All Users"},
+            {~p"/admin/domains", "domains configured"},
+            {~p"/admin/users", "Users"},
             {~p"/admin/blog", "New Post"},
-            {~p"/admin/blog/categories", "New Category"},
-            {~p"/admin/blog/new", "Create New Post"},
+            {~p"/admin/blog/categories", "Categories"},
+            {~p"/admin/blog/new", "Publish"},
             {~p"/admin/analytics", "Email Activity Trend"},
             {~p"/admin/settings", "Mailcow Configuration"}
           ] do

@@ -1,0 +1,112 @@
+<div class="container mx-auto max-w-3xl px-4 py-12">
+  <div class="mb-10">
+    <h1 class="text-3xl font-bold text-slate-950 sm:text-4xl">Contact us</h1>
+    <p class="mt-3 leading-relaxed text-slate-600">
+      Questions about the service, a privacy request, or something to report? Use the form
+      below or email us directly - both reach the same small team that runs TempMail Central.
+    </p>
+  </div>
+
+  <div class="mb-10 grid gap-4 sm:grid-cols-2">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div class="mb-2 flex items-center gap-2 font-semibold text-slate-900">
+        <.icon name="hero-envelope" class="h-5 w-5 text-indigo-500" /> Email
+      </div>
+      <p class="text-sm leading-relaxed text-slate-600">
+        <a href="mailto:contact@tempmailcentral.com" class="font-medium text-indigo-600 hover:underline">
+          contact@tempmailcentral.com
+        </a>
+        <br /> For privacy requests, mention "privacy" in the subject so we can prioritize them.
+      </p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div class="mb-2 flex items-center gap-2 font-semibold text-slate-900">
+        <.icon name="hero-shield-exclamation" class="h-5 w-5 text-indigo-500" /> Reporting abuse
+      </div>
+      <p class="text-sm leading-relaxed text-slate-600">
+        If a TempMail Central address was used to abuse your service, choose the
+        <strong>Abuse</strong> topic and include the full address and approximate time.
+        Reports are checked against our <.link navigate={~p"/terms"} class="text-indigo-600 hover:underline">Terms of Service</.link>.
+      </p>
+    </div>
+  </div>
+
+  <div :if={@sent} class="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
+    <.icon name="hero-check-circle" class="mx-auto mb-3 h-10 w-10 text-emerald-500" />
+    <h2 class="mb-2 text-xl font-semibold text-emerald-900">Message received</h2>
+    <p class="mx-auto mb-6 max-w-md text-sm leading-relaxed text-emerald-800">
+      Thanks for writing. We read every message. If you left an email address, we will reply
+      to it - usually within a few days.
+    </p>
+    <button phx-click="another" class="tm-btn-outline">Send another message</button>
+  </div>
+
+  <.form
+    :if={!@sent}
+    for={@form}
+    id="contact-form"
+    phx-change="validate"
+    phx-submit="submit"
+    class="space-y-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+  >
+    <div class="grid gap-6 sm:grid-cols-2">
+      <.input field={@form[:name]} type="text" label="Name (optional)" placeholder="How should we address you?" />
+      <.input
+        field={@form[:email]}
+        type="text"
+        label="Your email (optional, for replies)"
+        placeholder="you@example.com"
+      />
+    </div>
+    <.input
+      field={@form[:topic]}
+      type="select"
+      label="Topic"
+      options={[
+        {"Support question", "support"},
+        {"Privacy or data request", "privacy"},
+        {"Report abuse", "abuse"},
+        {"Feedback or idea", "feedback"},
+        {"Something else", "other"}
+      ]}
+    />
+    <.input
+      field={@form[:body]}
+      type="textarea"
+      label="Message"
+      placeholder="What can we help with? The more specific, the faster we can act."
+      rows="6"
+    />
+    <%!-- Honeypot: invisible to people, tempting to bots. --%>
+    <div class="hidden" aria-hidden="true">
+      <label for="contact-website">Website</label>
+      <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+    <div class="flex items-center justify-between gap-4">
+      <p class="text-xs leading-relaxed text-slate-400">
+        Submissions are stored so we can respond and are handled as described in our
+        <.link navigate={~p"/privacy"} class="text-indigo-500 hover:underline">Privacy Policy</.link>.
+      </p>
+      <button type="submit" class="tm-btn-gradient shrink-0 gap-2">
+        <.icon name="hero-paper-airplane" class="h-4 w-4" /> Send message
+      </button>
+    </div>
+  </.form>
+
+  <div class="mt-10 rounded-2xl bg-slate-50 p-6 text-sm leading-relaxed text-slate-600">
+    <h2 class="mb-2 font-semibold text-slate-900">Before you write</h2>
+    <ul class="list-disc space-y-1 pl-5">
+      <li>
+        A temporary inbox that expired cannot be restored - deletion is permanent by design.
+        See <.link navigate={~p"/blog/how-temporary-inbox-deletion-works"} class="text-indigo-600 hover:underline">how deletion works</.link>.
+      </li>
+      <li>
+        Answers to common questions live on the <.link navigate={~p"/"} class="text-indigo-600 hover:underline">homepage FAQ</.link>
+        and the <.link navigate={~p"/about"} class="text-indigo-600 hover:underline">About page</.link>.
+      </li>
+      <li>
+        We cannot reply to an expired temporary address - use a durable one if you want an answer.
+      </li>
+    </ul>
+  </div>
+</div>

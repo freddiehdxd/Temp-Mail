@@ -1,7 +1,7 @@
 defmodule TempmailWeb.AdminLive do
   use TempmailWeb, :live_view
 
-  alias Tempmail.{Accounts, Mail}
+  alias Tempmail.{Accounts, Mail, Support}
 
   @impl true
   def mount(params, _session, socket) do
@@ -37,7 +37,9 @@ defmodule TempmailWeb.AdminLive do
          :new_users_count,
          Enum.count(users, &(Date.diff(Date.utc_today(), DateTime.to_date(&1.inserted_at)) <= 7))
        )
-       |> assign(:settings, Mail.list_settings())}
+       |> assign(:settings, Mail.list_settings())
+       |> assign(:contact_messages, Support.list_recent_contact_messages(10))
+       |> assign(:unread_contact_count, Support.count_unread_contact_messages())}
     else
       {:ok, push_navigate(socket, to: ~p"/dashboard")}
     end
@@ -55,6 +57,15 @@ defmodule TempmailWeb.AdminLive do
   def handle_event("unban", %{"id" => id}, socket) do
     socket.assigns.users |> Enum.find(&(&1.id == id)) |> then(&(&1 && Accounts.unban_user(&1)))
     {:noreply, assign(socket, :users, Accounts.list_users())}
+  end
+
+  def handle_event("mark_message_read", %{"id" => id}, socket) do
+    Support.mark_contact_message_read(id)
+
+    {:noreply,
+     socket
+     |> assign(:contact_messages, Support.list_recent_contact_messages(10))
+     |> assign(:unread_contact_count, Support.count_unread_contact_messages())}
   end
 
   def activity_chart_config(chart_data) do

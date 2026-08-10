@@ -12,8 +12,8 @@ defmodule TempmailWeb.Endpoint do
   ]
 
   socket "/live", Phoenix.LiveView.Socket,
-    websocket: [connect_info: [session: @session_options]],
-    longpoll: [connect_info: [session: @session_options]]
+    websocket: [connect_info: [:peer_data, :x_headers, session: @session_options]],
+    longpoll: [connect_info: [:peer_data, :x_headers, session: @session_options]]
 
   plug :healthz
 
@@ -61,6 +61,7 @@ defmodule TempmailWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+
   plug CORSPlug,
     origin: [
       "https://tempmailcentral.com",
@@ -69,5 +70,6 @@ defmodule TempmailWeb.Endpoint do
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     headers: ["Authorization", "Content-Type", "X-Webhook-Signature"]
+
   plug TempmailWeb.Router
 end

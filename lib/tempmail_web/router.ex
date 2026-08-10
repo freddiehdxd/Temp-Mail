@@ -31,6 +31,7 @@ defmodule TempmailWeb.Router do
       live "/about", StaticPageLive, :about
       live "/privacy", StaticPageLive, :privacy
       live "/terms", StaticPageLive, :terms
+      live "/contact", ContactLive, :index
       live "/blog", BlogLive, :index
       live "/blog/:slug", BlogPostLive, :show
     end
@@ -206,6 +207,7 @@ defmodule TempmailWeb.Router do
       live "/about", StaticPageLive, :about
       live "/privacy", StaticPageLive, :privacy
       live "/terms", StaticPageLive, :terms
+      live "/contact", ContactLive, :index
       live "/blog", BlogLive, :index
       live "/blog/:slug", BlogPostLive, :show
     end

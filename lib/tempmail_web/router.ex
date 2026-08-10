@@ -17,6 +17,10 @@ defmodule TempmailWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :valid_locale do
+    plug TempmailWeb.Plugs.ValidateLocale
+  end
+
   pipeline :session_json do
     plug :accepts, ["json"]
     plug :fetch_session
@@ -200,7 +204,7 @@ defmodule TempmailWeb.Router do
   end
 
   scope "/:locale", TempmailWeb do
-    pipe_through :browser
+    pipe_through [:browser, :valid_locale]
 
     live_session :localized_public, on_mount: [{TempmailWeb.UserAuth, :mount_current_user}] do
       live "/", HomeLive, :index
@@ -214,7 +218,7 @@ defmodule TempmailWeb.Router do
   end
 
   scope "/:locale", TempmailWeb do
-    pipe_through [:browser, :require_authenticated_user]
+    pipe_through [:browser, :valid_locale, :require_authenticated_user]
 
     live_session :localized_require_authenticated_user,
       on_mount: [{TempmailWeb.UserAuth, :ensure_authenticated}] do

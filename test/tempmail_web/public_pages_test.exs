@@ -200,6 +200,18 @@ defmodule TempmailWeb.PublicPagesTest do
     end
   end
 
+  describe "locale catch-all" do
+    test "unknown single-segment paths 404 instead of soft-rendering the homepage", %{conn: conn} do
+      assert conn |> get("/favicon-deadbeef.ico") |> response(404)
+      assert conn |> get("/notalocale") |> response(404)
+    end
+
+    test "real locales still render", %{conn: conn} do
+      conn = get(conn, "/es")
+      assert html_response(conn, 200) =~ "Correo Temporal"
+    end
+  end
+
   describe "auth pages" do
     test "login page is noindex", %{conn: conn} do
       conn = get(conn, ~p"/users/log_in")

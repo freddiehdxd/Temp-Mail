@@ -30,11 +30,15 @@ defmodule TempmailWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
+  # `only:` matches exact first path segments, which breaks cache-digested
+  # top-level files (favicon-<hash>.ico etc.); `only_matching:` prefix-matches
+  # so both the plain and digested variants are served.
   plug Plug.Static,
     at: "/",
     from: :tempmail,
     gzip: false,
-    only: TempmailWeb.static_paths()
+    only: TempmailWeb.static_paths(),
+    only_matching: ~w(favicon apple-touch-icon icon-192 icon-512 site ads)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

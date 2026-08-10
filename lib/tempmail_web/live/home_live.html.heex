@@ -17,9 +17,13 @@
     <div class="container relative z-10 mx-auto translate-y-px px-4">
       <div class="mb-5 flex justify-center animate-fade-in-up">
         <div class="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700">
-          <.icon name="hero-star" class="h-4 w-4 fill-current" />
+          <.icon name="hero-bolt" class="h-4 w-4 fill-current" />
           <span>
-            {TempmailWeb.I18n.t(@locale, "home.heroBadge", "Trusted by 500,000+ users worldwide")}
+            {TempmailWeb.I18n.t(
+              @locale,
+              "home.heroBadge",
+              "No account needed - your inbox is ready the moment the page loads"
+            )}
           </span>
         </div>
       </div>
@@ -27,7 +31,11 @@
       <div class="mx-auto mb-8 max-w-4xl text-center">
         <h1 class="mb-4 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up">
           <span class="gradient-text">
-            {TempmailWeb.I18n.t(@locale, "home.title", "Temp Mail - Disposable Temporary Email")}
+            {TempmailWeb.I18n.t(
+              @locale,
+              "home.title",
+              "Free Temporary Email - Disposable Inbox in Seconds"
+            )}
           </span>
         </h1>
         <p class="stagger-1 mx-auto max-w-2xl text-xl text-slate-500 sm:text-2xl animate-fade-in-up">
@@ -338,7 +346,7 @@
                   {TempmailWeb.I18n.t(@locale, "home.quickStats.private", "Private")}
                 </p>
                 <p class="text-xs text-slate-500">
-                  {TempmailWeb.I18n.t(@locale, "home.quickStats.endToEnd", "End-to-end")}
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.endToEnd", "Erased on expiry")}
                 </p>
               </div>
               <div class="rounded-2xl p-4 text-center glass card-hover animate-fade-in-up">
@@ -356,7 +364,7 @@
                   {TempmailWeb.I18n.t(@locale, "home.quickStats.autoDelete", "Auto-delete")}
                 </p>
                 <p class="text-xs text-slate-500">
-                  {TempmailWeb.I18n.t(@locale, "home.quickStats.tenMinutes", "10 minutes")}
+                  {TempmailWeb.I18n.t(@locale, "home.quickStats.tenMinutes", "10 min default")}
                 </p>
               </div>
             </div>
@@ -368,17 +376,17 @@
                 <div class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 animate-pulse-glow">
                 </div>
                 <div class="absolute inset-2 flex items-center justify-center rounded-full bg-white">
-                  <.icon name="hero-envelope" class="h-10 w-10 text-indigo-500 animate-bounce" />
+                  <.icon name="hero-envelope" class="h-10 w-10 text-indigo-500" />
                 </div>
               </div>
               <h2 class="gradient-text mb-3 text-2xl font-bold">
-                {TempmailWeb.I18n.t(@locale, "home.generating", "Generating Your Email...")}
+                {TempmailWeb.I18n.t(@locale, "home.preparing.title", "Your temporary inbox")}
               </h2>
-              <p class="mx-auto mb-6 max-w-md text-slate-500">
+              <p class="mx-auto mb-6 max-w-xl text-slate-500">
                 {TempmailWeb.I18n.t(
                   @locale,
-                  "home.howItWorks.step1.description",
-                  "Your secure, disposable email address is being created instantly. No registration required."
+                  "home.preparing.description",
+                  "A random address is created for you the moment this page loads - no form, no registration. Mail sent to it appears below in real time, and the whole inbox erases itself when its timer runs out: after 10 minutes by default, or up to 30 days if you extend it with a free account."
                 )}
               </p>
               <div class="flex items-center justify-center gap-3">
@@ -403,11 +411,26 @@
           :for={
             {stat, index} <-
               Enum.with_index([
-                {"10M+",
-                 TempmailWeb.I18n.t(@locale, "home.stats.emailsReceived", "Emails Received")},
-                {"500K+", TempmailWeb.I18n.t(@locale, "home.stats.happyUsers", "Happy Users")},
-                {"99.9%", TempmailWeb.I18n.t(@locale, "home.stats.uptime", "Uptime")},
-                {"20+", TempmailWeb.I18n.t(@locale, "home.stats.languages", "Languages")}
+                {format_count(@total_stats.generated),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.specs.inboxesCreated",
+                   "Inboxes created so far"
+                 )},
+                {format_count(@total_stats.received),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.specs.emailsDelivered",
+                   "Emails delivered so far"
+                 )},
+                {"10 min",
+                 TempmailWeb.I18n.t(@locale, "home.specs.defaultLifetime", "Default inbox lifetime")},
+                {"30 " <> TempmailWeb.I18n.t(@locale, "home.specs.days", "days"),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.specs.maxLifetime",
+                   "Max lifetime with a free account"
+                 )}
               ])
           }
           class="text-center text-white animate-fade-in-up"
@@ -417,6 +440,13 @@
           <div class="text-indigo-200">{elem(stat, 1)}</div>
         </div>
       </div>
+      <p class="mt-8 text-center text-sm text-indigo-200/80">
+        {TempmailWeb.I18n.t(
+          @locale,
+          "home.specs.note",
+          "Live counters from our own daily totals - no marketing math."
+        )}
+      </p>
     </div>
   </section>
 
@@ -467,11 +497,11 @@
                    "No registration needed. Get a working email address in seconds, completely free."
                  ), "from-amber-500 to-orange-500"},
                 {"hero-lock-closed",
-                 TempmailWeb.I18n.t(@locale, "home.features.secure.title", "Secure & Anonymous"),
+                 TempmailWeb.I18n.t(@locale, "home.features.secure.title", "Private by Default"),
                  TempmailWeb.I18n.t(
                    @locale,
                    "home.features.secure.description",
-                   "Your emails are automatically deleted. No data is stored permanently."
+                   "No name, no phone number, no account. Temporary inboxes live in memory and erase themselves on expiry."
                  ), "from-emerald-500 to-teal-500"}
               ])
           }
@@ -535,11 +565,11 @@
                      "Copy and use it for sign-ups, verifications, or any service"
                    )},
                   {"hero-trash",
-                   TempmailWeb.I18n.t(@locale, "home.howItWorks.step3.title", "Auto Delete"),
+                   TempmailWeb.I18n.t(@locale, "home.howItWorks.step3.title", "Expires on Its Own"),
                    TempmailWeb.I18n.t(
                      @locale,
                      "home.howItWorks.step3.description",
-                     "Everything is automatically deleted after 10 minutes"
+                     "Everything is deleted when the timer ends - after 10 minutes by default, or later if you extend it"
                    )}
                 ])
             }
@@ -566,6 +596,93 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="under-the-hood" class="relative py-24">
+    <div class="container mx-auto px-4">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
+          {TempmailWeb.I18n.t(@locale, "home.tech.title", "How TempMail Central Actually Works")}
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-slate-500">
+          {TempmailWeb.I18n.t(
+            @locale,
+            "home.tech.subtitle",
+            "No black box: this is exactly what happens to an address and its mail, from creation to deletion."
+          )}
+        </p>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          :for={
+            {icon, title, description} <- [
+              {"hero-finger-print",
+               TempmailWeb.I18n.t(@locale, "home.tech.generation.title", "Address generation"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.generation.description",
+                 "Ten lowercase letters and digits from a cryptographically secure random source - about 3.6 quadrillion possible addresses. Operational prefixes like admin@ or support@ are never issued."
+               )},
+              {"hero-cpu-chip",
+               TempmailWeb.I18n.t(@locale, "home.tech.storage.title", "Storage & deletion"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.storage.description",
+                 "Temporary inboxes live in Redis, an in-memory store, with a countdown attached. When it hits zero the address and every message are evicted - no archives, no backups, no recovery."
+               )},
+              {"hero-bolt",
+               TempmailWeb.I18n.t(@locale, "home.tech.delivery.title", "Real-time delivery"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.delivery.description",
+                 "Our Postfix mail server accepts the message, a parser hands it to the app, and a WebSocket pushes it into your open tab - usually within a second or two of the sender hitting send."
+               )},
+              {"hero-paper-clip",
+               TempmailWeb.I18n.t(@locale, "home.tech.limits.title", "Attachments & limits"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.limits.description",
+                 "Attachments can be viewed and downloaded while the inbox is active. Each inbox keeps its most recent 100 messages, and addresses are receive-only - nothing can ever be sent from them."
+               )},
+              {"hero-document-magnifying-glass",
+               TempmailWeb.I18n.t(@locale, "home.tech.logging.title", "What we log"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.logging.description",
+                 "Daily totals (inboxes created, mail received), plus standard web server logs kept for 14 days. No analytics trackers, no visitor profiles, and personal data is never sold."
+               )},
+              {"hero-shield-check",
+               TempmailWeb.I18n.t(@locale, "home.tech.abuse.title", "Abuse prevention"),
+               TempmailWeb.I18n.t(
+                 @locale,
+                 "home.tech.abuse.description",
+                 "Per-IP rate limits, reserved service prefixes, and account bans keep misuse in check - and account sign-ups with throwaway addresses are refused, so registered users stay reachable."
+               )}
+            ]
+          }
+          class="rounded-3xl p-8 glass card-hover"
+        >
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+            <.icon name={icon} class="h-6 w-6 text-white" />
+          </div>
+          <h3 class="mb-3 text-lg font-semibold">{title}</h3>
+          <p class="text-sm leading-relaxed text-slate-500">{description}</p>
+        </div>
+      </div>
+      <p class="mx-auto mt-10 max-w-2xl text-center text-sm text-slate-400">
+        {TempmailWeb.I18n.t(
+          @locale,
+          "home.tech.more",
+          "Want more depth? The blog covers the deletion mechanics, address entropy, and abuse handling in detail."
+        )}
+        <.link
+          navigate={if @locale == "en", do: ~p"/blog", else: "/#{@locale}/blog"}
+          class="font-medium text-indigo-600 hover:underline"
+        >
+          {TempmailWeb.I18n.t(@locale, "home.tech.moreLink", "Read the engineering posts")}
+        </.link>
+      </p>
     </div>
   </section>
 
@@ -615,59 +732,128 @@
           <div class="relative rounded-3xl p-8 glass">
             <div class="mb-6 flex items-center gap-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600">
-                <.icon name="hero-users" class="h-6 w-6 text-white" />
+                <.icon name="hero-scale" class="h-6 w-6 text-white" />
               </div>
               <div>
                 <div class="font-semibold">
                   {TempmailWeb.I18n.t(
                     @locale,
-                    "home.reviews.title",
-                    "Loved by developers & users"
+                    "home.compare.title",
+                    "Temporary vs. permanent inbox"
                   )}
                 </div>
                 <div class="text-sm text-slate-500">
                   {TempmailWeb.I18n.t(
                     @locale,
-                    "home.reviews.subtitle",
-                    "Join thousands of happy users"
+                    "home.compare.subtitle",
+                    "Both are free - pick per situation"
                   )}
                 </div>
               </div>
             </div>
-            <div class="space-y-4">
-              <div
-                :for={
-                  {review, index} <-
-                    Enum.with_index([
-                      TempmailWeb.I18n.t(
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-left text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200 text-slate-900">
+                    <th class="py-2.5 pr-3 font-semibold"></th>
+                    <th class="py-2.5 pr-3 font-semibold">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.temp", "Temporary")}
+                    </th>
+                    <th class="py-2.5 font-semibold">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.permanent", "Permanent")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-600">
+                  <tr class="border-b border-slate-100">
+                    <td class="py-2.5 pr-3 font-medium text-slate-900">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.lifetime", "Lifetime")}
+                    </td>
+                    <td class="py-2.5 pr-3">
+                      {TempmailWeb.I18n.t(
                         @locale,
-                        "home.reviews.review1",
-                        "Best temp mail service I've ever used. Clean UI and super fast!"
-                      ),
-                      TempmailWeb.I18n.t(
+                        "home.compare.lifetimeTemp",
+                        "10 min default, up to 30 days"
+                      )}
+                    </td>
+                    <td class="py-2.5">
+                      {TempmailWeb.I18n.t(
                         @locale,
-                        "home.reviews.review2",
-                        "Finally, a disposable email that actually works. No ads, no hassle."
-                      ),
-                      TempmailWeb.I18n.t(
+                        "home.compare.lifetimePerm",
+                        "Until you delete it"
+                      )}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-slate-100">
+                    <td class="py-2.5 pr-3 font-medium text-slate-900">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.access", "Who can open it")}
+                    </td>
+                    <td class="py-2.5 pr-3">
+                      {TempmailWeb.I18n.t(
                         @locale,
-                        "home.reviews.review3",
-                        "The auto-refresh feature is amazing. Emails appear instantly!"
-                      )
-                    ])
-                }
-                class="rounded-2xl bg-white p-4 animate-fade-in-up"
-                style={"animation-delay: #{index * 0.1}s"}
-              >
-                <div class="mb-2 flex gap-1">
-                  <.icon
-                    :for={_ <- 1..5}
-                    name="hero-star"
-                    class="h-4 w-4 fill-amber-400 text-amber-400"
-                  />
-                </div>
-                <p class="text-sm text-slate-500">"{review}"</p>
-              </div>
+                        "home.compare.accessTemp",
+                        "Anyone who knows the address"
+                      )}
+                    </td>
+                    <td class="py-2.5">
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.compare.accessPerm",
+                        "Only your account"
+                      )}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-slate-100">
+                    <td class="py-2.5 pr-3 font-medium text-slate-900">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.storage", "Stored in")}
+                    </td>
+                    <td class="py-2.5 pr-3">
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.compare.storageTemp",
+                        "Memory only, gone at expiry"
+                      )}
+                    </td>
+                    <td class="py-2.5">
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.compare.storagePerm",
+                        "Database, until deleted"
+                      )}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-slate-100">
+                    <td class="py-2.5 pr-3 font-medium text-slate-900">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.account", "Account needed")}
+                    </td>
+                    <td class="py-2.5 pr-3">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.accountTemp", "No")}
+                    </td>
+                    <td class="py-2.5">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.accountPerm", "Yes - free")}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-3 font-medium text-slate-900">
+                      {TempmailWeb.I18n.t(@locale, "home.compare.bestFor", "Best for")}
+                    </td>
+                    <td class="py-2.5 pr-3">
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.compare.bestForTemp",
+                        "One-off signups & downloads"
+                      )}
+                    </td>
+                    <td class="py-2.5">
+                      {TempmailWeb.I18n.t(
+                        @locale,
+                        "home.compare.bestForPerm",
+                        "Newsletters & ongoing senders"
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -694,7 +880,7 @@
           {TempmailWeb.I18n.t(
             @locale,
             "home.faq.subtitle",
-            "Learn how disposable temporary email works and why millions trust TempMailCentral for their privacy needs."
+            "How disposable email works here - and exactly what happens to your data."
           )}
         </p>
       </div>
@@ -737,7 +923,7 @@
                  TempmailWeb.I18n.t(
                    @locale,
                    "home.faq.answer4",
-                   "By default, temporary email addresses last for 10 minutes. Logged-in users can extend or save addresses."
+                   "By default an inbox lasts 10 minutes. Anyone can extend it to 1 hour or 24 hours; with a free account you can extend up to 30 days or save the address as a permanent mailbox that is kept until you delete it."
                  )},
                 {TempmailWeb.I18n.t(
                    @locale,
@@ -748,6 +934,36 @@
                    @locale,
                    "home.faq.answer6",
                    "No registration is required. Visit the website and generate an address immediately."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question7",
+                   "Can I receive attachments?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer7",
+                   "Yes. Attachments can be viewed and downloaded while the inbox is active. Each inbox keeps its most recent 100 messages."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question9",
+                   "Who can read a temporary inbox?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer9",
+                   "While it is active, anyone who knows the exact address can open it - there is no password. Protection comes from the address being one of 3.6 quadrillion combinations and from its short lifetime. Never send sensitive information to a temporary address; permanent mailboxes are private to your account."
+                 )},
+                {TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.question10",
+                   "What data does TempMail Central keep?"
+                 ),
+                 TempmailWeb.I18n.t(
+                   @locale,
+                   "home.faq.answer10",
+                   "Temporary mail lives in memory and is erased at expiry. Beyond that: daily aggregate counters, 14-day web server logs, and account data if you register. No visitor profiles, no analytics trackers, no selling data - the details are in our Privacy Policy."
                  )}
               ])
           }
@@ -775,14 +991,14 @@
         <h2 class="mb-4 text-3xl font-bold sm:text-4xl">
           {TempmailWeb.I18n.t(@locale, "home.whyChoose.title", "Why Choose")}
           <span class="gradient-text">
-            {TempmailWeb.I18n.t(@locale, "home.whyChoose.titleHighlight", "TempMailCentral")}
+            {TempmailWeb.I18n.t(@locale, "home.whyChoose.titleHighlight", "TempMail Central")}
           </span>?
         </h2>
         <p class="mx-auto max-w-2xl text-lg text-slate-500">
           {TempmailWeb.I18n.t(
             @locale,
             "home.whyChoose.subtitle",
-            "The most reliable free temporary email service trusted by over 500,000 users worldwide."
+            "A free, ad-supported service that is honest about how it works and what it keeps."
           )}
         </p>
       </div>
@@ -811,7 +1027,7 @@
                  TempmailWeb.I18n.t(
                    @locale,
                    "home.whyChoose.privacyFirst.description",
-                   "We don't track, store, or sell your data. All emails auto-delete after expiration. Your privacy is our priority."
+                   "Temporary inboxes live in memory and erase themselves at expiry. We keep no visitor profiles, run no analytics trackers, and never sell personal data - what we do log is spelled out in our Privacy Policy."
                  ), "from-emerald-500 to-teal-500"},
                 {"hero-globe-alt",
                  TempmailWeb.I18n.t(
@@ -869,7 +1085,7 @@
               {TempmailWeb.I18n.t(
                 @locale,
                 "home.seoContent.whatIsContent2",
-                "TempMailCentral generates random email addresses that you can use for website registrations, newsletter signups, online shopping, or any situation where you need an email but don't want to share your real address."
+                "TempMail Central generates random email addresses that you can use for website registrations, newsletter signups, online shopping, or any situation where you need an email but don't want to share your real address."
               )}
             </p>
           </div>

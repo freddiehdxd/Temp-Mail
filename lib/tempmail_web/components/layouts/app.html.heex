@@ -45,7 +45,7 @@ end %>
         <div class="relative">
           <div class="absolute -inset-1 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100">
           </div>
-          <img src={~p"/images/logo.svg"} alt="TempMail" class="relative h-9 w-9 rounded-[10px] shadow-md ring-1 ring-black/5" />
+          <img src={~p"/images/logo.svg"} alt="TempMail Central" class="relative h-9 w-9 rounded-[10px] shadow-md ring-1 ring-black/5" />
         </div>
         <div class="hidden items-baseline gap-1 sm:flex">
           <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-lg font-extrabold tracking-tight text-transparent">
@@ -309,7 +309,7 @@ end %>
 
   <main class="flex-1">
     <span :if={@current_user} class="sr-only">{@current_user.email}</span>
-    <.flash_group flash={@flash} />
+    <.flash_group flash={@flash} connected={assigns[:ws_connected] || false} />
     {@inner_content}
   </main>
 
@@ -332,7 +332,7 @@ end %>
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div class="lg:col-span-5">
             <.link navigate={~p"/"} class="group mb-6 inline-flex items-center gap-3">
-              <img src={~p"/images/logo.svg"} alt="TempMail" class="h-10 w-10 rounded-[10px] shadow-md ring-1 ring-black/5" />
+              <img src={~p"/images/logo.svg"} alt="TempMail Central" class="h-10 w-10 rounded-[10px] shadow-md ring-1 ring-black/5" />
               <div class="flex items-baseline gap-1">
                 <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-xl font-extrabold tracking-tight text-transparent">
                   TempMail
@@ -362,22 +362,6 @@ end %>
                 <.icon name="hero-globe-alt" class="h-4 w-4 text-indigo-500" />
                 {TempmailWeb.I18n.t(current_locale, "footer.languages", "20+ Languages")}
               </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <a
-                href="https://github.com"
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-500 transition-all hover:-translate-y-1 hover:text-slate-950 hover:shadow-md"
-                aria-label="GitHub"
-              >
-                G
-              </a>
-              <a
-                href="https://twitter.com"
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-500 transition-all hover:-translate-y-1 hover:text-slate-950 hover:shadow-md"
-                aria-label="Twitter"
-              >
-                X
-              </a>
             </div>
           </div>
 
@@ -411,6 +395,14 @@ end %>
                     >
                       <span>How it works</span><span class="-translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">→</span>
                     </a>
+                  </li>
+                  <li>
+                    <.link
+                      navigate={localized_path.("/blog")}
+                      class="group inline-flex items-center gap-1 hover:text-indigo-600"
+                    >
+                      <span>Blog</span><span class="-translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">→</span>
+                    </.link>
                   </li>
                 </ul>
               </div>
@@ -451,12 +443,12 @@ end %>
                     </.link>
                   </li>
                   <li>
-                    <a
-                      href="mailto:contact@tempmailcentral.com"
+                    <.link
+                      navigate={~p"/contact"}
                       class="group inline-flex items-center gap-1 hover:text-indigo-600"
                     >
                       <span>Contact</span><span class="-translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">→</span>
-                    </a>
+                    </.link>
                   </li>
                 </ul>
               </div>
@@ -468,7 +460,7 @@ end %>
       <div class="border-t border-slate-200">
         <div class="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row">
           <p class="text-sm text-slate-500">
-            © {Date.utc_today().year} TempMail. All rights reserved.
+            © {Date.utc_today().year} TempMail Central. All rights reserved.
           </p>
           <p class="flex items-center gap-1 text-sm text-slate-500">
             Made with <.icon name="hero-heart" class="h-4 w-4 fill-red-500 text-red-500" />

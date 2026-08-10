@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "TempMail",
+    "appName": "TempMail Central",
     "tagline": "Gratis Tijdelijke Email",
     "loading": "Laden...",
     "error": "Fout",
@@ -29,9 +29,9 @@
     "system": "Systeem"
   },
   "home": {
-    "title": "Gratis Tijdelijke Email",
+    "title": "Gratis Tijdelijke E-mail – Wegwerpinbox in Seconden",
     "subtitle": "Bescherm je privacy met wegwerp e-mailadressen",
-    "description": "Krijg direct een tijdelijk e-mailadres. Geen registratie nodig. E-mails worden na 10 minuten automatisch verwijderd.",
+    "description": "Genereer een gratis tijdelijk e-mailadres dat zichzelf na 10 minuten verwijdert – of houd het tot 30 dagen met een gratis account. Realtime inbox, geen registratie.",
     "generateButton": "Nieuwe Email Genereren",
     "yourEmail": "Jouw Tijdelijke Email",
     "copyEmail": "E-mailadres Kopiëren",
@@ -40,13 +40,6 @@
     "timeRemaining": "Resterende Tijd",
     "noEmails": "Nog geen e-mails",
     "waitingForEmails": "Wachten op e-mails...",
-    "heroBadge": "Vertrouwd door meer dan 500.000 gebruikers wereldwijd",
-    "stats": {
-      "emailsReceived": "E-mails Ontvangen",
-      "happyUsers": "Tevreden Gebruikers",
-      "uptime": "Uptime",
-      "languages": "Talen"
-    },
     "features": {
       "title": "Waarom TempMail?",
       "subtitle": "Alles wat je nodig hebt voor veilige, wegwerp e-mailcommunicatie",
@@ -63,8 +56,8 @@
         "description": "Geen registratie nodig. Krijg binnen seconden een werkend e-mailadres."
       },
       "secure": {
-        "title": "Veilig en Anoniem",
-        "description": "Je e-mails worden automatisch verwijderd. Geen data wordt permanent opgeslagen."
+        "title": "Standaard Privé",
+        "description": "Geen naam, geen telefoonnummer, geen account. Tijdelijke inboxen bestaan alleen in het geheugen en wissen zichzelf zodra ze verlopen."
       }
     },
     "howItWorks": {
@@ -79,8 +72,8 @@
         "description": "Kopieer en gebruik het voor aanmeldingen, verificaties of elke dienst"
       },
       "step3": {
-        "title": "Automatisch Verwijderen",
-        "description": "Alles wordt na 10 minuten automatisch verwijderd"
+        "title": "Verloopt Vanzelf",
+        "description": "Alles wordt verwijderd zodra de timer afloopt – standaard na 10 minuten, of later als je hem verlengt"
       }
     },
     "useCases": {
@@ -94,18 +87,11 @@
       "case5": "Online winkelen",
       "case6": "Social media aanmeldingen"
     },
-    "reviews": {
-      "title": "Geliefd door ontwikkelaars en gebruikers",
-      "subtitle": "Sluit je aan bij duizenden tevreden gebruikers",
-      "review1": "Beste temp mail service die ik ooit heb gebruikt. Schone UI en super snel!",
-      "review2": "Eindelijk een wegwerp e-mail die echt werkt. Geen advertenties, geen gedoe.",
-      "review3": "De auto-refresh functie is geweldig. E-mails verschijnen direct!"
-    },
     "faq": {
       "badge": "Veelgestelde Vragen",
       "title": "Alles Over",
       "titleHighlight": "Temp Mail",
-      "subtitle": "Leer hoe wegwerp tijdelijke e-mail werkt en waarom miljoenen TempMailCentral vertrouwen voor hun privacybehoeften.",
+      "subtitle": "Zo werkt wegwerp-e-mail hier – en wat er precies met je gegevens gebeurt.",
       "question1": "Wat is een tijdelijke e-mail of temp mail?",
       "answer1": "Een tijdelijke e-mail (ook wel temp mail, wegwerp e-mail of throwaway e-mail genoemd) is een zelfvernietigend e-mailadres dat je voor korte tijd kunt gebruiken. Het helpt je echte e-mail te beschermen tegen spam, phishing en ongewenste marketing e-mails bij het aanmelden voor websites of diensten.",
       "question2": "Hoe werkt wegwerp e-mail?",
@@ -113,27 +99,31 @@
       "question3": "Is temp mail veilig om te gebruiken?",
       "answer3": "Ja, temp mail is veilig om te gebruiken voor niet-gevoelige doeleinden zoals aanmelden voor websites, resources downloaden of applicaties testen. Je moet echter nooit tijdelijke e-mail gebruiken voor belangrijke accounts zoals bankieren, omdat de e-mails worden verwijderd en je de toegang kunt verliezen.",
       "question4": "Hoe lang duurt een tijdelijke e-mail?",
-      "answer4": "Standaard duren tijdelijke e-mailadressen op TempMailCentral 10 minuten. Ingelogde gebruikers kunnen de tijd echter verlengen tot 30 dagen of het adres zelfs opslaan als permanente mailbox.",
+      "answer4": "Standaard blijft een inbox 10 minuten bestaan. Iedereen kan dat verlengen tot 1 uur of 24 uur; met een gratis account kun je tot 30 dagen verlengen of het adres opslaan als permanente mailbox die bewaard blijft tot je hem verwijdert.",
       "question5": "Kunnen websites temp mail detecteren?",
-      "answer5": "Sommige websites onderhouden zwarte lijsten van bekende tijdelijke e-maildomeinen. Hoewel TempMailCentral meerdere domeinen gebruikt om dit te minimaliseren, kunnen sommige strikte websites tijdelijke e-mailadressen nog steeds detecteren en blokkeren.",
+      "answer5": "Sommige websites onderhouden zwarte lijsten van bekende tijdelijke e-maildomeinen. Hoewel TempMail Central meerdere domeinen gebruikt om dit te minimaliseren, kunnen sommige strikte websites tijdelijke e-mailadressen nog steeds detecteren en blokkeren.",
       "question6": "Moet ik me registreren om temp mail te gebruiken?",
-      "answer6": "Geen registratie vereist om TempMailCentral te gebruiken. Bezoek gewoon de website en je ontvangt automatisch een tijdelijk e-mailadres dat je direct kunt gebruiken.",
+      "answer6": "Geen registratie vereist om TempMail Central te gebruiken. Bezoek gewoon de website en je ontvangt automatisch een tijdelijk e-mailadres dat je direct kunt gebruiken.",
       "question7": "Kan ik bijlagen ontvangen met temp mail?",
-      "answer7": "Ja, TempMailCentral ondersteunt het ontvangen van e-mailbijlagen. Je kunt bijlagen bekijken en downloaden van e-mails die naar je tijdelijke adres zijn verzonden.",
+      "answer7": "Ja. Bijlagen kun je bekijken en downloaden zolang de inbox actief is. Elke inbox bewaart de 100 meest recente berichten.",
       "question8": "Waarvoor wordt temp mail gebruikt?",
-      "answer8": "Temp mail wordt vaak gebruikt voor: aanmelden voor gratis proefversies, nieuwsbrief spam vermijden, e-mailfunctionaliteit in applicaties testen, je echte e-mail beschermen tegen datalekken, online winkelen op niet-vertrouwde sites en toegang tot eenmalige downloads of bronnen."
+      "answer8": "Temp mail wordt vaak gebruikt voor: aanmelden voor gratis proefversies, nieuwsbrief spam vermijden, e-mailfunctionaliteit in applicaties testen, je echte e-mail beschermen tegen datalekken, online winkelen op niet-vertrouwde sites en toegang tot eenmalige downloads of bronnen.",
+      "question9": "Wie kan een tijdelijke inbox lezen?",
+      "answer9": "Zolang hij actief is, kan iedereen die het exacte adres kent hem openen – er is geen wachtwoord. De bescherming zit in het feit dat het adres één van 3,6 biljard combinaties is, en in de korte levensduur. Stuur nooit gevoelige informatie naar een tijdelijk adres; permanente mailboxen zijn privé en alleen via je account toegankelijk.",
+      "question10": "Welke gegevens bewaart TempMail Central?",
+      "answer10": "Tijdelijke mail staat alleen in het geheugen en wordt bij het verlopen gewist. Daarnaast bewaren we alleen: dagelijkse totaaltellers, webserverlogs van 14 dagen en accountgegevens als je je registreert. Geen bezoekersprofielen, geen analytics-trackers, geen verkoop van gegevens – de details staan in ons Privacybeleid."
     },
     "whyChoose": {
       "title": "Waarom Kiezen Voor",
-      "titleHighlight": "TempMailCentral",
-      "subtitle": "De meest betrouwbare gratis tijdelijke e-mailservice, vertrouwd door meer dan 500.000 gebruikers wereldwijd.",
+      "titleHighlight": "TempMail Central",
+      "subtitle": "Een gratis, met advertenties gefinancierde dienst die eerlijk is over hoe hij werkt en wat hij bewaart.",
       "instantFree": {
         "title": "Direct en Gratis",
         "description": "Geen registratie, geen creditcard, geen verplichtingen. Krijg je wegwerp e-mail in seconden, volledig gratis voor altijd."
       },
       "privacyFirst": {
         "title": "Privacy Eerst",
-        "description": "We volgen, bewaren of verkopen je gegevens niet. Alle e-mails worden na verloop automatisch verwijderd. Jouw privacy is onze prioriteit."
+        "description": "Tijdelijke inboxen bestaan alleen in het geheugen en wissen zichzelf zodra ze verlopen. We houden geen bezoekersprofielen bij, gebruiken geen analytics-trackers en verkopen nooit persoonsgegevens – wat we wél loggen staat precies in ons Privacybeleid."
       },
       "multiLanguage": {
         "title": "20+ Talen",
@@ -144,7 +134,7 @@
       "title": "Over Temp Mail - Wegwerp Tijdelijke E-mail",
       "whatIsTitle": "Wat is Tijdelijke E-mail?",
       "whatIsContent": "Tijdelijke e-mail, ook bekend als temp mail, wegwerp e-mail, throwaway e-mail of 10-minuten mail, is een service die je een kortlevend e-mailadres geeft. In tegenstelling tot je persoonlijke e-mail is een temp mail-adres ontworpen om eenmalig gebruikt en vervolgens weggegooid te worden, waardoor je echte inbox schoon en spamvrij blijft.",
-      "whatIsContent2": "TempMailCentral genereert willekeurige e-mailadressen die je kunt gebruiken voor website-registraties, nieuwsbrief-aanmeldingen, online winkelen of elke situatie waarin je een e-mail nodig hebt maar je echte adres niet wilt delen.",
+      "whatIsContent2": "TempMail Central genereert willekeurige e-mailadressen die je kunt gebruiken voor website-registraties, nieuwsbrief-aanmeldingen, online winkelen of elke situatie waarin je een e-mail nodig hebt maar je echte adres niet wilt delen.",
       "benefitsTitle": "Voordelen van Wegwerp E-mail",
       "benefit1": "Spam Bescherming:",
       "benefit1Desc": "Houd je echte inbox schoon door temp mail te gebruiken voor aanmeldingen",
@@ -167,11 +157,75 @@
     },
     "quickStats": {
       "private": "Priv?",
-      "endToEnd": "End-to-end",
+      "endToEnd": "Gewist na afloop",
       "instant": "Direct",
       "realTime": "Realtime",
       "autoDelete": "Automatisch verwijderen",
-      "tenMinutes": "10 minuten"
+      "tenMinutes": "Standaard 10 min"
+    },
+    "heroBadge": "Geen account nodig – je inbox staat klaar zodra de pagina geladen is",
+    "specs": {
+      "inboxesCreated": "Inboxen aangemaakt tot nu toe",
+      "emailsDelivered": "E-mails bezorgd tot nu toe",
+      "defaultLifetime": "Standaard levensduur van een inbox",
+      "maxLifetime": "Maximale levensduur met gratis account",
+      "days": "dagen",
+      "note": "Live tellers op basis van onze eigen dagelijkse totalen – geen marketingrekenwerk."
+    },
+    "preparing": {
+      "title": "Je tijdelijke inbox",
+      "description": "Zodra deze pagina laadt, wordt er een willekeurig adres voor je aangemaakt – geen formulier, geen registratie. Mail die ernaartoe wordt gestuurd verschijnt hieronder in realtime, en de hele inbox wist zichzelf zodra de timer afloopt: standaard na 10 minuten, of tot 30 dagen als je hem met een gratis account verlengt."
+    },
+    "compare": {
+      "title": "Tijdelijke vs. permanente inbox",
+      "subtitle": "Allebei gratis – kies per situatie",
+      "temp": "Tijdelijk",
+      "permanent": "Permanent",
+      "lifetime": "Levensduur",
+      "lifetimeTemp": "Standaard 10 min, tot 30 dagen",
+      "lifetimePerm": "Tot je hem verwijdert",
+      "access": "Wie kan hem openen",
+      "accessTemp": "Iedereen die het adres kent",
+      "accessPerm": "Alleen jouw account",
+      "storage": "Opslag",
+      "storageTemp": "Alleen in het geheugen – weg na afloop",
+      "storagePerm": "In een database – tot verwijdering",
+      "account": "Account nodig",
+      "accountTemp": "Nee",
+      "accountPerm": "Ja – gratis",
+      "bestFor": "Ideaal voor",
+      "bestForTemp": "Eenmalige aanmeldingen en downloads",
+      "bestForPerm": "Nieuwsbrieven en vaste afzenders"
+    },
+    "tech": {
+      "title": "Hoe TempMail Central Echt Werkt",
+      "subtitle": "Geen black box: dit is precies wat er met een adres en zijn mail gebeurt, van aanmaak tot verwijdering.",
+      "generation": {
+        "title": "Adresgeneratie",
+        "description": "Tien kleine letters en cijfers uit een cryptografisch veilige willekeurige bron – zo'n 3,6 biljard mogelijke adressen. Operationele prefixen zoals admin@ of support@ worden nooit uitgegeven."
+      },
+      "storage": {
+        "title": "Opslag & verwijdering",
+        "description": "Tijdelijke inboxen leven in Redis, een opslag in het werkgeheugen, met een afteltimer eraan gekoppeld. Zodra die op nul staat, worden het adres en elk bericht verwijderd – geen archieven, geen back-ups, geen herstel."
+      },
+      "delivery": {
+        "title": "Realtime bezorging",
+        "description": "Onze Postfix-mailserver neemt het bericht aan, een parser geeft het door aan de app en een WebSocket pusht het naar je open tabblad – meestal binnen een seconde of twee nadat de afzender op verzenden klikt."
+      },
+      "limits": {
+        "title": "Bijlagen & limieten",
+        "description": "Bijlagen kun je bekijken en downloaden zolang de inbox actief is. Elke inbox bewaart de 100 meest recente berichten, en adressen zijn alleen voor ontvangen – er kan nooit iets vanaf worden verstuurd."
+      },
+      "logging": {
+        "title": "Wat we loggen",
+        "description": "Dagelijkse totalen (aangemaakte inboxen, ontvangen mail), plus standaard webserverlogs die 14 dagen bewaard blijven. Geen analytics-trackers, geen bezoekersprofielen, en persoonsgegevens worden nooit verkocht."
+      },
+      "abuse": {
+        "title": "Misbruikpreventie",
+        "description": "Limieten per IP-adres, gereserveerde serviceprefixen en accountblokkades houden misbruik in toom – en registraties met wegwerpadressen worden geweigerd, zodat geregistreerde gebruikers bereikbaar blijven."
+      },
+      "more": "Meer diepgang nodig? Op de blog lees je in detail hoe de verwijdering werkt, hoeveel entropie een adres heeft en hoe we misbruik aanpakken.",
+      "moreLink": "Lees de technische artikelen"
     }
   },
   "inbox": {
@@ -279,149 +333,11 @@
     "terms": "Servicevoorwaarden",
     "contact": "Contact",
     "about": "Over Ons",
-    "copyright": "© {year} TempMail. Alle rechten voorbehouden.",
-    "description": "De snelste en veiligste tijdelijke e-mailservice. Bescherm je privacy met wegwerp-e-mailadressen die automatisch worden verwijderd. Geen registratie nodig.",
+    "copyright": "© {year} TempMail Central. Alle rechten voorbehouden.",
+    "description": "Wegwerpinboxen die zichzelf wissen, permanente mailboxen wanneer je die nodig hebt. Gratis, met advertenties, en eerlijk over wat we loggen.",
     "privateSecure": "Priv? en veilig",
     "instantDelivery": "Directe bezorging",
     "languages": "20+ talen"
-  },
-  "privacy": {
-    "meta": {
-      "title": "Privacybeleid - TempMailCentral",
-      "description": "Ontdek hoe TempMailCentral uw privacy beschermt. We slaan geen persoonlijke gegevens op, alle e-mails worden automatisch verwijderd en uw privacy is onze prioriteit."
-    },
-    "badge": "Uw Privacy Is Belangrijk",
-    "title": "Privacybeleid",
-    "subtitle": "Hoe we uw privacy beschermen en uw gegevens behandelen",
-    "lastUpdated": "Laatst bijgewerkt: 24 januari 2026",
-    "introduction": "Bij TempMailCentral is privacy onze topprioriteit. Dit Privacybeleid legt uit hoe we uw informatie verzamelen, gebruiken en beschermen wanneer u onze tijdelijke e-mailservice gebruikt. Door onze service te gebruiken, gaat u akkoord met de praktijken die in dit beleid worden beschreven.",
-    "sections": {
-      "dataCollection": {
-        "title": "Informatie Die We Verzamelen",
-        "content": "We verzamelen minimale informatie om onze service te leveren:\n\n• Technische Gegevens: IP-adressen, browsertype en apparaatinformatie voor beveiliging en serviceverbetering\n• Gebruiksgegevens: Hoe u met onze service omgaat om functionaliteit te verbeteren\n• E-mailinhoud: Tijdelijk opgeslagen e-mails die automatisch worden verwijderd na vervaldatum\n• Cookies: Essentiële cookies voor servicefunctionaliteit\n\nWe verzamelen NIET:\n• Persoonlijke identificatie-informatie\n• Betalingsinformatie (onze service is gratis)\n• Uw echte e-mailadres\n• Gegevens die we absoluut niet nodig hebben"
-      },
-      "dataUsage": {
-        "title": "Hoe We Uw Gegevens Gebruiken",
-        "content": "We gebruiken verzamelde informatie voor:\n\n• Het leveren en onderhouden van onze tijdelijke e-mailservice\n• Het verbeteren van gebruikerservaring en servicefunctionaliteit\n• Het detecteren en voorkomen van misbruik, spam en beveiligingsbedreigingen\n• Het analyseren van gebruikspatronen om prestaties te optimaliseren\n• Het voldoen aan wettelijke verplichtingen\n\nWe doen NIET:\n• Uw gegevens verkopen aan derden\n• Uw gegevens gebruiken voor advertenties\n• Uw informatie delen zonder uw toestemming\n• Gegevens langer bewaren dan nodig"
-      },
-      "dataSharing": {
-        "title": "Gegevensdeling en Openbaarmaking",
-        "content": "We verkopen, verhandelen of verhuren uw persoonlijke informatie niet. We kunnen gegevens alleen delen in deze beperkte gevallen:\n\n• Wettelijke Vereisten: Wanneer vereist door de wet of om onze rechten te beschermen\n• Serviceproviders: Vertrouwde partners die helpen bij het exploiteren van onze service (onder strikte vertrouwelijkheid)\n• Beveiliging: Om fraude, misbruik of beveiligingsbedreigingen te voorkomen\n\nAlle externe serviceproviders zijn gebonden aan vertrouwelijkheidsovereenkomsten en mogen uw informatie niet gebruiken voor andere doeleinden dan het leveren van diensten aan ons."
-      },
-      "cookies": {
-        "title": "Cookies en Tracking",
-        "content": "We gebruiken cookies en vergelijkbare technologieën:\n\n• Essentiële Cookies: Vereist voor servicefunctionaliteit (kan niet worden uitgeschakeld)\n• Analytische Cookies: Helpen ons te begrijpen hoe u onze service gebruikt\n• Voorkeurscookies: Onthouden uw instellingen en voorkeuren\n\nU kunt cookies beheren via uw browserinstellingen. Het uitschakelen van essentiële cookies kan echter de servicefunctionaliteit beperken.\n\nWe gebruiken NIET:\n• Advertentiecookies\n• Tracking cookies van derden\n• Social media tracking pixels"
-      },
-      "dataSecurity": {
-        "title": "Gegevensbeveiliging",
-        "content": "We implementeren industrie-standaard beveiligingsmaatregelen:\n\n• Encryptie: Alle verzonden gegevens worden versleuteld met HTTPS/TLS\n• Veilige Infrastructuur: Onze servers gebruiken geavanceerde beveiligingsprotocollen\n• Toegangscontrole: Beperkte toegang tot gegevens alleen door geautoriseerd personeel\n• Regelmatige Audits: Continue monitoring en beveiligingsbeoordelingen\n• Automatische Verwijdering: E-mails worden automatisch verwijderd na vervaldatum\n\nTerwijl we ernaar streven uw gegevens te beschermen, is geen enkele internetoverdracht 100% veilig. Gebruik onze service op eigen risico voor niet-gevoelige communicatie."
-      },
-      "emailRetention": {
-        "title": "E-mailbewaring en Verwijdering",
-        "content": "E-mailbewaringsbeleid:\n\n• Tijdelijke E-mails: Automatisch verwijderd na 10 minuten standaard\n• Verlengde E-mails: Verwijderd op basis van uw gekozen verlengingsperiode\n• Permanente Mailboxen: Bewaard totdat u ze verwijdert (voor geregistreerde gebruikers)\n• Verwijderde Inhoud: Permanent verwijderd uit onze systemen\n\nEenmaal verwijderd, kunnen e-mails niet worden hersteld. We bewaren geen back-ups van tijdelijke e-mailinhoud."
-      }
-    },
-    "contact": {
-      "title": "Neem Contact Op",
-      "content": "Als u vragen heeft over dit Privacybeleid of onze gegevenspraktijken, neem dan contact met ons op via: privacy@tempmailcentral.com"
-    }
-  },
-  "terms": {
-    "meta": {
-      "title": "Servicevoorwaarden - TempMailCentral",
-      "description": "Lees onze Servicevoorwaarden om de regels en richtlijnen voor het gebruik van TempMailCentral's tijdelijke e-mailservice te begrijpen."
-    },
-    "badge": "Juridische Voorwaarden",
-    "title": "Servicevoorwaarden",
-    "subtitle": "Lees deze voorwaarden zorgvuldig door voordat u onze service gebruikt",
-    "lastUpdated": "Laatst bijgewerkt: 24 januari 2026",
-    "introduction": "Welkom bij TempMailCentral. Deze Servicevoorwaarden ('Voorwaarden') regelen uw gebruik van onze tijdelijke e-mailservice. Door toegang te krijgen tot of gebruik te maken van TempMailCentral, gaat u ermee akkoord gebonden te zijn aan deze Voorwaarden. Als u het met een deel niet eens bent, gebruik dan onze service niet.",
-    "sections": {
-      "acceptance": {
-        "title": "Aanvaarding van Voorwaarden",
-        "content": "Door TempMailCentral te gebruiken, bevestigt u dat:\n\n• U minstens 13 jaar oud bent\n• U de wettelijke bevoegdheid heeft om deze Voorwaarden aan te gaan\n• U zich aan alle toepasselijke wetten en voorschriften zult houden\n• U begrijpt dat dit een tijdelijke e-mailservice is met beperkingen\n\nWe behouden ons het recht voor om deze Voorwaarden op elk moment te wijzigen. Voortgezet gebruik na wijzigingen vormt aanvaarding van de gewijzigde Voorwaarden."
-      },
-      "serviceDescription": {
-        "title": "Servicebeschrijving",
-        "content": "TempMailCentral biedt:\n\n• Gratis tijdelijke e-mailadressen die automatisch worden verwijderd\n• E-mailontvangstmogelijkheden (geen verzending)\n• Basiseigenschap e-mailweergave en bijlagendownloads\n• Optionele accountfuncties voor uitgebreid gebruik\n\nOnze service wordt 'zoals het is' geleverd zonder garanties:\n\n• We garanderen geen 100% uptime of beschikbaarheid\n• E-mails kunnen verloren gaan door technische problemen\n• Sommige websites kunnen onze domeinen blokkeren\n• Servicefuncties kunnen zonder kennisgeving veranderen"
-      },
-      "userResponsibilities": {
-        "title": "Gebruikersverantwoordelijkheden",
-        "content": "U gaat ermee akkoord om:\n\n• De service alleen te gebruiken voor wettige doeleinden\n• Geen tijdelijke e-mails te gebruiken voor kritieke accounts (bankieren, gezondheidszorg, enz.)\n• Niet te vertrouwen op onze service voor belangrijke communicatie\n• Te accepteren dat e-mails tijdelijk zijn en worden verwijderd\n• Niet te proberen onze service te misbruiken, hacken of verstoren\n• De service niet te gebruiken om anderen lastig te vallen, te spammen of schade toe te brengen\n\nU begrijpt dat:\n\n• Tijdelijke e-mails niet privé zijn - iedereen met het adres kan e-mails bekijken\n• U geen tijdelijke e-mail moet gebruiken voor gevoelige informatie\n• We de toegang kunnen beëindigen voor gebruikers die deze voorwaarden schenden"
-      },
-      "prohibitedUses": {
-        "title": "Verboden Gebruik",
-        "content": "U mag TempMailCentral NIET gebruiken voor:\n\n• Illegale activiteiten of fraude\n• Het aanmaken van accounts voor intimidatie of misbruik\n• Het omzeilen van verboden of beperkingen op andere services\n• Het ontvangen van gevoelige persoonlijke of financiële informatie\n• Geautomatiseerd scrapen of gegevens verzamelen\n• Het verspreiden van malware of phishing\n• Activiteiten die wetten of voorschriften schenden\n• Het zich voordoen als anderen of verkeerd voorstellen van identiteit\n\nOvertreding kan resulteren in:\n\n• Onmiddellijke beëindiging van servicetoegang\n• Rapportage aan de bevoegde autoriteiten\n• Juridische stappen indien nodig"
-      },
-      "disclaimer": {
-        "title": "Afwijzing van Garanties",
-        "content": "TempMailCentral wordt geleverd 'ZOALS HET IS' en 'ZOALS BESCHIKBAAR' zonder garanties van welke aard dan ook, expliciet of impliciet, inclusief maar niet beperkt tot:\n\n• Verkoopbaarheid of geschiktheid voor een bepaald doel\n• Niet-inbreuk of beveiliging\n• Nauwkeurigheid, betrouwbaarheid of volledigheid\n• Ononderbroken of foutloze service\n\nWe garanderen niet dat:\n\n• De service aan uw eisen voldoet\n• E-mails correct worden afgeleverd of ontvangen\n• De service te allen tijde beschikbaar is\n• Defecten worden gecorrigeerd\n• De service vrij is van virussen of schadelijke componenten"
-      },
-      "liability": {
-        "title": "Beperking van Aansprakelijkheid",
-        "content": "Voor zover maximaal toegestaan door de wet:\n\n• Zijn we niet aansprakelijk voor indirecte, incidentele, speciale of gevolgschade\n• Onze totale aansprakelijkheid zal $100 USD niet overschrijden\n• Zijn we niet verantwoordelijk voor gegevensverlies, inclusief verloren e-mails\n• Zijn we niet aansprakelijk voor acties of inhoud van derden\n• Gebruikt u de service op eigen risico\n\nDit omvat maar is niet beperkt tot:\n\n• Verlies van bedrijf of winst\n• Gegevenscorruptie of -verlies\n• Service-onderbrekingen\n• Beveiligingsinbreuken\n• Claims van derden"
-      }
-    },
-    "contact": {
-      "title": "Contactinformatie",
-      "content": "Voor vragen over deze Servicevoorwaarden, neem contact met ons op via: legal@tempmailcentral.com"
-    }
-  },
-  "about": {
-    "meta": {
-      "title": "Over Ons - TempMailCentral",
-      "description": "Leer meer over TempMailCentral, de vertrouwde tijdelijke e-mailservice die de privacy van meer dan 500.000 gebruikers wereldwijd beschermt."
-    },
-    "badge": "Over Ons",
-    "title": "Over TempMailCentral",
-    "subtitle": "Uw privacy beschermen met veilige, wegwerp e-mailadressen vanaf dag één",
-    "mission": {
-      "badge": "Onze Missie",
-      "title": "Onze Missie",
-      "content": "Onze missie is eenvoudig: uw privacy online beschermen. In een wereld waar uw e-mailadres voortdurend wordt gevraagd, geloven we dat u de vrijheid moet hebben om uw privacy te behouden zonder toegang tot online services op te geven. TempMailCentral biedt een snelle, gratis en veilige manier om internet te gebruiken zonder uw persoonlijke informatie in gevaar te brengen.",
-      "highlight": {
-        "title": "Privacy Eerst, Altijd",
-        "description": "We hebben TempMailCentral gebouwd op het principe dat privacy een fundamenteel recht is, geen luxe. Elke functie die we toevoegen is ontworpen met uw privacy in gedachten."
-      }
-    },
-    "values": {
-      "title": "Onze Waarden",
-      "subtitle": "De principes die alles wat we doen leiden",
-      "privacy": {
-        "title": "Privacy Eerst",
-        "description": "Uw privacy is niet onderhandelbaar. We verkopen geen gegevens, tracken niet onnodig en slaan informatie niet langer op dan nodig."
-      },
-      "simplicity": {
-        "title": "Eenvoudig & Snel",
-        "description": "Geen registratie, geen complicaties. Alleen directe, werkende e-mailadressen wanneer u ze nodig heeft."
-      },
-      "accessibility": {
-        "title": "Gratis & Toegankelijk",
-        "description": "Privacybescherming moet beschikbaar zijn voor iedereen, overal. Onze service is gratis en beschikbaar in meer dan 20 talen."
-      },
-      "transparency": {
-        "title": "Transparant",
-        "description": "We zijn eerlijk over wat we doen, hoe we het doen en welke beperkingen er bestaan. Geen verborgen voorwaarden of verrassingen."
-      }
-    },
-    "story": {
-      "badge": "Ons Verhaal",
-      "title": "Hoe TempMailCentral Begon",
-      "paragraph1": "TempMailCentral is geboren uit een eenvoudige frustratie: e-mailadressen afgeven aan websites die ze niet nodig hadden. Elke aanmelding betekende meer spam, meer tracking en minder privacy. We wisten dat er een betere manier moest zijn.",
-      "paragraph2": "We begonnen met het bouwen van een service voor onszelf—een eenvoudige, snelle manier om tijdelijke e-mailadressen te krijgen zonder registratie. Toen het nieuws zich verspreidde, realiseerden we ons dat anderen onze zorgen over online privacy deelden. Vandaag bedienen we meer dan 500.000 gebruikers wereldwijd die ons vertrouwen om hun privacy te beschermen.",
-      "paragraph3": "We zijn gegroeid van een eenvoudig hulpmiddel tot een uitgebreide privacyservice, maar onze kernmissie blijft hetzelfde: mensen controle geven over hun digitale privacy. We blijven onze service verbeteren, nieuwe functies toevoegen en uitbreiden naar nieuwe talen—allemaal terwijl we privacy voorop blijven stellen in alles wat we doen."
-    },
-    "stats": {
-      "emails": "Ontvangen E-mails",
-      "users": "Actieve Gebruikers",
-      "languages": "Talen",
-      "uptime": "Uptime"
-    },
-    "cta": {
-      "title": "Sluit U Aan Bij Onze Privacy-First Gemeenschap",
-      "description": "Ervaar de vrijheid van browsen zonder uw privacy op te geven",
-      "button": "Gratis Beginnen"
-    }
   },
   "dashboard": {
     "welcome": "Welkom terug",

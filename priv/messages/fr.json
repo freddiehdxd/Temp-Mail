@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "TempMail",
+    "appName": "TempMail Central",
     "tagline": "Email Temporaire Gratuit",
     "loading": "Chargement...",
     "error": "Erreur",
@@ -29,9 +29,9 @@
     "system": "Système"
   },
   "home": {
-    "title": "Email Temporaire Gratuit",
+    "title": "Email Temporaire Gratuit - Boîte Jetable en Quelques Secondes",
     "subtitle": "Protégez votre vie privée avec des adresses email jetables",
-    "description": "Obtenez une adresse email temporaire instantanément. Sans inscription. Les emails sont supprimés automatiquement après 10 minutes.",
+    "description": "Générez une adresse email temporaire gratuite qui s'efface d'elle-même au bout de 10 minutes, ou conservez-la jusqu'à 30 jours avec un compte gratuit. Boîte de réception en temps réel, sans inscription.",
     "generateButton": "Générer un Nouvel Email",
     "yourEmail": "Votre Email Temporaire",
     "copyEmail": "Copier l'Adresse Email",
@@ -40,13 +40,6 @@
     "timeRemaining": "Temps Restant",
     "noEmails": "Pas encore d'emails",
     "waitingForEmails": "En attente d'emails entrants...",
-    "heroBadge": "Approuvé par plus de 500 000 utilisateurs dans le monde",
-    "stats": {
-      "emailsReceived": "Emails Reçus",
-      "happyUsers": "Utilisateurs Satisfaits",
-      "uptime": "Disponibilité",
-      "languages": "Langues"
-    },
     "features": {
       "title": "Pourquoi utiliser TempMail?",
       "subtitle": "Tout ce dont vous avez besoin pour une communication par email sécurisée et jetable",
@@ -63,8 +56,8 @@
         "description": "Aucune inscription nécessaire. Obtenez une adresse email fonctionnelle en secondes."
       },
       "secure": {
-        "title": "Sécurisé et Anonyme",
-        "description": "Vos emails sont automatiquement supprimés. Aucune donnée n'est stockée en permanence."
+        "title": "Privé par Défaut",
+        "description": "Pas de nom, pas de numéro de téléphone, pas de compte. Les boîtes temporaires vivent en mémoire et s'effacent d'elles-mêmes à expiration."
       }
     },
     "howItWorks": {
@@ -79,8 +72,8 @@
         "description": "Copiez-le et utilisez-le pour les inscriptions, vérifications ou tout service"
       },
       "step3": {
-        "title": "Suppression Automatique",
-        "description": "Tout est automatiquement supprimé après 10 minutes"
+        "title": "Expire Tout Seul",
+        "description": "Tout est supprimé à la fin du compte à rebours: au bout de 10 minutes par défaut, ou plus tard si vous le prolongez"
       }
     },
     "useCases": {
@@ -94,18 +87,11 @@
       "case5": "Achats en ligne",
       "case6": "Inscriptions sur les réseaux sociaux"
     },
-    "reviews": {
-      "title": "Adoré par les développeurs et les utilisateurs",
-      "subtitle": "Rejoignez des milliers d'utilisateurs satisfaits",
-      "review1": "Meilleur service de mail temporaire que j'ai jamais utilisé. Interface propre et super rapide!",
-      "review2": "Enfin, un email jetable qui fonctionne vraiment. Pas de publicité, pas de tracas.",
-      "review3": "La fonction de rafraîchissement automatique est incroyable. Les emails apparaissent instantanément!"
-    },
     "faq": {
       "badge": "Questions Fréquemment Posées",
       "title": "Tout Sur",
       "titleHighlight": "Temp Mail",
-      "subtitle": "Découvrez comment fonctionne l'email temporaire jetable et pourquoi des millions font confiance à TempMailCentral pour leurs besoins en matière de confidentialité.",
+      "subtitle": "Comment l'email jetable fonctionne ici, et ce qu'il advient exactement de vos données.",
       "question1": "Qu'est-ce qu'un email temporaire ou temp mail?",
       "answer1": "Un email temporaire (également appelé temp mail, email jetable ou email à usage unique) est une adresse email auto-destructrice que vous pouvez utiliser pendant une courte période. Il aide à protéger votre vrai email du spam, du phishing et des emails marketing indésirables lors de l'inscription à des sites Web ou services.",
       "question2": "Comment fonctionne l'email jetable?",
@@ -113,27 +99,31 @@
       "question3": "Est-il sûr d'utiliser temp mail?",
       "answer3": "Oui, temp mail est sûr à utiliser pour des fins non sensibles comme s'inscrire à des sites Web, télécharger des ressources ou tester des applications. Cependant, vous ne devriez jamais utiliser d'email temporaire pour des comptes importants comme la banque, car les emails seront supprimés et vous pourriez perdre l'accès.",
       "question4": "Combien de temps dure un email temporaire?",
-      "answer4": "Par défaut, les adresses email temporaires sur TempMailCentral durent 10 minutes. Cependant, les utilisateurs connectés peuvent prolonger le temps jusqu'à 30 jours ou même enregistrer l'adresse comme boîte aux lettres permanente.",
+      "answer4": "Par défaut, une boîte dure 10 minutes. Tout le monde peut la prolonger à 1 heure ou 24 heures; avec un compte gratuit, vous pouvez la prolonger jusqu'à 30 jours ou enregistrer l'adresse comme boîte permanente, conservée jusqu'à ce que vous la supprimiez.",
       "question5": "Les sites Web peuvent-ils détecter temp mail?",
-      "answer5": "Certains sites Web maintiennent des listes noires de domaines d'email temporaires connus. Bien que TempMailCentral utilise plusieurs domaines pour minimiser cela, certains sites Web stricts peuvent encore détecter et bloquer les adresses email temporaires.",
+      "answer5": "Certains sites Web maintiennent des listes noires de domaines d'email temporaires connus. Bien que TempMail Central utilise plusieurs domaines pour minimiser cela, certains sites Web stricts peuvent encore détecter et bloquer les adresses email temporaires.",
       "question6": "Dois-je m'inscrire pour utiliser temp mail?",
-      "answer6": "Aucune inscription n'est requise pour utiliser TempMailCentral. Visitez simplement le site Web et vous recevrez automatiquement une adresse email temporaire que vous pouvez utiliser immédiatement.",
+      "answer6": "Aucune inscription n'est requise pour utiliser TempMail Central. Visitez simplement le site Web et vous recevrez automatiquement une adresse email temporaire que vous pouvez utiliser immédiatement.",
       "question7": "Puis-je recevoir des pièces jointes avec temp mail?",
-      "answer7": "Oui, TempMailCentral prend en charge la réception de pièces jointes par email. Vous pouvez afficher et télécharger les pièces jointes des emails envoyés à votre adresse temporaire.",
+      "answer7": "Oui. Les pièces jointes peuvent être consultées et téléchargées tant que la boîte est active. Chaque boîte conserve ses 100 messages les plus récents.",
       "question8": "À quoi sert temp mail?",
-      "answer8": "Temp mail est couramment utilisé pour: s'inscrire à des essais gratuits, éviter le spam des newsletters, tester la fonctionnalité email dans les applications, protéger votre vrai email des violations de données, faire des achats en ligne sur des sites non fiables et accéder à des téléchargements ou ressources uniques."
+      "answer8": "Temp mail est couramment utilisé pour: s'inscrire à des essais gratuits, éviter le spam des newsletters, tester la fonctionnalité email dans les applications, protéger votre vrai email des violations de données, faire des achats en ligne sur des sites non fiables et accéder à des téléchargements ou ressources uniques.",
+      "question9": "Qui peut lire une boîte temporaire?",
+      "answer9": "Tant qu'elle est active, quiconque connaît l'adresse exacte peut l'ouvrir: il n'y a pas de mot de passe. La protection vient du fait que l'adresse est une combinaison parmi 3,6 millions de milliards, et de sa courte durée de vie. N'envoyez jamais d'informations sensibles à une adresse temporaire; les boîtes permanentes, elles, sont réservées à votre compte.",
+      "question10": "Quelles données TempMail Central conserve-t-il?",
+      "answer10": "Le courrier temporaire vit en mémoire et est effacé à expiration. Au-delà: des compteurs quotidiens agrégés, des journaux de serveur web conservés 14 jours, et les données de votre compte si vous vous inscrivez. Pas de profils de visiteurs, pas de traceurs d'audience, pas de vente de données — les détails figurent dans notre Politique de Confidentialité."
     },
     "whyChoose": {
       "title": "Pourquoi Choisir",
-      "titleHighlight": "TempMailCentral",
-      "subtitle": "Le service d'email temporaire gratuit le plus fiable, approuvé par plus de 500 000 utilisateurs dans le monde.",
+      "titleHighlight": "TempMail Central",
+      "subtitle": "Un service gratuit, financé par la publicité, honnête sur son fonctionnement et sur ce qu'il conserve.",
       "instantFree": {
         "title": "Instantané et Gratuit",
         "description": "Pas d'inscription, pas de carte de crédit, pas d'engagement. Obtenez votre email jetable en quelques secondes, entièrement gratuit pour toujours."
       },
       "privacyFirst": {
         "title": "Confidentialité d'Abord",
-        "description": "Nous ne suivons pas, ne stockons pas et ne vendons pas vos données. Tous les emails sont automatiquement supprimés après expiration. Votre vie privée est notre priorité."
+        "description": "Les boîtes temporaires vivent en mémoire et s'effacent d'elles-mêmes à expiration. Nous ne gardons aucun profil de visiteur, n'utilisons aucun traceur d'audience et ne vendons jamais de données personnelles — ce que nous journalisons est détaillé dans notre Politique de Confidentialité."
       },
       "multiLanguage": {
         "title": "Plus de 20 Langues",
@@ -144,7 +134,7 @@
       "title": "À Propos de Temp Mail - Email Temporaire Jetable",
       "whatIsTitle": "Qu'est-ce que l'Email Temporaire?",
       "whatIsContent": "L'email temporaire, également connu sous le nom de temp mail, email jetable, email à usage unique ou mail de 10 minutes, est un service qui vous fournit une adresse email de courte durée. Contrairement à votre email personnel, une adresse temp mail est conçue pour être utilisée une fois puis jetée, gardant votre vraie boîte de réception propre et sans spam.",
-      "whatIsContent2": "TempMailCentral génère des adresses email aléatoires que vous pouvez utiliser pour les inscriptions sur les sites Web, les abonnements aux newsletters, les achats en ligne ou toute situation où vous avez besoin d'un email mais ne voulez pas partager votre vraie adresse.",
+      "whatIsContent2": "TempMail Central génère des adresses email aléatoires que vous pouvez utiliser pour les inscriptions sur les sites Web, les abonnements aux newsletters, les achats en ligne ou toute situation où vous avez besoin d'un email mais ne voulez pas partager votre vraie adresse.",
       "benefitsTitle": "Avantages de l'Email Jetable",
       "benefit1": "Protection Contre le Spam:",
       "benefit1Desc": "Gardez votre vraie boîte de réception propre en utilisant temp mail pour les inscriptions",
@@ -167,11 +157,75 @@
     },
     "quickStats": {
       "private": "Priv?",
-      "endToEnd": "De bout en bout",
+      "endToEnd": "Effacement à expiration",
       "instant": "Instantan?",
       "realTime": "En temps r?el",
       "autoDelete": "Suppression automatique",
-      "tenMinutes": "10 minutes"
+      "tenMinutes": "10 min par défaut"
+    },
+    "heroBadge": "Aucun compte requis: votre boîte est prête dès le chargement de la page",
+    "specs": {
+      "inboxesCreated": "Boîtes créées à ce jour",
+      "emailsDelivered": "Emails distribués à ce jour",
+      "defaultLifetime": "Durée de vie par défaut d'une boîte",
+      "maxLifetime": "Durée maximale avec un compte gratuit",
+      "days": "jours",
+      "note": "Compteurs en direct issus de nos propres totaux quotidiens, sans calculs marketing."
+    },
+    "preparing": {
+      "title": "Votre boîte de réception temporaire",
+      "description": "Une adresse aléatoire est créée pour vous dès le chargement de cette page, sans formulaire ni inscription. Le courrier qui lui est envoyé s'affiche ci-dessous en temps réel, et la boîte entière s'efface d'elle-même quand son compte à rebours arrive à zéro: au bout de 10 minutes par défaut, ou jusqu'à 30 jours si vous la prolongez avec un compte gratuit."
+    },
+    "compare": {
+      "title": "Boîte temporaire ou boîte permanente",
+      "subtitle": "Les deux sont gratuites: choisissez selon la situation",
+      "temp": "Temporaire",
+      "permanent": "Permanente",
+      "lifetime": "Durée de vie",
+      "lifetimeTemp": "10 min par défaut, jusqu'à 30 jours",
+      "lifetimePerm": "Jusqu'à ce que vous la supprimiez",
+      "access": "Qui peut l'ouvrir",
+      "accessTemp": "Quiconque connaît l'adresse",
+      "accessPerm": "Uniquement votre compte",
+      "storage": "Stockage",
+      "storageTemp": "En mémoire uniquement, disparaît à expiration",
+      "storagePerm": "En base de données, jusqu'à suppression",
+      "account": "Compte requis",
+      "accountTemp": "Non",
+      "accountPerm": "Oui, gratuit",
+      "bestFor": "Idéale pour",
+      "bestForTemp": "Inscriptions ponctuelles et téléchargements",
+      "bestForPerm": "Newsletters et expéditeurs réguliers"
+    },
+    "tech": {
+      "title": "Comment TempMail Central Fonctionne Vraiment",
+      "subtitle": "Pas de boîte noire: voici exactement ce qui arrive à une adresse et à son courrier, de la création à la suppression.",
+      "generation": {
+        "title": "Génération des adresses",
+        "description": "Dix caractères, lettres minuscules et chiffres, tirés d'une source aléatoire cryptographiquement sûre: environ 3,6 millions de milliards d'adresses possibles. Les préfixes opérationnels comme admin@ ou support@ ne sont jamais attribués."
+      },
+      "storage": {
+        "title": "Stockage et suppression",
+        "description": "Les boîtes temporaires vivent dans Redis, un stockage en mémoire, avec un compte à rebours associé. Quand il atteint zéro, l'adresse et tous les messages sont supprimés: pas d'archives, pas de sauvegardes, pas de récupération."
+      },
+      "delivery": {
+        "title": "Distribution en temps réel",
+        "description": "Notre serveur de messagerie Postfix accepte le message, un analyseur le transmet à l'application, et un WebSocket le pousse dans votre onglet ouvert — généralement une à deux secondes après l'envoi par l'expéditeur."
+      },
+      "limits": {
+        "title": "Pièces jointes et limites",
+        "description": "Les pièces jointes peuvent être consultées et téléchargées tant que la boîte est active. Chaque boîte conserve ses 100 messages les plus récents, et les adresses fonctionnent en réception seule: rien ne peut jamais être envoyé depuis elles."
+      },
+      "logging": {
+        "title": "Ce que nous journalisons",
+        "description": "Des totaux quotidiens (boîtes créées, courriers reçus), plus les journaux standards du serveur web conservés 14 jours. Pas de traceurs d'audience, pas de profils de visiteurs, et les données personnelles ne sont jamais vendues."
+      },
+      "abuse": {
+        "title": "Prévention des abus",
+        "description": "Des limites de débit par IP, des préfixes de service réservés et des bannissements de comptes tiennent les abus en échec — et les inscriptions avec des adresses jetables sont refusées, pour que les utilisateurs inscrits restent joignables."
+      },
+      "more": "Envie d'aller plus loin? Le blog détaille la mécanique de suppression, l'entropie des adresses et la gestion des abus.",
+      "moreLink": "Lire les articles techniques"
     }
   },
   "inbox": {
@@ -279,149 +333,11 @@
     "terms": "Conditions d'Utilisation",
     "contact": "Contact",
     "about": "À Propos",
-    "copyright": "© {year} TempMail. Tous droits réservés.",
-    "description": "Le service de courrier temporaire le plus rapide et le plus s?r. Prot?gez votre vie priv?e avec des adresses jetables qui se suppriment automatiquement. Aucune inscription requise.",
+    "copyright": "© {year} TempMail Central. Tous droits réservés.",
+    "description": "Des boîtes jetables qui s'effacent d'elles-mêmes, des boîtes permanentes quand vous en avez besoin. Gratuit, financé par la publicité et honnête sur ce que nous journalisons.",
     "privateSecure": "Priv? et s?curis?",
     "instantDelivery": "Livraison instantan?e",
     "languages": "Plus de 20 langues"
-  },
-  "privacy": {
-    "meta": {
-      "title": "Politique de Confidentialité - TempMailCentral",
-      "description": "Découvrez comment TempMailCentral protège votre vie privée. Nous ne stockons pas de données personnelles, tous les emails sont supprimés automatiquement et votre vie privée est notre priorité."
-    },
-    "badge": "Votre Vie Privée Compte",
-    "title": "Politique de Confidentialité",
-    "subtitle": "Comment nous protégeons votre vie privée et gérons vos données",
-    "lastUpdated": "Dernière mise à jour: 24 janvier 2026",
-    "introduction": "Chez TempMailCentral, la vie privée est notre priorité absolue. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre service d'email temporaire. En utilisant notre service, vous acceptez les pratiques décrites dans cette politique.",
-    "sections": {
-      "dataCollection": {
-        "title": "Informations que Nous Collectons",
-        "content": "Nous collectons un minimum d'informations pour fournir notre service:\n\n• Données Techniques: Adresses IP, type de navigateur et informations sur l'appareil pour la sécurité et l'amélioration du service\n• Données d'Utilisation: Comment vous interagissez avec notre service pour améliorer les fonctionnalités\n• Contenu des Emails: Emails stockés temporairement qui sont supprimés automatiquement après expiration\n• Cookies: Cookies essentiels pour le fonctionnement du service\n\nNous ne collectons PAS:\n• Informations d'identification personnelle\n• Informations de paiement (notre service est gratuit)\n• Votre vraie adresse email\n• Toute donnée dont nous n'avons pas absolument besoin"
-      },
-      "dataUsage": {
-        "title": "Comment Nous Utilisons Vos Données",
-        "content": "Nous utilisons les informations collectées pour:\n\n• Fournir et maintenir notre service d'email temporaire\n• Améliorer l'expérience utilisateur et les fonctionnalités du service\n• Détecter et prévenir les abus, le spam et les menaces de sécurité\n• Analyser les modèles d'utilisation pour optimiser les performances\n• Respecter les obligations légales\n\nNous ne:\n• Vendons pas vos données à des tiers\n• N'utilisons pas vos données pour la publicité\n• Ne partageons pas vos informations sans votre consentement\n• Ne stockons pas les données plus longtemps que nécessaire"
-      },
-      "dataSharing": {
-        "title": "Partage et Divulgation des Données",
-        "content": "Nous ne vendons, n'échangeons ni ne louons vos informations personnelles. Nous pouvons partager des données uniquement dans ces cas limités:\n\n• Exigences Légales: Lorsque requis par la loi ou pour protéger nos droits\n• Prestataires de Services: Partenaires de confiance qui aident à exploiter notre service (sous stricte confidentialité)\n• Sécurité: Pour prévenir la fraude, les abus ou les menaces de sécurité\n\nTous les prestataires de services tiers sont liés par des accords de confidentialité et il leur est interdit d'utiliser vos informations à d'autres fins que de nous fournir des services."
-      },
-      "cookies": {
-        "title": "Cookies et Suivi",
-        "content": "Nous utilisons des cookies et des technologies similaires:\n\n• Cookies Essentiels: Requis pour le fonctionnement du service (ne peuvent pas être désactivés)\n• Cookies Analytics: Nous aident à comprendre comment vous utilisez notre service\n• Cookies de Préférence: Mémorisent vos paramètres et préférences\n\nVous pouvez contrôler les cookies via les paramètres de votre navigateur. Cependant, la désactivation des cookies essentiels peut limiter les fonctionnalités du service.\n\nNous n'utilisons PAS:\n• Cookies publicitaires\n• Cookies de suivi tiers\n• Pixels de suivi des réseaux sociaux"
-      },
-      "dataSecurity": {
-        "title": "Sécurité des Données",
-        "content": "Nous mettons en œuvre des mesures de sécurité standards de l'industrie:\n\n• Chiffrement: Toutes les données transmises sont chiffrées en HTTPS/TLS\n• Infrastructure Sécurisée: Nos serveurs utilisent des protocoles de sécurité avancés\n• Contrôle d'Accès: Accès limité aux données par le personnel autorisé uniquement\n• Audits Réguliers: Surveillance continue et évaluations de sécurité\n• Suppression Automatique: Les emails sont automatiquement supprimés après expiration\n\nBien que nous nous efforcions de protéger vos données, aucune transmission Internet n'est 100% sûre. Utilisez notre service à vos propres risques pour les communications non sensibles."
-      },
-      "emailRetention": {
-        "title": "Conservation et Suppression des Emails",
-        "content": "Politique de conservation des emails:\n\n• Emails Temporaires: Suppression automatique après 10 minutes par défaut\n• Emails Prolongés: Supprimés selon la période d'extension choisie\n• Boîtes aux Lettres Permanentes: Conservées jusqu'à suppression (pour les utilisateurs enregistrés)\n• Contenu Supprimé: Retiré définitivement de nos systèmes\n\nUne fois supprimés, les emails ne peuvent pas être récupérés. Nous ne conservons pas de sauvegardes du contenu des emails temporaires."
-      }
-    },
-    "contact": {
-      "title": "Nous Contacter",
-      "content": "Si vous avez des questions sur cette Politique de Confidentialité ou nos pratiques en matière de données, contactez-nous à: privacy@tempmailcentral.com"
-    }
-  },
-  "terms": {
-    "meta": {
-      "title": "Conditions d'Utilisation - TempMailCentral",
-      "description": "Lisez nos Conditions d'Utilisation pour comprendre les règles et directives d'utilisation du service d'email temporaire de TempMailCentral."
-    },
-    "badge": "Conditions Légales",
-    "title": "Conditions d'Utilisation",
-    "subtitle": "Veuillez lire attentivement ces conditions avant d'utiliser notre service",
-    "lastUpdated": "Dernière mise à jour: 24 janvier 2026",
-    "introduction": "Bienvenue sur TempMailCentral. Ces Conditions d'Utilisation ('Conditions') régissent votre utilisation de notre service d'email temporaire. En accédant ou en utilisant TempMailCentral, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord avec une partie, veuillez ne pas utiliser notre service.",
-    "sections": {
-      "acceptance": {
-        "title": "Acceptation des Conditions",
-        "content": "En utilisant TempMailCentral, vous confirmez que:\n\n• Vous avez au moins 13 ans\n• Vous avez la capacité légale d'accepter ces Conditions\n• Vous respecterez toutes les lois et réglementations applicables\n• Vous comprenez qu'il s'agit d'un service d'email temporaire avec des limitations\n\nNous nous réservons le droit de modifier ces Conditions à tout moment. L'utilisation continue après les modifications constitue l'acceptation des Conditions modifiées."
-      },
-      "serviceDescription": {
-        "title": "Description du Service",
-        "content": "TempMailCentral fournit:\n\n• Adresses email temporaires gratuites qui sont supprimées automatiquement\n• Capacités de réception d'emails (pas d'envoi)\n• Visualisation basique des emails et téléchargement de pièces jointes\n• Fonctionnalités de compte optionnelles pour une utilisation prolongée\n\nNotre service est fourni 'tel quel' sans garanties:\n\n• Nous ne garantissons pas un temps de disponibilité de 100%\n• Les emails peuvent être perdus en raison de problèmes techniques\n• Certains sites Web peuvent bloquer nos domaines\n• Les fonctionnalités du service peuvent changer sans préavis"
-      },
-      "userResponsibilities": {
-        "title": "Responsabilités de l'Utilisateur",
-        "content": "Vous acceptez de:\n\n• Utiliser le service uniquement à des fins légales\n• Ne pas utiliser d'emails temporaires pour des comptes critiques (banque, santé, etc.)\n• Ne pas compter sur notre service pour des communications importantes\n• Accepter que les emails sont temporaires et seront supprimés\n• Ne pas tenter d'abuser, de pirater ou de perturber notre service\n• Ne pas utiliser le service pour harceler, spammer ou nuire à autrui\n\nVous comprenez que:\n\n• Les emails temporaires ne sont pas privés - toute personne ayant l'adresse peut voir les emails\n• Vous ne devez pas utiliser d'emails temporaires pour des informations sensibles\n• Nous pouvons résilier l'accès aux utilisateurs qui violent ces conditions"
-      },
-      "prohibitedUses": {
-        "title": "Utilisations Interdites",
-        "content": "Vous ne pouvez PAS utiliser TempMailCentral pour:\n\n• Activités illégales ou fraude\n• Créer des comptes pour le harcèlement ou l'abus\n• Contourner des interdictions ou restrictions sur d'autres services\n• Recevoir des informations personnelles ou financières sensibles\n• Scraping automatisé ou collecte de données\n• Distribuer des malwares ou du phishing\n• Toute activité violant les lois ou réglementations\n• Usurper l'identité d'autrui ou fausser son identité\n\nLa violation peut entraîner:\n\n• Résiliation immédiate de l'accès au service\n• Signalement aux autorités compétentes\n• Action en justice si nécessaire"
-      },
-      "disclaimer": {
-        "title": "Exclusion de Garanties",
-        "content": "TempMailCentral est fourni 'TEL QUEL' et 'SELON DISPONIBILITÉ' sans garanties d'aucune sorte, expresses ou implicites, y compris mais sans s'y limiter:\n\n• Qualité marchande ou adéquation à un usage particulier\n• Non-contrefaçon ou sécurité\n• Exactitude, fiabilité ou exhaustivité\n• Service ininterrompu ou sans erreur\n\nNous ne garantissons pas que:\n\n• Le service répondra à vos exigences\n• Les emails seront livrés ou reçus correctement\n• Le service sera disponible à tout moment\n• Les défauts seront corrigés\n• Le service est exempt de virus ou de composants nuisibles"
-      },
-      "liability": {
-        "title": "Limitation de Responsabilité",
-        "content": "Dans toute la mesure permise par la loi:\n\n• Nous ne sommes pas responsables des dommages indirects, accessoires, spéciaux ou consécutifs\n• Notre responsabilité totale ne dépassera pas 100 USD\n• Nous ne sommes pas responsables de la perte de données, y compris les emails perdus\n• Nous ne sommes pas responsables des actions ou du contenu de tiers\n• Vous utilisez le service à vos propres risques\n\nCela inclut mais ne se limite pas à:\n\n• Perte d'affaires ou de profits\n• Corruption ou perte de données\n• Interruptions de service\n• Violations de sécurité\n• Réclamations de tiers"
-      }
-    },
-    "contact": {
-      "title": "Informations de Contact",
-      "content": "Pour toute question concernant ces Conditions d'Utilisation, contactez-nous à: legal@tempmailcentral.com"
-    }
-  },
-  "about": {
-    "meta": {
-      "title": "À Propos de Nous - TempMailCentral",
-      "description": "Découvrez TempMailCentral, le service d'email temporaire de confiance protégeant la vie privée de plus de 500 000 utilisateurs dans le monde."
-    },
-    "badge": "À Propos de Nous",
-    "title": "À Propos de TempMailCentral",
-    "subtitle": "Protéger votre vie privée avec des adresses email jetables sécurisées depuis le premier jour",
-    "mission": {
-      "badge": "Notre Mission",
-      "title": "Notre Mission",
-      "content": "Notre mission est simple: protéger votre vie privée en ligne. Dans un monde où votre adresse email est constamment demandée, nous pensons que vous devriez avoir la liberté de préserver votre vie privée sans sacrifier l'accès aux services en ligne. TempMailCentral offre un moyen rapide, gratuit et sécurisé d'utiliser Internet sans compromettre vos informations personnelles.",
-      "highlight": {
-        "title": "Confidentialité d'Abord, Toujours",
-        "description": "Nous avons construit TempMailCentral sur le principe que la vie privée est un droit fondamental, pas un luxe. Chaque fonctionnalité que nous ajoutons est conçue en pensant à votre vie privée."
-      }
-    },
-    "values": {
-      "title": "Nos Valeurs",
-      "subtitle": "Les principes qui guident tout ce que nous faisons",
-      "privacy": {
-        "title": "Confidentialité d'Abord",
-        "description": "Votre vie privée n'est pas négociable. Nous ne vendons pas de données, ne suivons pas inutilement et ne stockons pas d'informations plus longtemps que nécessaire."
-      },
-      "simplicity": {
-        "title": "Simple et Rapide",
-        "description": "Pas d'inscription, pas de complications. Juste des adresses email instantanées quand vous en avez besoin."
-      },
-      "accessibility": {
-        "title": "Gratuit et Accessible",
-        "description": "La protection de la vie privée devrait être disponible pour tous, partout. Notre service est gratuit et disponible dans plus de 20 langues."
-      },
-      "transparency": {
-        "title": "Transparent",
-        "description": "Nous sommes honnêtes sur ce que nous faisons, comment nous le faisons et quelles limitations existent. Pas de conditions cachées ni de surprises."
-      }
-    },
-    "story": {
-      "badge": "Notre Histoire",
-      "title": "Comment TempMailCentral a Commencé",
-      "paragraph1": "TempMailCentral est né d'une simple frustration: donner des adresses email à des sites Web qui n'en avaient pas besoin. Chaque inscription signifiait plus de spam, plus de suivi et moins de vie privée. Nous savions qu'il devait y avoir une meilleure façon.",
-      "paragraph2": "Nous avons commencé par créer un service pour nous-mêmes - un moyen simple et rapide d'obtenir des adresses email temporaires sans inscription. Au fur et à mesure que le bouche-à-oreille s'est répandu, nous avons réalisé que d'autres partageaient nos préoccupations concernant la vie privée en ligne. Aujourd'hui, nous servons plus de 500 000 utilisateurs dans le monde qui nous font confiance pour protéger leur vie privée.",
-      "paragraph3": "Nous sommes passés d'un simple outil à un service complet de protection de la vie privée, mais notre mission principale reste la même: donner aux gens le contrôle de leur vie privée numérique. Nous continuons d'améliorer notre service, d'ajouter de nouvelles fonctionnalités et de nous développer dans de nouvelles langues - tout en gardant la vie privée au premier plan de tout ce que nous faisons."
-    },
-    "stats": {
-      "emails": "Emails Reçus",
-      "users": "Utilisateurs Actifs",
-      "languages": "Langues",
-      "uptime": "Disponibilité"
-    },
-    "cta": {
-      "title": "Rejoignez Notre Communauté Axée sur la Vie Privée",
-      "description": "Découvrez la liberté de naviguer sans compromettre votre vie privée",
-      "button": "Commencer Gratuitement"
-    }
   },
   "dashboard": {
     "welcome": "Bon retour",

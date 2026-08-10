@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "TempMail",
+    "appName": "TempMail Central",
     "tagline": "Gratis Tillfällig E-post",
     "loading": "Laddar...",
     "error": "Fel",
@@ -29,9 +29,9 @@
     "system": "System"
   },
   "home": {
-    "title": "Gratis Tillfällig E-post",
+    "title": "Gratis Tillfällig E-post – Engångsinkorg på Sekunder",
     "subtitle": "Skydda din integritet med engångs-e-postadresser",
-    "description": "Få en tillfällig e-postadress direkt. Ingen registrering krävs. E-post raderas automatiskt efter 10 minuter.",
+    "description": "Skapa en gratis tillfällig e-postadress som raderar sig själv efter 10 minuter – eller behåll den i upp till 30 dagar med ett gratiskonto. Inkorg i realtid, ingen registrering.",
     "generateButton": "Skapa Ny E-post",
     "yourEmail": "Din Tillfälliga E-post",
     "copyEmail": "Kopiera E-postadress",
@@ -40,13 +40,6 @@
     "timeRemaining": "Tid Kvar",
     "noEmails": "Inga e-post ännu",
     "waitingForEmails": "Väntar på inkommande e-post...",
-    "heroBadge": "Betrodd av över 500 000 användare världen över",
-    "stats": {
-      "emailsReceived": "Mottagna E-post",
-      "happyUsers": "Nöjda Användare",
-      "uptime": "Drifttid",
-      "languages": "Språk"
-    },
     "features": {
       "title": "Varför TempMail?",
       "subtitle": "Allt du behöver för säker, engångskommunikation via e-post",
@@ -63,8 +56,8 @@
         "description": "Ingen registrering krävs. Få en fungerande e-postadress på sekunder."
       },
       "secure": {
-        "title": "Säkert och Anonymt",
-        "description": "Dina e-post raderas automatiskt. Ingen data lagras permanent."
+        "title": "Privat som Standard",
+        "description": "Inget namn, inget telefonnummer, inget konto. Tillfälliga inkorgar finns bara i minnet och raderar sig själva när de löper ut."
       }
     },
     "howItWorks": {
@@ -79,8 +72,8 @@
         "description": "Kopiera och använd för registreringar, verifieringar eller vilken tjänst som helst"
       },
       "step3": {
-        "title": "Automatisk Radering",
-        "description": "Allt raderas automatiskt efter 10 minuter"
+        "title": "Löper Ut av Sig Själv",
+        "description": "Allt raderas när timern tar slut – efter 10 minuter som standard, eller senare om du förlänger den"
       }
     },
     "useCases": {
@@ -94,18 +87,11 @@
       "case5": "Onlineshopping",
       "case6": "Sociala medier-registreringar"
     },
-    "reviews": {
-      "title": "Älskad av utvecklare och användare",
-      "subtitle": "Gå med i tusentals nöjda användare",
-      "review1": "Bästa tillfälliga e-posttjänsten jag någonsin använt. Rent gränssnitt och superhögt!",
-      "review2": "Äntligen en engångs-e-post som faktiskt fungerar. Inga annonser, inga problem.",
-      "review3": "Auto-uppdateringsfunktionen är fantastisk. E-post dyker upp omedelbart!"
-    },
     "faq": {
       "badge": "Vanliga Frågor",
       "title": "Allt Om",
       "titleHighlight": "Temp Mail",
-      "subtitle": "Lär dig hur tillfällig engångs-e-post fungerar och varför miljoner litar på TempMailCentral för sina integritetsbehov.",
+      "subtitle": "Så fungerar engångs-e-post här – och exakt vad som händer med dina uppgifter.",
       "question1": "Vad är en tillfällig e-post eller temp mail?",
       "answer1": "En tillfällig e-post (även kallad temp mail, engångs-e-post eller throwaway-e-post) är en självförstörande e-postadress som du kan använda under en kort period. Den hjälper till att skydda din riktiga e-post från spam, phishing och oönskade marknadsföringsmejl när du registrerar dig för webbplatser eller tjänster.",
       "question2": "Hur fungerar engångs-e-post?",
@@ -113,27 +99,31 @@
       "question3": "Är temp mail säkert att använda?",
       "answer3": "Ja, temp mail är säkert att använda för icke-känsliga syften som att registrera sig för webbplatser, ladda ner resurser eller testa applikationer. Du bör dock aldrig använda tillfällig e-post för viktiga konton som bank, eftersom e-postmeddelandena kommer att raderas och du kan förlora åtkomst.",
       "question4": "Hur länge varar en tillfällig e-post?",
-      "answer4": "Som standard varar tillfälliga e-postadresser på TempMailCentral i 10 minuter. Inloggade användare kan dock förlänga tiden upp till 30 dagar eller till och med spara adressen som en permanent brevlåda.",
+      "answer4": "Som standard lever en inkorg i 10 minuter. Vem som helst kan förlänga den till 1 timme eller 24 timmar; med ett gratiskonto kan du förlänga upp till 30 dagar eller spara adressen som en permanent brevlåda som finns kvar tills du raderar den.",
       "question5": "Kan webbplatser upptäcka temp mail?",
-      "answer5": "Vissa webbplatser upprätthåller svartlistor över kända tillfälliga e-postdomäner. Även om TempMailCentral använder flera domäner för att minimera detta, kan vissa strikta webbplatser fortfarande upptäcka och blockera tillfälliga e-postadresser.",
+      "answer5": "Vissa webbplatser upprätthåller svartlistor över kända tillfälliga e-postdomäner. Även om TempMail Central använder flera domäner för att minimera detta, kan vissa strikta webbplatser fortfarande upptäcka och blockera tillfälliga e-postadresser.",
       "question6": "Behöver jag registrera mig för att använda temp mail?",
-      "answer6": "Ingen registrering krävs för att använda TempMailCentral. Besök bara webbplatsen så får du automatiskt en tillfällig e-postadress som du kan använda omedelbart.",
+      "answer6": "Ingen registrering krävs för att använda TempMail Central. Besök bara webbplatsen så får du automatiskt en tillfällig e-postadress som du kan använda omedelbart.",
       "question7": "Kan jag ta emot bilagor med temp mail?",
-      "answer7": "Ja, TempMailCentral stödjer mottagning av e-postbilagor. Du kan visa och ladda ner bilagor från e-postmeddelanden som skickas till din tillfälliga adress.",
+      "answer7": "Ja. Bilagor kan visas och laddas ner så länge inkorgen är aktiv. Varje inkorg behåller sina 100 senaste meddelanden.",
       "question8": "Vad används temp mail till?",
-      "answer8": "Temp mail används vanligtvis för: registrering för gratis provperioder, undvika nyhetsbrevsspam, testa e-postfunktionalitet i applikationer, skydda din riktiga e-post från dataintrång, onlineshopping på opålitliga webbplatser och tillgång till engångsnedladdningar eller resurser."
+      "answer8": "Temp mail används vanligtvis för: registrering för gratis provperioder, undvika nyhetsbrevsspam, testa e-postfunktionalitet i applikationer, skydda din riktiga e-post från dataintrång, onlineshopping på opålitliga webbplatser och tillgång till engångsnedladdningar eller resurser.",
+      "question9": "Vem kan läsa en tillfällig inkorg?",
+      "answer9": "Så länge den är aktiv kan vem som helst som känner till den exakta adressen öppna den – det finns inget lösenord. Skyddet ligger i att adressen är en av 3,6 biljarder kombinationer och i den korta livslängden. Skicka aldrig känslig information till en tillfällig adress; permanenta brevlådor är privata och knutna till ditt konto.",
+      "question10": "Vilka uppgifter sparar TempMail Central?",
+      "answer10": "Tillfällig e-post finns bara i minnet och raderas när tiden går ut. Utöver det: dagliga sammanlagda räknare, webbserverloggar som sparas i 14 dagar och kontouppgifter om du registrerar dig. Inga besökarprofiler, inga analysspårare, ingen försäljning av data – detaljerna finns i vår integritetspolicy."
     },
     "whyChoose": {
       "title": "Varför Välja",
-      "titleHighlight": "TempMailCentral",
-      "subtitle": "Den mest pålitliga gratis tillfälliga e-posttjänsten, betrodd av över 500 000 användare världen över.",
+      "titleHighlight": "TempMail Central",
+      "subtitle": "En gratis, annonsfinansierad tjänst som är ärlig med hur den fungerar och vad den sparar.",
       "instantFree": {
         "title": "Omedelbart och Gratis",
         "description": "Ingen registrering, inget kreditkort, inga åtaganden. Få din engångs-e-post på sekunder, helt gratis för alltid."
       },
       "privacyFirst": {
         "title": "Integritet Först",
-        "description": "Vi spårar inte, lagrar inte eller säljer inte dina data. Alla e-postmeddelanden raderas automatiskt efter utgången. Din integritet är vår prioritet."
+        "description": "Tillfälliga inkorgar finns bara i minnet och raderar sig själva när de löper ut. Vi för inga besökarprofiler, kör inga analysspårare och säljer aldrig personuppgifter – exakt vad vi loggar framgår av vår integritetspolicy."
       },
       "multiLanguage": {
         "title": "20+ Språk",
@@ -144,7 +134,7 @@
       "title": "Om Temp Mail - Tillfällig Engångs-E-post",
       "whatIsTitle": "Vad är Tillfällig E-post?",
       "whatIsContent": "Tillfällig e-post, även känd som temp mail, engångs-e-post, throwaway-e-post eller 10-minutersmail, är en tjänst som ger dig en kortlivad e-postadress. Till skillnad från din personliga e-post är en temp mail-adress utformad för att användas en gång och sedan kastas, vilket håller din riktiga inkorg ren och spamfri.",
-      "whatIsContent2": "TempMailCentral genererar slumpmässiga e-postadresser som du kan använda för webbplatsregistreringar, nyhetsbrevsprenumerationer, onlineshopping eller någon situation där du behöver en e-post men inte vill dela din riktiga adress.",
+      "whatIsContent2": "TempMail Central genererar slumpmässiga e-postadresser som du kan använda för webbplatsregistreringar, nyhetsbrevsprenumerationer, onlineshopping eller någon situation där du behöver en e-post men inte vill dela din riktiga adress.",
       "benefitsTitle": "Fördelar med Engångs-E-post",
       "benefit1": "Spamskydd:",
       "benefit1Desc": "Håll din riktiga inkorg ren genom att använda temp mail för registreringar",
@@ -167,11 +157,75 @@
     },
     "quickStats": {
       "private": "Privat",
-      "endToEnd": "End-to-end",
+      "endToEnd": "Raderas vid utgång",
       "instant": "Direkt",
       "realTime": "Realtid",
       "autoDelete": "Automatisk radering",
-      "tenMinutes": "10 minuter"
+      "tenMinutes": "10 min som standard"
+    },
+    "heroBadge": "Inget konto behövs – din inkorg är redo i samma stund som sidan laddas",
+    "specs": {
+      "inboxesCreated": "Inkorgar skapade hittills",
+      "emailsDelivered": "E-postmeddelanden levererade hittills",
+      "defaultLifetime": "Standardlivslängd för en inkorg",
+      "maxLifetime": "Maxlivslängd med gratiskonto",
+      "days": "dagar",
+      "note": "Liveräknare från våra egna dagliga totalsummor – ingen marknadsföringsmatematik."
+    },
+    "preparing": {
+      "title": "Din tillfälliga inkorg",
+      "description": "En slumpmässig adress skapas åt dig i samma stund som den här sidan laddas – inget formulär, ingen registrering. E-post som skickas dit visas nedan i realtid, och hela inkorgen raderar sig själv när timern går ut: efter 10 minuter som standard, eller upp till 30 dagar om du förlänger den med ett gratiskonto."
+    },
+    "compare": {
+      "title": "Tillfällig vs. permanent inkorg",
+      "subtitle": "Båda är gratis – välj efter situation",
+      "temp": "Tillfällig",
+      "permanent": "Permanent",
+      "lifetime": "Livslängd",
+      "lifetimeTemp": "10 min som standard, upp till 30 dagar",
+      "lifetimePerm": "Tills du raderar den",
+      "access": "Vem kan öppna den",
+      "accessTemp": "Alla som känner till adressen",
+      "accessPerm": "Endast ditt konto",
+      "storage": "Lagras i",
+      "storageTemp": "Endast minnet – borta vid utgång",
+      "storagePerm": "Databas – tills den raderas",
+      "account": "Konto krävs",
+      "accountTemp": "Nej",
+      "accountPerm": "Ja – gratis",
+      "bestFor": "Bäst för",
+      "bestForTemp": "Engångsregistreringar och nedladdningar",
+      "bestForPerm": "Nyhetsbrev och återkommande avsändare"
+    },
+    "tech": {
+      "title": "Så Fungerar TempMail Central Egentligen",
+      "subtitle": "Ingen svart låda: det här är exakt vad som händer med en adress och dess e-post, från att den skapas tills den raderas.",
+      "generation": {
+        "title": "Adressgenerering",
+        "description": "Tio gemener och siffror från en kryptografiskt säker slumpkälla – ungefär 3,6 biljarder möjliga adresser. Driftprefix som admin@ eller support@ delas aldrig ut."
+      },
+      "storage": {
+        "title": "Lagring & radering",
+        "description": "Tillfälliga inkorgar ligger i Redis, ett minneslager, med en nedräkning kopplad till sig. När den når noll rensas adressen och varje meddelande bort – inga arkiv, inga säkerhetskopior, ingen återställning."
+      },
+      "delivery": {
+        "title": "Leverans i realtid",
+        "description": "Vår Postfix-mejlserver tar emot meddelandet, en parser lämnar det vidare till appen och en WebSocket skjuter in det i din öppna flik – oftast inom en sekund eller två efter att avsändaren tryckt på skicka."
+      },
+      "limits": {
+        "title": "Bilagor & gränser",
+        "description": "Bilagor kan visas och laddas ner så länge inkorgen är aktiv. Varje inkorg behåller sina 100 senaste meddelanden, och adresserna kan bara ta emot – ingenting kan någonsin skickas från dem."
+      },
+      "logging": {
+        "title": "Vad vi loggar",
+        "description": "Dagliga totalsummor (skapade inkorgar, mottagen e-post) samt vanliga webbserverloggar som sparas i 14 dagar. Inga analysspårare, inga besökarprofiler, och personuppgifter säljs aldrig."
+      },
+      "abuse": {
+        "title": "Skydd mot missbruk",
+        "description": "Hastighetsgränser per IP, reserverade tjänsteprefix och kontoavstängningar håller missbruket i schack – och kontoregistreringar med engångsadresser nekas, så att registrerade användare förblir nåbara."
+      },
+      "more": "Vill du gå djupare? Bloggen beskriver raderingsmekaniken, adressernas entropi och missbrukshanteringen i detalj.",
+      "moreLink": "Läs de tekniska inläggen"
     }
   },
   "inbox": {
@@ -279,149 +333,11 @@
     "terms": "Användarvillkor",
     "contact": "Kontakt",
     "about": "Om Oss",
-    "copyright": "© {year} TempMail. Alla rättigheter förbehållna.",
-    "description": "Den snabbaste och s?kraste tillf?lliga e-posttj?nsten. Skydda din integritet med eng?ngsadresser som raderas automatiskt. Ingen registrering kr?vs.",
+    "copyright": "© {year} TempMail Central. Alla rättigheter förbehållna.",
+    "description": "Engångsinkorgar som raderar sig själva, permanenta brevlådor när du behöver dem. Gratis, annonsfinansierat och ärligt om vad vi loggar.",
     "privateSecure": "Privat och s?ker",
     "instantDelivery": "Direkt leverans",
     "languages": "20+ spr?k"
-  },
-  "privacy": {
-    "meta": {
-      "title": "Privacy Policy - TempMailCentral",
-      "description": "Learn how TempMailCentral protects your privacy. We don't store personal data, all emails auto-delete, and your privacy is our priority."
-    },
-    "badge": "Your Privacy Matters",
-    "title": "Privacy Policy",
-    "subtitle": "How we protect your privacy and handle your data",
-    "lastUpdated": "Last updated: January 24, 2026",
-    "introduction": "At TempMailCentral, privacy is our top priority. This Privacy Policy explains how we collect, use, and protect your information when you use our temporary email service. By using our service, you agree to the practices described in this policy.",
-    "sections": {
-      "dataCollection": {
-        "title": "Information We Collect",
-        "content": "We collect minimal information to provide our service:\n\n• Technical Data: IP addresses, browser type, and device information for security and service improvement\n• Usage Data: How you interact with our service to improve functionality\n• Email Content: Temporarily stored emails that auto-delete after expiration\n• Cookies: Essential cookies for service functionality\n\nWe do NOT collect:\n• Personal identification information\n• Payment information (our service is free)\n• Your real email address\n• Any data we don't absolutely need"
-      },
-      "dataUsage": {
-        "title": "How We Use Your Data",
-        "content": "We use collected information for:\n\n• Providing and maintaining our temporary email service\n• Improving user experience and service functionality\n• Detecting and preventing abuse, spam, and security threats\n• Analyzing usage patterns to optimize performance\n• Complying with legal obligations\n\nWe do NOT:\n• Sell your data to third parties\n• Use your data for advertising\n• Share your information without your consent\n• Store data longer than necessary"
-      },
-      "dataSharing": {
-        "title": "Data Sharing and Disclosure",
-        "content": "We do not sell, trade, or rent your personal information. We may share data only in these limited cases:\n\n• Legal Requirements: When required by law or to protect our rights\n• Service Providers: Trusted partners who help operate our service (under strict confidentiality)\n• Security: To prevent fraud, abuse, or security threats\n\nAll third-party service providers are bound by confidentiality agreements and are prohibited from using your information for any purpose other than providing services to us."
-      },
-      "cookies": {
-        "title": "Cookies and Tracking",
-        "content": "We use cookies and similar technologies:\n\n• Essential Cookies: Required for service functionality (cannot be disabled)\n• Analytics Cookies: Help us understand how you use our service\n• Preference Cookies: Remember your settings and preferences\n\nYou can control cookies through your browser settings. However, disabling essential cookies may limit service functionality.\n\nWe do NOT use:\n• Advertising cookies\n• Third-party tracking cookies\n• Social media tracking pixels"
-      },
-      "dataSecurity": {
-        "title": "Data Security",
-        "content": "We implement industry-standard security measures:\n\n• Encryption: All data transmitted is encrypted using HTTPS/TLS\n• Secure Infrastructure: Our servers use advanced security protocols\n• Access Control: Limited access to data by authorized personnel only\n• Regular Audits: Continuous monitoring and security assessments\n• Auto-Deletion: Emails automatically delete after expiration\n\nWhile we strive to protect your data, no internet transmission is 100% secure. Use our service at your own risk for non-sensitive communications."
-      },
-      "emailRetention": {
-        "title": "Email Retention and Deletion",
-        "content": "Email retention policy:\n\n• Temporary Emails: Auto-delete after 10 minutes by default\n• Extended Emails: Delete based on your chosen extension period\n• Permanent Mailboxes: Retain until you delete (for registered users)\n• Deleted Content: Permanently removed from our systems\n\nOnce deleted, emails cannot be recovered. We do not maintain backups of temporary email content."
-      }
-    },
-    "contact": {
-      "title": "Contact Us",
-      "content": "If you have questions about this Privacy Policy or our data practices, please contact us at: privacy@tempmailcentral.com"
-    }
-  },
-  "terms": {
-    "meta": {
-      "title": "Terms of Service - TempMailCentral",
-      "description": "Read our Terms of Service to understand the rules and guidelines for using TempMailCentral's temporary email service."
-    },
-    "badge": "Legal Terms",
-    "title": "Terms of Service",
-    "subtitle": "Please read these terms carefully before using our service",
-    "lastUpdated": "Last updated: January 24, 2026",
-    "introduction": "Welcome to TempMailCentral. These Terms of Service ('Terms') govern your use of our temporary email service. By accessing or using TempMailCentral, you agree to be bound by these Terms. If you disagree with any part, please do not use our service.",
-    "sections": {
-      "acceptance": {
-        "title": "Acceptance of Terms",
-        "content": "By using TempMailCentral, you confirm that:\n\n• You are at least 13 years old\n• You have the legal capacity to enter into these Terms\n• You will comply with all applicable laws and regulations\n• You understand this is a temporary email service with limitations\n\nWe reserve the right to modify these Terms at any time. Continued use after changes constitutes acceptance of the modified Terms."
-      },
-      "serviceDescription": {
-        "title": "Service Description",
-        "content": "TempMailCentral provides:\n\n• Free temporary email addresses that auto-delete\n• Email receiving capabilities (no sending)\n• Basic email viewing and attachment downloads\n• Optional account features for extended use\n\nOur service is provided 'as-is' without guarantees:\n\n• We do not guarantee 100% uptime or availability\n• Emails may be lost due to technical issues\n• Some websites may block our domains\n• Service features may change without notice"
-      },
-      "userResponsibilities": {
-        "title": "User Responsibilities",
-        "content": "You agree to:\n\n• Use the service only for lawful purposes\n• Not use temporary emails for critical accounts (banking, healthcare, etc.)\n• Not rely on our service for important communications\n• Accept that emails are temporary and will be deleted\n• Not attempt to abuse, hack, or disrupt our service\n• Not use the service to harass, spam, or harm others\n\nYou understand that:\n\n• Temporary emails are not private - anyone with the address can view emails\n• You should not use temp mail for sensitive information\n• We may terminate access to users who violate these terms"
-      },
-      "prohibitedUses": {
-        "title": "Prohibited Uses",
-        "content": "You may NOT use TempMailCentral for:\n\n• Illegal activities or fraud\n• Creating accounts for harassment or abuse\n• Bypassing bans or restrictions on other services\n• Receiving sensitive personal or financial information\n• Automated scraping or data harvesting\n• Distributing malware or phishing\n• Any activity that violates laws or regulations\n• Impersonating others or misrepresenting identity\n\nViolation may result in:\n\n• Immediate termination of service access\n• Reporting to appropriate authorities\n• Legal action if necessary"
-      },
-      "disclaimer": {
-        "title": "Disclaimer of Warranties",
-        "content": "TempMailCentral is provided 'AS IS' and 'AS AVAILABLE' without warranties of any kind, either express or implied, including but not limited to:\n\n• Merchantability or fitness for a particular purpose\n• Non-infringement or security\n• Accuracy, reliability, or completeness\n• Uninterrupted or error-free service\n\nWe do not warrant that:\n\n• The service will meet your requirements\n• Emails will be delivered or received correctly\n• The service will be available at all times\n• Defects will be corrected\n• The service is free from viruses or harmful components"
-      },
-      "liability": {
-        "title": "Limitation of Liability",
-        "content": "To the maximum extent permitted by law:\n\n• We are not liable for any indirect, incidental, special, or consequential damages\n• Our total liability shall not exceed $100 USD\n• We are not responsible for data loss, including lost emails\n• We are not liable for third-party actions or content\n• You use the service at your own risk\n\nThis includes but is not limited to:\n\n• Lost business or profits\n• Data corruption or loss\n• Service interruptions\n• Security breaches\n• Third-party claims"
-      }
-    },
-    "contact": {
-      "title": "Contact Information",
-      "content": "For questions about these Terms of Service, please contact us at: legal@tempmailcentral.com"
-    }
-  },
-  "about": {
-    "meta": {
-      "title": "About Us - TempMailCentral",
-      "description": "Learn about TempMailCentral, the trusted temporary email service protecting privacy for over 500,000 users worldwide."
-    },
-    "badge": "About Us",
-    "title": "About TempMailCentral",
-    "subtitle": "Protecting your privacy with secure, disposable email addresses since day one",
-    "mission": {
-      "badge": "Our Mission",
-      "title": "Our Mission",
-      "content": "Our mission is simple: protect your privacy online. In a world where your email address is constantly requested, we believe you should have the freedom to maintain your privacy without sacrificing access to online services. TempMailCentral provides a fast, free, and secure way to use the internet without compromising your personal information.",
-      "highlight": {
-        "title": "Privacy First, Always",
-        "description": "We built TempMailCentral on the principle that privacy is a fundamental right, not a luxury. Every feature we add is designed with your privacy in mind."
-      }
-    },
-    "values": {
-      "title": "Our Values",
-      "subtitle": "The principles that guide everything we do",
-      "privacy": {
-        "title": "Privacy First",
-        "description": "Your privacy is non-negotiable. We don't sell data, track unnecessarily, or store information longer than needed."
-      },
-      "simplicity": {
-        "title": "Simple & Fast",
-        "description": "No registration, no complications. Just instant, working email addresses when you need them."
-      },
-      "accessibility": {
-        "title": "Free & Accessible",
-        "description": "Privacy protection should be available to everyone, everywhere. Our service is free and available in 20+ languages."
-      },
-      "transparency": {
-        "title": "Transparent",
-        "description": "We're honest about what we do, how we do it, and what limitations exist. No hidden terms or surprises."
-      }
-    },
-    "story": {
-      "badge": "Our Story",
-      "title": "How TempMailCentral Started",
-      "paragraph1": "TempMailCentral was born from a simple frustration: giving out email addresses to websites that didn't need them. Every signup meant more spam, more tracking, and less privacy. We knew there had to be a better way.",
-      "paragraph2": "We started by building a service for ourselves—a simple, fast way to get temporary email addresses without registration. As word spread, we realized others shared our concerns about online privacy. Today, we serve over 500,000 users worldwide who trust us to protect their privacy.",
-      "paragraph3": "We've grown from a simple tool to a comprehensive privacy service, but our core mission remains the same: give people control over their digital privacy. We continue to improve our service, add new features, and expand to new languages—all while keeping privacy at the forefront of everything we do."
-    },
-    "stats": {
-      "emails": "Emails Received",
-      "users": "Active Users",
-      "languages": "Languages",
-      "uptime": "Uptime"
-    },
-    "cta": {
-      "title": "Join Our Privacy-First Community",
-      "description": "Experience the freedom of browsing without compromising your privacy",
-      "button": "Get Started Free"
-    }
   },
   "dashboard": {
     "welcome": "Välkommen tillbaka",

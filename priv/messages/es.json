@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "TempMail",
+    "appName": "TempMail Central",
     "tagline": "Correo Temporal Gratuito",
     "loading": "Cargando...",
     "error": "Error",
@@ -29,9 +29,9 @@
     "system": "Sistema"
   },
   "home": {
-    "title": "Correo Temporal Gratuito",
+    "title": "Correo Temporal Gratuito - Bandeja Desechable en Segundos",
     "subtitle": "Protege tu privacidad con direcciones de correo desechables",
-    "description": "Obtén una dirección de correo temporal al instante. Sin registro. Los correos se eliminan automáticamente después de 10 minutos.",
+    "description": "Genera una dirección de correo temporal gratuita que se elimina sola a los 10 minutos, o consérvala hasta 30 días con una cuenta gratuita. Bandeja de entrada en tiempo real, sin registro.",
     "generateButton": "Generar Nuevo Correo",
     "yourEmail": "Tu Correo Temporal",
     "copyEmail": "Copiar Dirección de Correo",
@@ -40,13 +40,6 @@
     "timeRemaining": "Tiempo Restante",
     "noEmails": "Sin correos aún",
     "waitingForEmails": "Esperando correos entrantes...",
-    "heroBadge": "Confiado por más de 500,000 usuarios en todo el mundo",
-    "stats": {
-      "emailsReceived": "Correos Recibidos",
-      "happyUsers": "Usuarios Satisfechos",
-      "uptime": "Tiempo Activo",
-      "languages": "Idiomas"
-    },
     "features": {
       "title": "¿Por qué usar TempMail?",
       "subtitle": "Todo lo que necesitas para comunicaciones de correo electrónico seguras y desechables",
@@ -63,8 +56,8 @@
         "description": "Sin registro necesario. Obtén una dirección de correo funcional en segundos, completamente gratis."
       },
       "secure": {
-        "title": "Seguro y Anónimo",
-        "description": "Tus correos se eliminan automáticamente. Ningún dato se almacena permanentemente."
+        "title": "Privado por Defecto",
+        "description": "Sin nombre, sin número de teléfono, sin cuenta. Las bandejas temporales viven en memoria y se borran solas al expirar."
       }
     },
     "howItWorks": {
@@ -79,8 +72,8 @@
         "description": "Cópialo y úsalo para registros, verificaciones o cualquier servicio"
       },
       "step3": {
-        "title": "Eliminación Automática",
-        "description": "Todo se elimina automáticamente después de 10 minutos"
+        "title": "Caduca por Sí Solo",
+        "description": "Todo se elimina cuando el temporizador llega a cero: a los 10 minutos por defecto, o más tarde si lo extiendes"
       }
     },
     "useCases": {
@@ -94,18 +87,11 @@
       "case5": "Compras en línea",
       "case6": "Registros en redes sociales"
     },
-    "reviews": {
-      "title": "Amado por desarrolladores y usuarios",
-      "subtitle": "Únete a miles de usuarios satisfechos",
-      "review1": "¡El mejor servicio de correo temporal que he usado! Interfaz limpia y súper rápida.",
-      "review2": "Finalmente, un correo desechable que realmente funciona. Sin anuncios, sin complicaciones.",
-      "review3": "¡La función de actualización automática es increíble. Los correos aparecen instantáneamente!"
-    },
     "faq": {
       "badge": "Preguntas Frecuentes",
       "title": "Todo Sobre",
       "titleHighlight": "Correo Temporal",
-      "subtitle": "Aprende cómo funciona el correo electrónico temporal desechable y por qué millones confían en TempMailCentral para sus necesidades de privacidad.",
+      "subtitle": "Así funciona aquí el correo desechable, y esto es exactamente lo que pasa con tus datos.",
       "question1": "¿Qué es un correo temporal o temp mail?",
       "answer1": "Un correo temporal (también llamado temp mail, correo desechable o correo de usar y tirar) es una dirección de correo autodestructiva que puedes usar por un corto período. Ayuda a proteger tu correo real del spam, phishing y correos de marketing no deseados al registrarte en sitios web o servicios.",
       "question2": "¿Cómo funciona el correo desechable?",
@@ -113,27 +99,31 @@
       "question3": "¿Es seguro usar temp mail?",
       "answer3": "Sí, el temp mail es seguro de usar para propósitos no sensibles como registrarse en sitios web, descargar recursos o probar aplicaciones. Sin embargo, nunca debes usar correo temporal para cuentas importantes como banca, ya que los correos se eliminarán y podrías perder el acceso.",
       "question4": "¿Cuánto dura un correo temporal?",
-      "answer4": "Por defecto, las direcciones de correo temporal en TempMailCentral duran 10 minutos. Sin embargo, los usuarios registrados pueden extender el tiempo hasta 30 días o incluso guardar la dirección como un buzón permanente.",
+      "answer4": "Por defecto, una bandeja dura 10 minutos. Cualquiera puede extenderla a 1 hora o 24 horas; con una cuenta gratuita puedes extenderla hasta 30 días o guardar la dirección como buzón permanente, que se conserva hasta que lo elimines.",
       "question5": "¿Pueden los sitios web detectar temp mail?",
-      "answer5": "Algunos sitios web mantienen listas de bloqueo de dominios de correo temporal conocidos. Aunque TempMailCentral usa múltiples dominios para minimizar esto, algunos sitios web estrictos aún pueden detectar y bloquear direcciones de correo temporal.",
+      "answer5": "Algunos sitios web mantienen listas de bloqueo de dominios de correo temporal conocidos. Aunque TempMail Central usa múltiples dominios para minimizar esto, algunos sitios web estrictos aún pueden detectar y bloquear direcciones de correo temporal.",
       "question6": "¿Necesito registrarme para usar temp mail?",
-      "answer6": "No se requiere registro para usar TempMailCentral. Simplemente visita el sitio web y recibirás automáticamente una dirección de correo temporal que puedes usar inmediatamente.",
+      "answer6": "No se requiere registro para usar TempMail Central. Simplemente visita el sitio web y recibirás automáticamente una dirección de correo temporal que puedes usar inmediatamente.",
       "question7": "¿Puedo recibir archivos adjuntos con temp mail?",
-      "answer7": "Sí, TempMailCentral admite recibir archivos adjuntos de correo. Puedes ver y descargar archivos adjuntos de correos enviados a tu dirección temporal.",
+      "answer7": "Sí. Los adjuntos se pueden ver y descargar mientras la bandeja está activa. Cada bandeja conserva sus 100 mensajes más recientes.",
       "question8": "¿Para qué se usa temp mail?",
-      "answer8": "Temp mail se usa comúnmente para: registrarse en pruebas gratuitas, evitar spam de boletines, probar funcionalidad de correo en aplicaciones, proteger tu correo real de filtraciones de datos, compras en línea en sitios no confiables y acceder a descargas o recursos de una sola vez."
+      "answer8": "Temp mail se usa comúnmente para: registrarse en pruebas gratuitas, evitar spam de boletines, probar funcionalidad de correo en aplicaciones, proteger tu correo real de filtraciones de datos, compras en línea en sitios no confiables y acceder a descargas o recursos de una sola vez.",
+      "question9": "¿Quién puede leer una bandeja temporal?",
+      "answer9": "Mientras está activa, cualquiera que conozca la dirección exacta puede abrirla: no hay contraseña. La protección viene de que la dirección es una entre 3,6 mil billones de combinaciones y de su corta duración. Nunca envíes información sensible a una dirección temporal; los buzones permanentes son privados y solo accesibles desde tu cuenta.",
+      "question10": "¿Qué datos conserva TempMail Central?",
+      "answer10": "El correo temporal vive en memoria y se borra al expirar. Aparte de eso: contadores agregados diarios, registros del servidor web durante 14 días y los datos de tu cuenta si te registras. Sin perfiles de visitantes, sin rastreadores de analítica y sin venta de datos; los detalles están en nuestra Política de Privacidad."
     },
     "whyChoose": {
       "title": "Por Qué Elegir",
-      "titleHighlight": "TempMailCentral",
-      "subtitle": "El servicio de correo temporal gratuito más confiable, de confianza para más de 500,000 usuarios en todo el mundo.",
+      "titleHighlight": "TempMail Central",
+      "subtitle": "Un servicio gratuito, financiado con publicidad, que es honesto sobre cómo funciona y qué conserva.",
       "instantFree": {
         "title": "Instantáneo y Gratis",
         "description": "Sin registro, sin tarjeta de crédito, sin compromisos. Obtén tu correo desechable en segundos, completamente gratis para siempre."
       },
       "privacyFirst": {
         "title": "Privacidad Primero",
-        "description": "No rastreamos, almacenamos ni vendemos tus datos. Todos los correos se eliminan automáticamente después de la expiración. Tu privacidad es nuestra prioridad."
+        "description": "Las bandejas temporales viven en memoria y se borran solas al expirar. No guardamos perfiles de visitantes, no usamos rastreadores de analítica y nunca vendemos datos personales; lo que sí registramos está detallado en nuestra Política de Privacidad."
       },
       "multiLanguage": {
         "title": "Más de 20 Idiomas",
@@ -144,7 +134,7 @@
       "title": "Acerca de Correo Temporal - Correo Electrónico Temporal Desechable",
       "whatIsTitle": "¿Qué es el Correo Temporal?",
       "whatIsContent": "El correo temporal, también conocido como temp mail, correo desechable, correo de usar y tirar o correo de 10 minutos, es un servicio que te proporciona una dirección de correo de corta duración. A diferencia de tu correo personal, una dirección de temp mail está diseñada para usarse una vez y luego descartarse, manteniendo tu bandeja de entrada real limpia y libre de spam.",
-      "whatIsContent2": "TempMailCentral genera direcciones de correo aleatorias que puedes usar para registros en sitios web, suscripciones a boletines, compras en línea o cualquier situación donde necesites un correo pero no quieras compartir tu dirección real.",
+      "whatIsContent2": "TempMail Central genera direcciones de correo aleatorias que puedes usar para registros en sitios web, suscripciones a boletines, compras en línea o cualquier situación donde necesites un correo pero no quieras compartir tu dirección real.",
       "benefitsTitle": "Beneficios del Correo Desechable",
       "benefit1": "Protección contra Spam:",
       "benefit1Desc": "Mantén tu bandeja de entrada real limpia usando temp mail para registros",
@@ -167,11 +157,75 @@
     },
     "quickStats": {
       "private": "Privado",
-      "endToEnd": "De extremo a extremo",
+      "endToEnd": "Se borra al expirar",
       "instant": "Instantáneo",
       "realTime": "En tiempo real",
       "autoDelete": "Eliminación automática",
-      "tenMinutes": "10 minutos"
+      "tenMinutes": "10 min por defecto"
+    },
+    "heroBadge": "No necesitas cuenta: tu bandeja está lista en cuanto se carga la página",
+    "specs": {
+      "inboxesCreated": "Bandejas creadas hasta ahora",
+      "emailsDelivered": "Correos entregados hasta ahora",
+      "defaultLifetime": "Duración predeterminada de la bandeja",
+      "maxLifetime": "Duración máxima con cuenta gratuita",
+      "days": "días",
+      "note": "Contadores en vivo basados en nuestros propios totales diarios; nada de cifras infladas de marketing."
+    },
+    "preparing": {
+      "title": "Tu bandeja de entrada temporal",
+      "description": "En cuanto se carga esta página se crea para ti una dirección aleatoria, sin formularios ni registro. El correo que le envíen aparece abajo en tiempo real, y la bandeja entera se borra sola cuando su temporizador llega a cero: a los 10 minutos por defecto, o hasta 30 días si la extiendes con una cuenta gratuita."
+    },
+    "compare": {
+      "title": "Bandeja temporal vs. buzón permanente",
+      "subtitle": "Ambos son gratis: elige según la situación",
+      "temp": "Temporal",
+      "permanent": "Permanente",
+      "lifetime": "Duración",
+      "lifetimeTemp": "10 min por defecto, hasta 30 días",
+      "lifetimePerm": "Hasta que lo elimines",
+      "access": "Quién puede acceder",
+      "accessTemp": "Cualquiera que conozca la dirección",
+      "accessPerm": "Solo tu cuenta",
+      "storage": "Dónde se guarda",
+      "storageTemp": "Solo en memoria; desaparece al expirar",
+      "storagePerm": "Base de datos, hasta su eliminación",
+      "account": "Cuenta necesaria",
+      "accountTemp": "No",
+      "accountPerm": "Sí, gratuita",
+      "bestFor": "Ideal para",
+      "bestForTemp": "Registros puntuales y descargas",
+      "bestForPerm": "Boletines y remitentes habituales"
+    },
+    "tech": {
+      "title": "Cómo Funciona Realmente TempMail Central",
+      "subtitle": "Nada de cajas negras: esto es exactamente lo que ocurre con una dirección y su correo, desde que se crea hasta que se elimina.",
+      "generation": {
+        "title": "Generación de direcciones",
+        "description": "Diez caracteres entre letras minúsculas y dígitos, generados por una fuente aleatoria criptográficamente segura: alrededor de 3,6 mil billones de direcciones posibles. Los prefijos operativos como admin@ o support@ nunca se emiten."
+      },
+      "storage": {
+        "title": "Almacenamiento y eliminación",
+        "description": "Las bandejas temporales viven en Redis, un almacén en memoria, con una cuenta atrás asociada. Cuando llega a cero, la dirección y todos los mensajes se eliminan: sin archivos históricos, sin copias de seguridad, sin recuperación."
+      },
+      "delivery": {
+        "title": "Entrega en tiempo real",
+        "description": "Nuestro servidor de correo Postfix acepta el mensaje, un analizador se lo entrega a la aplicación y un WebSocket lo envía a tu pestaña abierta, normalmente uno o dos segundos después de que el remitente pulse enviar."
+      },
+      "limits": {
+        "title": "Adjuntos y límites",
+        "description": "Los adjuntos se pueden ver y descargar mientras la bandeja está activa. Cada bandeja conserva sus 100 mensajes más recientes, y las direcciones son solo de recepción: desde ellas nunca se puede enviar nada."
+      },
+      "logging": {
+        "title": "Qué registramos",
+        "description": "Totales diarios (bandejas creadas, correos recibidos) y registros estándar del servidor web que se conservan 14 días. Sin rastreadores de analítica, sin perfiles de visitantes, y los datos personales nunca se venden."
+      },
+      "abuse": {
+        "title": "Prevención de abusos",
+        "description": "Los límites de peticiones por IP, los prefijos de servicio reservados y los bloqueos de cuenta mantienen el abuso a raya; además, se rechazan los registros de cuenta con direcciones desechables, para que los usuarios registrados sigan siendo localizables."
+      },
+      "more": "¿Quieres más detalle? El blog explica a fondo la mecánica de borrado, la entropía de las direcciones y la gestión de abusos.",
+      "moreLink": "Lee los artículos técnicos"
     }
   },
   "inbox": {
@@ -279,149 +333,11 @@
     "terms": "Términos de Servicio",
     "contact": "Contacto",
     "about": "Acerca de",
-    "copyright": "© {year} TempMail. Todos los derechos reservados.",
-    "description": "El servicio de correo temporal más rápido y seguro. Protege tu privacidad con direcciones de correo desechables que se eliminan automáticamente. No requiere registro.",
+    "copyright": "© {year} TempMail Central. Todos los derechos reservados.",
+    "description": "Bandejas desechables que se borran solas y buzones permanentes cuando los necesitas. Gratuito, financiado con publicidad y honesto sobre lo que registramos.",
     "privateSecure": "Privado y seguro",
     "instantDelivery": "Entrega instantánea",
     "languages": "Más de 20 idiomas"
-  },
-  "privacy": {
-    "meta": {
-      "title": "Política de Privacidad - TempMailCentral",
-      "description": "Conoce cómo TempMailCentral protege tu privacidad. No almacenamos datos personales, todos los correos se eliminan automáticamente y tu privacidad es nuestra prioridad."
-    },
-    "badge": "Tu Privacidad Importa",
-    "title": "Política de Privacidad",
-    "subtitle": "Cómo protegemos tu privacidad y manejamos tus datos",
-    "lastUpdated": "Última actualización: 24 de enero de 2026",
-    "introduction": "En TempMailCentral, la privacidad es nuestra máxima prioridad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestro servicio de correo temporal. Al usar nuestro servicio, aceptas las prácticas descritas en esta política.",
-    "sections": {
-      "dataCollection": {
-        "title": "Información que Recopilamos",
-        "content": "Recopilamos información mínima para proporcionar nuestro servicio:\n\n• Datos Técnicos: Direcciones IP, tipo de navegador e información del dispositivo para seguridad y mejora del servicio\n• Datos de Uso: Cómo interactúas con nuestro servicio para mejorar la funcionalidad\n• Contenido de Correos: Correos almacenados temporalmente que se eliminan automáticamente después de expirar\n• Cookies: Cookies esenciales para la funcionalidad del servicio\n\nNO recopilamos:\n• Información de identificación personal\n• Información de pago (nuestro servicio es gratuito)\n• Tu dirección de correo real\n• Ningún dato que no necesitemos absolutamente"
-      },
-      "dataUsage": {
-        "title": "Cómo Usamos Tus Datos",
-        "content": "Usamos la información recopilada para:\n\n• Proporcionar y mantener nuestro servicio de correo temporal\n• Mejorar la experiencia del usuario y la funcionalidad del servicio\n• Detectar y prevenir abuso, spam y amenazas de seguridad\n• Analizar patrones de uso para optimizar el rendimiento\n• Cumplir con obligaciones legales\n\nNO:\n• Vendemos tus datos a terceros\n• Usamos tus datos para publicidad\n• Compartimos tu información sin tu consentimiento\n• Almacenamos datos más tiempo del necesario"
-      },
-      "dataSharing": {
-        "title": "Compartir y Divulgar Datos",
-        "content": "No vendemos, comercializamos ni alquilamos tu información personal. Solo podemos compartir datos en estos casos limitados:\n\n• Requisitos Legales: Cuando lo requiera la ley o para proteger nuestros derechos\n• Proveedores de Servicios: Socios de confianza que ayudan a operar nuestro servicio (bajo estricta confidencialidad)\n• Seguridad: Para prevenir fraude, abuso o amenazas de seguridad\n\nTodos los proveedores de servicios están sujetos a acuerdos de confidencialidad y tienen prohibido usar tu información para cualquier propósito que no sea prestarnos servicios."
-      },
-      "cookies": {
-        "title": "Cookies y Rastreo",
-        "content": "Usamos cookies y tecnologías similares:\n\n• Cookies Esenciales: Requeridas para la funcionalidad del servicio (no se pueden desactivar)\n• Cookies de Análisis: Nos ayudan a entender cómo usas nuestro servicio\n• Cookies de Preferencias: Recuerdan tu configuración y preferencias\n\nPuedes controlar las cookies a través de la configuración de tu navegador. Sin embargo, desactivar las cookies esenciales puede limitar la funcionalidad del servicio.\n\nNO usamos:\n• Cookies publicitarias\n• Cookies de rastreo de terceros\n• Píxeles de rastreo de redes sociales"
-      },
-      "dataSecurity": {
-        "title": "Seguridad de Datos",
-        "content": "Implementamos medidas de seguridad estándar de la industria:\n\n• Encriptación: Todos los datos transmitidos están encriptados usando HTTPS/TLS\n• Infraestructura Segura: Nuestros servidores usan protocolos de seguridad avanzados\n• Control de Acceso: Acceso limitado a datos solo por personal autorizado\n• Auditorías Regulares: Monitoreo continuo y evaluaciones de seguridad\n• Eliminación Automática: Los correos se eliminan automáticamente después de expirar\n\nAunque nos esforzamos por proteger tus datos, ninguna transmisión por internet es 100% segura. Usa nuestro servicio bajo tu propio riesgo para comunicaciones no sensibles."
-      },
-      "emailRetention": {
-        "title": "Retención y Eliminación de Correos",
-        "content": "Política de retención de correos:\n\n• Correos Temporales: Se eliminan automáticamente después de 10 minutos por defecto\n• Correos Extendidos: Se eliminan según el período de extensión elegido\n• Buzones Permanentes: Se retienen hasta que los elimines (para usuarios registrados)\n• Contenido Eliminado: Removido permanentemente de nuestros sistemas\n\nUna vez eliminados, los correos no pueden recuperarse. No mantenemos copias de seguridad del contenido de correos temporales."
-      }
-    },
-    "contact": {
-      "title": "Contáctanos",
-      "content": "Si tienes preguntas sobre esta Política de Privacidad o nuestras prácticas de datos, contáctanos en: privacy@tempmailcentral.com"
-    }
-  },
-  "terms": {
-    "meta": {
-      "title": "Términos de Servicio - TempMailCentral",
-      "description": "Lee nuestros Términos de Servicio para entender las reglas y directrices para usar el servicio de correo temporal de TempMailCentral."
-    },
-    "badge": "Términos Legales",
-    "title": "Términos de Servicio",
-    "subtitle": "Por favor lee estos términos cuidadosamente antes de usar nuestro servicio",
-    "lastUpdated": "Última actualización: 24 de enero de 2026",
-    "introduction": "Bienvenido a TempMailCentral. Estos Términos de Servicio ('Términos') rigen tu uso de nuestro servicio de correo temporal. Al acceder o usar TempMailCentral, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte, por favor no uses nuestro servicio.",
-    "sections": {
-      "acceptance": {
-        "title": "Aceptación de Términos",
-        "content": "Al usar TempMailCentral, confirmas que:\n\n• Tienes al menos 13 años de edad\n• Tienes la capacidad legal para aceptar estos Términos\n• Cumplirás con todas las leyes y regulaciones aplicables\n• Entiendes que este es un servicio de correo temporal con limitaciones\n\nNos reservamos el derecho de modificar estos Términos en cualquier momento. El uso continuado después de los cambios constituye la aceptación de los Términos modificados."
-      },
-      "serviceDescription": {
-        "title": "Descripción del Servicio",
-        "content": "TempMailCentral proporciona:\n\n• Direcciones de correo temporales gratuitas que se eliminan automáticamente\n• Capacidades de recepción de correos (no envío)\n• Visualización básica de correos y descarga de adjuntos\n• Funciones de cuenta opcionales para uso extendido\n\nNuestro servicio se proporciona 'tal cual' sin garantías:\n\n• No garantizamos tiempo de actividad o disponibilidad del 100%\n• Los correos pueden perderse debido a problemas técnicos\n• Algunos sitios web pueden bloquear nuestros dominios\n• Las funciones del servicio pueden cambiar sin previo aviso"
-      },
-      "userResponsibilities": {
-        "title": "Responsabilidades del Usuario",
-        "content": "Aceptas:\n\n• Usar el servicio solo para propósitos legales\n• No usar correos temporales para cuentas críticas (banca, salud, etc.)\n• No confiar en nuestro servicio para comunicaciones importantes\n• Aceptar que los correos son temporales y serán eliminados\n• No intentar abusar, hackear o interrumpir nuestro servicio\n• No usar el servicio para acosar, enviar spam o dañar a otros\n\nEntiendes que:\n\n• Los correos temporales no son privados - cualquiera con la dirección puede ver los correos\n• No debes usar correos temporales para información sensible\n• Podemos terminar el acceso a usuarios que violen estos términos"
-      },
-      "prohibitedUses": {
-        "title": "Usos Prohibidos",
-        "content": "NO puedes usar TempMailCentral para:\n\n• Actividades ilegales o fraude\n• Crear cuentas para acoso o abuso\n• Evadir prohibiciones o restricciones en otros servicios\n• Recibir información personal o financiera sensible\n• Scraping automatizado o recopilación de datos\n• Distribuir malware o phishing\n• Cualquier actividad que viole leyes o regulaciones\n• Suplantar a otros o tergiversar identidad\n\nLa violación puede resultar en:\n\n• Terminación inmediata del acceso al servicio\n• Reporte a las autoridades apropiadas\n• Acción legal si es necesario"
-      },
-      "disclaimer": {
-        "title": "Descargo de Garantías",
-        "content": "TempMailCentral se proporciona 'TAL CUAL' y 'SEGÚN DISPONIBILIDAD' sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo pero no limitado a:\n\n• Comerciabilidad o idoneidad para un propósito particular\n• No infracción o seguridad\n• Exactitud, fiabilidad o integridad\n• Servicio ininterrumpido o sin errores\n\nNo garantizamos que:\n\n• El servicio cumplirá tus requisitos\n• Los correos se entregarán o recibirán correctamente\n• El servicio estará disponible en todo momento\n• Los defectos serán corregidos\n• El servicio esté libre de virus o componentes dañinos"
-      },
-      "liability": {
-        "title": "Limitación de Responsabilidad",
-        "content": "En la máxima medida permitida por la ley:\n\n• No somos responsables de ningún daño indirecto, incidental, especial o consecuente\n• Nuestra responsabilidad total no excederá $100 USD\n• No somos responsables de la pérdida de datos, incluidos correos perdidos\n• No somos responsables de acciones o contenido de terceros\n• Usas el servicio bajo tu propio riesgo\n\nEsto incluye pero no se limita a:\n\n• Pérdida de negocios o ganancias\n• Corrupción o pérdida de datos\n• Interrupciones del servicio\n• Brechas de seguridad\n• Reclamaciones de terceros"
-      }
-    },
-    "contact": {
-      "title": "Información de Contacto",
-      "content": "Para preguntas sobre estos Términos de Servicio, contáctanos en: legal@tempmailcentral.com"
-    }
-  },
-  "about": {
-    "meta": {
-      "title": "Acerca de Nosotros - TempMailCentral",
-      "description": "Conoce TempMailCentral, el servicio de correo temporal de confianza que protege la privacidad de más de 500,000 usuarios en todo el mundo."
-    },
-    "badge": "Acerca de Nosotros",
-    "title": "Acerca de TempMailCentral",
-    "subtitle": "Protegiendo tu privacidad con direcciones de correo desechables seguras desde el primer día",
-    "mission": {
-      "badge": "Nuestra Misión",
-      "title": "Nuestra Misión",
-      "content": "Nuestra misión es simple: proteger tu privacidad en línea. En un mundo donde tu dirección de correo se solicita constantemente, creemos que debes tener la libertad de mantener tu privacidad sin sacrificar el acceso a servicios en línea. TempMailCentral proporciona una forma rápida, gratuita y segura de usar internet sin comprometer tu información personal.",
-      "highlight": {
-        "title": "Privacidad Primero, Siempre",
-        "description": "Construimos TempMailCentral sobre el principio de que la privacidad es un derecho fundamental, no un lujo. Cada función que agregamos está diseñada pensando en tu privacidad."
-      }
-    },
-    "values": {
-      "title": "Nuestros Valores",
-      "subtitle": "Los principios que guían todo lo que hacemos",
-      "privacy": {
-        "title": "Privacidad Primero",
-        "description": "Tu privacidad es innegociable. No vendemos datos, no rastreamos innecesariamente, ni almacenamos información más tiempo del necesario."
-      },
-      "simplicity": {
-        "title": "Simple y Rápido",
-        "description": "Sin registro, sin complicaciones. Solo direcciones de correo instantáneas cuando las necesitas."
-      },
-      "accessibility": {
-        "title": "Gratuito y Accesible",
-        "description": "La protección de la privacidad debe estar disponible para todos, en todas partes. Nuestro servicio es gratuito y está disponible en más de 20 idiomas."
-      },
-      "transparency": {
-        "title": "Transparente",
-        "description": "Somos honestos sobre lo que hacemos, cómo lo hacemos y qué limitaciones existen. Sin términos ocultos ni sorpresas."
-      }
-    },
-    "story": {
-      "badge": "Nuestra Historia",
-      "title": "Cómo Comenzó TempMailCentral",
-      "paragraph1": "TempMailCentral nació de una simple frustración: dar direcciones de correo a sitios web que no las necesitaban. Cada registro significaba más spam, más rastreo y menos privacidad. Sabíamos que tenía que haber una mejor manera.",
-      "paragraph2": "Comenzamos construyendo un servicio para nosotros mismos: una forma simple y rápida de obtener direcciones de correo temporales sin registro. A medida que se corrió la voz, nos dimos cuenta de que otros compartían nuestras preocupaciones sobre la privacidad en línea. Hoy servimos a más de 500,000 usuarios en todo el mundo que confían en nosotros para proteger su privacidad.",
-      "paragraph3": "Hemos crecido de una herramienta simple a un servicio integral de privacidad, pero nuestra misión central sigue siendo la misma: dar a las personas control sobre su privacidad digital. Continuamos mejorando nuestro servicio, agregando nuevas funciones y expandiéndonos a nuevos idiomas, todo mientras mantenemos la privacidad en primer plano de todo lo que hacemos."
-    },
-    "stats": {
-      "emails": "Correos Recibidos",
-      "users": "Usuarios Activos",
-      "languages": "Idiomas",
-      "uptime": "Tiempo Activo"
-    },
-    "cta": {
-      "title": "Únete a Nuestra Comunidad que Prioriza la Privacidad",
-      "description": "Experimenta la libertad de navegar sin comprometer tu privacidad",
-      "button": "Comenzar Gratis"
-    }
   },
   "dashboard": {
     "welcome": "Bienvenido de nuevo",

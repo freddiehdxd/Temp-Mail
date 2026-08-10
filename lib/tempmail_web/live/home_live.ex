@@ -21,22 +21,62 @@ defmodule TempmailWeb.HomeLive do
       |> assign(:error, nil)
       |> assign(:tick_ref, nil)
       |> assign(:seo_page, :home)
-      |> assign(:page_title, TempmailWeb.I18n.t(locale, "home.title", "Temp Mail - Disposable Temporary Email"))
-      |> assign(:meta_description, TempmailWeb.I18n.t(locale, "home.description", "Get a free disposable temporary email instantly. No registration needed. Use our temp mail for signups, verifications & privacy protection. Auto-deletes in 10 minutes."))
-      |> assign(:meta_keywords, TempmailWeb.I18n.t(locale, "seo.keywords", "temp mail, temporary email, disposable email, throwaway email, fake email, anonymous email, temp email, free temp mail, temporary mail, burner email, 10 minute mail, email generator, spam free email, privacy email"))
-      |> assign(:og_title, TempmailWeb.I18n.t(locale, "home.title", "Temp Mail - Disposable Temporary Email"))
-      |> assign(:og_description, TempmailWeb.I18n.t(locale, "home.description", "Get a free disposable temporary email instantly. No registration needed. Protect your privacy with auto-deleting temp mail."))
-      |> assign(:og_image, "https://tempmailcentral.com/og-image.png")
-      |> assign(:og_url, if(locale == "en", do: "https://tempmailcentral.com", else: "https://tempmailcentral.com/#{locale}"))
-      |> assign(:canonical_url, if(locale == "en", do: "https://tempmailcentral.com", else: "https://tempmailcentral.com/#{locale}"))
+      |> assign(:total_stats, Mail.total_stats())
+      |> assign(
+        :page_title,
+        TempmailWeb.I18n.t(
+          locale,
+          "home.title",
+          "Free Temporary Email - Disposable Inbox in Seconds"
+        )
+      )
+      |> assign(
+        :meta_description,
+        TempmailWeb.I18n.t(
+          locale,
+          "home.description",
+          "Generate a free temporary email address that deletes itself after 10 minutes - or keep it up to 30 days with a free account. Real-time inbox, no registration."
+        )
+      )
+      |> assign(
+        :og_title,
+        TempmailWeb.I18n.t(
+          locale,
+          "home.title",
+          "Free Temporary Email - Disposable Inbox in Seconds"
+        )
+      )
+      |> assign(
+        :og_description,
+        TempmailWeb.I18n.t(
+          locale,
+          "home.description",
+          "Generate a free temporary email address that deletes itself after 10 minutes - or keep it up to 30 days with a free account."
+        )
+      )
+      |> assign(
+        :og_url,
+        if(locale == "en",
+          do: "https://tempmailcentral.com/",
+          else: "https://tempmailcentral.com/#{locale}"
+        )
+      )
+      |> assign(
+        :canonical_url,
+        if(locale == "en",
+          do: "https://tempmailcentral.com/",
+          else: "https://tempmailcentral.com/#{locale}"
+        )
+      )
+      |> assign(:og_locale, og_locale(locale))
       |> assign(:hreflang, build_hreflang(""))
-
 
     {:ok, socket}
   end
 
   @impl true
-  def handle_event("restore_or_generate", %{"address" => address}, socket) when is_binary(address) and address != "" do
+  def handle_event("restore_or_generate", %{"address" => address}, socket)
+      when is_binary(address) and address != "" do
     case Mail.get_temp_email(address) do
       {:ok, temp_email} ->
         Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(address))
@@ -223,9 +263,49 @@ defmodule TempmailWeb.HomeLive do
   @locales ~w(en es fr de pt zh ja ar ru hi ko it nl tr pl vi th id sv el)
 
   defp build_hreflang(path) do
-    Enum.map(@locales, fn
-      "en" -> {"en", "#{@base_url}#{path}"}
-      loc -> {loc, "#{@base_url}/#{loc}#{path}"}
-    end)
+    [{"x-default", "#{@base_url}#{if path == "", do: "/", else: path}"}] ++
+      Enum.map(@locales, fn
+        "en" -> {"en", "#{@base_url}#{if path == "", do: "/", else: path}"}
+        loc -> {loc, "#{@base_url}/#{loc}#{path}"}
+      end)
   end
+
+  defp og_locale(locale) do
+    Map.get(
+      %{
+        "en" => "en_US",
+        "es" => "es_ES",
+        "fr" => "fr_FR",
+        "de" => "de_DE",
+        "pt" => "pt_BR",
+        "zh" => "zh_CN",
+        "ja" => "ja_JP",
+        "ar" => "ar_SA",
+        "ru" => "ru_RU",
+        "hi" => "hi_IN",
+        "ko" => "ko_KR",
+        "it" => "it_IT",
+        "nl" => "nl_NL",
+        "tr" => "tr_TR",
+        "pl" => "pl_PL",
+        "vi" => "vi_VN",
+        "th" => "th_TH",
+        "id" => "id_ID",
+        "sv" => "sv_SE",
+        "el" => "el_GR"
+      },
+      locale,
+      "en_US"
+    )
+  end
+
+  defp format_count(n) when is_integer(n) and n >= 1000 do
+    n
+    |> div(1000)
+    |> Kernel.*(1000)
+    |> Integer.to_string()
+    |> String.replace(~r/(\d)(?=(\d{3})+$)/, "\\1,")
+  end
+
+  defp format_count(n), do: Integer.to_string(n)
 end

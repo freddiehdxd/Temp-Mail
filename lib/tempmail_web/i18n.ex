@@ -2,6 +2,13 @@ defmodule TempmailWeb.I18n do
   @supported_locales ~w(en es fr de pt zh ja ar ru hi ko it nl tr pl vi th id sv el)
   @default_locale "en"
 
+  # The messages files are baked in at compile time; declaring them as
+  # external resources makes the compiler recompile this module when they
+  # change instead of serving stale strings.
+  for locale <- @supported_locales do
+    @external_resource Path.join(:code.priv_dir(:tempmail), "messages/#{locale}.json")
+  end
+
   @messages @supported_locales
             |> Map.new(fn locale ->
               path = Path.join(:code.priv_dir(:tempmail), "messages/#{locale}.json")

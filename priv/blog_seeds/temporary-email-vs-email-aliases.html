@@ -1,0 +1,51 @@
+<p>Three tools get recommended almost interchangeably for keeping junk away from your main inbox: disposable inboxes, email aliases, and plus-addressing. They solve overlapping problems with very different mechanics, and picking the wrong one is how people end up either locked out of accounts or drowning in spam they thought they had contained. Having built one of the three, we will try to referee this fairly — including the cases where our tool loses.</p>
+
+<h2>The three contenders, honestly described</h2>
+
+<h3>Disposable inbox</h3>
+<p>A mailbox that exists before you ask for it and disappears on a timer. On <a href="/">TempMail Central</a>, loading the page creates a random ten-character address with a 10-minute default lifetime, extendable to 1 hour or 24 hours with no account and up to 30 days with a free one. Incoming mail appears in the open page in real time, pushed over a WebSocket. When the inbox expires, it is evicted from memory and unrecoverable. There is no registration, no connection to any other mailbox you own, and it is receive-only: you can read and download, never send.</p>
+<p><strong>Strengths:</strong> zero setup, zero linkage to your real identity, and absolute spam containment — junk sent to a dead inbox ceases to exist. <strong>Weaknesses:</strong> senders cannot reach you after expiry, you cannot reply at all, and using one for a long-lived account is a slow-motion lockout.</p>
+
+<h3>Alias service</h3>
+<p>Services like SimpleLogin, Firefox Relay, or Apple's Hide My Email generate a unique address per website and forward everything to your real inbox. Each alias is permanent until you disable it, and most alias services let you reply through the alias, so the other side never learns your actual address.</p>
+<p><strong>Strengths:</strong> permanent reachability with per-sender revocation. When one alias starts receiving junk, you know exactly who leaked it, and you switch off that alias alone. Password resets keep working for as long as you keep the alias. <strong>Weaknesses:</strong> you need an account and some ongoing discipline, the forwarding provider processes all of your mail, and messages still land in — and clutter — your real inbox until you intervene.</p>
+
+<h3>Plus-addressing</h3>
+<p>Most major providers deliver mail for <code>you+anything@example.com</code> to <code>you@example.com</code>. Type <code>you+shop@</code> at a checkout and you can filter on the tag and see who shared your address.</p>
+<p><strong>Strengths:</strong> zero setup, works instantly, and it is perfectly safe for account recovery because it <em>is</em> your real inbox. <strong>Weaknesses:</strong> it hides nothing. Anyone can recover your real address by deleting the tag, bulk mailers strip tags routinely, some signup forms reject the <code>+</code> character, and nothing is revocable — the address behind the tag is still yours forever.</p>
+
+<h2>Side by side</h2>
+<table>
+<thead>
+<tr><th></th><th>Temporary inbox</th><th>Alias service</th><th>Plus-addressing</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Setup effort</strong></td><td>None — exists on page load</td><td>Account plus an app or extension; one alias per site</td><td>None — just type the tag</td></tr>
+<tr><td><strong>Sender can reach you later?</strong></td><td>Only while the inbox is alive (up to 24 hours anonymous, 30 days signed in)</td><td>Yes, until you disable the alias</td><td>Yes, always</td></tr>
+<tr><td><strong>Reveals real inbox?</strong></td><td>No — no link to it exists</td><td>No, though mail forwards into it</td><td>Yes — remove the tag</td></tr>
+<tr><td><strong>Spam containment</strong></td><td>Total: mail dies with the inbox</td><td>Strong: disable the leaked alias</td><td>Weak: filters only; tags are easily stripped</td></tr>
+<tr><td><strong>Recovery safety</strong></td><td>Poor — never use for accounts you keep</td><td>Good — resets reach your real inbox</td><td>Same as your real address</td></tr>
+</tbody>
+</table>
+
+<h2>Where aliases clearly beat a temporary inbox</h2>
+<p>Any relationship with a future belongs behind an alias, not a timer. Shopping accounts, newsletters worth keeping, forums you will return to, software you actually paid for: an alias gives those senders a working address for years while still letting you cut one of them off the day they misbehave. Aliases also survive account recovery, which is the single most important property an account email can have — a point we belabor in <a href="/blog/when-not-to-use-disposable-email">when not to use disposable email</a>. If you adopt only one tool from this article for everyday signups, make it an alias service.</p>
+
+<h2>Where a temporary inbox wins</h2>
+<ul>
+<li><strong>When you refuse to create yet another account.</strong> An alias service needs a provider relationship before your first alias exists. A throwaway inbox is ready in the time the page takes to load.</li>
+<li><strong>When even a forwarding trail is too much.</strong> An alias ultimately delivers into your real mailbox, and the alias provider holds that mapping. A temporary inbox has no mapping to hold — nothing about it references any other address you own.</li>
+<li><strong>When the relationship should not survive.</strong> Gated PDFs, trials you are screening, captive Wi-Fi portals, one-time verification codes. Revoking an alias is a chore you must remember; an expiring inbox revokes itself.</li>
+<li><strong>When you need fresh addresses in volume.</strong> Testing a registration flow means a new deliverable address every run and mail you can watch arrive live — the workflow disposable inboxes were practically designed for.</li>
+</ul>
+
+<h2>Where plus-addressing is enough</h2>
+<p>Plus-addressing is not a privacy tool; it is a labeling tool. Use it when you would give the sender your real address anyway and simply want attribution and sorting: receipts routed to a folder, one tag per newsletter, catching which vendor sold your address. It costs nothing and combines well with everything else. Just never mistake it for containment — once <code>you+deals@</code> leaks, <code>you@</code> has leaked.</p>
+
+<h2>How to choose in ten seconds</h2>
+<ul>
+<li><strong>One message, then goodbye</strong> → temporary inbox.</li>
+<li><strong>Ongoing account you would mind losing</strong> → alias service, or your primary address for the critical tier: banking, government, anything that handles recovery codes.</li>
+<li><strong>Sender may as well know you</strong> → plus-addressing, for the filtering.</li>
+</ul>
+<p>These compose rather than compete. A sensible routine is to screen unfamiliar services through a throwaway inbox first, re-register behind an alias once a service earns trust, and use plus-tags inside your real mailbox for senders you are happy to know you. If you want the middle ground in one place, a TempMail Central account can promote a temporary address into a permanent mailbox — or receive mail at up to five domains you own, verified by DNS — which starts to look a lot like running your own alias layer; see <a href="/blog/custom-domains-and-permanent-mailboxes">custom domains and permanent mailboxes</a>. And for the decision guide on the throwaway side of the line, start with <a href="/blog/when-temporary-email-is-safe-to-use">when temporary email is safe to use</a>.</p>

@@ -1,0 +1,45 @@
+<p>Short answer: yes, and more often every year. If you've ever pasted a freshly generated address into a signup form and been told to "please enter a valid email address," you've met the detection layer. We operate a disposable mail service <em>and</em> we run disposable-address detection on our own registration form, so we can describe this contest fairly from both sides.</p>
+
+<h2>The three detection methods that matter</h2>
+<table>
+<thead><tr><th>Method</th><th>What it checks</th><th>Cost to the site</th></tr></thead>
+<tbody>
+<tr><td>Public blocklists</td><td>Whether the address's domain appears on community-maintained lists of known disposable domains</td><td>A few lines of code; the lists are free</td></tr>
+<tr><td>MX record checks</td><td>Which mail servers the domain routes to, matched against known disposable-mail infrastructure</td><td>One DNS query at signup</td></tr>
+<tr><td>Domain-age heuristics</td><td>How recently the domain was registered and what reputation it has accumulated</td><td>A lookup against a fraud-scoring service</td></tr>
+</tbody>
+</table>
+
+<h3>Blocklists do most of the work</h3>
+<p>Several widely used open-source lists of disposable domains exist, maintained by contributors who watch services like ours and submit new domains as they appear. Wiring one into a signup form takes minutes, which is why this is the check you'll hit most often. The lists aren't perfect — they lag new domains and occasionally sweep up legitimate small providers — but they're free, and for most sites free is decisive.</p>
+
+<h3>MX records are hard to hide</h3>
+<p>A domain can only receive mail if its MX records point at a mail server that actually answers — in our case, ultimately, a Postfix server reachable from the whole internet. Anyone can run that same DNS query. When several domains route mail toward shared infrastructure, a single lookup can connect a brand-new domain to a known service before any blocklist catches up. Receiving mail is an inherently public commitment; there is no way to do it secretly.</p>
+
+<h3>Age and reputation fill the gaps</h3>
+<p>Fraud-scoring services weigh how recently a domain was registered and what else is known about it. A domain registered three weeks ago with no history reads very differently from a decade-old provider domain, and some signup flows simply route new-domain registrations into extra verification rather than rejecting them outright.</p>
+
+<h2>Why rotating domains only partially helps</h2>
+<p>TempMail Central serves addresses from a pool of several system domains and rotates them over time. Here's the honest account of what that accomplishes: rotation keeps the service usable when an older domain has landed on every list. It does not make anyone undetectable. Fresh domains get spotted and submitted to blocklists quickly; MX records tie a domain back to real infrastructure the moment it starts working; and a domain too new to be listed is precisely the kind that age heuristics flag. Any domain that works long enough to be useful becomes discoverable for the same reasons it's useful. A service promising "undetectable" disposable addresses is describing something that cannot stay true for long.</p>
+
+<h2>What rejection actually looks like</h2>
+<p>Detection surfaces in three ways, in descending order of politeness:</p>
+<ol>
+<li><strong>An immediate form error.</strong> The best case. The site says it wants a permanent address, and you've lost five seconds.</li>
+<li><strong>A verification email that never arrives.</strong> Some sites accept the address at the form and refuse it deeper in the pipeline. Nothing lands in your inbox, and you're left debugging silence. If a verification message hasn't shown up well within the inbox's lifetime, consider this possibility before blaming the mail.</li>
+<li><strong>Retroactive enforcement.</strong> An account created with a disposable domain can be flagged or closed later during a cleanup, taking whatever you stored in it along for the ride.</li>
+</ol>
+<p>The practical read: when a service clearly rejects throwaway addresses, take the hint rather than cycling domains until one slips through. The second and third outcomes are strictly worse than the first — and if losing the account would genuinely bother you, a 10-minute mailbox was the wrong foundation anyway. That judgment call is the subject of <a href="/blog/when-not-to-use-disposable-email">when not to use disposable email</a>.</p>
+
+<h2>We run these checks too</h2>
+<p>Our own registration rejects sign-ups made with known disposable addresses, including addresses from services like ours. The reasoning is the same reasoning other sites have: an account exists to give you durable things — permanent mailboxes, 30-day extensions, custom domains — and durability needs a reachable owner. If your recovery address evaporates in 10 minutes, you're locked out by design.</p>
+<p>That experience makes us sympathetic to sites that block disposable domains: usually they aren't being hostile, they're saying the relationship on offer assumes they can reach you later. Sometimes that assumption is self-serving — a newsletter gating a PDF behind a "business email" has its own incentives — but the mechanism itself is rational, and it isn't going away.</p>
+
+<h2>The right tool when the answer is no</h2>
+<p>Getting blocked is information: this service intends to email you over time. The useful question is how much of your identity that relationship deserves. In rough order of commitment:</p>
+<ul>
+<li><strong>Plus-addressing and provider aliases.</strong> <code>you+shop@</code> variants and true aliases from your mail provider are real, deliverable addresses on reputable domains. They pass every check above, and you can filter or retire each one individually. The full trade-off against throwaway inboxes is laid out in <a href="/blog/temporary-email-vs-email-aliases">temporary email vs email aliases</a>.</li>
+<li><strong>A dedicated secondary mailbox.</strong> A free address at a major provider, used exclusively for signups, sails through detection and keeps the noise away from your primary inbox — the pattern is covered in <a href="/blog/protect-your-primary-inbox-from-spam">protect your primary inbox from spam</a>.</li>
+<li><strong>A permanent mailbox on a domain you own.</strong> A TempMail Central account can promote addresses to permanent mailboxes and connect up to 5 custom domains. That isn't a detection dodge — it is exactly the durable, reachable address the blocking site wanted you to have, on a domain whose reputation is yours to keep.</li>
+</ul>
+<p>The contest between disposable domains and blocklists will keep running, and neither side gets a permanent win. You don't have to play. Use a throwaway inbox where the relationship is genuinely throwaway, and a durable address where it isn't — the sorting, not the evasion, is the part worth getting right.</p>

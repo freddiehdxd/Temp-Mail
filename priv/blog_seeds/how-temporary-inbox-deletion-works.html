@@ -1,0 +1,56 @@
+<p>Every throwaway inbox service says mail "auto-deletes." That phrase can mean almost anything: a nightly cleanup job, a soft-delete flag in a database, a retention policy someone promises to follow. Since automatic deletion is the entire reason TempMail Central exists, this post explains exactly what it means in our stack — where a temporary inbox lives, what happens at expiry, and, just as important, what deletion does not cover.</p>
+
+<h2>Where a temporary inbox actually lives</h2>
+<p>When you create an inbox on the <a href="/">generator</a>, the application stores it in Redis, an in-memory data store, under a key tied to your address. That key is written with a TTL — a time to live — of 10 minutes. Everything the inbox will ever hold lives under that key: the messages, their attachments, the fact that the address exists at all.</p>
+<p>Two properties of this design do the heavy lifting:</p>
+<ul>
+<li><strong>The TTL is a property of the key itself, not a cleanup script.</strong> We don't run a job that goes hunting for old mailboxes to erase. When the time lapses, Redis evicts the key. There is no window where "deleted" mail sits around waiting for a cron job to notice it.</li>
+<li><strong>Redis is the only place temporary mail exists.</strong> Messages in a temporary inbox are never written to a disk archive, never copied into a database, and never included in any backup. When the key is evicted, there is no second copy anywhere to restore from.</li>
+</ul>
+<p>That second point cuts both ways, and it's worth sitting with. Expired mail is genuinely unrecoverable — by you, and by us. If you let a verification code or an attachment expire, no support request can bring it back. There is no grace period and no "recently deleted" folder, because the storage layer has no concept of either.</p>
+
+<h2>The life of one message</h2>
+<p>Here is the full path a message takes through the system, start to finish:</p>
+<ol>
+<li>The sender's mail server connects to our Postfix server and delivers the message.</li>
+<li>A parser splits the raw message into structured parts — headers, text and HTML bodies, attachments — and posts the result to an authenticated webhook inside the application.</li>
+<li>The app appends the message to the inbox's Redis key and pushes it over a WebSocket to any browser tab that has the inbox open. That is why new mail appears without a page refresh.</li>
+<li>The message sits in memory, readable and downloadable (attachments included), for as long as the inbox is alive.</li>
+<li>The inbox's TTL lapses. Redis evicts the key, and the message — along with every other message in that inbox — ceases to exist.</li>
+</ol>
+<p>Notice what's absent from that pipeline: no step writes the message to durable storage. The webhook hands mail to Redis and to your open browser tab, and that is the end of the line.</p>
+
+<h2>The 100-message cap</h2>
+<p>Each temporary inbox keeps its most recent 100 messages. If a 101st arrives, the oldest one drops off immediately — no TTL involved. In normal use this never comes up; a 10-minute inbox typically sees a handful of messages. The cap exists so a burst of inbound mail can't balloon memory usage, and it's worth knowing about if you're pointing a high-volume test at a single address.</p>
+
+<h2>What expiry looks like from your side</h2>
+<p>While an inbox is open, the page shows a live countdown of the time it has left. When that countdown reaches zero, three things are true at once:</p>
+<ul>
+<li>The inbox can no longer be opened — by you, or by anyone else who knew the address.</li>
+<li>Mail sent to the address has nowhere to land. There is no mailbox behind it anymore, so new messages simply aren't stored.</li>
+<li>The address itself is, for practical purposes, retired. Addresses are 10 random characters drawn from a keyspace of roughly 3.6 quadrillion combinations, so the odds of the generator ever handing that same address to someone else are negligible.</li>
+</ul>
+<p>The practical advice is short: anything you need beyond the inbox's lifetime — a receipt, an attachment, a link — save it before expiry, or extend the inbox while it's still alive.</p>
+
+<h2>Extensions are TTL updates</h2>
+<p>Extending an inbox doesn't copy it anywhere or change what it is; it updates the TTL on the same Redis key. Anyone can extend an active inbox to 1 hour or to 24 hours — 24 hours is the maximum without an account. Signed-in users can push the same inbox out to 30 days. Two rules follow directly from the mechanics:</p>
+<ul>
+<li><strong>Extensions only work on a living inbox.</strong> Once the key is evicted there is nothing left to extend. If a slow email or a long test run might outlast the current lifetime, extend first, not after.</li>
+<li><strong>An extended inbox is still a temporary inbox.</strong> Thirty days in Redis is still Redis: the same in-memory storage, the same eviction at the end, the same absence of archives and backups.</li>
+</ul>
+
+<h2>Permanent mailboxes are a different animal</h2>
+<p>Registered users can promote an address to a permanent mailbox, and that changes the storage story completely. Permanent mailboxes live in Postgres — a durable database, not an in-memory cache — and they are kept until you delete them. Nothing expires on its own; deletion becomes a deliberate act you take rather than a timer we run. If you want an address that lasts, including one on a domain you own, that's the feature to reach for; we cover it in <a href="/blog/custom-domains-and-permanent-mailboxes">custom domains and permanent mailboxes</a>.</p>
+<p>The line between the two modes is sharp on purpose. Temporary means in-memory with a countdown. Permanent means on disk until you say otherwise. There is no in-between state where mail is "sort of" retained.</p>
+
+<h2>What deletion does not cover</h2>
+<p>An honest explanation of deletion has to include its boundaries. Here they are.</p>
+<h3>The sender still has their copy</h3>
+<p>Eviction destroys our copy of a message and only ours. The sender's outbox, their provider's delivery logs, and whatever database stored your address before the mail went out are all beyond our reach. If you handed the address to a service, that service still has the address string on file — it just routes to nothing after expiry.</p>
+<h3>Access logs are separate from mail content</h3>
+<p>Like nearly every website, we keep standard web-server access logs: HTTP requests, IP addresses, timestamps. Those logs concern traffic to the site, they don't contain message bodies, and inbox expiry doesn't touch them. Beyond that, the application keeps daily aggregate counters — how many addresses were created, how many emails arrived — rather than per-visitor profiles. The specifics live in our <a href="/privacy">privacy policy</a>.</p>
+<h3>A live inbox is readable by anyone who knows the address</h3>
+<p>While a temporary inbox is alive, the random address is the only key to it. That is exactly why addresses are high-entropy and lifetimes are short — but it also means deletion protects you only after it happens. Mail you'd be uncomfortable exposing during those 10 minutes shouldn't go through a temporary inbox at all; see <a href="/blog/when-temporary-email-is-safe-to-use">when temporary email is safe to use</a> for where we draw that line.</p>
+
+<h2>Why we built it this way</h2>
+<p>Retention policies are promises, and promises can be broken quietly. A TTL is not a promise; it's a mechanism. By keeping temporary mail exclusively in memory with the expiry attached to the data itself, deletion stops being something we remember to do and becomes something the system cannot avoid doing. That is the property we actually wanted: mail that is short-lived by construction, not by policy.</p>

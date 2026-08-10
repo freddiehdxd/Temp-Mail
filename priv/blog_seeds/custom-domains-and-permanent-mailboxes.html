@@ -1,0 +1,50 @@
+<p>Most people meet TempMail Central as the ten-minute inbox on the <a href="/">front page</a> and never need anything more. But behind the optional free account sits a persistence layer that changes what the service can do for you: mailboxes that survive, temporary inboxes you can rescue with one click, and up to five domains of your own receiving mail through the same pipeline. This is a tour of those features, including the trade-offs we would want spelled out if we were the ones setting it up.</p>
+
+<h2>Two storage worlds</h2>
+<p>One architectural fact makes everything else make sense. Temporary inboxes live only in Redis — in memory, with a time-to-live. When the TTL lapses, the key is evicted and the mail is unrecoverable, by design: no archives, no backups. Permanent mailboxes belong to registered accounts and are stored in Postgres, where they are kept until you delete them. Nothing crosses between those worlds unless you explicitly move it.</p>
+<p>A related detail that surprises some people: accounts exist to give you persistence, so they must be anchored to an address that will outlive a TTL. That is why sign-ups made with known disposable-email addresses are blocked. A durable mailbox tied to an address that evaporates next Tuesday would be a support ticket waiting to happen.</p>
+
+<h2>Rescuing a temporary inbox with one click</h2>
+<p>The scenario: you spun up a throwaway address for a registration you assumed was disposable, and halfway through you realized the account actually matters. Without signing in, your options are extensions — anyone can extend an active inbox to one hour or twenty-four hours, and twenty-four hours is the ceiling.</p>
+<p>Signed in, you get two better options. You can extend the same inbox for up to thirty days. Or you can click <strong>Save</strong>, which promotes the temporary inbox into a permanent mailbox on the spot. The messages already sitting in the inbox are carried over, so the receipt and the welcome email you already received move with it — nothing to forward, nothing lost when the original countdown would have fired. (The expiry machinery itself is covered in <a href="/blog/how-temporary-inbox-deletion-works">how temporary inbox deletion works</a>.)</p>
+<p>Promotion also changes who can read the mail. An active temporary inbox is open to anyone who knows the address — the high-entropy random address is the only key, which is exactly why addresses are generated the way they are and why lifetimes are short. A permanent mailbox is private to your account. Saving an inbox does not just stop the clock; it closes the door.</p>
+<p>One timing note: a temporary inbox keeps its most recent 100 messages. If something high-volume is pointed at a throwaway address, promote it before the messages you care about risk rotating out the bottom.</p>
+
+<h2>Permanent mailboxes from scratch</h2>
+<p>You can also create permanent mailboxes directly from the dashboard rather than rescuing temporary ones. They behave exactly like the inboxes you already know. Mail is accepted by our Postfix server, parsed, posted to an authenticated webhook, and pushed into the open mailbox over a WebSocket — messages appear in real time with no page refresh, and attachments can be viewed and downloaded.</p>
+<p>The one constant that no account tier changes: every TempMail Central address, temporary or permanent, is receive-only. You cannot send or reply from any of them. Treat a permanent mailbox as a durable collection point — for registrations, receipts, notifications, and monitoring — not as a correspondence account.</p>
+
+<h2>Connecting your own domain</h2>
+<p>This is the feature that removes your last dependency on the shared address pool. An account can connect up to five domains you own, and mail sent to any address at those domains flows into your mailboxes. Setup is a short DNS exercise:</p>
+<ol>
+<li><strong>Add the domain in the dashboard.</strong> The app issues an ownership token for you to publish in DNS.</li>
+<li><strong>Publish the TXT record</strong> containing that token at your DNS host. This proves you control the domain, so nobody can route a domain they do not own into their own account.</li>
+<li><strong>Add an MX record</strong> pointing the domain at the TempMail Central mail host. This is the record that actually moves mail: from then on, messages to your domain are handed to our Postfix server and enter the same webhook-and-WebSocket pipeline as everything else.</li>
+<li><strong>Optionally add an SPF record.</strong> SPF tells other mail servers which hosts are allowed to send mail as your domain. If you use the domain only for receiving, a restrictive SPF record costs nothing and makes forged mail claiming to come from your domain easier for other providers to reject.</li>
+<li><strong>Click "Verify DNS Records"</strong> in the dashboard. Verification is checked on demand, so if your DNS host is slow to propagate, wait a while and press it again — there is no penalty for retrying.</li>
+</ol>
+<p>Once the records verify, the domain is live, and every address at it — picked ahead of time or invented on the fly — is yours.</p>
+
+<h2>Your own domain versus the shared pool</h2>
+<p>The shared rotating domains and a personal domain solve different problems, and it is worth being honest in both directions.</p>
+<table>
+<thead>
+<tr><th></th><th>Shared rotating domains</th><th>Your own domain</th></tr>
+</thead>
+<tbody>
+<tr><td>Setup</td><td>None — open the page</td><td>Domain registration plus three DNS records</td></tr>
+<tr><td>Blocklists</td><td>Public disposable-domain lists catalog shared pools, and some sites reject them</td><td>Never on a public disposable-domain blocklist; it is just a normal domain</td></tr>
+<tr><td>Attribution</td><td>Nothing about the address ties it to you</td><td>Registered to you; every address on it is attributable to you</td></tr>
+<tr><td>Continuity</td><td>The pool rotates over time</td><td>Stable for as long as you renew it</td></tr>
+<tr><td>Cost</td><td>Free</td><td>Registration and renewal fees</td></tr>
+</tbody>
+</table>
+<p>Read the middle rows together, because they are the real trade-off. A shared-pool address is anonymous but recognizable: sites that screen signups against disposable-domain lists will catch it, as covered in <a href="/blog/can-websites-detect-temp-mail">can websites detect temp mail</a>. Your own domain sails through every such filter, because it is indistinguishable from any other small domain on the internet — but every address on it points back at you by design. You are trading anonymity for deliverability. Neither is better; they are tools for different jobs, and with an account you hold both at once.</p>
+
+<h2>Setups where this earns its keep</h2>
+<ul>
+<li><strong>Signup segregation with memorable addresses.</strong> With your own domain, newsletter@yourdomain and shopping@yourdomain route into permanent mailboxes you check on your own schedule, and your primary address stays out of vendor databases entirely.</li>
+<li><strong>QA and staging mail.</strong> Point a spare test domain at the service and every registration flow in your test suite gets a real, inspectable inbox with live delivery — <a href="/blog/temporary-email-for-software-testing">temporary email for software testing</a> walks through the workflow.</li>
+<li><strong>Long-running monitoring.</strong> A permanent mailbox is a stable endpoint for mail you want to observe but not receive personally: cron output, uptime alerts, vendor announcement lists you audit quarterly.</li>
+</ul>
+<p>The sensible progression is the one the product is shaped around. Use the anonymous generator for things that should vanish. Create the free account the first time you catch yourself wishing an inbox would not disappear. Connect a domain the first time a blocklist tells you no.</p>

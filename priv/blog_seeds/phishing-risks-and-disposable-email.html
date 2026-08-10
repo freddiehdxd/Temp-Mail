@@ -1,0 +1,43 @@
+<p>Phishing is usually described as a deception problem: spotting the fake login page, resisting the urgent tone. Upstream of all that, it is a data problem. Nobody can phish an address they do not have, and the believability of a phish scales directly with what the attacker knows about the person behind it. That makes your address-handling habits a real security control, not a tidiness preference. Here is how exposure turns into targeted attacks, what compartmentalizing with disposable addresses genuinely fixes, and — just as important — what it does not.</p>
+
+<h2>Three ways an exposed address feeds phishing</h2>
+
+<h3>Breach lists pair your address with context</h3>
+<p>A bare list of addresses supports only generic spam, the "dear customer" kind that filters mostly catch. A breach dump is worse, because it pairs your address with the name of the breached service, often a username, and sometimes password material. "There is a problem with your account" becomes convincing precisely when it names a service where you really do have an account. Breach data circulates for years, gets merged with other dumps, and every merge makes the profile behind your address a little richer.</p>
+
+<h3>Credential-stuffing follow-ups</h3>
+<p>After a breach, attackers replay leaked email-and-password pairs against hundreds of unrelated sites. Whether or not the stuffing succeeds, you experience it as a wave of genuine security email: password-reset messages, new-sign-in alerts, lockout notices. Attackers know this and time fake alerts to blend in with the real ones. When your inbox already holds three legitimate warnings, the fourth one — the fake pointing at a lookalike login page — is the one that gets clicked.</p>
+
+<h3>Spear-phishing from leaked signups</h3>
+<p>Signup records leak more than addresses. They leak the fact that you registered for a specific conference, webinar, store, or beta. That single fact is enough to write "your invoice from the event is attached" or "action required on your recent order" — messages that feel personal because, in a narrow sense, they are: they were assembled from your actual history.</p>
+
+<h2>Compartmentalization shrinks the blast radius</h2>
+<p>If one address is your identity everywhere, every leak enriches the same profile, and every phish arrives where you actually live. Splitting addresses by context breaks that accumulation, and it gives you a cheap authenticity check as a bonus: mail arriving at the wrong address unmasks itself. If a "bank security alert" lands on the address you only ever gave a flashlight vendor, you do not need to inspect any headers.</p>
+<p>Disposable inboxes are the sharp end of this approach. A TempMail Central address is ten lowercase alphanumeric characters generated from cryptographically strong random bytes — a keyspace of 36^10, roughly 3.6 quadrillion combinations — so nobody discovers it by guessing. It expires after ten minutes by default, and even fully extended without an account it lives at most twenty-four hours. Temporary inboxes exist only in Redis with a time-to-live; when it lapses, the key is evicted and the mail is unrecoverable. By the time a breached signup list is being traded, the address on it points at nothing, and the phishing email is delivered into a void.</p>
+<p>One property is specific to how TempMail Central is built and worth calling out: every inbox is receive-only. There is no send or reply function at all. So even in the worst case, a temporary address can never be used to send mail in your name — no forged "message from you" to your contacts, no outbound abuse traced back to an address associated with you. The generation scheme and the other abuse controls are described in <a href="/blog/how-we-generate-addresses-and-prevent-abuse">how we generate addresses and prevent abuse</a>.</p>
+
+<h2>What a disposable inbox will not save you from</h2>
+<p>Honesty matters more than marketing here, because misplaced confidence is itself a phishing risk.</p>
+<ul>
+<li><strong>Clicking the link.</strong> A credential-harvesting page does not care which inbox delivered it. If you type your real password into a fake page, the compartment did nothing for you.</li>
+<li><strong>Real-time code phishing.</strong> In a relay attack, the attacker triggers a genuine verification code and talks you into repeating it over chat or phone. The code is real and arrives wherever your codes arrive. No inbox of any kind prevents you from reading a number aloud to the wrong person.</li>
+<li><strong>Malicious attachments.</strong> TempMail Central lets you view and download attachments, which is convenient and entirely neutral: a trojan downloaded from a throwaway inbox compromises your machine exactly as thoroughly as one from your primary.</li>
+<li><strong>Shared visibility while the inbox is alive.</strong> Anyone who knows an active temporary address can open that inbox until it expires — the random address is the only key. The entropy makes stumbling onto it implausible, but if you post the address somewhere public, anyone who saw it can read along. Never route anything sensitive through one; <a href="/blog/when-not-to-use-disposable-email">when not to use disposable email</a> lists the hard exclusions.</li>
+</ul>
+
+<h2>Red flags worth memorizing</h2>
+<p>Run any unexpected message past this list before touching it:</p>
+<ul>
+<li>The sender's actual domain does not match the organization it claims to be — the display name is free text anyone can set.</li>
+<li>Manufactured urgency: suspension, fines, or lost access "within 24 hours."</li>
+<li>The link's visible text and its real destination differ when you hover or long-press.</li>
+<li>You are asked to enter or relay a verification code for a login you did not initiate.</li>
+<li>An attachment you were not expecting, especially an archive or a document that asks you to enable anything after opening.</li>
+<li>A generic greeting paired with one oddly specific personal detail — the signature of a message assembled from breach data.</li>
+<li>The reply-to address differs from the visible sender.</li>
+<li>An unsubscribe link in mail you never subscribed to; clicking it confirms your address is live.</li>
+</ul>
+<p>No single item is proof, and modern phishing is frequently typo-free with a plausible design. Two or more together is a strong signal to reach the site on your own terms — a typed URL or a bookmark — rather than through anything inside the message.</p>
+
+<h2>Use compartments, keep your reflexes</h2>
+<p>Hand throwaway addresses to throwaway relationships, and the breach lists that matter simply stop containing you; that is the blast radius doing its job. Keep your guard up anyway, because the attacks that survive compartmentalization are aimed at your behavior, not your address. For the longer game on the addresses you do keep, see <a href="/blog/protect-your-primary-inbox-from-spam">protecting your primary inbox from spam</a>.</p>

@@ -1,0 +1,52 @@
+<p>Anything your application emails — verification links, password resets, receipts, digests — eventually has to be watched arriving in a real mailbox. Seeding those tests with <code>yourname+test47@gmail.com</code> pollutes your personal inbox and ties test accounts to your identity; sharing one team QA mailbox turns every run into an archaeology dig through other people's messages. A disposable inbox fixes this cleanly: a real, externally hosted address in one click, empty by construction, gone when the test is done. Here's how to get the most out of TempMail Central for this work, and where its limits sit.</p>
+
+<h2>What a temporary inbox adds over Mailpit and friends</h2>
+<p>Local mail catchers — Mailpit, MailHog, smtp4dev — intercept SMTP traffic inside your development environment, and for unit-level template checks they're the right tool. What they can't do is exercise the path your users actually experience: DNS resolution of a real recipient domain, an SMTP conversation with a server you don't control, your message surviving a receiving pipeline that isn't yours. A TempMail Central address is a real mailbox behind real MX records and a Postfix server. If staging can deliver mail there, you've tested actual delivery, not a simulation of it.</p>
+<p>The other difference is the cost of a fresh fixture. On the <a href="/">generator</a>, a new inbox exists before you've finished switching windows — no registration, no seat license, no provisioning ticket. That changes how you test, because addresses become disposable fixtures instead of scarce resources you have to clean and reuse.</p>
+
+<h2>The basic loop</h2>
+<ol>
+<li>Open the generator and copy the address it hands you.</li>
+<li>Paste it into the signup form (or reset form, or invite dialog) on your staging environment.</li>
+<li>Watch the inbox. Messages are pushed over a WebSocket the moment our parser hands them to the app, so mail appears in the open tab without refreshing or polling by hand.</li>
+<li>Click the link, inspect the rendered template, download the attachment — whatever the test calls for.</li>
+</ol>
+<p>The WebSocket push is what makes the loop fast. The gap between "submit form" and "message on screen" is your actual delivery latency, not a refresh interval you're babysitting, so each iteration of a verification-flow check costs very little.</p>
+
+<h2>One fresh inbox per test case</h2>
+<p>Because inboxes cost nothing, the strongest habit is one address per case. Every inbox starts empty, so there is never a question of which "Verify your email" message belongs to this run, and no state from a previous test can bleed into the current one. Cases this pattern handles well:</p>
+<ul>
+<li><strong>Signup verification.</strong> Fresh address, register, confirm the link arrives, works once, and behaves sensibly when clicked a second time.</li>
+<li><strong>Password reset.</strong> Register with one inbox, trigger the reset, follow the token email end to end — including what your app does when the token has expired.</li>
+<li><strong>Duplicate-account handling.</strong> The one case where you deliberately reuse an address: sign up twice with the same inbox and check the second attempt is handled the way your spec says.</li>
+<li><strong>Template review.</strong> Subject line, preheader, link targets, and attachments exactly as received — attachments can be opened and downloaded straight from the inbox.</li>
+<li><strong>Multi-user flows.</strong> Invitations, mentions, shared-document notifications. Open three inboxes in three tabs and you have three test users watching mail arrive live.</li>
+</ul>
+
+<h2>Matching inbox lifetime to the test</h2>
+<p>The default lifetime is 10 minutes, which covers a single manual check with room to spare. When the work runs longer, extend the inbox <em>before</em> it expires — an expired inbox is evicted from memory, and nothing brings it back. (The mechanics behind that hard edge are in <a href="/blog/how-temporary-inbox-deletion-works">how temporary inbox deletion works</a>.)</p>
+<table>
+<thead><tr><th>Situation</th><th>Sensible lifetime</th></tr></thead>
+<tbody>
+<tr><td>One-off signup or reset check</td><td>Default 10 minutes</td></tr>
+<tr><td>A QA session spanning an afternoon</td><td>Extend to 1 hour</td></tr>
+<tr><td>Delayed mail: digests, reminders, cron-driven sends</td><td>Extend to 24 hours (the maximum without an account)</td></tr>
+<tr><td>A staging account exercised across a sprint</td><td>Sign in and extend up to 30 days</td></tr>
+<tr><td>The standing QA account for an environment</td><td>Promote to a permanent mailbox</td></tr>
+</tbody>
+</table>
+<p>A useful detail for the 24-hour tier: it needs no account at all, so a teammate can extend the shared test inbox without anyone handing around credentials.</p>
+
+<h2>When an account needs to outlive every timer</h2>
+<p>Every staging environment accumulates a few accounts that actually matter: the admin user, the account wired into demo data, the recipient of the weekly cron email nobody remembers scheduling. For those, a signed-in user can promote a temporary address to a permanent mailbox. Promotion moves the mailbox out of expiring in-memory storage into Postgres, where it is kept until you delete it — the address you registered a staging admin with in March still receives mail in November.</p>
+<p>Teams that want staging mail on their own domain can go one step further: a free account can connect up to 5 custom domains, verified with a DNS TXT ownership record plus an MX record. That gives you addresses like <code>qa-admin@staging-domain-you-own</code> flowing into the same real-time inbox UI. Details in <a href="/blog/custom-domains-and-permanent-mailboxes">custom domains and permanent mailboxes</a>.</p>
+
+<h2>Limits to respect</h2>
+<p>The service is built for human-paced testing, and a few boundaries follow from that:</p>
+<ul>
+<li><strong>Per-IP rate limits.</strong> Minting addresses in a tight script loop will hit the API's limits, by design. If a test plan calls for hundreds of inboxes a minute, this is the wrong tool for that plan.</li>
+<li><strong>Receive-only.</strong> Nothing can be sent or replied to from an address here. Flows that require a reply — confirm-by-reply, mailing-list handshakes — cannot be completed; test those with a mailbox that can speak back.</li>
+<li><strong>100 messages per inbox.</strong> Each inbox keeps its most recent 100 messages, and older ones roll off the top. A bulk send pointed at one address will quietly lose its earliest messages; spread volume across several inboxes instead.</li>
+<li><strong>Not for production monitoring.</strong> Alerting, uptime checks, and bounce-handling need a mailbox with guaranteed retention and a named owner. An inbox that evicts itself is the opposite of an audit trail. Keep it in staging.</li>
+</ul>
+<p>Inside those lines, the workflow is hard to beat: click, paste, watch the message arrive over the socket, assert, move on. The minutes you stop spending on inbox hygiene are minutes returned to actual testing.</p>

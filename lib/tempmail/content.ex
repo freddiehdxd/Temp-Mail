@@ -8,22 +8,28 @@ defmodule Tempmail.Content do
   alias Tempmail.Content.{BlogCategory, BlogPost}
 
   def list_published_posts(locale \\ "en") do
+    locales = Enum.uniq([locale, "en"])
+
     BlogPost
     |> where([p], p.status == "PUBLISHED")
     |> order_by([p], desc: p.published_at)
     |> preload([
       :categories,
-      translations: ^from(t in Tempmail.Content.BlogPostTranslation, where: t.locale == ^locale)
+      translations: ^from(t in Tempmail.Content.BlogPostTranslation, where: t.locale in ^locales)
     ])
     |> Repo.all()
   end
 
+  # Preloads the requested locale plus English so callers can fall back to
+  # the English translation when the locale has none.
   def get_published_post_by_slug(slug, locale \\ "en") do
+    locales = Enum.uniq([locale, "en"])
+
     BlogPost
     |> where([p], p.slug == ^slug and p.status == "PUBLISHED")
     |> preload([
       :categories,
-      translations: ^from(t in Tempmail.Content.BlogPostTranslation, where: t.locale == ^locale)
+      translations: ^from(t in Tempmail.Content.BlogPostTranslation, where: t.locale in ^locales)
     ])
     |> Repo.one()
   end

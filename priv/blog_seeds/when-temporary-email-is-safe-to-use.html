@@ -1,0 +1,47 @@
+<p>A temporary inbox is a single-purpose tool. It exists so a website can send you one message — a download link, a confirmation code, a Wi-Fi voucher — without learning an address you plan to use for the next decade. Used for that job, it is close to ideal. Used as a substitute for a real mailbox, it will eventually cost you an account you cared about. The good news is that the line between those two outcomes is not fuzzy. It comes down to a single question, and you can answer it before you sign up for anything.</p>
+
+<h2>The one question that decides it</h2>
+<p><strong>Will anyone legitimately need to reach you at this address after today?</strong></p>
+<p>If the answer is a clear no — the service sends one email, you act on it, the relationship ends — a disposable inbox is not just acceptable, it is the better tool. Your real address stays out of one more marketing database, and whatever the sender does with the throwaway address afterward stops mattering the moment the inbox expires.</p>
+<p>If the answer is yes, or even "probably not, but maybe," stop and use something durable. The failure modes are one-way doors, and we wrote up the ugly ones separately in <a href="/blog/when-not-to-use-disposable-email">when not to use disposable email</a>.</p>
+
+<h2>What you are actually working with</h2>
+<p>It helps to know the mechanics, because the safety argument depends on them. On <a href="/">TempMail Central</a>, an inbox exists the moment the page loads: a random address of ten lowercase letters and digits, generated from cryptographically strong random bytes. That is a keyspace of roughly 3.6 quadrillion combinations, which is why nobody stumbles into your inbox by guessing. The default lifetime is 10 minutes. Incoming mail is pushed into the open page over a WebSocket, so a verification code typically appears a few seconds after the sender fires it — no refreshing and wondering.</p>
+<p>When the timer runs out, the inbox is not archived, flagged, or soft-deleted. Temporary inboxes live only in Redis, an in-memory store, under a key with a time-to-live; when that TTL lapses, the key is evicted and the messages are gone in a way no support ticket can undo. That hard deletion is exactly what makes the tool safe for one-off use and dangerous for anything ongoing. The full picture is in <a href="/blog/how-temporary-inbox-deletion-works">how temporary inbox deletion works</a>.</p>
+<p>If ten minutes is too tight, you can extend an active inbox to 1 hour or 24 hours without an account. Signed-in users can hold an address for up to 30 days, or promote it to a permanent mailbox that survives until they delete it. Those options exist precisely so you are never tempted to use a 10-minute inbox for a 3-day job.</p>
+
+<h2>Five situations where it is the right tool</h2>
+
+<h3>1. Gated downloads</h3>
+<p>Whitepapers, datasheets, sample chapters, "enter your email to get the PDF." The vendor wants a lead to nurture; you want a file. The transaction is complete the moment the link arrives. Every follow-up in the drip campaign will land in an inbox that no longer exists — the polite version of unsubscribing.</p>
+
+<h3>2. Trials you are only evaluating</h3>
+<p>When you are comparing four project-management tools and will keep at most one, three of those signups are dead ends by definition. Evaluate with a throwaway address. If a product earns a place in your workflow, register again properly with an address you control long-term. The extra minute that costs is cheaper than years of promotional email from the three you rejected.</p>
+
+<h3>3. Captive Wi-Fi portals</h3>
+<p>Hotel, airport, and café portals that demand an email before releasing the connection are collecting marketing addresses, not verifying identity. If the portal emails you an access code, that works fine here: the message shows up within seconds while the page is open. Get connected, board the flight, and let the inbox expire behind you.</p>
+
+<h3>4. Testing software you build</h3>
+<p>Every test of a registration flow needs a fresh, real, deliverable address, and seeding Gmail accounts for that is miserable. A disposable inbox gives you a new address per run and shows the verification email the instant your app sends it, which doubles as a quick smoke test of your outbound delivery. Each inbox keeps its most recent 100 messages — plenty of headroom for a test session. We wrote a whole guide to this workflow in <a href="/blog/temporary-email-for-software-testing">temporary email for software testing</a>.</p>
+
+<h3>5. One-time verifications</h3>
+<p>Voting in a poll, leaving a comment, joining a webinar, grabbing a coupon code — anywhere the email address is a turnstile rather than a relationship. Confirm, do the thing, walk away.</p>
+
+<h2>The checklist</h2>
+<p>Before you paste a throwaway address into a signup form, run these five checks. Any "yes" means use a durable address instead.</p>
+<ol>
+<li><strong>Money:</strong> Is a payment, refund, invoice, or order tied to this address? Receipts and dispute threads need to outlive any timer.</li>
+<li><strong>Recovery:</strong> Will this address become the login for an account you intend to keep? Password resets go to the signup address, and a reset link sent to an expired inbox is unrecoverable.</li>
+<li><strong>Replies:</strong> Will you need to answer anyone? TempMail Central addresses are receive-only; you cannot send or reply from them, ever.</li>
+<li><strong>Timing:</strong> Could something important arrive later than 24 hours from now? That is the ceiling without an account (30 days signed in). Anything on a slower schedule needs a permanent mailbox or your real address.</li>
+<li><strong>Confidentiality:</strong> Is the content itself sensitive? While an inbox is alive, anyone who knows the address can open it — the random address is the only key. The entropy makes guessing unrealistic, but a verification code and a medical document are still different categories of cargo.</li>
+</ol>
+
+<h2>Habits that keep it safe</h2>
+<ul>
+<li><strong>Extend before you get distracted,</strong> not after. If the confirmation email might dawdle, bump the inbox to 1 hour or 24 hours while it is still active. An expired inbox cannot be revived.</li>
+<li><strong>Act on messages immediately.</strong> Copy the code, click the link, and save any attachments now — attachments can be viewed and downloaded while the inbox lives, and they are evicted with it when it dies.</li>
+<li><strong>One inbox per errand.</strong> Fresh addresses are free and instant, so there is no reason to route two unrelated signups through the same throwaway.</li>
+<li><strong>Notice the urge to keep it.</strong> The moment you catch yourself thinking "I should hold on to this address," you are outside disposable territory. Sign in and promote the inbox to a permanent mailbox, or redo the signup with a real address.</li>
+</ul>
+<p>Used with that small amount of discipline, a temporary inbox is one of the rare privacy tools with no learning curve: the safe cases are genuinely safe, the unsafe cases are predictable, and the question that separates them takes five seconds to ask.</p>

@@ -7,7 +7,10 @@ defmodule Tempmail.Content.BlogPost do
   schema "blog_posts" do
     belongs_to :author, Tempmail.Accounts.User
     has_many :translations, Tempmail.Content.BlogPostTranslation, foreign_key: :post_id
-    many_to_many :categories, Tempmail.Content.BlogCategory, join_through: "blog_categories_posts"
+
+    many_to_many :categories, Tempmail.Content.BlogCategory,
+      join_through: "blog_categories_posts",
+      join_keys: [post_id: :id, category_id: :id]
 
     field :slug, :string
     field :status, :string, default: "DRAFT"

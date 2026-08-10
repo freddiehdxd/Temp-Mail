@@ -1,0 +1,51 @@
+<p>Spam is not random bad luck. Nearly every unwanted message in your inbox traces back to a moment when your address left your control: a checkout form, a breached database, a mailing list that quietly changed hands. Once you see spam as the downstream effect of address exposure, the strategy becomes clear. You cannot filter your way out of exposure after the fact, but you can control what gets exposed in the first place. This guide covers how addresses actually leak, then builds a layered defense in which throwaway inboxes, aliases, and a guarded primary address each do one specific job.</p>
+
+<h2>How addresses actually leak</h2>
+<p>Four channels account for most of the spam you will ever receive:</p>
+<ul>
+<li><strong>Signups you make yourself.</strong> Every form you complete is a bet that the operator will treat your address carefully — and that everyone they later share it with, sell it to, or lose it to will do the same. A single gated download can land you on a dozen "partner" lists.</li>
+<li><strong>Breaches.</strong> When a service you registered with is compromised, your address is exported along with the rest of the database and traded for years afterward. There is no way to un-leak it.</li>
+<li><strong>List sharing and brokers.</strong> Plenty of otherwise legitimate companies rent, swap, and enrich mailing lists. The phrase "we may share information with partners" in a privacy policy is doing a lot of quiet work.</li>
+<li><strong>Scrapers.</strong> If your address sits in plain text anywhere public — a forum signature, a Git commit, a club roster PDF, a WHOIS record — automated harvesters will eventually collect it.</li>
+</ul>
+<p>Only the first channel is fully under your control. That asymmetry is the entire argument for compartmentalizing: since you cannot control what happens to an address after you hand it over, hand over addresses that do not matter.</p>
+
+<h2>Match the tool to the relationship</h2>
+<p>No single tool covers every situation. The right choice depends on how much you trust the recipient and how long the channel needs to live.</p>
+<table>
+<thead>
+<tr><th>Situation</th><th>Best tool</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Gated download, free trial, Wi-Fi portal, one-off code</td><td>Short-lived inbox</td><td>The relationship lasts minutes, so the address should too</td></tr>
+<tr><td>Store or newsletter you will use again but do not fully trust</td><td>Alias or plus-address</td><td>Ongoing delivery that stays revocable and traceable</td></tr>
+<tr><td>Bank, employer, government, doctors, close contacts</td><td>Primary address</td><td>You need durability and unquestioned deliverability</td></tr>
+</tbody>
+</table>
+
+<h3>Layer one: a disposable inbox for one-offs</h3>
+<p>For interactions with no future, use an address that stops existing. Open <a href="/">TempMail Central</a> and an inbox is created instantly, with no registration: a random ten-character address with a default lifetime of ten minutes, extendable to one hour or twenty-four hours if a confirmation email is slow to arrive. The inbox lives only in Redis with a time-to-live; when the timer lapses, the key is evicted and the mail becomes unrecoverable — there is no archive sitting around to leak later. The full mechanics are covered in <a href="/blog/how-temporary-inbox-deletion-works">how temporary inbox deletion works</a>.</p>
+<p>The value here is not secrecy. It is that the address is worthless as a commodity. A broker can compile it into a list, but by the time that list is sold, the inbox was evicted from memory and mail to it goes nowhere.</p>
+<p>Know the boundaries, though. A vanishing address is the wrong choice for anything you might need to recover later, and some sites refuse known disposable domains outright. <a href="/blog/when-temporary-email-is-safe-to-use">When temporary email is safe to use</a> draws that line case by case.</p>
+
+<h3>Layer two: aliases for ongoing but untrusted senders</h3>
+<p>Some senders legitimately need to reach you next month without having earned your real address: the store you order from twice a year, a newsletter you are trying out, a tool you might eventually pay for.</p>
+<p>Plus-addressing is the zero-setup option — you+shopname@example.com delivers to you@example.com on most major providers. Its real value is attribution: if spam starts arriving for you+shopname, you know exactly who leaked it. As protection it is weak, because stripping everything between the plus sign and the @ reveals your real address, and spam tooling does that routinely.</p>
+<p>True aliases are stronger: independent addresses that forward into your mailbox and can be disabled one at a time. Revoking an alias silences a leak without revealing or changing the address underneath. The detailed comparison — including the cases where a short-lived inbox beats both — is in <a href="/blog/temporary-email-vs-email-aliases">temporary email vs. email aliases</a>.</p>
+
+<h3>Layer three: the guarded primary</h3>
+<p>Whatever remains goes to your primary address: institutions, employers, people you know. If the first two layers are doing their job, this address appears in very few databases, which means fewer breaches can touch it and inbound junk stays near zero. The best spam filter is an address that spammers never obtained.</p>
+
+<h2>Unsubscribe or mark as spam?</h2>
+<p>When something unwanted does land, the right response depends on one question: did you ever actually sign up?</p>
+<ul>
+<li><strong>You recognize the sender and once opted in.</strong> Unsubscribe. Established senders process removals, because ignoring them damages their deliverability. Prefer the unsubscribe control your mail client shows near the message header over links buried in the footer — it uses a standardized mechanism instead of whatever the sender wired up.</li>
+<li><strong>You never signed up, or the message looks off.</strong> Do not click anything, including unsubscribe. To a spammer, an unsubscribe click is confirmation that a live, attentive human reads this address — which makes the address more valuable, not less. Mark it as spam and move on; that trains your provider's filtering and quietly hurts the sender's reputation.</li>
+</ul>
+
+<h2>When to burn an address entirely</h2>
+<p>Sometimes an address is too far gone. Signals worth acting on: spam volume climbing despite consistent filtering, the address appearing in multiple breach notifications, or phishing that references real services you use — a sign that paired breach data about you is circulating.</p>
+<p>Burning an address is tedious but straightforward. Inventory the accounts attached to it, starting with anything involving money or identity. Move those to a clean address, this time behind aliases. Keep the old address alive but unwatched for a transition period, checking it weekly for anything important you missed. Afterward it makes a decent early-warning system: whatever still arrives there is from a laggard, a list you were sold on, or an attacker working from stale data.</p>
+
+<h2>Start with the next form, not a grand migration</h2>
+<p>You do not have to rebuild your email life this weekend. Just change the default going forward: the next time a form demands an address and your instinct says <em>this vendor does not need to reach me in a month</em>, give it a ten-minute inbox instead. Each one-off you divert is one less database your real address sits in, waiting to leak.</p>

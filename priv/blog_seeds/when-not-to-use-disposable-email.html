@@ -1,0 +1,39 @@
+<p>We run a disposable email service, so a guide about where you should never use one might look like an argument against our own product. It is the opposite. A temporary inbox is built to disappear — on TempMail Central the default lifetime is 10 minutes, and even the maximum for a signed-in user is 30 days. Nearly every painful story about throwaway addresses comes from putting an expiring inbox somewhere that quietly assumed the address was forever. This article is a map of those places.</p>
+
+<h2>First, understand how the failure actually happens</h2>
+<p>The mechanics matter, because the damage is not "email arrived late" or "email went to spam." Temporary inboxes here exist only in Redis, an in-memory store, under a key with a time-to-live. When the TTL lapses, the key is evicted. There is no archive, no backup, no undelete — expired mail being unrecoverable is a design goal, because that is what makes a throwaway address trustworthy for its real job.</p>
+<p>Now run the classic account-recovery sequence against that design. You registered somewhere last spring using a throwaway address that lived for an hour. Today you click "forgot password." The site dutifully sends a reset link to the address on file. That address has not existed for months: nothing receives the message, nothing stores it, and no amount of retrying changes the outcome. You are not locked out until support helps; you are locked out until you can prove ownership some other way — and the email address was usually the way. A password reset sent to an expired inbox is not delayed mail. It is mail to nowhere.</p>
+<p>Note what the problem is not. Nobody else is going to receive your reset link: addresses are ten random characters drawn from a keyspace of about 3.6 quadrillion combinations, so a stranger ending up with your old address is not a realistic concern. The problem is simpler and worse — <em>nobody</em> gets it, including you.</p>
+
+<h2>Places an expiring address should never go</h2>
+
+<h3>Banking, brokerages, and payment services</h3>
+<p>Financial accounts use email for statements, fraud alerts, login verification, and recovery. Every one of those is time-shifted: the message that matters arrives weeks or years after signup. There is also a confidentiality issue while a temporary inbox is alive: anyone who knows the address can open that inbox, because the random address is the only key. Acceptable for a coupon code; wrong for anything with an account balance attached.</p>
+
+<h3>Government, taxes, and anything legal</h3>
+<p>Tax portals, benefits systems, immigration correspondence, court e-filing. These systems assume one stable identity for years and are famously unforgiving when the contact channel breaks. Recovering access often means paper mail or an in-person visit with identification.</p>
+
+<h3>Healthcare</h3>
+<p>Patient portals, lab results, appointment reminders, insurance claims. Beyond the recovery problem, this is the clearest case where the content itself is too sensitive to route through an inbox that is readable by anyone who holds the address while it lives.</p>
+
+<h3>Employers, payroll, and job applications</h3>
+<p>Offer letters, background-check links, tax documents, benefits enrollment. Hiring stretches over weeks, and payroll systems email you things you will need months later. A recruiter's reply sent ten days after you applied, to an address that lived for ten minutes, is an interview you simply never hear about.</p>
+
+<h3>Anything serving as a two-factor or recovery channel</h3>
+<p>If a service lists email as a second factor or a fallback ("we'll send a code to the email on file"), that address is now part of your authentication. The moment it expires, you have converted two-factor authentication into a lockout mechanism aimed at yourself.</p>
+
+<h3>Purchases you might need to return</h3>
+<p>Order confirmations, shipping updates, return labels, warranty claims, chargeback evidence. Two problems compound here: the messages arrive on the merchant's schedule, not yours, and disputes require correspondence — TempMail Central addresses are receive-only, so you could not reply to a support thread even while the inbox was alive.</p>
+
+<h2>The traps people don't see coming</h2>
+<ul>
+<li><strong>The 24-hour ceiling is still a ceiling.</strong> Extending an anonymous inbox to 24 hours, or a signed-in one to 30 days, buys time; it does not change the category. If you are extending an inbox to protect an account, the account has already outgrown the tool.</li>
+<li><strong>Some sites will refuse the address anyway.</strong> Plenty of services detect and block known disposable domains — sometimes at signup, sometimes (worse) only when you try to reset a password. We explain the detection methods in <a href="/blog/can-websites-detect-temp-mail">can websites detect temp mail</a>. And we are in no position to complain: TempMail Central itself blocks sign-ups made with known disposable addresses, because our accounts exist for persistence and need a durable contact address behind them.</li>
+<li><strong>"I'll migrate it later" fails silently.</strong> The account keeps working after the inbox dies — right up until the first login problem, device change, or forced re-verification. The gap between expiry and disaster can be a year, which is exactly why the lesson tends to be expensive.</li>
+<li><strong>Receive-only cuts deeper than expected.</strong> Any relationship that might involve a human answering you — support tickets, marketplace sellers, landlords, editors — needs an address that can hold a two-way thread.</li>
+</ul>
+
+<h2>What to use instead</h2>
+<p>For everything on the list above, the boring answer is correct: your primary mailbox, with a provider you trust and real two-factor authentication on top. If your worry is spam and tracking rather than disposability, an alias in front of your real inbox handles ongoing relationships far better than any expiring address can; we compare the two approaches honestly in <a href="/blog/temporary-email-vs-email-aliases">temporary email vs email aliases</a>.</p>
+<p>And if you like the workflow here but need permanence, that path exists too. A free account lets you keep an address for up to 30 days or promote it to a permanent mailbox — stored in Postgres rather than as an expiring Redis key, and kept until you delete it — with up to five of your own custom domains if you want addresses you fully control. Details in <a href="/blog/custom-domains-and-permanent-mailboxes">custom domains and permanent mailboxes</a>.</p>
+<p>The rule that falls out of all of this fits in one sentence: use a disposable address only when losing every future message would be fine, and treat any hesitation about that sentence as your answer. For the flip side — the many situations where an expiring inbox is exactly the right tool — see <a href="/blog/when-temporary-email-is-safe-to-use">when temporary email is safe to use</a>.</p>

@@ -1,0 +1,48 @@
+<p>Two questions deserve straight answers from anyone running a throwaway inbox service: can somebody guess my address and read my mail, and what stops people from using the service for harm? The first is a math question, the second an operations question. Here are both, with real numbers where numbers exist.</p>
+
+<h2>Where an address comes from</h2>
+<p>Every temporary address on TempMail Central is 10 characters long, drawn from lowercase letters and digits — something like <code>x7k2mq9p4a</code> at one of our rotating system domains. The characters come from cryptographically strong random bytes, the same class of randomness used for session tokens and password-reset links.</p>
+<p>What the address is <em>not</em> matters just as much. It is not a counter, so you can't create an inbox and probe the addresses on either side of yours. It isn't derived from a timestamp, your IP, or your session. Two people who create inboxes in the same second get addresses with no relationship to each other. There is no sequence to observe and no pattern to extrapolate.</p>
+
+<h2>The math of guessing</h2>
+<table>
+<thead><tr><th>Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Alphabet</td><td>36 characters (a–z, 0–9)</td></tr>
+<tr><td>Address length</td><td>10 characters</td></tr>
+<tr><td>Keyspace</td><td><code>36^10</code> = 3,656,158,440,062,976 addresses</td></tr>
+<tr><td>Default inbox lifetime</td><td>10 minutes</td></tr>
+</tbody>
+</table>
+<p>Thirty-six possible characters across ten positions gives about 3.6 quadrillion addresses. Sweeping that space at a million guesses per second would take on the order of 116 years — and nothing remotely close to a million guesses per second is available, because the API is rate-limited per IP.</p>
+<p>Raw keyspace is only half the picture, though. An attacker doesn't win by covering the space; they win by landing on an address that is <em>active right now</em>. With a default lifetime of 10 minutes, the set of live inboxes at any moment is a vanishingly small sliver of those 3.6 quadrillion possibilities, and the sliver keeps moving as inboxes expire and new ones appear. A guesser has to beat the keyspace and the clock at a request rate we deliberately throttle.</p>
+<p>In practice, the way someone reads your temporary inbox is not guessing — it's you sharing the address, since anyone who knows a live address can open it. That trade-off is the heart of the design, and it pairs with the short lifetime described in <a href="/blog/how-temporary-inbox-deletion-works">how temporary inbox deletion works</a>: a high-entropy name protects the inbox while it exists, and eviction guarantees "while it exists" stays brief.</p>
+
+<h2>Prefixes we never generate</h2>
+<p>A handful of local parts are reserved and will never come out of the generator: <code>admin</code>, <code>support</code>, <code>contact</code>, <code>postmaster</code>, <code>abuse</code>, and similar operational names. Two reasons:</p>
+<ul>
+<li><strong>Role addresses belong to the domain operator.</strong> Across the mail ecosystem, names like <code>postmaster@</code> and <code>abuse@</code> are where other mail operators expect to reach whoever runs a domain. Handing one of them to an anonymous visitor would break that convention on every domain we operate.</li>
+<li><strong>Impersonation prevention.</strong> Nobody should ever be able to hold <code>support@</code> on one of our domains and pose as TempMail Central to a victim. Reserving the operational names closes that door before it opens.</li>
+</ul>
+<p>Random generation already makes stumbling into these names wildly improbable — though one of them, <code>postmaster</code>, is exactly 10 characters long, so an unconstrained generator could in principle emit it once in 3.6 quadrillion draws. Reservation turns "improbable" into "never."</p>
+
+<h2>The abuse question, honestly</h2>
+<p>A service that hands out anonymous inboxes with no registration can be misused, and pretending otherwise would insult your intelligence. The service exists for legitimate jobs — keeping marketing blasts out of your primary inbox, testing software, one-time signups — and a combination of structural choices and operational controls narrows what misuse is even possible. Here is what actually runs in production.</p>
+
+<h3>Receive-only closes the biggest door</h3>
+<p>You cannot send mail from a TempMail Central address. Not replies, not new messages, nothing. The pipeline points strictly inward: our Postfix server accepts a message, a parser posts it to an authenticated webhook, and the app displays it in your inbox. An outbound path simply does not exist. That means no spam campaign, no phishing run, and no harassment can ever originate from this service — which is not a policy we enforce but plumbing that was never built.</p>
+
+<h3>Rate limits on everything automatable</h3>
+<p>The API enforces per-IP rate limits. That caps how quickly anyone can mint addresses — no bulk-farming thousands of inboxes for a bot operation — and how fast anyone can hammer inbox lookups, which is the same throttle that makes the guessing math above hopeless. Human-paced use doesn't notice the limits. Scripts do, and that's the point.</p>
+
+<h3>Registration rejects disposable addresses</h3>
+<p>Here's an irony we're comfortable with: you cannot create a TempMail Central account using a known disposable address — ours or anyone else's. Accounts exist to provide persistence: 30-day extensions, permanent mailboxes, custom domains. Persistence requires a reachable owner, if only for password recovery, and an account anchored to an inbox that evaporates in 10 minutes would strand its owner by design. So our signup form runs the same class of disposable-domain checks that other sites run against us. We wrote up that cat-and-mouse from the other side in <a href="/blog/can-websites-detect-temp-mail">can websites detect temp mail</a>.</p>
+
+<h3>Bans, with a paper trail</h3>
+<p>Accounts used abusively get banned, and administrative actions are recorded in an audit log. Enforcement that leaves a trail can be reviewed later, which keeps it honest in both directions — a ban should be as accountable as the behavior that earned it.</p>
+
+<h2>What the Terms prohibit</h2>
+<p>The <a href="/terms">Terms of Service</a> carry the full text, but the spirit fits in a sentence: don't use the service to break the law, defraud people, harass anyone, or interfere with the service itself. A throwaway inbox is for protecting your own mailbox and your own attention — not for manufacturing fake identities at scale, and not for dodging a ban another site gave you for cause. If you encounter abuse involving one of our addresses, report it through the <a href="/contact">contact page</a> and it will reach a human.</p>
+
+<h2>Both halves of the same design</h2>
+<p>It's tempting to treat "privacy for users" and "abuse prevention" as opposing goals that must be balanced against each other. In a receive-only system they mostly aren't. Entropy and short lifetimes protect you from strangers; rate limits, the missing outbound path, registration checks, and bans protect strangers from anything routed through us. Neither half asks us to log who you are or profile what you read — the daily counters we keep are aggregates, not dossiers. The same architecture serves both directions, and it only earns trust if both directions hold.</p>

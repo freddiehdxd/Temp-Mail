@@ -1,6 +1,8 @@
 defmodule TempmailWeb.HomeLive do
   use TempmailWeb, :live_view
 
+  import TempmailWeb.EmailHelpers
+
   alias Tempmail.Mail
 
   @impl true
@@ -252,11 +254,6 @@ defmodule TempmailWeb.HomeLive do
     |> String.first()
     |> Kernel.||("M")
     |> String.upcase()
-  end
-
-  defp email_preview(email) do
-    text = Map.get(email, "text") || Map.get(email, "html") || ""
-    String.slice(text, 0, 100)
   end
 
   @base_url "https://tempmailcentral.com"

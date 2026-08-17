@@ -212,8 +212,19 @@
                         </span>
                       </div>
                     </div>
-                    <div class="max-h-[400px] overflow-auto rounded-2xl border border-slate-200 bg-white p-6">
-                      <pre class="whitespace-pre-wrap font-sans text-sm">{@selected_email["text"] || @selected_email["html"] || "No content"}</pre>
+                    <div class="max-h-[400px] overflow-auto rounded-2xl border border-slate-200 bg-white">
+                      <iframe
+                        :if={email_html?(@selected_email)}
+                        sandbox="allow-popups allow-popups-to-escape-sandbox"
+                        srcdoc={email_srcdoc(@selected_email)}
+                        title="Email content"
+                        class="h-[400px] w-full border-0 bg-white"
+                      >
+                      </iframe>
+                      <pre
+                        :if={!email_html?(@selected_email)}
+                        class="whitespace-pre-wrap p-6 font-sans text-sm"
+                      >{presence(@selected_email["text"]) || "No content"}</pre>
                     </div>
                   </div>
                 </div>

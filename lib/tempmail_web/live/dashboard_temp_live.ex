@@ -1,6 +1,8 @@
 defmodule TempmailWeb.DashboardTempLive do
   use TempmailWeb, :live_view
 
+  import TempmailWeb.EmailHelpers
+
   alias Tempmail.Mail
 
   @impl true
@@ -189,11 +191,6 @@ defmodule TempmailWeb.DashboardTempLive do
 
   defp email_initial(email) do
     email |> Map.get("from", "M") |> String.first() |> Kernel.||("M") |> String.upcase()
-  end
-
-  defp email_preview(email) do
-    text = Map.get(email, "text") || Map.get(email, "html") || ""
-    String.slice(text, 0, 100)
   end
 
   defp dashboard_path("en", href), do: href

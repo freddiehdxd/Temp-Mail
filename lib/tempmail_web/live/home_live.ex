@@ -73,6 +73,11 @@ defmodule TempmailWeb.HomeLive do
       |> assign(:og_locale, og_locale(locale))
       |> assign(:hreflang, build_hreflang(""))
 
+    # On the initial HTTP render create the address right away so it is visible
+    # before any JS runs. The client hook hands it back on the connected mount
+    # (unless localStorage already holds a live address), so it is not wasted.
+    socket = if connected?(socket), do: socket, else: generate_temp_email(socket)
+
     {:ok, socket}
   end
 
@@ -202,7 +207,7 @@ defmodule TempmailWeb.HomeLive do
           do: Phoenix.PubSub.subscribe(Tempmail.PubSub, Mail.inbox_topic(temp_email.address))
 
         if ref = socket.assigns[:tick_ref], do: Process.cancel_timer(ref)
-        tick_ref = Process.send_after(self(), :tick, 1_000)
+        tick_ref = if connected?(socket), do: Process.send_after(self(), :tick, 1_000)
 
         socket
         |> push_event("tempmail_created", %{address: temp_email.address})

@@ -161,7 +161,7 @@ end %>
         id="mobile-site-menu"
         phx-hook="PersistDetails"
         data-menu-id="mobile-site-menu"
-        class="group relative md:hidden"
+        class="group md:hidden"
       >
         <summary
           class="relative flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-xl transition-colors hover:bg-slate-100 [&::-webkit-details-marker]:hidden"
@@ -176,7 +176,7 @@ end %>
             </span>
           </div>
         </summary>
-        <div class="fixed inset-x-0 bottom-0 top-[72px] overflow-auto bg-white/95 backdrop-blur-xl transition-all duration-300">
+        <div class="absolute inset-x-0 top-full h-[calc(100dvh-3.5rem)] overflow-auto border-t border-slate-200 bg-white/95 backdrop-blur-xl">
           <div class="container mx-auto space-y-6 px-4 py-6">
             <.link
               navigate={localized_path.("/blog")}

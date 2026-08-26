@@ -22,13 +22,33 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
-import ChartHook from "./hooks/chart"
-import TiptapHook from "./hooks/tiptap"
+// Heavy admin-only hooks (Chart.js, Tiptap/ProseMirror) are loaded on demand so
+// visitors only download the core bundle.
+function lazyHook(load) {
+  return {
+    mounted() {
+      this.impl = load().then(mod => {
+        const impl = mod.default
+        impl.mounted.call(this)
+        return impl
+      })
+    },
+    updated() {
+      this.impl.then(impl => impl.updated && impl.updated.call(this))
+    },
+    destroyed() {
+      this.impl.then(impl => impl.destroyed && impl.destroyed.call(this))
+    }
+  }
+}
+
+// Address generated during the initial HTTP render (read before LiveView patches the DOM).
+let ssrAddress = document.getElementById("top")?.dataset.address || ""
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let Hooks = {}
-Hooks.ChartHook = ChartHook
-Hooks.TiptapHook = TiptapHook
+Hooks.ChartHook = lazyHook(() => import("./hooks/chart"))
+Hooks.TiptapHook = lazyHook(() => import("./hooks/tiptap"))
 
 Hooks.Clipboard = {
   mounted() {
@@ -42,7 +62,9 @@ Hooks.Clipboard = {
 Hooks.TempMailPersist = {
   mounted() {
     const stored = localStorage.getItem("tempmail_address")
-    this.pushEvent("restore_or_generate", { address: stored || "" })
+    const rendered = ssrAddress
+    ssrAddress = ""
+    this.pushEvent("restore_or_generate", { address: stored || rendered })
 
     this.handleEvent("tempmail_created", ({ address }) => {
       if (address) localStorage.setItem("tempmail_address", address)
@@ -59,6 +81,11 @@ Hooks.PersistDetails = {
 
     this.el.addEventListener("toggle", () => {
       detailsState.set(this.key, this.el.open)
+    })
+
+    // Close the menu when a link inside it is followed (live navigation keeps the element).
+    this.el.addEventListener("click", e => {
+      if (e.target.closest("a")) this.el.open = false
     })
   },
   updated() {
@@ -83,7 +110,7 @@ window.addEventListener("phx:page-loading-stop", syncHeader)
 window.addEventListener("DOMContentLoaded", syncHeader)
 
 let liveSocket = new LiveSocket("/live", Socket, {
-  longPollFallbackMs: 2500,
+  longPollFallbackMs: 10000,
   hooks: Hooks,
   params: {_csrf_token: csrfToken}
 })

@@ -1,4 +1,9 @@
-<div id="top" phx-hook="TempMailPersist" class="-mt-14 min-h-screen overflow-hidden">
+<div
+  id="top"
+  phx-hook="TempMailPersist"
+  data-address={@temp_email && (@temp_email[:address] || @temp_email["address"])}
+  class="-mt-14 min-h-screen overflow-hidden"
+>
   <div class="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-indigo-50 via-white to-white"></div>
   <section class="relative pt-[58px] pb-16 sm:pb-20 lg:pb-24">
     <div class="absolute inset-0 overflow-hidden">

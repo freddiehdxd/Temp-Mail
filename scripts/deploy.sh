@@ -106,4 +106,9 @@ sleep "$DRAIN_SECONDS"
 log "stopping tempmail-$ACTIVE.service"
 systemctl stop "tempmail-$ACTIVE.service"
 
+# Make the serving color the one that comes back after a reboot.
+log "enabling tempmail-$IDLE.service at boot, disabling tempmail-$ACTIVE.service"
+systemctl enable "tempmail-$IDLE.service" >/dev/null 2>&1 || true
+systemctl disable "tempmail-$ACTIVE.service" >/dev/null 2>&1 || true
+
 log "deploy complete: $IDLE serving on :$IDLE_PORT"
